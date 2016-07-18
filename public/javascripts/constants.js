@@ -560,6 +560,9 @@ var webservices = {
     "getQuestionsOfEventOfPackage" : "/package/getQuestionsOfEventOfPackage" ,
     "delPackage" : "/package/delPackage" ,
     "addFavouritePackage" : "/package/addFavouritePackage" ,
+
+    //Sales report
+    "getSalesData" : "/report/getSalesData" ,    
     
 
 

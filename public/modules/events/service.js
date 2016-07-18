@@ -149,6 +149,12 @@ angular.module('alisthub').factory('events', ['$q', '$timeout','communicationSer
     });
   };
 
+  url.getSalesData = function(jsondata,callback){
+      communicationService.resultViaPost(webservices.getSalesData,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req){
+        callback(res.data);
+      });
+  };
+
 
 
 
