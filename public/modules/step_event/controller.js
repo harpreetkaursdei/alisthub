@@ -52,7 +52,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
       var curr_year = d.getFullYear();
       var cur_mon = d.getMonth() + 1;
       $rootScope.single_start_date = curr_year + "-" + cur_mon + "-" + curr_date;
-      $rootScope.selectevent_date = weekday[day] + " " + m_names[curr_month] + " " + curr_date + "," + curr_year;
+      $rootScope.selectevent_date = weekday[day] + " " + m_names[curr_month] + " " + curr_date + "," + " "+ curr_year;
       $scope.start_date = d;
       $scope.select_delect_event = false;
       $scope.single_eventstart();
@@ -351,10 +351,14 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
   }
 
   $scope.data1 = {};
-  $scope.data1 = {
-    type_of_event: 0,
-    price: 0
-  };
+
+$scope.data1.type_of_event=0;
+$scope.data1.price=0;
+
+  // $scope.data1 = {
+  //   type_of_event: 0,
+  //   price: 0
+  // };
   //To get steps
   $scope.steps = [
 
@@ -534,7 +538,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
 
    //Default Event
   if (!$stateParams.eventId) {
-      var href = 'create_event_step1';
+      var href = 'create_series_step1';
   } else {
       var href = 'javascript:void(0)'; 
   }
@@ -542,11 +546,11 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
    $scope.events = [{
       "name": "Single Event",
       'id': 1,
-      'href':href
+      'href':'javascript:void(0)'
     }, {
       "name": "Multiple Event",
       'id': 2,
-      'href':'javascript:void(0)'
+      'href':href
     }]
 
     //To show default venues 
@@ -916,7 +920,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
       var curr_year = d.getFullYear();
       var cur_mon = d.getMonth() + 1;
       $rootScope.single_start_date = curr_year + "-" + cur_mon + "-" + curr_date;
-      $rootScope.selectevent_date = weekday[day] + " " + m_names[curr_month] + " " + curr_date + "," + curr_year;
+      $rootScope.selectevent_date = weekday[day] + " " + m_names[curr_month] + " " + curr_date + "," +" "+curr_year;
     //} else {
      /* var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
@@ -1145,42 +1149,44 @@ angular.module('alisthub').controller('advanceSetting', function($scope,$localSt
         } 
   }
 
-
-     /* Edit advance settings of seller*/
-   /*if ($state.params.id) {
-        $scope.callfunction = 1;
+  /* Edit advance settings of seller*/
+   // if ($state.params.id) {
+   //     $scope.callfunction = 1;
         
-        $scope.getAdvanceSetting = function() {
-            if ($localStorage.userId != undefined) {
-                $scope.data.seller_id = $localStorage.userId;
-                $scope.data.event_id = $state.params.id;
-                $serviceTest.getAdvanceSetting($scope.data, function(response) {
-                    $scope.loader = false;
-                    if (response.code == 200) {
-                        $scope.data = {};
-                        $scope.data = response.result[0];
-                    } else {
-                        $scope.error_message = response.error;
-                    }
+   //     $scope.getAdvanceSetting = function() {
+   //         if ($localStorage.userId != undefined) {
+   //               $scope.data.seller_id = $localStorage.userId;
+   //              $scope.data.event_id = $state.params.id;
+   //             $serviceTest.getAdvanceSetting($scope.data, function(response) {
+   //                $scope.loader = false;
+   //                  if (response.code == 200) {
+   //                      $scope.data = {};
+   //                      $scope.data = response.result[0];
+   //                  } else {
+   //                      $scope.error_message = response.error;
+   //                  }
 
-                });
+   //             });
 
-            }
-        };
-        $scope.getAdvanceSetting();
-        $scope.editAdvanceSetting = function() {
-            if ($localStorage.userId != undefined) {
-                $scope.data.seller_id = $localStorage.userId;
-                $scope.data.id = $state.params.id;
-                $serviceTest.saveAdvanceSettings($scope.data);
-            }
-        };
-    }
-    */
-    
+   //         }
+   //      };
+   //      $scope.getAdvanceSetting();
+   //     $scope.editAdvanceSetting = function() {
+   //          if ($localStorage.userId != undefined) {
+   //              $scope.data.seller_id = $localStorage.userId;
+   //             $scope.data.id = $state.params.id;
+   //             $serviceTest.saveAdvanceSettings($scope.data);
+   //          }
+   //      };
+   //  }
+   
 
-
-
-  
 });
-
+function keypress(e){
+  if(e.charCode===32){
+    return false;
+  }
+  else{
+    return true;
+  }
+}

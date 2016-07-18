@@ -54,7 +54,8 @@ exports.saveEvent = function(req,res) {
           var venue_id = responce.insertId;
           var eventId = null;
           data.created = new Date();
-          var query1 = "INSERT INTO `events`(`id`,`user_id`,`title`,`start_date`,`description`,`venue_id`,`event_domain`) VALUES(NULL,'"+data.userId+"','"+data.eventname+"','"+data.eventdate+"','"+data.content+"','"+venue_id+"','"+data.eventurl+"')";
+          var content_html=data.content.replace(/'/g, "\\'"); 
+          var query1 = "INSERT INTO `events`(`id`,`user_id`,`title`,`start_date`,`description`,`venue_id`,`event_domain`) VALUES(NULL,'"+data.userId+"','"+data.eventname+"','"+data.eventdate+"','"+content_html+"','"+venue_id+"','"+data.eventurl+"')";
          
             connection.query(query1,function(err,result) {
             
@@ -114,8 +115,8 @@ exports.saveEvent = function(req,res) {
           })
      }
       //console.log('venueID:'+venueid);
-
-      connection.query("UPDATE events SET `user_id`='"+data.userId+"',`title`='"+data.eventname+"',`description`='"+data.content+"',`venue_id`='"+venueid+"'  where id="+data.id, function(err, results) {
+     var content_html=data.content.replace(/'/g, "\\'");
+      connection.query("UPDATE events SET `user_id`='"+data.userId+"',`title`='"+data.eventname+"',`description`='"+content_html+"',`venue_id`='"+venueid+"'  where id="+data.id, function(err, results) {
          if (err) {
           res.json({error:err,code:101});
          }
@@ -197,16 +198,16 @@ exports.saverecurringEvent=function(req,res){
        data.start_date = data.date_time_series[0].date;
        var length = data.date_time_series.length;
        data.end_date   = data.date_time_series[length-1].date;
-       
+       var html1=data.content.replace(/'/g, "\\'");
        // For update parent event
        if(data.event_id && data.event_id != null && data.event_id !== undefined)
        {      
-        var save_query = "UPDATE `events` SET user_id='"+data.userId+"',title='"+data.eventname+"',start_date='"+data.start_date+"',recurring_or_not='1',recurring_type='"+data.period+"',description='"+data.content+"',event_steps='1',end_date='"+data.end_date+"',venue_id='"+data.venue_id+"',created='"+curtime+"' where id="+data.event_id;
+        var save_query = "UPDATE `events` SET user_id='"+data.userId+"',title='"+data.eventname+"',start_date='"+data.start_date+"',recurring_or_not='1',recurring_type='"+data.period+"',description='"+html1+"',event_steps='1',end_date='"+data.end_date+"',venue_id='"+data.venue_id+"',created='"+curtime+"' where id="+data.event_id;
         rollback_events(data.event_id,1);
        }
        else // For Insert parent event
        {
-        var save_query = "INSERT INTO `events` (`id`, `user_id`, `title`, `start_date`, `recurring_or_not`, `recurring_type`, `description`, `event_steps`, `end_date`, `venue_id`, `created`) VALUES (NULL, '"+data.userId+"', '"+data.eventname+"', '"+data.start_date+"', '1', '"+ data.period+"', '"+data.content+"', '1', '"+data.end_date+"', '"+data.venue_id+"', '"+curtime+"')";
+        var save_query = "INSERT INTO `events` (`id`, `user_id`, `title`, `start_date`, `recurring_or_not`, `recurring_type`, `description`, `event_steps`, `end_date`, `venue_id`, `created`) VALUES (NULL, '"+data.userId+"', '"+data.eventname+"', '"+data.start_date+"', '1', '"+ data.period+"', '"+html1+"', '1', '"+data.end_date+"', '"+data.venue_id+"', '"+curtime+"')";
        }
         // Save Parent Event
         connection.query(save_query,function(perr,presult){
@@ -224,8 +225,8 @@ exports.saverecurringEvent=function(req,res){
                 
                 /// Save Child events
                 date_array.forEach(function(date_arr){
-                
-                var child_save_query = "INSERT INTO `events` (`id`, `user_id`, `parent_id`, `title`, `start_date`, `recurring_or_not`, `recurring_type`, `description`, `event_steps`, `end_date`, `venue_id`, `created`) VALUES (NULL, '"+data.userId+"', '"+parent_id+"', '"+data.eventname+"', '"+data.start_date+"', '1', '"+ data.period+"', '"+data.content+"', '1', '"+data.end_date+"', '"+data.venue_id+"', '"+curtime+"')";
+                var html1=data.content.replace(/'/g, "\\'");
+                var child_save_query = "INSERT INTO `events` (`id`, `user_id`, `parent_id`, `title`, `start_date`, `recurring_or_not`, `recurring_type`, `description`, `event_steps`, `end_date`, `venue_id`, `created`) VALUES (NULL, '"+data.userId+"', '"+parent_id+"', '"+data.eventname+"', '"+data.start_date+"', '1', '"+ data.period+"', '"+html1+"', '1', '"+data.end_date+"', '"+data.venue_id+"', '"+curtime+"')";
                 
                 connection.query(child_save_query,function(cerr,cresult){
                 var child_id = cresult.insertId;
@@ -450,6 +451,32 @@ exports.getSeriesEvent=function(req,res) {
     }
 }
 
+/** 
+Method: getEvent for series event
+Description:Function to get event data for series event 
+Created : 2016-07-14
+Created By: Manoj Singh  
+*/
+
+
+exports.getSeriesDates=function(req,res) {
+   
+    var event_id=req.body.event_id;
+    if(event_id!==undefined){
+         
+      var sqltime="SELECT * FROM event_dates where parent_id="+event_id+" ORDER BY start_date_time ASC";
+          
+        connection.query(sqltime,function(err5,result5){
+            
+        res.send({"results":result,timing:result5,code:200});
+        
+        });
+        
+      
+    } else {
+      res.send({"results":{},code:200});
+    }
+}
 
 
 exports.getComment = function(req,res){
@@ -534,7 +561,11 @@ exports.savepricelevel=function(req,res){
                             var event_url = sdata.location;
                             update_showclix_pricedata(event_url,parne_id,data);
                             res.json({result:result,showclix:sdata.location,code:200});
-                        } else {
+                        }
+                        else if(sdata.status == 2) {
+                            res.json({result:result,showclix:sdata.location,code:200});
+                        }
+                        else{
                             rollback_level(data.eventId);
                             res.json({result:"",error:sdata.error,code:101});  
                         }
@@ -594,14 +625,26 @@ exports.removepricelevel=function(req,res){
     var price_leveldelete_id=req.body.price_leveldelete_id;
     var sql="Delete FROM price_levels where id="+price_leveldelete_id;
     
-    connection.query(sql,function(err,result){
-       
-        if (err) {
-           res.send({err:"error",code:101}); 
-        }
-           res.send({"message":"success",code:200});  
-        
-    });
+    // showclix start 
+                var showClix2 = new showClix();
+                    showClix2.delete_price_level(req.body,res,function(sdata){
+                        if (sdata.status == 1) {
+                            connection.query(sql,function(err,result){
+                                if (err) {
+                                   res.send({err:"error",code:101}); 
+                                }
+                                else
+                                {
+                                   res.send({"message":"success",code:200});
+                                }
+                                
+                            });
+                                                
+                        } else {
+                            res.json({result:"",error:"Server down",code:101});  
+                        }
+                    });
+    //showclix end
 }
 /** 
 Method: changePricelevelStatus
@@ -610,12 +653,25 @@ Created : 2016-05-18
 Created By: Deepak khokhar  
 */
 exports.changePricelevelStatus = function(req,res) { 
-  connection.query("UPDATE price_levels SET is_active='"+req.body.status+"' where id="+req.body.id, function(err, results) {
-     if (err) {
-      res.json({error:err,code:101});
-     }
-     res.json({result:results,code:200});
-  });
+   // showclix start 
+    var showClix2 = new showClix();
+        showClix2.change_price_level_status(req.body,res,function(sdata){
+            if (sdata.status == 1) {
+                connection.query("UPDATE price_levels SET is_active='"+req.body.status+"' where id="+req.body.id, function(err, results) {
+                    
+                    if (err) {
+                        res.json({error:err,code:101});
+                    }
+                    else {
+                       res.json({result:results,code:200});
+                    }
+                    
+                    });
+                } else {
+                            res.json({result:"",error:"Server down",code:101});  
+                        }
+        });
+    //showclix end
 }
 
 
@@ -1123,163 +1179,6 @@ exports.postCreateEventStepFour = function(req, res) {
   res.send("sending back!");
 }
 
-exports.stepOneEventPackage = function(req,res) {
-
-   if (req.body.imageData && req.body.imageData != "" && req.body.imageData != undefined) {
-
-        var path_event = process.cwd()+'/public/images/events';
-        var user_id = req.body.user_id;
-        var photoname = user_id+'_image_'+Date.now() + '.jpg';
-        var imagename = path_event+'/'+photoname;
-        var base64Data = req.body.imageData.replace(/^data:image\/jpeg;base64,/, "");
-        
-        fs.writeFile(imagename, base64Data, 'base64', function(err) {
-        if (err) {
-         console.log("Image Failure Upload");
-        }
-        });
-    req.body.image = photoname ;
-}
-
-// var fields = ['package_name', 'package_description', 'online_sales_open_date', 'online_sales_open_time','online_sales_open_date_time', 'immidiately', 'online_sales_close_date', 'online_sales_close_time', 'online_sales_close_date_time', 'event_type', 'category', 'ages', 'custom_age', 'website', 'image', 'display_image_in_listing' ];
- var fields = ['package_name', 'package_description', 'online_sales_open_time','online_sales_open_date_time', 'immidiately', 'online_sales_close_time', 'online_sales_close_date_time', 'event_type', 'category', 'ages', 'custom_age', 'website', 'image', 'display_image_in_listing' ];
-
-    var fieldsData = '';
-    for (var index in fields) {
-        fieldName = fields[index];
-        if (req.body[fieldName] == undefined) {
-            req.body[fieldName] = '';
-        }
-        fieldsData+= " `"+fieldName+"` = '" + req.body[fieldName]+ "', ";
-    }
-
-    var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
-
-    console.log('online_sales_open_date_time' , req.body.online_sales_open_date_time);
-    console.log('online_sales_close_date_time' , req.body.online_sales_close_date_time);
-
-
-req.body.online_sales_open_date_time_moment = moment(online_sales_open_date_time).format('YYYY-MM-DD HH:mm:ss');
-req.body.online_sales_close_date_time_moment = moment(online_sales_close_date_time).format('YYYY-MM-DD HH:mm:ss');
-
-console.log(' online_sales_open_date_time_moment : ', req.body.online_sales_open_date_time_moment);
-console.log(' online_sales_close_date_time_moment : ', req.body.online_sales_close_date_time_moment);
-
-
-    req.body.online_sales_open_date = moment(req.body.online_sales_open_date).format('YYYY-MM-DD');
-    req.body.online_sales_close_date = moment(req.body.online_sales_close_date).format('YYYY-MM-DD');
-
-    req.body.created = curtime;
-    req.body.modified = curtime;
-    req.body.status = 1;
-    req.body.showclix_user = '28676';
-    req.body.showclix_seller = '22876';
-
-    data = req.body;
-    var showClixPackage2 = new showClixPackage();
-          showClixPackage2.add_package(data,res,function(sdata){
-          if (sdata.status == 1) {
-
-
-            var showclix_url = sdata.location;
-            var showclix_url_array = showclix_url.split("/");
-            showclix_package_id = showclix_url_array.slice(-1).pop(); 
-            console.log('-----------------------');
-            console.log('Response from showclix api , ' , sdata );
-            console.log(' ---------------------------- ');
-            console.log('showclix_package_id ' , showclix_package_id );
-
-              //var event_url = sdata.location;
-              //var showclix_event_id = event_url.split("/");
-             // update_showclix_data(event_url,eventId,data);
-             // res.json({result:eventId,showclix:sdata.location,code:200});
-
-    if (req.body.id && req.body.id != "" && req.body.id != undefined) {
-    var query = "UPDATE `event_package` SET "+ fieldsData +" `modified` = '" + req.body.modified + "' WHERE user_id = '" + req.body.user_id + "' && id=" + req.body.id;
-    } else {
-    var query = "INSERT INTO `event_package` SET "+ fieldsData +" user_id = "+req.body.user_id +" ,  `showclix_package_id` = " + showclix_package_id + "  ,  `showclix_user` = " + req.body.showclix_user + " ,  `showclix_seller` = " + req.body.showclix_seller + "  ,  `showclix_url` = '" + showclix_url + "' ,  `created` = '" + req.body.created +"'";
-         }
-
-console.log('-------------------------');
-console.log('query');
-console.log(query);
-
-    if (query != "") {
-        connection.query(query, function(err7, results) {
-            if (err7) {
-                res.json({ error: err7,code: 101});
-            }
-          if(results) {
-           var package_id = '';
-            if(results.insertId != 0 && results.insertId !='' ) {
-              package_id = results.insertId;
-            }
-            if (req.body.id && req.body.id != "" && req.body.id != undefined) {
-              package_id = req.body.id;
-            }
-
-console.log('-------------------------');
-console.log('last added package_id for our local database : ' , package_id);
-
-console.log('-------------------------');
-console.log('req.body.event_ids' , req.body.event_ids);
-
-            for (var index in  req.body.event_ids) {
-                if (req.body.event_ids[index] != undefined) {
-                    var event = req.body.event_ids[index];
-                    var showclix_event_id = req.body.showclix_event_ids[event];
-
-console.log(" -------------------------");
-console.log('chhosen showclix id of event :', showclix_event_id );
-
-          var events_of_packages = {};
-          events_of_packages.package_id = showclix_package_id;
-          events_of_packages.event_id = showclix_event_id;
-
-showClixPackage2.add_events_of_package(events_of_packages,res,function(sdata1){
-  console.log(' ------------******* sdata1******------------------');
-  console.log(sdata1);
-
-          if (sdata1.status == 1) {
-           // var package_event_map_id_showclix = 1 ;
-
-    var query_event = "INSERT INTO package_event_map ( event_id , package_id ) VALUES ( "+ event +" , "+ package_id +")";
-                  console.log('--------------------');
-                  console.log(query_event); 
-                    connection.query(query_event, function(subErr, subResults) {
-                      if (subErr) {
-                          res.json({ error: subErr,code: 101});
-                      }
-                    });
-                  }
-                });
-            }
-          }
-          res.json({ result: package_id , code: 200 });
-        }
-
-        
-        });
-    }
-
-
-
-          } else {
-            console.log('---------------------------');
-            console.log(' showclix error exist' );
-             res.json({result:"",error:sdata.error,code:101});  
-
-             // rollback_event(eventId);
-             // res.json({result:"",error:sdata.error,code:101});  
-          }
-      });
-
-
-
-
-
-    
-}
 
 /** 
 Method: updatesocialLink

@@ -373,7 +373,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
     $rootScope.class_status = 1;
     
      /*****************CREATED BY DEEPAK K*********************************/
-        reCAPTCHA.setPublicKey('6LevjBMTAAAAAP6gdHNyBQ6NDbB8vyPwhFFQlv7x');
+        reCAPTCHA.setPublicKey('6LdgDyUTAAAAAHlJqEPPfg59c9e14SUxn0mL3C5u');
      /*===================================================================*/
 
 
@@ -415,7 +415,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                              $scope.message = global_message.SignupSuccess;
                            },3000);
                            
-                         $location.path("/login");
+                          $state.go('login');
                         }
                     
                     });

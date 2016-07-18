@@ -1083,17 +1083,17 @@ $scope.rec_year_func = function() {
       var href = 'create_event_step1';
     }
     else{
-      var href = 'create_series_step1'; 
+      var href = 'javascript:void(0)';  
     }
     
    $scope.events = [{
       "name": "Single Event",
       'id': 1,
-      'href':href
+      'href': href
     }, {
       "name": "Multiple Event",
       'id': 2,
-      'href':href
+      'href':'javascript:void(0)'
     }]
     //To show default venues 
    $scope.venues = [{
@@ -1483,6 +1483,14 @@ $scope.rec_year_func = function() {
   }
 });
 
+function keypress(e){
+  if(e.charCode===32){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
 angular.module('alisthub').controller('ModalInstanceCtrl', function($scope, $uibModalInstance, items, $rootScope) {
   $scope.items = items;
   $scope.selected = {

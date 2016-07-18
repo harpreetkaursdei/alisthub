@@ -200,18 +200,22 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
     $rootScope.eventInventoryCalc();
 
     //change status of price level
-    $scope.changeStatus = function(id,status) {
+    $scope.changeStatus = function(id,status,showclix_price_id) {
         
         $scope.data = {};
         if ($localStorage.userId!=undefined) {
         $scope.data.id   = id;
-         $scope.data.status   = status==1?0:1;
-         $scope.loader = true;
+	$scope.data.showclix_price_id   = showclix_price_id;
+        $scope.data.status              = status==1?0:1;
+	$scope.data.showclix_token      = $localStorage.showclix_token;
+        $scope.data.showclix_user_id    = $localStorage.showclix_user_id;
+        $scope.data.showclix_seller_id  = $localStorage.showclix_seller_id;
+        $scope.loader = true;
         $serviceTest.changePricelevelStatus($scope.data,function(response){
             
             if (response.code == 200) {
-                     $eventId=$localStorage.eventId;
-                    $serviceTest.getPricelevel({'eventId':$eventId},function(response){
+                     var eventId=$stateParams.eventId;
+                    $serviceTest.getPricelevel({'eventId':eventId},function(response){
                         
                         $rootScope.price_level=response.results;
                     });
@@ -227,10 +231,18 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
 
 
   $scope.data1 = {};
-  $scope.data1 = {
-    type_of_event: 0,
-    price: 0
-  };
+
+$scope.data1.type_of_event=0;
+$scope.data1.price=0;
+
+
+  // $scope.data1 = {
+  //   type_of_event: 0,
+  //   price: 0
+  // };
+
+
+ 
 
 
   //To get ages
@@ -300,6 +312,9 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
   $scope.price_and_link_data = function(data1) {
     data1.eventId = $localStorage.eventId;
     console.log("data:258");
+    data.showclix_token     = $localStorage.showclix_token;
+    data.showclix_user_id   = $localStorage.showclix_user_id;
+    data.showclix_seller_id = $localStorage.showclix_seller_id;
     $serviceTest.postSecondStepdata(data1, function(response) {
       if (response.code == 200) {
         $scope.success = global_message.event_step2;
@@ -471,6 +486,9 @@ $scope.success_message = false;
           if($stateParams.eventId!=undefined && $stateParams.eventId!='') {
             data.eventId = $stateParams.eventId;
           }
+	  data.showclix_token     = $localStorage.showclix_token;
+          data.showclix_user_id   = $localStorage.showclix_user_id;
+          data.showclix_seller_id = $localStorage.showclix_seller_id;
           //console.log(data); return false;
           $serviceTest.postSecondStepdata(data, function(response) {
             if (response.code == 200) {
@@ -576,7 +594,7 @@ $scope.success_message = false;
   $rootScope.eventinventory = $scope.data1.eventinventory
 
   //Schedule Price change
-  $scope.price_change = function(size, priceid) {
+  $scope.price_change = function(size, priceid, showclix_price_id, type) {
 
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
@@ -585,17 +603,21 @@ $scope.success_message = false;
       size: size,
       resolve: {
         items: function() {
-          $rootScope.price_change_id = priceid;
+          $rootScope.price_change_id   = priceid;
+	  $rootScope.showclix_price_id = showclix_price_id;
+	  $rootScope.formtype          = type;
           return $scope.items;
         }
       }
     });
 
   }
+  
+  
 
 
   //delete Price level
-  $scope.delete_price_level = function(size, index, price_id) {
+  $scope.delete_price_level = function(size, index, price_id, showclix_price_id) {
 
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
@@ -605,7 +627,8 @@ $scope.success_message = false;
       resolve: {
         items: function() {
           $rootScope.delete_price_level_id = index;
-          $rootScope.price_leveldelete_id = price_id;
+          $rootScope.price_leveldelete_id  = price_id;
+	  $rootScope.showclix_price_id     = showclix_price_id;
           return $scope.items;
         }
       }
@@ -834,8 +857,13 @@ angular.module('alisthub').controller('DeletePricelevelCtrl', function($scope, $
   $scope.remove = function() {
 
     var $serviceTest = $injector.get("venues");
+    
     $serviceTest.removepricelevel({
-      'price_leveldelete_id': $rootScope.price_leveldelete_id
+      'price_leveldelete_id': $rootScope.price_leveldelete_id,
+      'showclix_token':$localStorage.showclix_token,
+      'showclix_user_id':$localStorage.showclix_user_id,
+      'showclix_seller_id':$localStorage.showclix_seller_id,
+      'showclix_price_id':$rootScope.showclix_price_id
     }, function(response) {
       if (response.code === 200) {
         $rootScope.success_message1 = true;
@@ -858,9 +886,6 @@ angular.module('alisthub').controller('DeletePricelevelCtrl', function($scope, $
 
 angular.module('alisthub').controller('ModalInstancePriceCtrl', function($scope, $uibModalInstance, items, $rootScope, $localStorage, $injector, $timeout) {
   var $serviceTest = $injector.get("venues");
-
-
-
 
   if ($rootScope.data1.id === undefined) {
     $scope.data1 = {
@@ -921,14 +946,19 @@ angular.module('alisthub').controller('ModalInstancePriceCtrl', function($scope,
   $scope.cancel = function() {
     $uibModalInstance.dismiss('cancel');
   };
-
+  console.log("==============");
+  console.log($scope.data1);
+  console.log("==============");
   //For step 2 Save Price level
   $scope.savepriceleveldata = function(data1) {
-    data1.userId         = $localStorage.userId;
-    data1.eventId        = items.eventId;
-    data1.showclix_id    = $localStorage.showclix_id;
-    data1.showclix_token = $localStorage.showclix_token;
-    
+    data1.userId            = $localStorage.userId;
+    data1.eventId           = items.eventId;
+    data1.showclix_id       = $localStorage.showclix_id;
+    data1.showclix_token    = $localStorage.showclix_token;
+    if ($scope.data1.showclix_price_id && $scope.data1.showclix_price_id !== undefined && $scope.data1.showclix_price_id != "") {
+      data1.showclix_price_id = $scope.data1.showclix_price_id;
+    }
+        
     $serviceTest.savepriceleveldata(data1, function(response) {
 
       if (response !== null) {

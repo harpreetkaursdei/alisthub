@@ -185,9 +185,63 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
         allowedContent: true,
         entities: false
     };
-    $scope.onReady = function() {
-        // ...
-    };
+
+
+
+    //////////////////////////////
+   // Called when the editor is completely ready.
+  $scope.onReady = function() {
+  
+  };
+ 
+  $scope.options = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+
+  $scope.options1 = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+  $scope.options2 = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+  // $scope.options4 = {
+  //   customClass: getDayClass,
+  //   minDate: new Date(),
+  //   showWeeks: false
+  // };
+
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var afterTomorrow = new Date(tomorrow);
+  afterTomorrow.setDate(tomorrow.getDate() + 1);
+  $scope.events = [{
+    date: tomorrow,
+    status: 'full'
+  }, {
+    date: afterTomorrow,
+    status: 'partially'
+  }];
+
+  function getDayClass(data) {
+    var date = data.date,
+      mode = data.mode;
+    if (mode === 'day') {
+      var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+      for (var i = 0; i < $scope.events.length; i++) {
+        var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+        if (dayToCheck === currentDay) {
+          return $scope.events[i].status;
+        }
+      }
+    }
+    return '';
+  }
     /************** ck editor ends ****************/
 
     //To get Event Category
@@ -215,6 +269,7 @@ console.log('$state.params.packageId' , $state.params.packageId);
 
 
     if ( $localStorage.packageId) {
+        console.log($localStorage);
         console.log('edit called');
 
         var packageId = $state.params.packageId;
@@ -232,7 +287,11 @@ console.log('$state.params.packageId' , $state.params.packageId);
                 $scope.data.defined_age = 1;
             }
 
+console.log('$scope.data.defined_age' , $scope.data.defined_age) ;
+console.log('$scope.data.ages' , $scope.data.ages) ;
+
             if ($scope.data.defined_age === undefined || $scope.data.defined_age != 1) {
+                console.log('---------------------> $scope.data.ages e' , $scope.data.ages) ; 
                 $scope.data.ages = $scope.data.ages;
             }
 
@@ -330,6 +389,9 @@ console.log('$localStorage.packageId' , $localStorage.packageId);
                     $scope.error = '';
                     $scope.error_message = true;
                 }, 3000);
+
+
+           
 
     return false;
 }
@@ -599,7 +661,17 @@ console.log($scope.data.showclix_event_ids);
 
                         // $location.path("/event_package_step_2/"+$scope.data.package_id);
                     } else {
-                        $scope.error_message = response.error;
+                        //$scope.error_message = response.error;
+
+                         $scope.error = response.error;
+            $scope.error_message = false;
+
+            $timeout(function() {
+              $scope.success = '';
+              $scope.error_message = true;
+              $scope.error = '';
+            }, 5000);
+
                     }
 
                 });
@@ -901,14 +973,14 @@ console.log('$scope.eventcheckbox ' , $scope.eventcheckbox );
     $scope.options = {
         customClass: getDayClass,
         minDate: new Date(),
-        showWeeks: true
+        showWeeks: false
     };
 
-    $scope.options1 = {
-        customClass: getDayClass,
-        initDate: current,
-        showWeeks: true
-    };
+    // $scope.options1 = {
+    //     customClass: getDayClass,
+    //     initDate: new Date(),
+    //     showWeeks: false
+    // };
 
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);

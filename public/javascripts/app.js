@@ -164,7 +164,7 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             views: {
                 "lazyLoadView": {
                   controller: 'allEventController', // This view will use AppCtrl loaded below in the resolve
-                  templateUrl: 'modules/events/views/view_event.html'
+                  templateUrl: 'modules/events/views/view_all_event.html'
                 },
             },
              resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
@@ -248,7 +248,7 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             views: {
                 "lazyLoadView": {
                   controller: 'eventviewController', // This view will use AppCtrl loaded below in the resolve
-                  templateUrl: 'modules/events/views/event_overview.html'
+                  templateUrl: 'modules/events/views/event_view.html'
                 }
             },
             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
@@ -1655,6 +1655,122 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
 
 
          
+//////////////////// downloads/////////////////
+.state('downloads', {
+            url: '/downloads',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'downloadController',
+                  templateUrl: 'modules/downloads/views/downloads.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/downloads/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/downloads/controller.js']);
+                })
+              }]
+            }
+          
+        })
+
+
+/////////////////////////help section/////////////////////////////
+.state('help', {
+            url: '/help',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'helpController',
+                  templateUrl: 'modules/faqs/views/help_view.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/faqs/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/faqs/controller.js']);
+                })
+              }]
+            }
+          
+        })
+
+
+/////////////////////////faq section/////////////////////////////
+.state('faq', {
+            url: '/faq',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'helpController',
+                  templateUrl: 'modules/faqs/views/faq.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/faqs/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/faqs/controller.js']);
+                })
+              }]
+            }
+          
+        })
+
+/////////////////////////support section/////////////////////////////
+.state('support', {
+            url: '/support',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'helpController',
+                  templateUrl: 'modules/faqs/views/support.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/faqs/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/faqs/controller.js']);
+                })
+              }]
+            }
+          
+        })
+
+/////////////////////////knowledgeBase section/////////////////////////////
+.state('knowledgeBase', {
+            url: '/knowledgeBase',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'helpController',
+                  templateUrl: 'modules/faqs/views/knowledgeBase.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/faqs/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/faqs/controller.js']);
+                })
+              }]
+            }
+          
+        })
 
 
 /////////////////// Widgets setting///////////////////////
@@ -1687,8 +1803,8 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
 
 
 
-        .state('widgets/add', {
-            url: '/widgets/add',
+        .state('widgets/checkout_widgets', {
+            url: '/widgets/checkout_widgets',
             
             views: {
                 "lazyLoadView": {
@@ -1711,8 +1827,8 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
 
 
 ////////////////////add event widget ////////////////////
-        .state('widgets/add_event', {
-            url: '/widgets/add_event',
+        .state('widgets/event_widget', {
+            url: '/widgets/event_widget',
             
             views: {
                 "lazyLoadView": {
@@ -1903,7 +2019,7 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
 /********************CREATED BY DEEPAK K*******************************************/
 
     .config(function (reCAPTCHAProvider) {
-            reCAPTCHAProvider.setPublicKey('6LevjBMTAAAAAP6gdHNyBQ6NDbB8vyPwhFFQlv7x');
+            reCAPTCHAProvider.setPublicKey('6LdgDyUTAAAAAHlJqEPPfg59c9e14SUxn0mL3C5u');
             reCAPTCHAProvider.setOptions({
                 theme: 'white',
                 tabindex : 3
