@@ -287,16 +287,17 @@ console.log('$state.params.packageId' , $state.params.packageId);
                 $scope.data.defined_age = 1;
             }
 
-console.log('$scope.data.defined_age' , $scope.data.defined_age) ;
-console.log('$scope.data.ages' , $scope.data.ages) ;
+            console.log('$scope.data.defined_age' , $scope.data.defined_age) ;
+            console.log('$scope.data.ages' , $scope.data.ages) ;
 
             if ($scope.data.defined_age === undefined || $scope.data.defined_age != 1) {
                 console.log('---------------------> $scope.data.ages e' , $scope.data.ages) ; 
                 $scope.data.ages = $scope.data.ages;
             }
-
+            
+            $scope.data.short_name = $scope.data.url_short_name = $scope.data.url_short_name;
             console.log('$scope.package_events', $scope.package_events);
-$scope.data.image_1 = $scope.data.image ;
+            $scope.data.image_1 = $scope.data.image ;
             $scope.event_ids = [];
             $scope.event_idsStr = '';
             for (var index in $scope.package_events) {
@@ -605,9 +606,9 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
     $scope.stepOne = function() {
             console.log('stepOne data', $scope.data);
 
-            $scope.data.short_name = $scope.slugify($scope.data.package_name);
+            $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
 
-            if ($scope.data.online_sales_open_date && $scope.data.online_sales_open_time) {
+           /* if ($scope.data.online_sales_open_date && $scope.data.online_sales_open_time) {
                 $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date, $scope.data.online_sales_open_time);
             }
 
@@ -615,9 +616,21 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
                 $scope.data.online_sales_close_date_time = $scope.combine($scope.data.online_sales_close_date, $scope.data.online_sales_close_time);
             }
 
+            */
+
+    if($scope.data.online_sales_open_date!=undefined && $scope.data.online_sales_open_time!=undefined && $scope.data.online_sales_open_date!='' && $scope.data.online_sales_open_time!=''){
+    $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date , $scope.data.online_sales_open_time );  
+    } 
+
+   if($scope.data.online_sales_close_date!=undefined && $scope.data.online_sales_close_time!=undefined && $scope.data.online_sales_close_date!='' && $scope.data.online_sales_close_time!=''){
+    $scope.data.online_sales_close_date_time = $scope.combine($scope.data.online_sales_close_date , $scope.data.online_sales_close_time );  
+    } 
             console.log('$rootScope.eventcheckboxGlobalIds', $rootScope.eventcheckboxGlobalIds);
             $scope.data.event_ids = $rootScope.eventcheckboxGlobalIds;
             console.log('$scope.data ', $scope.data);
+
+
+return false;
 
             //$scope.loader = false;
             if ($localStorage.userId != undefined) {

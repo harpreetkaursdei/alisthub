@@ -193,7 +193,7 @@
 
                                 <section class="row">
                                     <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_2" ng-click="desc_box_2=true">Add a Description</button>
-                                    <textarea class="desc_2 form-control input" ng-show="desc_box_2" rows="7" ng-model="data.will_call_description"> </textarea>
+                                    <textarea class="desc_2 form-control input"  ng-show="desc_box_2 || data.will_call_description != ''"  rows="7" ng-model="data.will_call_description"> </textarea>
                                 </section>
 
 
@@ -329,7 +329,7 @@
                                   </div>
                                   <div class="col-sm-9">
                                   <!--  ng-model="data.custom_fee_type" tooltips tooltip-template="Select whether the fee is a fixed amount or a percentage of the order total." -->
-                                    <select class="form-control" name="custom_fee_type" >
+                                    <select class="form-control" name="custom_fee_type"  ng-model="data.custom_fee_type"  >
                                         <option value="1">Fixed Amount</option>
                                         <option value="2">Percentage</option>
                                     </select>
@@ -436,7 +436,7 @@
 
                                         <!--<input type="number" placeholder="Checkout Time Limit" class="form-control" value="" name="StartTime" min="0" max="100" ng-model="data.checkout_time_limit" >-->
                                     <select class="form-control" name="checkout_time_limit" ng-model="data.checkout_time_limit" placeholder="Checkout Time Limit" >
-                                        <option ng-repeat="to in timeout" value="{{to.value}}" >{{to.minutes}}</option>
+                                        <option ng-repeat="to in timeout" value="{{to.value}}"  ng-selected="to.value==data.checkout_time_limit"   >{{to.minutes}}</option>
                                     </select>
 
                                       </div>
