@@ -608,16 +608,6 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
 
             $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
 
-           /* if ($scope.data.online_sales_open_date && $scope.data.online_sales_open_time) {
-                $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date, $scope.data.online_sales_open_time);
-            }
-
-            if ($scope.data.online_sales_close_date && $scope.data.online_sales_close_time) {
-                $scope.data.online_sales_close_date_time = $scope.combine($scope.data.online_sales_close_date, $scope.data.online_sales_close_time);
-            }
-
-            */
-
     if($scope.data.online_sales_open_date!=undefined && $scope.data.online_sales_open_time!=undefined && $scope.data.online_sales_open_date!='' && $scope.data.online_sales_open_time!=''){
     $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date , $scope.data.online_sales_open_time );  
     } 
@@ -628,9 +618,6 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
             console.log('$rootScope.eventcheckboxGlobalIds', $rootScope.eventcheckboxGlobalIds);
             $scope.data.event_ids = $rootScope.eventcheckboxGlobalIds;
             console.log('$scope.data ', $scope.data);
-
-
-return false;
 
             //$scope.loader = false;
             if ($localStorage.userId != undefined) {
