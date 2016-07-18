@@ -564,6 +564,27 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
            <h3 class="modal-title" style="float:left;">Schedule Price Change</h3><a style="float:right;cursor: pointer;" ng-click="cancel()">X</a>
         </div>
         <div class="modal-body">
+            <div class="table-responsive" ng-if="schedules != ''">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th width="25%">Price</th>
+                                <th width="30%">Date</th>
+                                <th width="20%">Time</th>
+                                <th width="25%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tr ng-repeat="data in schedules">
+                          <td >$ {{data.price}}</td>
+                          <td>{{data.start_date | date:'fullDate'}} </td>
+                          <td>{{data.start_date_hour}} {{data.start_date_minute}} {{data.start_date_am_pm}}</td>
+                          <td><a onclick="delete_schedule()">Delete</a></td>
+                        </tr>
+                    </table>
+            </div>
+            
             <fieldset class="form-group">
                <div class="col-sm-3">Price to change on</div>
                <div class="col-sm-3">

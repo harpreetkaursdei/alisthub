@@ -8,7 +8,7 @@ angular.module("communicationModule", []);
 // Declare app level module which depends on filters, and services
 
 
-var routerApp = angular.module('alisthub', ['ui.router', ,'ngStorage','oc.lazyLoad','communicationModule', 'ui.bootstrap','ckeditor','google.places', 'angucomplete','ngTable','color.picker','reCAPTCHA','720kb.tooltips','gm.datepickerMultiSelect'])
+var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoad','communicationModule', 'ui.bootstrap','ckeditor','google.places', 'angucomplete','ngTable','color.picker','reCAPTCHA','720kb.tooltips','gm.datepickerMultiSelect','chart.js'])
 
 
   .config(function($stateProvider, $locationProvider, $urlRouterProvider, $ocLazyLoadProvider) {
@@ -1803,8 +1803,8 @@ var routerApp = angular.module('alisthub', ['ui.router', ,'ngStorage','oc.lazyLo
 
 
 
-        .state('widgets/checkout_widgets', {
-            url: '/widgets/checkout_widgets',
+        .state('widgets/checkout_widget', {
+            url: '/widgets/checkout_widget',
             
             views: {
                 "lazyLoadView": {
@@ -1943,7 +1943,7 @@ var routerApp = angular.module('alisthub', ['ui.router', ,'ngStorage','oc.lazyLo
     } */
     
     //To add class
- 
+    $rootScope.loader_div=true;
    if($stateParams.confirm_email_id != undefined || !$stateParams.confirm_email_id || $stateParams.forget_password_id != undefined || !$stateParams.forget_password_id){}else{
     if(!$localStorage.isuserloggedIn){
         $location.path("/login");

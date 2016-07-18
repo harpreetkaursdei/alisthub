@@ -9,7 +9,7 @@ angular.module('alisthub').controller('stepevent4Controller', function($scope, $
   var $serviceTest = $injector.get("event_setting");
   $scope.error_message = true;
   
-  /** 
+  /**  
   Method: click_menu
   Description:Function for changing the tab 
   Created : 2016-04-25

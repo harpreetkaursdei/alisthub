@@ -119,7 +119,7 @@
             <td class="numbers">{{price.max_per_order}}</td>
             <td class="action">
               <a ng-click="getPrice(price.id)" style="cursor: pointer;"><i class="fa fa-edit"></i></a>
-              <a ng-click="price_change('lg',price.id,price.showclix_price_id)" style="cursor: pointer;"><i class="fa fa-tags"></i></a>
+              <a ng-click="price_change('lg',price.id,price.showclix_price_id,1)" style="cursor: pointer;"><i class="fa fa-tags"></i></a>
               <a ng-click="changeStatus(price.id,price.is_active,price.showclix_price_id)" ng-confirm-click="Would you like to change Price level status ?" style="cursor: pointer;"><i class="fa fa-check-circle" ng-if="price.is_active == 1"></i><i class="fa fa-times" ng-if="price.is_active == 0"></i></a>
               <a ng-click="delete_price_level('',$index,price.id,price.showclix_price_id)" style="cursor: pointer;"><i class="fa fa-trash"></i></a>
             </td>
@@ -556,6 +556,31 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
            <h3 class="modal-title" style="float:left;">Schedule Price Change</h3><a style="float:right;cursor: pointer;" ng-click="cancel()">X</a>
         </div>
         <div class="modal-body">
+            <div class="table-responsive" ng-if="schedules != ''">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th width="25%">Price</th>
+                                <th width="30%">Date</th>
+                                <th width="20%">Time</th>
+                                <th width="25%">Action</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tr ng-repeat="data in schedules">
+                          <td >$ {{data.price}}</td>
+                          <td>{{data.start_date | date:'fullDate'}} </td>
+                          <td>{{data.start_date_hour}} {{data.start_date_minute}} {{data.start_date_am_pm}}</td>
+                          <td><a onclick="delete_schedule()">Delete</a></td>
+                        </tr>
+                    </table>
+            </div>
+            <!--<fieldset class="form-group" ng-repeat="data in schedules">
+              <div class="col-sm-9">$ {{data.price}} on {{data.start_date | date:'fullDate'}} {{data.start_date_hour}} {{data.start_date_minute}} {{data.start_date_am_pm}}</div>
+               <div class="col-sm-3">Delete</div>
+            </fieldset>-->
+            
             <fieldset class="form-group">
                <div class="col-sm-3">Price to change on</div>
                <div class="col-sm-3">
@@ -587,10 +612,7 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
                <div class="col-sm-9">
                     <input  type="number" min="0" name="new_price" ng-model="data2.new_price" class="form-control" value="" required>
                     <p class="help-inline error-fld ng-binding"  ng-show="pricechangeform.new_price.$invalid && !pricechangeform.new_price.$pristine">Please enter valid price</p>
-                    
-                    <!--<span style="color:red" ng-show="pricechangeform.new_price.$dirty && pricechangeform.new_price.$invalid">
-                <span ng-show="pricechangeform.new_price.$error.required">New Price is required</span>
-               </span>-->
+                
                </div>
               
             </fieldset>
@@ -651,11 +673,9 @@ ng-disabled="pricechangeform.$invalid"  type="submit">Submit</button>
                                             <p class="help-inline error-fld ng-binding" ng-show="submitted && bundleForm.bundle_name.$error.required">Please enter bundle name</p>
                                           </div>
                                         </div>
-<<<<<<< HEAD
-=======
+
                                       </div>
                                       <div class="row">
->>>>>>> 844456b376bf0b33c31ce127b1e3daea1f0601d9
                                         <div class="col-sm-12">
                                           <div class="form-group">
                                             <label for="EventName"> Description</label>
@@ -669,11 +689,9 @@ ng-disabled="pricechangeform.$invalid"  type="submit">Submit</button>
                                         <div class="col-sm-4" >
                                           <div class="form-group">
                                             <label for="EventName"> Limit<span class="req-limit">*</span></label>
-<<<<<<< HEAD
-                                            <input  type="number" min="0" class="form-control"  ng-model="bundle.bundle_limit" name="bundle_limit" style="width:100px;"/>
-=======
+
                                             <input  type="number" min="0" class="event_number_wd form-control" placeholder="Limit" ng-model="bundle.bundle_limit" name="bundle_limit"/>
->>>>>>> 844456b376bf0b33c31ce127b1e3daea1f0601d9
+
                                             <p class="help-inline error-fld ng-binding"  ng-show="bundleForm.bundle_limit.$invalid && !bundleForm.bundle_limit.$pristine">Please enter valid limit</p>
                                             
                                           </div>
@@ -682,11 +700,9 @@ ng-disabled="pricechangeform.$invalid"  type="submit">Submit</button>
                                         <div class="col-sm-4">
                                           <div class="form-group">
                                             <label for="EventName"> Minimum Purchase</label>
-<<<<<<< HEAD
-                                            <input type="number" min="0"  class="form-control"  ng-model="bundle.bundle_minimum_purchase" name="bundle_minimum_purchase" style="width:100px;"/>
-=======
+
                                             <input type="number" min="0"  class="event_number_wd form-control" placeholder="Minimum Purchase" ng-model="bundle.bundle_minimum_purchase" name="bundle_minimum_purchase"/>
->>>>>>> 844456b376bf0b33c31ce127b1e3daea1f0601d9
+
 
                                             <p class="help-inline error-fld ng-binding"  ng-show="bundleForm.bundle_minimum_purchase.$invalid && !bundleForm.bundle_minimum_purchase.$pristine">Please enter valid minimum purchase limit</p>
                                            
@@ -726,11 +742,9 @@ ng-disabled="pricechangeform.$invalid"  type="submit">Submit</button>
                                         <div class="col-sm-4">
                                           <div class="form-group">
                                             <label for="EventName"> Inventory</label>
-<<<<<<< HEAD
-                                            <input type="number" min="0" class="form-control" ng-disabled="!bundle.assign_inventory"  ng-model="bundle.bundle_inventory" name="bundle_inventory"style="width:100px;"/>
-=======
+
                                             <input type="number" min="0" class="event_number_wd form-control" ng-disabled="!bundle.assign_inventory" placeholder="Inventory" ng-model="bundle.bundle_inventory" name="bundle_inventory"/>
->>>>>>> 844456b376bf0b33c31ce127b1e3daea1f0601d9
+
                                             <p class="help-inline error-fld ng-binding"  ng-show="bundleForm.bundle_inventory.$invalid && !bundleForm.bundle_inventory.$pristine">Please enter valid value</p>
                                           </div>
                                         </div>

@@ -71,7 +71,7 @@ module.exports = function(app, express) {
 
   router.post('/getComment', Event.getComment);
   //eventOverview
-  /*save price level*///
+  /*save price level*/// 
   router.post('/savepricelevel', Event.savepricelevel);
   /*get price level*///
   router.post('/getPricelevel', Event.getPricelevel);
@@ -86,6 +86,9 @@ module.exports = function(app, express) {
   router.post('/getSinglePricelevel', Event.getSinglePricelevel);
   /*update price change*///
   router.post('/postPriceChange', Event.postPriceChange);
+  
+  /*update price change*///
+  router.post('/getPriceLevelChange', Event.getPriceLevelChange);
   
   /* To get data of the all events */
   router.post('/getEvents',supportCrossOriginScript,Event.getEvents);
