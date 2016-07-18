@@ -619,6 +619,7 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
             $scope.data.event_ids = $rootScope.eventcheckboxGlobalIds;
             console.log('$scope.data ', $scope.data);
 
+
             //$scope.loader = false;
             if ($localStorage.userId != undefined) {
                 $scope.data.user_id = $localStorage.userId;
