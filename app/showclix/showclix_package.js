@@ -20,19 +20,21 @@ module.exports = function() {
 
         */
         var input = {
+             "parent": null,
             "user_id": data.showclix_user,
             "seller_id": data.showclix_seller,
             "event": data.package_name,
             "behavior_set": "5",
             "description": data.package_description,
             "private_event": "0",
+            "inventory": null,
             "ages": data.ages,
             "image": data.image,
             "event_category_id": data.category,
             "date_added": data.created,
             "date_edited": data.modified,
             "event_start": "2016-09-30 03:30:30",
-            "sales_open": data.sales_open ,
+            "sales_open": data.online_sales_open_date_time ,
             "sales_close": '02:00',
             "event_end": "2016-10-31 21:00:00",
             "short_name": data.short_name,

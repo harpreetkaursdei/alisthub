@@ -31,12 +31,8 @@ exports.stepOneEventPackage = function(req,res) {
 }
 
 
-req.body.online_sales_open_date_time_moment = moment(req.body.online_sales_open_date_time).format('YYYY-MM-DD HH:mm:ss');
-req.body.online_sales_close_date_time_moment = moment(req.body.online_sales_close_date_time).format('YYYY-MM-DD HH:mm:ss');
-
-    req.body.online_sales_open_date = moment(req.body.online_sales_open_date).format('YYYY-MM-DD');
-    req.body.online_sales_close_date = moment(req.body.online_sales_close_date).format('YYYY-MM-DD');
-
+req.body.online_sales_open_date_time = moment(req.body.online_sales_open_date_time).format('YYYY-MM-DD HH:mm:ss');
+req.body.online_sales_close_date_time = moment(req.body.online_sales_close_date_time).format('YYYY-MM-DD HH:mm:ss');
 
 
  var fields = ['package_name', 'package_description', 'online_sales_open_time','online_sales_open_date_time', 'immidiately', 'online_sales_close_time', 'online_sales_close_date_time', 'event_type', 'category', 'ages', 'custom_age', 'website', 'image', 'display_image_in_listing' ];
@@ -51,19 +47,6 @@ req.body.online_sales_close_date_time_moment = moment(req.body.online_sales_clos
     }
 
     var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
-
-console.log('online_sales_open_date' , req.body.online_sales_open_date);
-console.log('online_sales_close_date' , req.body.online_sales_close_date);
-
-
-console.log('online_sales_open_date_time' , req.body.online_sales_open_date_time);
-console.log('online_sales_close_date_time' , req.body.online_sales_close_date_time);
-
-
-console.log(' online_sales_open_date_time_moment : ', req.body.online_sales_open_date_time_moment);
-console.log(' online_sales_close_date_time_moment : ', req.body.online_sales_close_date_time_moment);
-
-
     req.body.created = curtime;
     req.body.modified = curtime;
     req.body.status = 1;
@@ -72,38 +55,22 @@ console.log(' online_sales_close_date_time_moment : ', req.body.online_sales_clo
 
     data = req.body;
 
-data.sales_open = req.body.online_sales_open_date_time_moment;
-data.sales_close = req.body.online_sales_close_date_time_moment;
-
-
-   console.log('query -----------------> ' , query );
-
     var showClixPackage2 = new showClixPackage();
 
           showClixPackage2.add_package(data,res,function(sdata){
           if (sdata.status == 1) {
 
+            if(sdata.operation == 'add_package' ) {
 
-if(sdata.operation == 'add_package' ) {
-
-            var showclix_url = sdata.location;
-            var showclix_url_array = showclix_url.split("/");
-            showclix_package_id = showclix_url_array.slice(-1).pop(); 
-            console.log('-----------------------');
-            console.log('Response from showclix api , ' , sdata );
-            console.log(' ---------------------------- ');
-            console.log('showclix_package_id ' , showclix_package_id );
-
-}
-    
-if(sdata.operation == 'edit_package' ) {
-    showclix_package_id = sdata.location ;
-}       
-
-        //var event_url = sdata.location;
-        //var showclix_event_id = event_url.split("/");
-        // update_showclix_data(event_url,eventId,data);
-        // res.json({result:eventId,showclix:sdata.location,code:200});
+                        var showclix_url = sdata.location;
+                        var showclix_url_array = showclix_url.split("/");
+                        showclix_package_id = showclix_url_array.slice(-1).pop(); 
+                        console.log('Response from showclix api , ' , sdata );
+            }
+                
+            if(sdata.operation == 'edit_package' ) {
+                showclix_package_id = sdata.location ;
+            }       
 
     if (req.body.id && req.body.id != "" && req.body.id != undefined) {
     var query = "UPDATE `event_package` SET "+ fieldsData +" `modified` = '" + req.body.modified+"'  WHERE user_id = '" + req.body.user_id + "' && id=" + req.body.id;

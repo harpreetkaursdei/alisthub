@@ -630,8 +630,6 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
             console.log('$scope.data ', $scope.data);
 
 
-return false;
-
             //$scope.loader = false;
             if ($localStorage.userId != undefined) {
                 $scope.data.user_id = $localStorage.userId;
