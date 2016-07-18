@@ -8,7 +8,7 @@ angular.module("communicationModule", []);
 // Declare app level module which depends on filters, and services
 
 
-var routerApp = angular.module('alisthub', ['ui.router', ,'ngStorage','oc.lazyLoad','communicationModule', 'ui.bootstrap','ckeditor','google.places', 'angucomplete','ngTable','color.picker','reCAPTCHA','720kb.tooltips','gm.datepickerMultiSelect'])
+var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoad','communicationModule', 'ui.bootstrap','ckeditor','google.places', 'angucomplete','ngTable','color.picker','reCAPTCHA','720kb.tooltips','gm.datepickerMultiSelect','chart.js'])
 
 
   .config(function($stateProvider, $locationProvider, $urlRouterProvider, $ocLazyLoadProvider) {

@@ -45,6 +45,8 @@ require('./routes/package')(app, express);
 
 require('./routes/tracking')(app, express);
 
+require('./routes/report')(app, express);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
