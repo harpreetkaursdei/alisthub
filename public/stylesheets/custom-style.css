@@ -125,7 +125,7 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
     padding-top: 0;
 }
 
-.preview_overlay {
+.preview_overlay, .loader_div {
     background:rgba(0, 0, 0, 0.65) none repeat scroll 0 0;
     height: 100%;
     position: fixed;
@@ -161,5 +161,10 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
     box-shadow: none;
     padding: 8px 15px;
 }
+
+.loader_div{
+	background: rgba(0,0,0,0.65);
+}
+ 
 
 

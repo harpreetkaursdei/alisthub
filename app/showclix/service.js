@@ -406,7 +406,7 @@ module.exports = function()
         input.event_id = data.showclix_id.toString();
         input.status   = '5';
         delete input.description;
-        delete input.short_name;
+        //delete input.short_name;
         delete input.sales_open;
         delete input.user_id;
         
@@ -440,6 +440,8 @@ module.exports = function()
                   if (isJson(response.body)) {
                     str = response.body;
                   }
+                  
+                  console.log(response.statusCode);
                   
                   if (str.event_id && str.event_id !== undefined) {
                     console.log("---------6-------");
