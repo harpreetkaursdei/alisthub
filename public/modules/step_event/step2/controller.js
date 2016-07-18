@@ -988,6 +988,14 @@ angular.module('alisthub').controller('ModalInstancePriceCtrl', function($scope,
           $rootScope.eventInventoryCalc();
           $uibModalInstance.dismiss('cancel');
         }
+	else{
+	  $scope.show_error_message = true;
+	  $timeout(function() {
+              $rootScope.error = response.error;
+              $rootScope.success_message1 = false;
+              $rootScope.success1 = '';
+            }, 3000); 
+	}
       }
 
       $rootScope.data1={};

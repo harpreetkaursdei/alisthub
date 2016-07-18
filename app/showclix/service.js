@@ -177,6 +177,8 @@ module.exports = function()
         input.event_type = 2;
         }
         
+        input.event_type = 3;
+        
         //////////////////////////////////////////////////////////////////////////////////////
         request({
                 method:'PUT',
@@ -245,6 +247,9 @@ module.exports = function()
         input.ticket_note   = data.ticket_note;
         //input.sales_open   = data.ticket_note;
         input.ticket_note   = data.ticket_note;
+        //if (data.online_sales_open.date) {
+         //input.ticket_note   = data.ticket_note;
+        //}
         
         //////////////////////////////////////////////////////////////////////////////////////
         request({
