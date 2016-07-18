@@ -7,7 +7,7 @@ Module : Step 3 Event step
 
 
 angular.module('alisthub').controller('seriesStep3Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
-
+    $rootScope.loader_div=false;
      var $serviceTest = $injector.get("Lookservice");
      $scope.ticket_image='./images/ticket.png';
      var href = window.location.href.split("/");
@@ -16,11 +16,16 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
      $scope.error_message = true;
     var event_id=$stateParams.eventId;
     $rootScope.sociallink={};
+    $serviceTest.getEventSeriesDates({'event_id':event_id},function(resp){
+     $scope.eventDetails=resp.results;
+     
+   });
+    
     $serviceTestVenue.getEvent({'event_id':event_id},function(response){
-        
+       
         $scope.data1=response.results[0];
         $scope.title=response.results[0].title;
-        $scope.content2=response.results[0].description;
+        $scope.content2=$sce.trustAsHtml(response.results[0].description);
         $scope.venue_name=response.results[0].venue_name;
         $scope.city=response.results[0].city;
         $scope.state=response.results[0].state;
@@ -33,6 +38,7 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
         $rootScope.sociallink.twitter_url=response.results[0].twitter_url;
         $scope.eventwebsite_url=response.results[0].website_url;
         $scope.video_url=response.results[0].video;
+        $scope.inventory=response.results[0].inventory;
 		
     });  
 
@@ -255,7 +261,7 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
             }else{
              $scope.templates=[];   
             }
-            
+            $rootScope.loader_div=true;
         });
     }
    
@@ -269,9 +275,9 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
   ]
     
     $scope.look_and_feel_choose_type = [
-    { "name": "Color",'id':5}
-  /*  {"name": "Images",'id':6},
-    {"name": "Blocks",'id':7}*/
+    { "name": "Color",'id':5},
+  /*  {"name": "Images",'id':6},*/
+    {"name": "Blocks",'id':7}
    
   ]
     
@@ -352,11 +358,7 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
     allowedContent: true,
     entities: false
   };
-   
-  $scope.content1="<h3>Heading</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,Lorem ipsum dolor sit amet, consectetur </p>";
-  
-  $scope.content3='<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>';
-  $scope.content4='<p>Footer content will be shown here.</p>';
+ 
   // Called when the editor is completely ready.
   $scope.onReady = function () {
    
@@ -446,9 +448,9 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
             }
         }
         
-        $scope.banner_image='./images/img/f-img-o.jpg';
-        $scope.section2_image='./images/img/s-img-o.jpg';
-        $scope.section3_image='./images/img/s-img-o.jpg';
+        $scope.banner_image='http://'+href[2]+'/images/img/f-img-o.jpg';
+        $scope.section2_image='http://'+href[2]+'/images/img/s-img-o.jpg';
+        $scope.section3_image='http://'+href[2]+'/images/img/s-img-o.jpg';
          $scope.encodeImageFileAsURL1 = function() {
             var filesSelected = document.getElementById("my_file").files;
             if (filesSelected.length > 0) {
