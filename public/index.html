@@ -19,8 +19,8 @@
         <link rel="stylesheet" href="stylesheets/angularjs-color-picker.min.css"/>
         <link rel="stylesheet" href="preview_template/assets/css/event.css" type="text/css" />
         <link rel="stylesheet" href="stylesheets/angular-tooltips.css"/>
-         
-        
+
+        <link rel="stylesheet" href="http://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.css">
         <!-- Website Main CSS -->
         <!--[if lte IE 8]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
 
@@ -28,6 +28,27 @@
         <!-- <link rel="stylesheet" type="text/css" href="javascripts/dalelotts-angular-bootstrap-datetimepicker/src/css/datetimepicker.css"> -->
     </head>
     <body>
+        <div class="loader_div" ng-hide="loader_div">
+          <div class="loadingbox">
+             <div class="windows8">
+                    <div class="wBall" id="wBall_1">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_2">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_3">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_4">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_5">
+                            <div class="wInnerBall"></div>
+                    </div>
+            </div>
+          </div>
+        </div>
         <!-- Wrapper -->
         <div id="wrapper"  ng-class="{'wrapper':class_status }">
             <!-- Header -->
@@ -234,6 +255,8 @@
         <script src="javascripts/angularjs-color-picker.js" type="text/javascript"  charset="utf-8"></script>
         <script type="text/javascript" src="http://feather.aviary.com/js/feather.js"></script>
         <script src="javascripts/gm.datepickerMultiSelect.js"></script>
-         
+        <script src="javascripts/Chart.min.js"></script>
+        <script src="javascripts/angular-chart.min.js"></script>
+
  </body>
 </html>

@@ -46,6 +46,34 @@ exports.saverecurringEvent=function(req,res){
         }
     }
     
+    function update_showclix_data(event_url,eventId,data)
+    {
+        var showclix_event_id = event_url.split("/");
+        var query = "UPDATE events SET showclix_id="+showclix_event_id[4]+", showclix_url='"+event_url+"', showclix_seller='"+data.showclix_seller_id+"' where id="+eventId;
+        connection.query(query, function(err7, responce) {
+        })
+    }
+    function formatDate(d){
+        var d2 = new Date();
+        var n2 = d2.getTimezoneOffset(); 
+        if (n2 > 0) {
+          var newdate = new Date(new Date(d).getTime() + n2*60000);
+        } else {
+          var newdate = new Date(new Date(d).getTime() - n2*60000);
+        }
+        
+        d = newdate;
+        console.log(d);
+        
+        function addZero(n){
+           return n < 10 ? '0' + n : '' + n;
+        }
+        console.log(d.getFullYear()+"-"+ addZero(d.getMonth()+1) + "-" + addZero(d.getDate()) + " " + 
+                 addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes()));
+      
+          return d.getFullYear()+"-"+ addZero(d.getMonth()+1) + "-" + addZero(d.getDate()) + " " + 
+                 addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes());
+    }
     function save_event(data)
     {
        if(data.period == "daily"){ data.period = 1; }
@@ -56,6 +84,9 @@ exports.saverecurringEvent=function(req,res){
        var length = data.date_time_series.length;
        data.end_date   = data.date_time_series[length-1].from;
        console.log(length+":::::::"+data.end_date);
+       data.event_startdatetime  = formatDate(data.start_date);
+       data.event_enddatetime    = formatDate(data.end_date);
+       
        
        if (!data.repeat_every) {  data.repeat_every  = ""; }
        if (!data.monthly_option) {  data.monthly_option  = ""; }
@@ -71,13 +102,7 @@ exports.saverecurringEvent=function(req,res){
        else // For Insert parent event
        {
         var save_query = "INSERT INTO `events` (`id`, `user_id`, `title`, `start_date`, `recurring_or_not`, `recurring_type`, `description`, `event_steps`, `end_date`, `venue_id`, `repeat_every`, `monthly_option`, `monthly_week_value`, `monthly_day_value`, `event_domain`, `created`) VALUES (NULL, '"+data.userId+"', '"+data.eventname+"', '"+data.start_date+"', '1', '"+ data.period+"', '"+data.content+"', '1', '"+data.end_date+"', '"+data.venue_id+"', '"+data.repeat_every+"', '"+data.monthly_option+"', '"+data.monthly_week_value+"', '"+data.monthly_day_value+"', '"+data.eventurl+"', '"+curtime+"')";
-        /*var showClix2 = new showClix();
-                  showClix2.add_series_event(data,res,function(data){
-                    if (data.status == 1) {
-                      //res.json({result:results,showclix:data.location,code:200});
-                    } else {                     
-                    }
-        });*/
+        
        }
         // Save Parent Event
         connection.query(save_query,function(perr,presult){
@@ -124,7 +149,33 @@ exports.saverecurringEvent=function(req,res){
         
                 });
                 
-                res.json({result:"success",code:200,parent_id:parent_id});
+                
+                // showclix start 
+                    var showClix2 = new showClix();
+                        showClix2.add_series_event(data,res,function(sdata){
+                        if (sdata.status == 1) {
+                            var event_url = sdata.location;
+                            if(data.event_id && data.event_id != null && data.event_id !== undefined)
+                            {
+                            }else{
+                            var showclix_event_id = event_url.split("/");
+                            update_showclix_data(event_url,parent_id,data);
+                            }
+                            //res.json({result:eventId,showclix:sdata.location,code:200});
+                            
+                            res.json({result:"success",code:200,parent_id:parent_id});
+                            
+                        } else {
+                            if(data.event_id && data.event_id != null && data.event_id !== undefined)
+                            {
+                            }else{
+                            rollback_events(parent_id,2);
+                            }
+                            res.json({result:"",error:sdata.error,code:101});  
+                        }
+                    });
+                //showclix end
+                
                 
             }
             else{
@@ -1136,8 +1187,24 @@ exports.savesecondSeriesstepdata=function(req,res)
      if (err) {
       res.json({error:err,code:101});
      }else{
-     saveChildProduct(req,req.body.eventId)    
-     res.json({result:results,code:200});
+     saveChildProduct(req,req.body.eventId);
+     
+     
+     // showclix start 
+                var showClix2 = new showClix();
+                    showClix2.single_2nd_step(req.body,res,function(sdata){
+                        if (sdata.status == 1) {
+                           res.json({result:results,code:200});
+                        } else {
+                           res.json({result:"",error:"Server down",code:101});  
+                        }
+                    });
+    //showclix end 
+     //res.json({result:results,code:200});
+     
+     
+     
+     
      }
   });
 }

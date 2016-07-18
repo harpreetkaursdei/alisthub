@@ -20,24 +20,26 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('series
      
          $scope.checkeventurl = function() 
          {
-          
-          $serviceTest.checkeventurl({'eventurl':$scope.data.eventurl},function(response){
-           
-            if(response.result<1)
-            {
-                $scope.successuniquemessage = false;
-                $scope.erroruniquemessage = true;
-                $scope.data.domain_url_availability=1;
-                $scope.unique = "Available";
-            }
-            else{
-                $scope.erroruniquemessage = false;
-                $scope.successuniquemessage = true;
-                $scope.data.domain_url_availability='';
-                $scope.unique = "This domain already taken.";
-            }
-          });
-
+          if($stateParams.eventId==='' || $stateParams.eventId=== undefined)
+          {
+            $serviceTest.checkeventurl({'eventurl':$scope.data.eventurl},function(response){
+             
+              if(response.result<1)
+              {
+                  $scope.successuniquemessage = false;
+                  $scope.erroruniquemessage = true;
+                  $scope.data.domain_url_availability=1;
+                  $scope.unique = "Available";
+              }
+              else{
+                  $scope.erroruniquemessage = false;
+                  $scope.successuniquemessage = true;
+                  $scope.data.domain_url_availability='';
+                  $scope.unique = "This domain already taken.";
+              }
+            });
+          }
+         
         };
   
   //To show or hide divs
@@ -689,8 +691,12 @@ $scope.rec_year_func = function() {
             data.eventtype = 'multiple';
             if($stateParams.eventId !=='' && $stateParams.eventId !== undefined)
             {
-             data.event_id = $stateParams.eventId; 
+             data.event_id = $stateParams.eventId;
+             data.showclix_id = $scope.data.showclix_id;
             }
+            data.showclix_token      = $localStorage.showclix_token;
+            data.showclix_user_id    = $localStorage.showclix_user_id;
+            data.showclix_seller_id  = $localStorage.showclix_seller_id;
             
             $serviceTest.saverecurringEvent({'data':data,'date':$scope.between_date},function(response){
             $scope.saveloader = false;

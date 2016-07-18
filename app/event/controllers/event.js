@@ -739,8 +739,22 @@ exports.getEventsdetail=function(req,res)
 Method: updatePriceChange
 Description:Function to change Price level data status 
 Created : 2016-05-18
-Created By: Deepak khokhar  
+Created By: Manoj Singh 
 */
+
+exports.getPriceLevelChange = function(req,res) {
+    
+    var query = "Select * from schedule_price_level where `showclix_id`='"+req.body.showclix_id+"' and `showclix_price_id`='"+req.body.showclix_price_id+"'";
+ console.log(query);
+ connection.query(query, function(err, results) {
+     if (err) {
+      res.json({error:err,code:101});
+     }else{
+      res.json({result:results,code:200}); 
+     }
+  });
+}
+
 exports.postPriceChange = function(req,res) {
     
     var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -757,11 +771,28 @@ exports.postPriceChange = function(req,res) {
     }
     var change_price_date=date+" "+month+":"+req.body.time+":00";
  
- connection.query("UPDATE price_levels SET `new_price`='"+req.body.new_price+"',`apply_to`='"+req.body.apply+"',`price_change_datetime`='"+change_price_date+"' where id="+req.body.price_change_id, function(err, results) {
+    var query = "INSERT INTO schedule_price_level SET `price`='"+req.body.new_price+"',`apply_to`='"+req.body.apply+"',`start_date`='"+change_price_date+"',`start_date_hour`='"+req.body.month+"',`start_date_minute`='"+req.body.time+"',`start_date_am_pm`='"+req.body.interval+"',`showclix_id`='"+req.body.showclix_id+"',`showclix_price_id`='"+req.body.showclix_price_id+"',`created`='"+curtime+"'";
+ console.log(query);
+ connection.query(query, function(err, results) {
      if (err) {
       res.json({error:err,code:101});
      }else{
-     res.json({result:results,code:200});
+     
+     // showclix start 
+                var showClix2 = new showClix();
+                    req.body.start_date      = change_price_date;
+                    req.body.start_date_date = date;
+                    showClix2.change_price_level(req.body,res,function(sdata){
+                        if (sdata.status == 1) {
+                           res.json({result:results,code:200});
+                        } else {
+                           res.json({result:"",error:"Server down",code:101});  
+                        }
+                    });
+    //showclix end    
+     
+     
+     
      }
   });
 
@@ -835,9 +866,19 @@ exports.savesecondstepdata=function(req,res)
      if (err) {
       res.json({error:err,code:101});
      } else {
-       
+      
+    // showclix start 
+                var showClix2 = new showClix();
+                    showClix2.single_2nd_step(req.body,res,function(sdata){
+                        if (sdata.status == 1) {
+                           res.json({result:results,code:200});
+                        } else {
+                           res.json({result:"",error:"Server down",code:101});  
+                        }
+                    });
+    //showclix end 
         
-      res.json({result:results,code:200});
+      
       
       
      }
@@ -1149,7 +1190,7 @@ exports.deleteEvent= function(req, res) {
 // showclix start
 
         var showClix2 = new showClix();
-        req.body.showclix_id = 4211747;
+        //req.body.showclix_id = 4211747;
         showClix2.delete_event(req.body,res,function(sdata){
             if (sdata.status == 1) {
                                 

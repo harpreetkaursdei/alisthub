@@ -6,7 +6,8 @@ Module : Step 3 Event step
 */
 
 angular.module('alisthub').controller('stepevent3Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
-
+    $scope.loader_div=$rootScope.loader_div=false;
+     
      var $serviceTest = $injector.get("Lookservice");
     
      $scope.ticket_image=ticketImage;
@@ -269,7 +270,7 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
             }else{
              $scope.templates=[];   
             }
-            
+            $rootScope.loader_div=true;
         });
     }
    
