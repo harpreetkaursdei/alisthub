@@ -294,8 +294,8 @@ $scope.redirectToDashboard = function() {
    if($scope.data.will_call_enable_date.date!=undefined && $scope.data.will_call_enable_date.time!=undefined && $scope.data.will_call_enable_date.date!='' && $scope.data.will_call_enable_date.time!=''){
       $scope.data.will_call_enable_date = $scope.combine($scope.data.will_call_enable_date.date,$scope.data.will_call_enable_date.time);  
     } 
-    if($scope.data.print_disable_date.date!=undefined && $scope.data.print_disable_date.time!=undefined && $scope.data.print_disable_date.date!='' && $scope.data.print_disable_date.time!=''){
-      $scope.data.print_disable_date = $scope.combine($scope.data.print_disable_date.date,$scope.data.print_disable_date.time);
+    if($scope.data.will_call_disable_date.date!=undefined && $scope.data.will_call_disable_date.time!=undefined && $scope.data.will_call_disable_date.date!='' && $scope.data.will_call_disable_date.time!=''){
+      $scope.data.will_call_disable_date = $scope.combine($scope.data.will_call_disable_date.date,$scope.data.will_call_disable_date.time);
     }
 
 
@@ -363,7 +363,7 @@ $scope.advSettingPackageId = $scope.eventSetting.package_id;
       $scope.data.sales_immediatly = parseInt($scope.data.sales_immediatly);
       $scope.data.custom_fee = parseInt($scope.data.custom_fee);
       $scope.data.collect_name = parseInt($scope.data.collect_name);
-      $scope.data.url_short_name = $scope.data.url_short_name;
+      $scope.data.short_name = $scope.data.url_short_name = $scope.data.url_short_name;
 
       var openDateTime = getDateTime($scope.data.online_sales_open);
       $scope.data.online_sales_open = {};
