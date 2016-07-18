@@ -170,6 +170,12 @@ module.exports = function()
         input.url      = data.eventwebsite;
         input.keywords = data.keyword;
         
+        if (data.type_of_event == 1) {
+        input.event_type = 3;
+        }
+        if (data.type_of_event == 0) {
+        input.event_type = 2;
+        }
         
         //////////////////////////////////////////////////////////////////////////////////////
         request({
