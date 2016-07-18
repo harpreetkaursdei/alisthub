@@ -466,9 +466,11 @@ exports.getSeriesDates=function(req,res) {
          
       var sqltime="SELECT * FROM event_dates where parent_id="+event_id+" ORDER BY start_date_time ASC";
           
-        connection.query(sqltime,function(err5,result5){
+        connection.query(sqltime,function(err5,result){
             
-        res.send({"results":result5,code:200});
+
+        res.send({"results":result,code:200});
+
         
         });
         
