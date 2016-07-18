@@ -405,8 +405,8 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
     eventService.getSalesData($scope.salesData,function(response) {
       if (response!=null) {
         if (response.code == 200) {
-          console.log(response.results);
-          $scope.showClixDataObj
+          console.log(response.data);
+          $scope.showClixDataObj = response.data;
         }
       }
     });

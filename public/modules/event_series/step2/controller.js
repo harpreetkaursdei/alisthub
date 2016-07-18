@@ -65,7 +65,17 @@ angular.module('alisthub').controller('seriesStep2Controller', function($scope, 
 		$scope.data1.eventwebsite=response.results[0].website_url != null?response.results[0].website_url:"";
 		$scope.data1.eventinventory=response.results[0].inventory;
 		$scope.data1.price=response.results[0].price_type;
+		
+		if (response.results[0].video === null || response.results[0].video == "" || response.results[0].video === undefined || response.results[0].video == "null") {
+		  $scope.data1.video = "";
+		  
+		}else{
+		  $scope.data1.video = response.results[0].video;
+		  
+		}
+		
     });
+        console.log($scope.data1);
 	$serviceTest.getEventCat({'event_id':$scope.eventId},function(response){
 	 
 	 angular.forEach(response.result,function(value, key){
@@ -91,7 +101,7 @@ angular.module('alisthub').controller('seriesStep2Controller', function($scope, 
     $rootScope.bundleList = response.result;
   });
 
-
+  
   /* To fetch the product data related to specific event*/ 
   $scope.product = {};
   $scope.product.eventId = $stateParams.eventId;
