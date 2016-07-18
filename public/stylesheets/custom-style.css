@@ -119,4 +119,47 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
 .templateContainer .sideImg_first img{
     max-height: 312px;
     max-width: 309px;
-}   
+}
+
+.form-section .templateContainer .field-group {
+    padding-top: 0;
+}
+
+.preview_overlay {
+    background:rgba(0, 0, 0, 0.65) none repeat scroll 0 0;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    display: none;
+}
+
+.form-section.wt-frame section#preview_div {
+    position: relative;
+    z-index: 99999;
+}
+
+.preview_close {
+    color: #fff;
+    cursor: pointer;
+    font-size: 23px;
+    position: absolute;
+    right: 0;
+    top: -27px;
+    z-index: 9999;
+    display: none
+}
+
+.preview-box{
+	position: relative;
+}
+
+.templateContainer .custom_button {
+    background: #0275d0 none repeat scroll 0 0;
+    border: medium none;
+    box-shadow: none;
+    padding: 8px 15px;
+}
+
+

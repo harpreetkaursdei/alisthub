@@ -1803,8 +1803,8 @@ var routerApp = angular.module('alisthub', ['ui.router', ,'ngStorage','oc.lazyLo
 
 
 
-        .state('widgets/checkout_widgets', {
-            url: '/widgets/checkout_widgets',
+        .state('widgets/checkout_widget', {
+            url: '/widgets/checkout_widget',
             
             views: {
                 "lazyLoadView": {

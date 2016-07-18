@@ -312,9 +312,9 @@ $scope.data1.price=0;
   $scope.price_and_link_data = function(data1) {
     data1.eventId = $localStorage.eventId;
     console.log("data:258");
-    data.showclix_token     = $localStorage.showclix_token;
-    data.showclix_user_id   = $localStorage.showclix_user_id;
-    data.showclix_seller_id = $localStorage.showclix_seller_id;
+    data1.showclix_token     = $localStorage.showclix_token;
+    data1.showclix_user_id   = $localStorage.showclix_user_id;
+    data1.showclix_seller_id = $localStorage.showclix_seller_id;
     $serviceTest.postSecondStepdata(data1, function(response) {
       if (response.code == 200) {
         $scope.success = global_message.event_step2;
@@ -1696,19 +1696,38 @@ angular.module('alisthub').controller('PricechangeCtrl', function($scope, $uibMo
     name: 'pm'
   }, ];
   $scope.apply = [{
-    id: 'all',
+    id: 1,
     name: 'All'
   }, {
-    id: 'online_price',
+    id: 2,
     name: 'Online Sales'
   }, {
-    id: 'box_office',
+    id: 3,
     name: 'Box Office'
   }, ];
+  
+  // Get price level
+  var data5 = {};
+  $scope.schedules = {};
+  data5.showclix_price_id   = $rootScope.showclix_price_id;
+  data5.showclix_id         = $localStorage.showclix_id;
+  $serviceTest.getPriceLevelChange(data5, function(response) {
+      if (response.code === 200) {
+	console.log(response.result);
+	$scope.schedules = response.result;
+      }
+  });
+  
+  
   //Price change function
   $scope.pricechangefunc = function(data2) {
     $rootScope.success_message1 = true;
     data2.price_change_id = $rootScope.price_change_id;
+    data2.showclix_token      = $localStorage.showclix_token;
+    data2.showclix_user_id    = $localStorage.showclix_user_id;
+    data2.showclix_seller_id  = $localStorage.showclix_seller_id;
+    data2.showclix_price_id   = $rootScope.showclix_price_id;
+    data2.showclix_id         = $localStorage.showclix_id;
     $serviceTest.postPriceChange(data2, function(response) {
       if (response.code === 200) {
         $rootScope.success1 = global_message.price_level_update;
