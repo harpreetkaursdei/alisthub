@@ -767,6 +767,13 @@ exports.postPriceChange = function(req,res) {
         })
     }
     
+    function rollback(id)
+    {
+        var query5 = "DELETE schedule_price_level where id="+id;
+        connection.query(query5, function(err7, responce) {
+        })
+    }
+    
     var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
     var Date1=new Date(req.body.startdate_pricechange);
     var mon=Date1.getMonth()+1;
@@ -796,11 +803,12 @@ exports.postPriceChange = function(req,res) {
                         console.log(sdata);
                         if (sdata.status == 1) {
                             console.log(sdata.data.price_schedule_id);
-                            var sdata = JSON.parse(sdata.data);
-                            console.log(sdata);
-                           update_showclix_data(insertId,sdata.data) 
+                            var sdata2 = JSON.parse(sdata.data);
+                            console.log(sdata2);
+                           update_showclix_data(insertId,sdata2) 
                            res.json({result:results,code:200});
                         } else {
+                           rollback(insertId);
                            res.json({result:"",error:"Server down",code:101});  
                         }
                     });

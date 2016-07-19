@@ -348,7 +348,11 @@ $scope.click_menu = function(menu, data, valid) {
   $scope.formdata = {};
   $scope.enable_on = {};
   $scope.disable_on = {};
-
+  
+  $scope.formdata.print_home = 1;
+  //$scope.formdata.print_home = 1;
+  
+   
   $scope.next_func = function(formdata) {
     console.log(formdata);
     $http.post('/event/postCreateEventStepFour' , formdata).then(function(response) {
