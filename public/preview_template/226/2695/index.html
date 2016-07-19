@@ -202,8 +202,12 @@ body{
                       $.each(obj, function(key, value) {
 			   console.log(value);
                          ticket_html+='<tr data-level-id="'+key+'"><td class="qty-td"> <select class="ticket-select input form-control" name="level['+key+']" id="select_level_'+key+'">';
+                     
+                      
                       for(var j=parseInt(value.increment_by);j<=parseInt(value.transaction_limit);j++)
+                      
                       {
+                      
                       ticket_html+='<option value="'+j+'">'+j+'</option>'; 
                       }
                       ticket_html+='</select></td><td class="level-td" colspan="2"><label for="select_level_'+key+'" style="margin-bottom:0px;"><span class="product_name" style="padding:5px;">'+value.level+' <a title="Price Level Information" class="fe_price_level tb_level cboxElement" href="/level/'+key+'/description"></a><span></span></span></label></td><td class="price-td"><span>$'+value.price+'</span></td></tr>';

@@ -330,6 +330,34 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
     });
   }
 
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var afterTomorrow = new Date(tomorrow);
+  afterTomorrow.setDate(tomorrow.getDate() + 1);
+  $scope.events = [{
+    date: tomorrow,
+    status: 'full'
+  }, {
+    date: afterTomorrow,
+    status: 'partially'
+  }];
+  
+  function getDayClass(data) {
+    var date = data.date,
+      mode = data.mode;
+    if (mode === 'day') {
+      var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+      for (var i = 0; i < $scope.events.length; i++) {
+        var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+        if (dayToCheck === currentDay) {
+          return $scope.events[i].status;
+        }
+      }
+    }
+    return '';
+  }
+
+  
  $scope.open1 = function() {
     $scope.popup1.opened = true;
   };
@@ -345,7 +373,19 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
     $scope.popup4.opened = true;
   };
   ////
+  $scope.inlineOptions = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: true
+  };
 
+  
+  $scope.dateOptions = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+  
   $scope.popup1 = {
     opened: false
   };
@@ -359,9 +399,10 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
   $scope.popup4 = {
     opened: false
   };
-$scope.success_message = false;
+  $scope.success_message = false;
   $scope.error_message = true;
-
+  
+  
   $scope.multiple_event_div = $scope.venue_event_div = $scope.price_and_link_div = $scope.look_and_feel_div = $scope.setting_div = $scope.dynamic_age_div = $scope.return_age_text_div = true;
 
   //To show custom age div
