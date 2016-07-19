@@ -599,6 +599,7 @@ var webservices = {
     "postseriesPriceChange": "/event/postseriesPriceChange",
     "addseriesBundle": "/event/addseriesBundle",
     "getPriceLevelChange":"/event/getPriceLevelChange",
+    "delete_level_schedule":"/event/delete_level_schedule",
     /* Constants for saving the financial settings */
     "addFinancialDetails": "/account/addFinancialDetails",
     "getFinancialDetails": "/account/getFinancialDetails",

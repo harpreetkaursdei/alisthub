@@ -1219,6 +1219,35 @@ exports.deleteEvent= function(req, res) {
 //showclix end
 }
 
+// Delete schedule price level
+exports.delete_level_schedule = function(req, res) {
+
+// showclix start
+        var showClix2 = new showClix();
+        
+        showClix2.delete_level_schedule(req.body,res,function(sdata){
+            if (sdata.status == 1) {
+                                
+                    connection.query("Delete from events where id=" + req.body.event_id, function(err, result1) {
+                    connection.query("Delete from event_dates where event_id=" + req.body.event_id, function(err, result2) {
+                    connection.query("Delete from event_categories where event_id=" + req.body.event_id, function(err, result3) {
+                           if (err) {
+                               res.json({ error: err, code: 101 });
+                           }
+                           res.json({ result: result3, code: 200 });
+                       });
+                           });
+                           });
+                    
+                    
+                } else {
+                    res.json({result:"",error:sdata.error,code:101});  
+                }
+        });
+//showclix end
+}
+
+
 exports.postCreateEventStepFour = function(req, res) {
   console.log("============================================")
   console.log("I AM IN THE BACK OF ENDS \n",req.body);

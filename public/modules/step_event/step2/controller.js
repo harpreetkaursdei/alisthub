@@ -637,9 +637,21 @@ $scope.success_message = false;
   };
   
   // Delete Price Schedule
-  $scope.delete_schedule = function(size, bundleId) {
-    
-    
+  $scope.delete_schedule = function(id, level_id, event_id) {
+          data.showclix_token     = $localStorage.showclix_token;
+          data.showclix_user_id   = $localStorage.showclix_user_id;
+          data.showclix_seller_id = $localStorage.showclix_seller_id;
+	  data.showclix_price_id  = level_id;
+	  data.showclix_id        = event_id;
+	  data.id                 = id;
+          //console.log(data); return false;
+          $serviceTest.delete_level_schedule(data, function(response) {
+            if (response.code == 200) {
+              console.log(response);     
+            }else{
+	      console.log(response);
+	    }
+          });
   }
   //Add bundle pop up
   $scope.add_bundle = function(size, bundleId) {

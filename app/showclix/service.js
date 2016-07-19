@@ -583,7 +583,7 @@ module.exports = function()
     });  
   }
   
-  /*this.delete_schedule_level = function(req,res,next)
+  this.delete_level_schedule = function(req,res,next)
   {
     request.delete({
                 headers: {"content-type": "application/json",'X-API-Token':req.showclix_token}, 
@@ -597,6 +597,6 @@ module.exports = function()
                   }
                   
     });  
-  }*/
+  }
 
 }
