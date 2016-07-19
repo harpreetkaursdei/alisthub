@@ -53,8 +53,12 @@ angular.module('alisthub').factory('venues', ['$q', '$timeout','communicationSer
 			callback(res.data);
 		});
   };
-
-  
+  //delete schedule price level 2016-07-19
+  url.delete_level_schedule = function(jsondata,callback){
+    communicationService.resultViaPost(webservices.delete_level_schedule,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req) {
+			callback(res.data);
+		});
+  };
   //change price levels
   url.changePricelevelStatus = function(jsondata,callback){
     communicationService.resultViaPost(webservices.changePricelevelStatus,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req) {

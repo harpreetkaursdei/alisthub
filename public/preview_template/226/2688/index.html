@@ -19,7 +19,8 @@
 <link rel="stylesheet" href="http://52.39.212.226:4004/preview_template/assets/css/media.css" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
-<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+<link rel="stylesheet" href="http://52.39.212.226:4004/stylesheets/style.css" type="text/css" />
+<link rel="stylesheet" href="http://52.39.212.226:4004/stylesheets/custom-style.css" type="text/css" />
 <style type="text/css"> 
     .social-media {  right: 12%;}
     .social-med > a{ display:inline-block;}
@@ -94,6 +95,27 @@ body{
 </style>
 </head>
 <body>
+<div class="loader_div" ng-hide="loader_div">
+          <div class="loadingbox">
+             <div class="windows8">
+                    <div class="wBall" id="wBall_1">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_2">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_3">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_4">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_5">
+                            <div class="wInnerBall"></div>
+                    </div>
+            </div>
+          </div>
+        </div> 
 <section class="ev-header">
 	<a href="#" class="alist-logo"><img src="http://52.39.212.226:4004/preview_template/assets/images/logo-l.png" alt=""/></a>
     <a class="navbar-toggle">
@@ -197,7 +219,7 @@ body{
 		    var preview_html=response1.result[0].html;
 		    
 		       $(".preview_div_insert").html(preview_html);
-		       
+		       $('.loader_div').hide();
 		       $("#ticket-panel").html(ticket_html+'<script id="EventsWidgetScript" type="text/javascript" src="https://tickets.alistixs.com/js/events_widget.js"/>');
 		
 		      });
@@ -211,7 +233,7 @@ body{
 		    var preview_html=response1.result[0].html;
 		    
 		       $(".preview_div_insert").html(preview_html);
-		       
+		        $('.loader_div').hide();
 		       $("#ticket-panel").html(ticket_html+'<script id="EventsWidgetScript" type="text/javascript" src="https://tickets.alistixs.com/js/events_widget.js"/>');
 		
 		      });
