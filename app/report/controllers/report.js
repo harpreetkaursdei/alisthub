@@ -9,16 +9,12 @@ var showClix   = require('./../../showclix/showclix_sales.js');
 
 
 exports.getSalesData = function(req,res) {
-   
-    var data=req.body;
-    var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
-     // showclix start 
-                    var showClix2 = new showClix();
-                        showClix2.getSalesData(data,res,function(sdata){
-                        res.json({data:sdata.data,code:200});
-                       
-                    });
-     //showclix end
-   
-   
+  var data=req.body;
+  var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
+  // showclix start 
+  var showClix2 = new showClix();
+  showClix2.getSalesData(data,res,function(sdata){
+    res.json({data:sdata.data,code:200});
+  });
+  //showclix end
 }

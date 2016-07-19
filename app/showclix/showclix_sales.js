@@ -8,7 +8,6 @@ module.exports = function()
     
   this.getSalesData = function(req,res,next)
   {
-    console.log(req);
 
     var reportDataUrl = "https://api.showclix.com/Sale/search?seller = " + req.showclix_seller_id;
 
@@ -22,14 +21,17 @@ module.exports = function()
                 headers: {'Content-Type':'application/json','X-API-Token': req.showclix_token }, //{'X-API-Token':req.showclix_token},
                 url: reportDataUrl,
                 form: {} }, function(error, response, body) {
+
                   //console.log("====================");
                   //console.log(error);
                   //console.log(response.body);
                   //console.log("====================");
                   //console.log(response.statusCode);
                   //console.log("====================");
-                  //console.log(body);
+                  //console.log(body); 
+
                   if(response.statusCode == 200) {
+
                   return next({status:1,data:response.body});
                 } else {
                   return next({status:0,data:""});

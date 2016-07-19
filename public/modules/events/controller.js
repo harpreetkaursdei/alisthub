@@ -79,17 +79,8 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
 
     //$scope.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     
-    
-
-    
-    
-    
-
-    
     $rootScope.class_status=false;
     var eventService = $injector.get("events");
-
-    
 
     $scope.getChart = function(days) {
 
@@ -97,7 +88,7 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
       if(days==1){
         $scope.daysShow = "24 hours";  
       }
-      
+
 
       $rootScope.loader_div = false;
       var manualStartDate = formatsearchDate(new Date().setDate(new Date().getDate() - (150+parseInt(days))));
