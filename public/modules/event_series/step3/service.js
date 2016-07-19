@@ -4,6 +4,12 @@
 angular.module('alisthub').factory('Lookservice', ['$q', '$timeout','communicationService', function Customers($q, $timeout,communicationService) {
 
     var url = {};
+       //get Event Series Dates
+  url.getEventSeriesDates = function(jsondata,callback){
+    communicationService.resultViaPost(webservices.getEventSeriesDates,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req) {
+      callback(res.data);
+    });
+  };
 //get look and feel templates
     url.getlookAndFeel = function(jsondata,callback){
        communicationService.resultViaPost(webservices.getlookAndFeeltemplate,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req){

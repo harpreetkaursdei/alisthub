@@ -1,5 +1,6 @@
 angular.module('alisthub').controller('widgetcontroller', function($scope, $state, $localStorage, $injector, ngTableParams, $uibModal, $rootScope, $filter, $timeout, $sce, $location) {
     //For Step 1
+    console.log("I am here");
     var $servicewidget = $injector.get("widget");
 
 
@@ -12,6 +13,7 @@ angular.module('alisthub').controller('widgetcontroller', function($scope, $stat
         };
     }
 
+console.log("************");
     $scope.open = function(size) {
 
         var modalInstance = $uibModal.open({
@@ -55,6 +57,22 @@ angular.module('alisthub').controller('widgetcontroller', function($scope, $stat
                 }
 
             });
+               
+            $servicewidget.getWidgetEvents($scope.data,function(response){
+                if (response.code == 200) {
+                    $scope.eveData = response.result;
+                    $scope.tableParams1 = new ngTableParams({
+                        page: 1, // show first page
+                        count: 3, // count per page
+                        sorting: { id: 'asc' }
+                    }, {
+                        data: $scope.eveData
+                    });
+
+                } else {
+                    $scope.error_message = response.error;
+                }
+            })
 
         }
     };
@@ -121,16 +139,14 @@ angular.module('alisthub').controller('widgetcontroller', function($scope, $stat
             $scope.loader = true;
             $servicewidget.savewidget($scope.data, function(response) {
                 $scope.loader = false;
-                if (response.code == 200) {
-                  
+                if (response.code == 200){
                     $location.path("/widgets");
                 } else {
                     $scope.activation_message = global_message.ErrorInActivation;
                 }
-
-            })
+            });
         }
     };
-
-
 });
+
+

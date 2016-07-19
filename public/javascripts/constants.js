@@ -371,6 +371,28 @@ hours = [{
     value: 1800,
     minutes : '30 minutes',
   }];
+
+
+ custom_when_options = [{
+         "name": "Before Discount", 
+         'id': 1 
+       },
+        { 
+          "name": "After Discount",
+         'id': 2
+        }];
+
+
+custom_fee_type_options = [{ 
+        "name": "Fixed Amount",
+         'id': 1 
+       },
+      { 
+        "name": "Percentage",
+        'id': 2 
+      }];
+
+
 var webservices = {
 
     "getUserregister": baseUrl + "/webservices/register",
@@ -447,9 +469,13 @@ var webservices = {
     "getEventDates": "/event/getEventDates",
 
 
-    /////widget //////////
-    "savewidget":"/widget/savewidget",
+     /////widget //////////
 
+     "saveEventWidgets":"/widget/saveEventWidgets",
+    "savewidget":"/widget/savewidget",
+      "getWidgetEvents":"/widget/getWidgetEvents",
+       "editEvent_widgets":"/widget/editEvent_widgets",
+     
     "getWidget":"/widget/getWidget",
     "getWidgetDetail":"/widget/getWidgetDetail",
 
@@ -621,6 +647,7 @@ var webservices = {
     //Add event product
     "addEventProduct": "/event_setting/addEventProduct",
     "addSeriesEventProduct": "/event/addSeriesEventProduct",
+    "getEventSeriesDates": "/event/getSeriesDates",
     //Add event product
     "getEventProducts": "/event_setting/getEventProducts",
     "getEventProductDetail": "/event_setting/getEventProductDetail",

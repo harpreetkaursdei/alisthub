@@ -170,6 +170,14 @@ module.exports = function()
         input.url      = data.eventwebsite;
         input.keywords = data.keyword;
         
+        if (data.type_of_event == 1) {
+        input.event_type = 3;
+        }
+        if (data.type_of_event == 0) {
+        input.event_type = 2;
+        }
+        
+        input.event_type = 3;
         
         //////////////////////////////////////////////////////////////////////////////////////
         request({
@@ -239,6 +247,9 @@ module.exports = function()
         input.ticket_note   = data.ticket_note;
         //input.sales_open   = data.ticket_note;
         input.ticket_note   = data.ticket_note;
+        //if (data.online_sales_open.date) {
+         //input.ticket_note   = data.ticket_note;
+        //}
         
         //////////////////////////////////////////////////////////////////////////////////////
         request({
