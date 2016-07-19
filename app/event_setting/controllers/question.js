@@ -193,7 +193,7 @@ exports.viewEvents = function(req,res) {
 
   var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
    
-   var query = "Select e.id,e.showclix_id , e.user_id, e.title, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id where e.user_id = "+ req.body.seller_id +" and e.start_date > '"+curtime+"' limit 10";
+   var query = "Select e.id,e.showclix_id , e.user_id, e.title,  ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id = "+ req.body.seller_id +" and e.start_date > '"+curtime+"' limit 10";
    
   if(req.body.search_date){
      search_date = req.body.search_type
@@ -203,16 +203,16 @@ exports.viewEvents = function(req,res) {
   }
    
   if (type == 1 && req.body.search_date) {
-     query = "Select e.id,e.showclix_id , e.user_id, e.title, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT  JOIN venues v ON e.venue_id = v.id where e.user_id  = "+ req.body.seller_id +" and e.start_date = '"+req.body.search_date+"' limit 10";
+     query = "Select e.id,e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT  JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id  = "+ req.body.seller_id +" and e.start_date = '"+req.body.search_date+"' limit 10";
   }
   else if (type == 2 && req.body.search_date) {
-     query = "Select e.id,e.showclix_id , e.user_id, e.title, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id where e.user_id = "+ req.body.seller_id +" and e.start_date < '"+req.body.search_date+"' limit 10";
+     query = "Select e.id,e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time,  v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id = "+ req.body.seller_id +" and e.start_date < '"+req.body.search_date+"' limit 10";
   }
   else if (type == 3 && req.body.search_date) {
-     query = "Select e.id,e.showclix_id , e.user_id, e.title, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id where e.user_id = "+ req.body.seller_id +" and e.start_date >= '"+req.body.search_date+"' limit 10";
+     query = "Select e.id,e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id = "+ req.body.seller_id +" and e.start_date >= '"+req.body.search_date+"' limit 10";
   }
   else {
-     query = "Select e.id,e.showclix_id , e.user_id, e.title, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id where e.user_id = "+ req.body.seller_id ;
+     query = "Select e.id,e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id = "+ req.body.seller_id ;
   }
        
   console.log(query);

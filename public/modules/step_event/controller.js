@@ -10,6 +10,7 @@ angular.module("google.places", []);
 angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepeventController', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state,$anchorScroll) {
 
   $scope.loader = false;
+  $rootScope.loader_div = false;
    //For Step 1
   var $serviceTest = $injector.get("venues");
   if($stateParams.eventId === '')
@@ -18,6 +19,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
   } else {
     var event_id=$stateParams.eventId;
     $serviceTest.getEvent({'event_id':event_id},function(response) {
+      
       $scope.data=response.results[0];
      
       if($scope.data.recurring_or_not==0) {
@@ -104,7 +106,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
       'userId': $localStorage.userId
     }, function(response) {
       if (response !== null) {
-
+        $rootScope.loader_div = true; 
         if (response.code === 200) {
           $scope.total_venue = response.result;
           if ($scope.total_venue != "") {

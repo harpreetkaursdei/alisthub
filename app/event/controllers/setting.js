@@ -10,8 +10,38 @@ var showClix   = require('./../../showclix/service.js');
 
 
 exports.saveSetting = function(req,res) {
-  
+    
+    function formatDate(d){
+        var d2 = new Date();
+        var n2 = d2.getTimezoneOffset(); 
+        if (n2 > 0) {
+          var newdate = new Date(new Date(d).getTime() + n2*60000);
+        } else {
+          var newdate = new Date(new Date(d).getTime() - n2*60000);
+        }
+        
+        d = newdate;
+        console.log(d);
+        
+        function addZero(n){
+           return n < 10 ? '0' + n : '' + n;
+        }
+        console.log(d.getFullYear()+"-"+ addZero(d.getMonth()+1) + "-" + addZero(d.getDate()) + " " + 
+                 addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes()));
+      
+          return d.getFullYear()+"-"+ addZero(d.getMonth()+1) + "-" + addZero(d.getDate()) + " " + 
+                 addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes());
+    }
+        
+    if (req.body.online_sales_open) {
+        req.body.online_sales_open_date = formatDate(req.body.online_sales_open);
+    }
+    if (req.body.online_sales_close_time) {
+        req.body.online_sales_close_date = req.body.online_sales_close_time;
+    }
+    
     var data = req.body;
+    console.log(data);
     var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
     var settingFields =  ['user_id','online_service_fee', 'box_office_service_fee', 'ticket_note', 'ticket_transaction_limit', 'checkout_time_limit', 'ticket_layout', 'collect_name', 'custom_fee', 'custom_fee_name', 'custom_fee_type', 'custom_fee_amount', 'custom_when', 'question_type', 'question', 'question_required', 'event_id', 'print_home', 'print_enable_date', 'print_disable_date', 'print_description', 'will_call', 'will_call_description', 'online_sales_open', 'online_sales_close', 'sales_immediatly', 'donation', 'donation_name', 'public_contact_name', 'public_contact_email', 'public_contact_phone'];
 

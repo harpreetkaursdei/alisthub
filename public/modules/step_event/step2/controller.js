@@ -1,6 +1,6 @@
 angular.module('alisthub').controller('stepevent2Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
   $scope.loader = false;
-  
+  $rootScope.loader_div = false;
 
   //For Step 1
   var $serviceTest = $injector.get("venues");
@@ -61,6 +61,7 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
     $scope.pageloader = true; 
     $serviceTest.getEvent({'event_id':event_id},function(response){
       $scope.pageloader = false;
+      $rootScope.loader_div = true;
         $scope.data1=response.results[0];
 	$localStorage.showclix_id = response.results[0].showclix_id;
 	        $scope.data1.type_of_event = response.results[0].type_of_event == null?0:response.results[0].type_of_event;
@@ -232,8 +233,8 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
 
   $scope.data1 = {};
 
-$scope.data1.type_of_event=0;
-$scope.data1.price=0;
+  $scope.data1.type_of_event=0;
+  $scope.data1.price=0;
 
 
   // $scope.data1 = {
@@ -634,7 +635,12 @@ $scope.success_message = false;
       }
     });
   };
-
+  
+  // Delete Price Schedule
+  $scope.delete_schedule = function(size, bundleId) {
+    
+    
+  }
   //Add bundle pop up
   $scope.add_bundle = function(size, bundleId) {
     $rootScope.editBundleId = bundleId;

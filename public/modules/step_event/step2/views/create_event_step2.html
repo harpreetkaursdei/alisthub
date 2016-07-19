@@ -1,5 +1,5 @@
 <div class="container">
-  <div ng-show="pageloader"><img src="/images/icons/loader.gif"></div>
+  <div ng-show="pageloader"></div>
   <h1>Create an Event</h1>
   <!-- Step Form -->
   
@@ -573,7 +573,7 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
                           <td >$ {{data.price}}</td>
                           <td>{{data.start_date | date:'fullDate'}} </td>
                           <td>{{data.start_date_hour}} {{data.start_date_minute}} {{data.start_date_am_pm}}</td>
-                          <td><a onclick="delete_schedule()">Delete</a></td>
+                          <td><a onclick="delete_schedule(data.id)">Delete</a></td>
                         </tr>
                     </table>
             </div>

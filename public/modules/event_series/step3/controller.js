@@ -15,6 +15,7 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
      var $serviceTestVenue = $injector.get("venues");
      $scope.error_message = true;
     var event_id=$stateParams.eventId;
+    $scope.eventId=$stateParams.eventId;
     $rootScope.sociallink={};
     $serviceTest.getEventSeriesDates({'event_id':event_id},function(resp){
      $scope.eventDetails=resp.results;
