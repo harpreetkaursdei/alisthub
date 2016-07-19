@@ -1,6 +1,6 @@
 angular.module('alisthub').controller('widgetcontroller', function($scope, $state, $localStorage, $injector, ngTableParams, $uibModal, $rootScope, $filter, $timeout, $sce, $location) {
     //For Step 1
-    console.log("I am here");
+   
     var $servicewidget = $injector.get("widget");
 
 
@@ -13,7 +13,6 @@ angular.module('alisthub').controller('widgetcontroller', function($scope, $stat
         };
     }
 
-console.log("************");
     $scope.open = function(size) {
 
         var modalInstance = $uibModal.open({
