@@ -371,6 +371,28 @@ hours = [{
     value: 1800,
     minutes : '30 minutes',
   }];
+
+
+ custom_when_options = [{
+         "name": "Before Discount", 
+         'id': 1 
+       },
+        { 
+          "name": "After Discount",
+         'id': 2
+        }];
+
+
+custom_fee_type_options = [{ 
+        "name": "Fixed Amount",
+         'id': 1 
+       },
+      { 
+        "name": "Percentage",
+        'id': 2 
+      }];
+
+
 var webservices = {
 
     "getUserregister": baseUrl + "/webservices/register",

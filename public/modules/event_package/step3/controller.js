@@ -22,6 +22,10 @@ angular.module('alisthub').controller('createpackageControllerThree', function($
     };    
  }
 
+
+   
+
+
   /** 
   Method: click_menu
   Description:Function for changing the tab 
@@ -228,6 +232,12 @@ angular.module('alisthub').controller('createpackageControllerThree', function($
   $scope.data.will_call = 1;
 
   $scope.timeout = timeout;
+  $scope.custom_when_options = custom_when_options;
+  $scope.custom_fee_type_options = custom_fee_type_options;
+
+  //$scope.custom_when_options = {'1':"Before Discount",'2': "After Discount"};
+
+
   $scope.enable_on = {};
   $scope.disable_on = {};
 
@@ -322,15 +332,16 @@ $scope.redirectToDashboard = function() {
 
           } else {
             $scope.activation_message = global_message.ErrorInActivation;
-
+console.log(' response.error' ,  response.error);
             $scope.error = response.error;
             $scope.error_message = false;
+            $scope.error_count = true;
 
             $timeout(function() {
               $scope.success = '';
               $scope.error_message = true;
               $scope.error = '';
-            }, 5000);
+            }, 15000);
 
           }
 
@@ -363,6 +374,8 @@ $scope.advSettingPackageId = $scope.eventSetting.package_id;
       $scope.data.sales_immediatly = parseInt($scope.data.sales_immediatly);
       $scope.data.custom_fee = parseInt($scope.data.custom_fee);
       $scope.data.collect_name = parseInt($scope.data.collect_name);
+      //$scope.data.custom_fee_type = parseInt($scope.data.custom_fee_type);
+      //$scope.data.custom_when = parseInt($scope.data.custom_when);
       $scope.data.short_name = $scope.data.url_short_name = $scope.data.url_short_name;
 
       var openDateTime = getDateTime($scope.data.online_sales_open);

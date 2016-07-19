@@ -20,7 +20,7 @@
     </div>
     <!-- //Step Form -->
     <!-- Form COntainer -->
-    <span ng-hide="error_message"><p class="error-fld" >{{error}}</p></span>
+    <span ng-hide="error_message"  ng-focus="error_count = true" ng-init="error_count=false" ><p class="error-fld" >{{error}}</p></span>
 
      <span ng-show="success_message"><p class="success-fld ng-binding">{{success}}</p></span>
 
@@ -270,10 +270,17 @@
                                   </div>
                                   <div class="col-sm-9">
                                   <!--  ng-model="data.custom_fee_type" tooltips tooltip-template="Select whether the fee is a fixed amount or a percentage of the order total." -->
-                                    <select class="form-control" name="custom_fee_type"  ng-model="data.custom_fee_type"  >
+                                    <!--<select class="form-control" name="custom_fee_type"  ng-model="data.custom_fee_type"  >
                                         <option value="1">Fixed Amount</option>
                                         <option value="2">Percentage</option>
+                                    </select> -->
+
+                                    
+
+                                      <select class="form-control" name="custom_fee_type" ng-model="data.custom_fee_type"> 
+                                        <option ng-repeat="cfto in custom_fee_type_options"  value="{{cfto.id}}" ng-selected="cfto.id==data.custom_fee_type">{{cfto.name}}</option>
                                     </select>
+
                                   </div>
                             <!-- </section> -->
                         </section>
@@ -296,10 +303,23 @@
                                   </div>
                                   <div class="col-sm-9">
                                   <!-- tooltips tooltip-template="Select whether to apply this fee to the order before or after a discount coupon has adjusted the order total. If no discount coupons are in effect, this option will not affect the order." -->
-                                    <select class="form-control" name="custom_when" ng-model="data.custom_when" >
+                                    <!--<select class="form-control" name="" ng-model="data." >
                                         <option value="1">Before Discount</option>
                                         <option value="2">After Discount</option>
-                                    </select>
+                                    </select> -->
+
+                                    <select class="form-control" name="custom_when" ng-model="data.custom_when">  
+                                        <option ng-repeat="cwo in custom_when_options" value="{{cwo.id}}"  ng-selected="cwo.id==data.custom_when" >{{cwo.name}}</option>
+                                    </select> 
+
+
+                                
+                    <!--<select class="form-control" ng-model="custom_when" ng-options="key as value for (key , value) in custom_when_options">
+</select>-->
+
+
+
+
                                   </div>
                             <!-- </section> -->
                         </section>
