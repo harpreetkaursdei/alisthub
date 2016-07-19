@@ -394,6 +394,9 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
     $scope.$watch('InnerbackgroundColor', function(newValue, oldValue) {
             
              $scope.background_inner=newValue;
+             $timeout(function() {
+              angular.element('#selectorBackground').triggerHandler('click');
+             }, 100);
         }); 
     $scope.$watch('TextColor', function(newValue, oldValue) {
              
@@ -402,6 +405,9 @@ angular.module('alisthub').controller('seriesStep3Controller', function($scope, 
              }else{
              $scope.text_color=newValue;
              }
+              $timeout(function() {
+              angular.element('#selectorTextColor').triggerHandler('click');
+             }, 100);
         });
     $scope.$watch('OuterborderColor', function(newValue, oldValue) {
             
