@@ -62,6 +62,8 @@ angular.module('alisthub').controller('eve_widgetscontroller', function($scope, 
             })
         }
     }
+    
+      $scope.page_title = 'ADD';
     $scope.getWidgetEvents = function() {
             if ($localStorage.userId != undefined) {
                 $scope.data.seller_id = $localStorage.userId;
@@ -91,7 +93,7 @@ angular.module('alisthub').controller('eve_widgetscontroller', function($scope, 
         }
         /////////////////////////////////////////
     if ($state.params.id) {
-        // $scope.page_title = 'EDIT';
+         $scope.page_title = 'EDIT';
         $scope.editEvent_widgets = function() {
             $scope.data = {};
 
