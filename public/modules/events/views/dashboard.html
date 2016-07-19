@@ -6,7 +6,9 @@
         <section class="d-panel">
             <section class="d-panel-heading">
                 <section class="row">
-                    <section class="col-sm-7 activity">Activity for 30 days <a href="#" class="pink-btn btn sml-btn m-fw"><i class="fa fa-refresh"></i> Refresh</a> what are these numbers?</section>
+                    <section class="col-sm-7 activity">Activity for 30 days 
+                        <a href="#" ng-click="getChart(30);" class="pink-btn btn sml-btn m-fw"><i class="fa fa-refresh"></i> Refresh</a>
+                        what are these numbers?</section>
                     <section class="col-sm-5 days-sort">
                         <a href="javascript:void(0)" ng-click="getChart(30);">30 days</a>
                         <a href="javascript:void(0)" ng-click="getChart(7);">7 days</a>
@@ -29,7 +31,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-footer same-as text-center">Same as past 30 days</div>
+                            <div class="panel-footer same-as text-center">Past {{daysShow}}</div>
                         </div>
                         <!--Tickets Sold-->
                         <div class="panel panel-pink">
@@ -44,7 +46,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-footer same-as text-center">Same as past 30 days</div>
+                            <div class="panel-footer same-as text-center">Past {{daysShow}}</div>
                         </div>
                         <!--Tickets Revenue-->
                         <div class="panel panel-green">
@@ -59,14 +61,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-footer same-as text-center">Same as past 30 days</div>
+                            <div class="panel-footer same-as text-center">Past {{daysShow}}</div>
                         </div>
                         <!--Conversion Rate-->
                     </section>
                     <section class="col-sm-8">
                         <section class="panel graph-frame">
-                            <!-- <section class="panel-body">Graph area</section> -->
+                            <section class="panel-body">
                             <canvas id="bar" class="chart chart-bar" chart-data="chartData" chart-labels="labels"  chart-series="series" chart-colors="colors"></canvas>
+                            </section> 
                         </section>
                     </section>
                 </section>

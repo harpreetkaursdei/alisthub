@@ -846,3 +846,6 @@ color-picker{float: right !important;}
   margin: 0px 5px 5px 0px;
 }
 
+.panel-body{
+  padding: 55px 15px 15px 15px;
+}
