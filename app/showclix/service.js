@@ -585,14 +585,13 @@ module.exports = function()
   
   this.delete_level_schedule = function(req,res,next)
   {
-    console.log(req);
-    console.log("https://admin.alistixs.com/rest.api/PriceLevelSchedule/"+req.showclix_price_schedule_id);
+    
     request.delete({
                 headers: {'X-API-Token':req.showclix_token}, 
                 url:     "https://admin.alistixs.com/rest.api/PriceLevelSchedule/"+req.showclix_price_schedule_id,
                 form:    {} }, function(error, response, body){
                    console.log(response.statusCode);
-                   console.log(body);
+                   //console.log(body);
                   if (response.statusCode == 200) {
                     return next({status:1,data:response.body});
                   }

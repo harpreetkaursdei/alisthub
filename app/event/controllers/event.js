@@ -1248,12 +1248,14 @@ exports.delete_level_schedule = function(req, res) {
         
         showClix2.delete_level_schedule(req.body,res,function(sdata){
             if (sdata.status == 1) {
-                    connection.query("Delete from events where id=" + req.body.event_id, function(err, result1) {
+                    connection.query("Delete from schedule_price_level where id=" + req.body.id, function(err, result1) {
                     
                            if (err) {
                                res.json({ error: err, code: 101 });
                            }
-                           res.json({ result: result3, code: 200 });
+                           else{
+                           res.json({ result: result1, code: 200 });
+                           }
                        });
                 } else {
                     res.json({result:"",error:sdata.error,code:101});  
