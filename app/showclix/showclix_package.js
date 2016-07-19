@@ -14,7 +14,6 @@ module.exports = function() {
                 form:    {} }, function(error, response, body){
                     return next({status:1,location:""});
                 });
-    
   }
 
     this.add_package = function(data, res, next) {
@@ -35,16 +34,14 @@ module.exports = function() {
 
         */
         var input = {
-             "parent": null,
             "user_id": data.showclix_user,
             "seller_id": data.showclix_seller,
             "event": data.package_name,
             "behavior_set": "5",
             "description": data.package_description,
             "private_event": "0",
-            "inventory": null,
             "ages": data.ages,
-            "image": data.image,
+            "image": data.image_full_url ,
             "event_category_id": data.category,
             "date_added": data.created,
             "date_edited": data.modified,
@@ -59,6 +56,7 @@ module.exports = function() {
             "event_type": "3",
             "venue_id": "34657",
             "display_image": data.display_image_in_listing,
+            "url": data.website,
         };
 
 
