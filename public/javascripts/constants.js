@@ -469,9 +469,13 @@ var webservices = {
     "getEventDates": "/event/getEventDates",
 
 
-    /////widget //////////
-    "savewidget":"/widget/savewidget",
+     /////widget //////////
 
+     "saveEventWidgets":"/widget/saveEventWidgets",
+    "savewidget":"/widget/savewidget",
+      "getWidgetEvents":"/widget/getWidgetEvents",
+       "editEvent_widgets":"/widget/editEvent_widgets",
+     
     "getWidget":"/widget/getWidget",
     "getWidgetDetail":"/widget/getWidgetDetail",
 

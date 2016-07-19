@@ -1803,8 +1803,8 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
 
 
 
-        .state('widgets/checkout_widget', {
-            url: '/widgets/checkout_widget',
+        .state('widgets/checkout_widgets', {
+            url: '/widgets/checkout_widgets',
             
             views: {
                 "lazyLoadView": {
@@ -1832,7 +1832,29 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             
             views: {
                 "lazyLoadView": {
-                  controller: 'widgetcontroller',
+                  controller: 'eve_widgetscontroller',
+                  templateUrl: 'modules/widgets/views/event_widget.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/widgets/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/widgets/eventController.js']);
+                })
+              }]
+            }
+          
+        })
+        ///////////////////////edit event widgets///////////////
+         .state('edit_event_widget', {
+            url: '/edit_event_widget/:id',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'eve_widgetscontroller',
                   templateUrl: 'modules/widgets/views/event_widget.html'
                 }
             },
