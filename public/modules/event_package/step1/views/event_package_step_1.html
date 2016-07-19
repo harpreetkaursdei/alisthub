@@ -70,6 +70,8 @@
                 <!-- sale time section-->
                 <section class="form-group field-group">
                     <label  tooltips tooltip-template="The date and time your event will take place. Time is relative to venue's timezone.">Sales Times</label>
+
+                    <p ng-hide="eventInfoMessage">The event that ends the earliest takes place on {{earliestEvent}} Sales dates must fall before this event takes place. </p> 
                     <section class="gray-frame sub-fields">
                         <section class="row">
                             <div class="col-sm-4">

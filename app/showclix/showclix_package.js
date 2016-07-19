@@ -2,6 +2,21 @@ var showClix = require('./../../constant.js');
 var request = require('request');
 module.exports = function() {
 
+      this.delete_package = function(data,res,next)
+  {
+    // required : 
+    console.log(data);
+
+    var showclix_id = data.showclix_id;
+    request.delete({
+                headers: {'X-API-Token':data.showclix_token},
+                url:     "https://api.showclix.com/Event/"+showclix_id,
+                form:    {} }, function(error, response, body){
+                    return next({status:1,location:""});
+                });
+    
+  }
+
     this.add_package = function(data, res, next) {
 
         // var fields = ['package_name', '', 'online_sales_open_time','online_sales_open_date_time', 'immidiately', 'online_sales_close_time', 'online_sales_close_date_time', 'event_type', '', 'ages', 'custom_age', 'website', 'image', 'display_image_in_listing' ];

@@ -51,6 +51,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     $rootScope.FinalEvents = [];
     $rootScope.choosenEventsArea = false;
     $rootScope.eventsChoosedFlag = false;
+    $rootScope.eventInfoMessage = false;
     $rootScope.packageId = '';
 
     $scope.error_message = true;
@@ -604,19 +605,7 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
     /************** Function to save data of step one starts **************/
 
     $scope.stepOne = function() {
-            console.log('stepOne data', $scope.data);
-
-            $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
-
-           /* if ($scope.data.online_sales_open_date && $scope.data.online_sales_open_time) {
-                $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date, $scope.data.online_sales_open_time);
-            }
-
-            if ($scope.data.online_sales_close_date && $scope.data.online_sales_close_time) {
-                $scope.data.online_sales_close_date_time = $scope.combine($scope.data.online_sales_close_date, $scope.data.online_sales_close_time);
-            }
-
-            */
+    $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
 
     if($scope.data.online_sales_open_date!=undefined && $scope.data.online_sales_open_time!=undefined && $scope.data.online_sales_open_date!='' && $scope.data.online_sales_open_time!=''){
     $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date , $scope.data.online_sales_open_time );  
@@ -814,6 +803,10 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
             $uibModalInstance.dismiss('cancel');
         }
 
+
+
+
+$rootScope.allEventsDates = [];
         $scope.eventInfo = {};
         if ($localStorage.userId != undefined) {
             $scope.eventInfo.user_id = $localStorage.userId;
@@ -839,6 +832,26 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
     };
 
     /** View list of all Events for assigning discount coupons ***/
+
+    $scope.combine = function(dt, timeString) {
+        var startDateTime;
+        var parts = /^(\d+):(\d+) (AM|PM)$/.exec(timeString);
+        if (parts) {
+            hours = parseInt(parts[1], 10);
+            minutes = parseInt(parts[2], 10);
+            if (parts[3] === "PM" && hours !== 12) {
+                hours += 12;
+            } else if (parts[3] === "AM" && hours === 12) {
+                hours = 0;
+            }
+            if (!isNaN(hours) && !isNaN(minutes)) {
+                startDateTime = new Date(dt.getTime());
+                startDateTime.setHours(hours);
+                startDateTime.setMinutes(minutes);
+            }
+        }
+        return startDateTime;
+    }
 
     $scope.viewEvents = function() {
         $scope.data = {};
@@ -868,6 +881,10 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
                         }
 
                         var val = $scope.eventdata[index];
+
+    
+
+
                         var obj = {};
                         obj[valId] = val;
                         //$rootScope.allEvents.push(obj);
