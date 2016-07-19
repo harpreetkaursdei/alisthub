@@ -20,7 +20,7 @@
     </div>
     <!-- //Step Form -->
     <!-- Form COntainer -->
-    <span ng-hide="error_message"><p class="error-fld" >{{error}}</p></span>
+    <span ng-hide="error_message"  ng-focus="error_count = true" ng-init="error_count=false" ><p class="error-fld" >{{error}}</p></span>
 
      <span ng-show="success_message"><p class="success-fld ng-binding">{{success}}</p></span>
 
@@ -192,7 +192,7 @@
 
 
                                 <section class="row">
-                                    <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_2" ng-click="desc_box_2=true">Add a Description</button>
+                                    <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_2 || data.will_call_description != '' "  ng-click="desc_box_2=true">Add a Description</button>
                                     <textarea class="desc_2 form-control input"  ng-show="desc_box_2 || data.will_call_description != ''"  rows="7" ng-model="data.will_call_description"> </textarea>
                                 </section>
 
@@ -203,66 +203,7 @@
                 </section>
                 <!--/Delivery Methods-->
                 
-                <section class="form-group field-group">
-                    <label>Sales Times</label>
-                    <section class="gray-frame sub-fields">
-                        <section class="row">
-                            <div class="col-sm-4">
-                                <label>Online Sales Open<span class="req">*</span></label>
-                            </div>
-                        </section>
-                        <section class="row">
-                            <div class="col-sm-4">
-                                    <div class="form-group datepicker" ng-class="{ 'has-error' : eventSettingForm.online_sales_open.$dirty && eventSettingForm.online_sales_open.$invalid }">
-                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="data.online_sales_open.date" is-open="popup3.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" name="online_sales_open" required/>
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-default" ng-click="open3()"><i class="glyphicon glyphicon-calendar"></i></button>
-                                        </span>
-                                    </div>
-                                    <p class="help-inline error-fld ng-binding"  ng-show="eventSettingForm.online_sales_open.$dirty && eventSettingForm.online_sales_open.$invalid">Date is required</p>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="input-group bootstrap-timepicker timepicker">
-                                <input  ng-model="data.online_sales_open.time" ng-change=""  class="form-control input-small timepick" type="text" id="timepicker1"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
-                              </div>
-                            </div>
-                        </section>
-                        <section class="row" style="margin-bottom: 30px;">
-                              <div class="col-sm-12">
-                                <section class="radio-sec custom-check">
-                                    <p class="radio-inline">
-                                        <input type="checkbox" id="test2"  ng-model="data.sales_immediatly" ng-true-value="1" ng-false-value="0">
-                                        <label for="test2">Immediately</label>
-                                    </p>
-                                </section>
-                              </div>
-                        </section>
-                        <section class="row">
-                            <div class="col-sm-4">
-                                    <label>Online Sales Close<span class="req">*</span></label>
-                            </div>
-                        </section>
-                        <section class="row">
-                            <div class="col-sm-4">
-                                <div class="form-group datepicker" ng-class="{ 'has-error' : eventSettingForm.online_sales_close.$dirty && eventSettingForm.online_sales_close.$invalid }">
-                                    <input type="date" class="form-control" uib-datepicker-popup="{{format}}"  ng-model="data.online_sales_close.date" is-open="popup4.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" name="online_sales_close" required/>
-                                    <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="open4()"><i class="glyphicon glyphicon-calendar"></i></button></span>
-                                </div>
-                                <p class="help-inline error-fld ng-binding"  ng-show="eventSettingForm.online_sales_close.$dirty && eventSettingForm.online_sales_close.$invalid">Date is required</p>
-                            </div>
-                            <div class="col-sm-4">
-                              <div class="input-group bootstrap-timepicker timepicker">
-                                <input  ng-model="data.online_sales_close.time" ng-change=""  class="form-control input-small timepick" type="text"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
-                              </div>
-                            </div>
-                        </section>
-                        <span style="font: red;">{{date_error_message}}</span>
-                    </section>
-                </section>
-                <!--/Sales Times-->
-
-                <section class="" style="margin-top: 50px; padding-bottom: 20px; margin-bottom: 20px;">
+                 <section class="" style="margin-top: 50px; padding-bottom: 20px; margin-bottom: 20px;">
                     <label class="col-md-2 col-sm-4 left-margin-zero">Donations </label>
                 </section>
 
@@ -329,10 +270,17 @@
                                   </div>
                                   <div class="col-sm-9">
                                   <!--  ng-model="data.custom_fee_type" tooltips tooltip-template="Select whether the fee is a fixed amount or a percentage of the order total." -->
-                                    <select class="form-control" name="custom_fee_type"  ng-model="data.custom_fee_type"  >
+                                    <!--<select class="form-control" name="custom_fee_type"  ng-model="data.custom_fee_type"  >
                                         <option value="1">Fixed Amount</option>
                                         <option value="2">Percentage</option>
+                                    </select> -->
+
+                                    
+
+                                      <select class="form-control" name="custom_fee_type" ng-model="data.custom_fee_type"> 
+                                        <option ng-repeat="cfto in custom_fee_type_options"  value="{{cfto.id}}" ng-selected="cfto.id==data.custom_fee_type">{{cfto.name}}</option>
                                     </select>
+
                                   </div>
                             <!-- </section> -->
                         </section>
@@ -355,10 +303,23 @@
                                   </div>
                                   <div class="col-sm-9">
                                   <!-- tooltips tooltip-template="Select whether to apply this fee to the order before or after a discount coupon has adjusted the order total. If no discount coupons are in effect, this option will not affect the order." -->
-                                    <select class="form-control" name="custom_when" ng-model="data.custom_when" >
+                                    <!--<select class="form-control" name="" ng-model="data." >
                                         <option value="1">Before Discount</option>
                                         <option value="2">After Discount</option>
-                                    </select>
+                                    </select> -->
+
+                                    <select class="form-control" name="custom_when" ng-model="data.custom_when">  
+                                        <option ng-repeat="cwo in custom_when_options" value="{{cwo.id}}"  ng-selected="cwo.id==data.custom_when" >{{cwo.name}}</option>
+                                    </select> 
+
+
+                                
+                    <!--<select class="form-control" ng-model="custom_when" ng-options="key as value for (key , value) in custom_when_options">
+</select>-->
+
+
+
+
                                   </div>
                             <!-- </section> -->
                         </section>

@@ -237,6 +237,7 @@ module.exports = function()
         console.log("---------3-------");
         input.event_id = data.showclix_id.toString();
         input.status   = '5';
+        //input.event_type  = '2';
         input.donation_live = data.donation == 1 ?'y':'n';
         if (data.donation == 1) {
           input.donation_name = data.donation_name;
@@ -247,9 +248,13 @@ module.exports = function()
         input.ticket_note   = data.ticket_note;
         //input.sales_open   = data.ticket_note;
         input.ticket_note   = data.ticket_note;
-        //if (data.online_sales_open.date) {
-         //input.ticket_note   = data.ticket_note;
-        //}
+        
+        if (data.online_sales_open_date) {
+        input.sales_open   = data.online_sales_open_date;
+        }
+        if (data.online_sales_close_date) {
+        input.sales_close   = data.online_sales_close_date;
+        }
         
         //////////////////////////////////////////////////////////////////////////////////////
         request({
@@ -577,5 +582,21 @@ module.exports = function()
                   
     });  
   }
+  
+  /*this.delete_schedule_level = function(req,res,next)
+  {
+    request.delete({
+                headers: {"content-type": "application/json",'X-API-Token':req.showclix_token}, 
+                url:     "http://api.showclix.com/PriceLevel/"+req.showclix_price_id,
+                form:    {} }, function(error, response, body){
+                  if (response.statusCode == 200) {
+                    return next({status:1,data:response.body});
+                  }
+                  else{
+                    return next({status:0,data:response.body});
+                  }
+                  
+    });  
+  }*/
 
 }

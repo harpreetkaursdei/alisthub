@@ -229,6 +229,20 @@ exports.saverecurringEvent=function(req,res){
 
 
 exports.saveseriespricelevel=function(req,res){
+    
+    function rollback_level(id) {
+        var query = "Delete from price_levels where id="+id;
+        connection.query(query, function(err7, responce) {
+        })
+    }
+    function update_showclix_pricedata(event_url,eventId,data)
+    {
+        var showclix_event_id = event_url.split("/");
+        var query = "UPDATE price_levels SET showclix_price_id="+showclix_event_id[4]+"  where id="+eventId;
+        connection.query(query, function(err7, responce) {
+        })
+    }
+    
     function remove_level(id)
     {
         var qu = "Delete from price_levels where parent_id="+id;
@@ -279,7 +293,27 @@ exports.saveseriespricelevel=function(req,res){
                     });
                     ///////////////////////////////////////////////
                     });
-                    res.send({"results":"success",code:200}); 
+                    
+                    // showclix start 
+                    var showClix2 = new showClix();
+                    showClix2.add_price_level(data,res,function(sdata){
+                        console.log(sdata);
+                        if (sdata.status == 1) {
+                            var event_url = sdata.location;
+                            update_showclix_pricedata(event_url,parent_id,data);
+                            res.json({result:"success",showclix:sdata.location,code:200});
+                        }
+                        else if(sdata.status == 2) {
+                            res.json({result:"success",showclix:sdata.location,code:200});
+                        }
+                        else{
+                            rollback_level(data.eventId);
+                            res.json({result:"",error:sdata.error,code:101});  
+                        }
+                    });
+                   //showclix end
+                    
+                     
                     
                     ///////////////////////////////////////////////////////////////////////////////////////
                 }
@@ -1215,6 +1249,35 @@ By : Manoj Kumar Singh
 **/
 exports.saveSeriesSetting = function(req,res) {
     
+    function formatDate(d){
+        var d2 = new Date();
+        var n2 = d2.getTimezoneOffset(); 
+        if (n2 > 0) {
+          var newdate = new Date(new Date(d).getTime() + n2*60000);
+        } else {
+          var newdate = new Date(new Date(d).getTime() - n2*60000);
+        }
+        
+        d = newdate;
+        console.log(d);
+        
+        function addZero(n){
+           return n < 10 ? '0' + n : '' + n;
+        }
+        console.log(d.getFullYear()+"-"+ addZero(d.getMonth()+1) + "-" + addZero(d.getDate()) + " " + 
+                 addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes()));
+      
+          return d.getFullYear()+"-"+ addZero(d.getMonth()+1) + "-" + addZero(d.getDate()) + " " + 
+                 addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes());
+    }
+    
+    if (req.body.online_sales_open) {
+        req.body.online_sales_open_date = formatDate(req.body.online_sales_open);
+    }
+    if (req.body.online_sales_close_time) {
+        req.body.online_sales_close_date = req.body.online_sales_close_time;
+    }
+    
     var data = req.body;
     var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
     
@@ -1289,7 +1352,20 @@ exports.saveSeriesSetting = function(req,res) {
           if (err) {
             res.json({error:err,code:101});
           }
-          res.json({result:results,code:200});
+          else{
+          
+           // showclix start 
+                var showClix2 = new showClix();
+                    showClix2.single_4th_step(req.body,res,function(sdata){
+                        if (sdata.status == 1) {
+                         res.json({result:results,code:200}); 
+                        } else {
+                            res.json({result:"",error:"Server error",code:101});  
+                        }
+                    });
+          //showclix end 
+          
+          }
         });
       } else {
         var query = "INSERT INTO `event_settings` SET "+ fieldsData + " `event_id` = '" + data.event_id + "', `created` = '" + curtime +"' , `modified` = '" + curtime +"'";
@@ -1297,7 +1373,19 @@ exports.saveSeriesSetting = function(req,res) {
           if (err7) {
             res.json({error:err7,code:101});
           }
-          res.json({result:responce,code:200});
+          else{
+             // showclix start 
+                var showClix2 = new showClix();
+                    showClix2.single_4th_step(req.body,res,function(sdata){
+                        if (sdata.status == 1) {
+                         res.json({result:results,code:200}); 
+                        } else {
+                            res.json({result:"",error:"Server error",code:101});  
+                        }
+                    });
+          //showclix end 
+          }
+          //res.json({result:responce,code:200});
         });
       }
       
