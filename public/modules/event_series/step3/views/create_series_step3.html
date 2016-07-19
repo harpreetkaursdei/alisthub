@@ -161,12 +161,18 @@
                               <div class="media">
                                 <section class="media-left m-fw">
                                   <section class="date-media">
-                                    <div class="date-view"><span class="date-m">{{start_date| date:'MMM'}}</span> <span class="date-d">{{start_date| date:'dd'}}</span></div>
+				    <div ng-repeat="n in eventDetails track by $index" class="date-view" >
+				      <div ng-show="$first">
+				      <div ><span class="date-m">{{eventDetails[0].start_date_time| date:'MMM'}}</span> <span class="date-d">{{eventDetails[0].start_date_time| date:'dd'}}</span></div></div>
+				      <div ng-show="$last" class="date-view"><span class="date-m">{{eventDetails[$index].start_date_time| date:'MMM'}}</span> <span class="date-d">{{eventDetails[$index].start_date_time| date:'dd'}}</span></div>
+				    </div>
+                                    
                                   </section>
                                 </section>
                                 <div class="media-body content m-fw">
                                   <h4>{{title}}</h4>
-                                  <p>{{start_date| date:'dd MMM yyyy'}}  {{start_time}}-{{end_time}}</p>
+                                 
+				  <p ng-repeat="eventinfo in  eventDetails">{{eventinfo.start_date_time| date:'dd MMM yyyy'}}  {{eventinfo.start_time}}-{{eventinfo.end_date_time| date:'dd MMM yyyy'}}  {{eventinfo.end_time}}</p> 
                                   <p>{{eventwebsite_url}}</p>
                                   <p class="clearfix event-labels clearfix"   ng-style="{background: background_inner};"><span class="event-price pull-left" ng-style="{color:text_color}">Inventory:{{inventory}}</span><span class="event-label pull-right">{{ages}}</span></p>
                                 </div>

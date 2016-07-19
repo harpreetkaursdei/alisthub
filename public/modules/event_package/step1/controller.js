@@ -605,6 +605,7 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
     /************** Function to save data of step one starts **************/
 
     $scope.stepOne = function() {
+ 
     $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
 
     if($scope.data.online_sales_open_date!=undefined && $scope.data.online_sales_open_time!=undefined && $scope.data.online_sales_open_date!='' && $scope.data.online_sales_open_time!=''){

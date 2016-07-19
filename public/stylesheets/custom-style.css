@@ -84,7 +84,7 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
   word-wrap: break-word;
 }
 
-.templateContainer{
+.templateContainer, .templateContainer a{
   word-wrap: break-word; 
 }
 
@@ -121,19 +121,36 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
     max-width: 309px;
 }
 
-
-
-.loader_div{
+.loader_div, .preview_overlay{
     background: rgba(0,0,0,0.65);
     height: 100%;
     position: fixed;
     width: 100%;
     z-index: 999;
     top: 0;
-    
-
 } 
 
+.preview_overlay{
+	display: none;
+}
+
+.preview-box{
+	position: relative;
+	z-index: 1000;
+}
+
+.loader_div{
+	z-index: 99999;
+}
+
+.preview-box .preview_close{
+	 color: #fff;
+    float: right;
+    font-size: 36px;
+    position: absolute;
+    right: -18px;
+    top: -37px;	
+}
 
 .loadingbox{
     position: absolute;

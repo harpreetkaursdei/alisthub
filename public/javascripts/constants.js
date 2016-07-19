@@ -621,6 +621,7 @@ var webservices = {
     //Add event product
     "addEventProduct": "/event_setting/addEventProduct",
     "addSeriesEventProduct": "/event/addSeriesEventProduct",
+    "getEventSeriesDates": "/event/getSeriesDates",
     //Add event product
     "getEventProducts": "/event_setting/getEventProducts",
     "getEventProductDetail": "/event_setting/getEventProductDetail",

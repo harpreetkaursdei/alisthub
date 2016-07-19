@@ -466,9 +466,11 @@ exports.getSeriesDates=function(req,res) {
          
       var sqltime="SELECT * FROM event_dates where parent_id="+event_id+" ORDER BY start_date_time ASC";
           
-        connection.query(sqltime,function(err5,result5){
+        connection.query(sqltime,function(err5,result){
             
-        res.send({"results":result,timing:result5,code:200});
+
+        res.send({"results":result,code:200});
+
         
         });
         
@@ -850,10 +852,10 @@ exports.savesecondstepdata=function(req,res)
 
   console.log("custom_ages: " + req.body.custom_ages);
   console.log("dynamic_age: " + req.body.dynamic_age);
-
+   console.log("0"); 
   var customAge = '';
   var customAgeLimit = 0;
-  if(req.body.custom_ages!=undefined) {
+  if(req.body.custom_ages!==undefined) {
     customAge = req.body.custom_ages;
   }
   
@@ -861,18 +863,22 @@ exports.savesecondstepdata=function(req,res)
     customAgeLimit = 1;
     customAge = req.body.dynamic_age;
   }
-
+  console.log("1");
+  console.log("UPDATE events SET `website_url`='"+eventwebsite+"',`keyword`='"+keyword+"',`inventory`='"+eventinventory+"',`facebook_url`='"+facebook+"',`twitter_url`='"+twitter+"',`video`='"+video+"',`type_of_event`='"+req.body.type_of_event+"',`custom_ages`='"+customAge+"',`define_custom_age`='"+customAgeLimit+"',`price_type`='"+req.body.price+"' where id="+req.body.eventId);
   connection.query("UPDATE events SET `website_url`='"+eventwebsite+"',`keyword`='"+keyword+"',`inventory`='"+eventinventory+"',`facebook_url`='"+facebook+"',`twitter_url`='"+twitter+"',`video`='"+video+"',`type_of_event`='"+req.body.type_of_event+"',`custom_ages`='"+customAge+"',`define_custom_age`='"+customAgeLimit+"',`price_type`='"+req.body.price+"' where id="+req.body.eventId, function(err, results) {
      if (err) {
+        console.log("8");
       res.json({error:err,code:101});
      } else {
-      
+       console.log("2"); 
     // showclix start 
                 var showClix2 = new showClix();
                     showClix2.single_2nd_step(req.body,res,function(sdata){
                         if (sdata.status == 1) {
+                             console.log("3"); 
                            res.json({result:results,code:200});
                         } else {
+                             console.log("4"); 
                            res.json({result:"",error:"Server down",code:101});  
                         }
                     });

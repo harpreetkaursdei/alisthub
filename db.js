@@ -9,8 +9,8 @@ connection = mysql.createConnection({
 /* connection = mysql.createConnection({
   host     : '52.39.212.226',
   user     : 'alistixs',
-  password : 'alistixs@2016',
-  database : 'alistixs',
+  password : 'alistixs',
+  database : 'db_alistixs',
   insecureAuth: true
 }); */ 
 
