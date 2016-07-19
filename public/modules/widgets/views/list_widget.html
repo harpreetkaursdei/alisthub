@@ -19,30 +19,30 @@ tr:nth-child(even){background-color: #f2f2f2}
   width:100%;
 }
 </style>
-<div class="container">
+<div class="container" >
      <h1> Widgets</h1>
      <div class="form-section wt-frame">
            <section class="gray-frame sub-fields">
-            <div class="form-group row">
+            <!--<div class="form-group row">
                 <section class="col-sm-6">
                     <section class="search-event">
                         <input type="text" name="filter" class="form-control search-field" placeholder="Enter your keyword" ng-model="filter">
                         <i class="fa fa-search"></i>
                     </section>
                 </section>
-            </div>
+            </div>-->
                         <div class="form-group">
                         <div class="col-sm-12">
-                          <div class="col-sm-6">
+                          <div class="col-sm-9">
                           <br>
                                <label><h4>Checkout Widget</h4></label>
                             </div>
-                            <div class="col-sm-3">
+                            <!-- <div class="col-sm-3">
                                  <a href='/#/widgets/event_widget'>
                                  <button type="button"  class="pink-btn btn event">Create Event Widget</button></a>
                                </div>
-                                <div class="col-sm-3">
-                                 <a href='/#/widgets/checkout_widget'>
+ -->                                <div class="col-sm-3">
+                                 <a href='/#/widgets/checkout_widgets'>
                                  <button type="button"  class="pink-btn btn">Create Checkout Widget</button></a>
                                </div>
                               
@@ -59,13 +59,15 @@ tr:nth-child(even){background-color: #f2f2f2}
                                 <tr>
                                     <th>NAME</th>
                                     <th>EMBED</th>
-                               <th>MANAGE</th>
+                                     <th>MANAGE</th>
                                 </tr>
                            </thead>
                             <tbody>
                                <tr ng-repeat="data1 in $data | filter:filter">
                                
                                      <td> <strong>{{data1.widget_description}}</strong>
+                                     
+
                                     </td>
                                     <td><p>
                                         <button class="pink-btn btn btn-small m-fw" ng-click="open('')"><i class="fa fa-plus-square"></i> Show Embed Code</button></a>
@@ -73,7 +75,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                                         </td>
 				                        <td class="action pull-left"><a title="Edit" href="#/edit_widget/{{data1.id}}"><i class="fa fa-edit"></i>
 				                        </a>
-				                        <a href="#"><i class="fa fa-eye"></i>
+				                        <a href="javascript:void(0)"><i class="fa fa-eye"></i>
 				                        </a></td>
                                 </tr>
                               
@@ -100,8 +102,9 @@ tr:nth-child(even){background-color: #f2f2f2}
               </section>
  
      </div>
-     <!-- event table-->
-    <!--  <div class="form-section wt-frame">
+
+     <!-- event widgets table-->
+      <div class="form-section wt-frame">
            <section class="gray-frame sub-fields">
                         <div class="form-group">
                         <div class="col-sm-12">
@@ -110,9 +113,10 @@ tr:nth-child(even){background-color: #f2f2f2}
                                <label><h4>Event Widget</h4></label>
                             </div>
                                 <div class="col-sm-3">
-                                 <a href='/#/widgets/add_event'>
-                                 <button type="button"  class="gray-btn btn">Create Event Widget</button></a>
+                                 <a href='/#/widgets/event_widget'>
+                                 <button type="button"  class="pink-btn btn event">Create Event Widget</button></a>
                                </div>
+
                               
                             </div>
                             </div>
@@ -122,45 +126,54 @@ tr:nth-child(even){background-color: #f2f2f2}
 <section class="gray-frame sub-fields">
                  <section class="grid-widget">
                     <div class="table-responsive">
-                        <table class="customized-table table-striped clearfix">
+                        {{data2}}
+                        <table table  ng-table="tableParams1" class="table table-striped">
                            <thead>
                                 <tr>
                                     <th>NAME</th>
-                                    <th>EMBED</th>
+                                    <!--<th>WIDTH</th>-->
                                <th>MANAGE</th>
                                 </tr>
                            </thead>
                             <tbody>
-                               <tr pagination-id="paginate1" dir-paginate="upcoming in upcoming_event_data | itemsPerPage: 2">
+                                <tr ng-repeat="data2 in $data | filter:filter">
                                
-                                     <td> <strong>Test</strong>
+                                     <td><strong>{{data2.title}}</strong>
+                                     
+                                     
                                     </td>
-                                    <td><p>
-                                        <a href="#"><button type="button" ng-click="template()" class="btn btn-gray active">Show Embed Code</button></a>
-                                        </p>
-                                        </td>
-                                <td class="action pull-left"><a href="#"><i class="fa fa-edit"></i>
-                                </a>
-                                <a href="#"><i class="fa fa-eye"></i>
-                                </a></td>
+                                   <!-- <td><strong>{{data2.width}}</strong></td>-->
+                                   
+
+                                        <td class="action pull-left"><a title="Edit" href="#/edit_event_widget/{{data2.id}}"><i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="javascript:void(0)"><i class="fa fa-eye"></i>
+                                        </a></td>
                                 </tr>
-                                <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                              
+                                   <tr ng-show="loader">
+                                        <td colspan="4" align="center"><img src="/images/icons/loader.gif" style="margin-left: 48%"></td>
+                                    </tr>
+                                    <tr ng-if="$data == ''">
+                                        <td colspan="4" align="center"><span style="margin-left: 40%">No Record found!</span></td>
+                                    </tr>
                            </tbody>
                         </table>
                     </div>
-                  <dir-pagination-controls pagination-id="paginate1" ></dir-pagination-controls>
-                    <section class="grid-bottm gr-right pull-right">
-                    <br><br>
-                          <ul class="legends">
-                                <li><i class="fa fa-edit"></i><span>Edit</span></li>
-                                <li><i class="fa fa-eye"></i><span>Preview</span></li>
+                   <section class="grid-bottm clearfix">
+<!--                    
+ -->                        <section class="gr-right pull-right">
+                            <ul class="legends">
+                                <li><i class="fa fa-pencil-square-o"></i> <span>Edit</span></li>
+                                <li><i class="fa fa-check-circle"></i><span>active</span></li>
+                                <li><i class="fa fa-trash"></i><span>delete</span></li>
                             </ul>
+                        </section>
+                    </section>
+                    </section>
             
      </div>
--->
+
      <script type="text/ng-template" id="checkout_widgets.html">
     <div class="modal-header">
       

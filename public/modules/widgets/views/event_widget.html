@@ -80,7 +80,7 @@ color-picker
                             <section class="form-group">
                                 <label>Display image?</label>
                                 <div class="onoffswitch mt-3">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch5" checked>
+                                    <input type="checkbox" name="onoffswitch" ng-blur="title_text()" ng-model="data.display_image" class="onoffswitch-checkbox" id="myonoffswitch5" checked>
                                     <label class="onoffswitch-label" for="myonoffswitch5"></label>
                                 </div>
                             </section>
@@ -115,7 +115,7 @@ color-picker
                             <section class="form-group">
                                 <label>Display Venue?</label>
                                 <div class="onoffswitch mt-3">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch8" checked>
+                                    <input type="checkbox" name="onoffswitch" ng-blur="title_text()" ng-model="data.display_venue" class="onoffswitch-checkbox" id="myonoffswitch8" checked>
                                     <label class="onoffswitch-label" for="myonoffswitch8"></label>
                                 </div>
                             </section>
@@ -124,7 +124,7 @@ color-picker
                             <section class="form-group">
                                 <label>Display Ticket Link?</label>
                                 <div class="onoffswitch mt-3">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch9" checked>
+                                    <input type="checkbox" name="onoffswitch" ng-blur="title_bar()" ng-model="data.display_ticket_link" class="onoffswitch-checkbox" id="myonoffswitch9" checked>
                                     <label class="onoffswitch-label" for="myonoffswitch9"></label>
                                 </div>
                             </section>
@@ -135,29 +135,9 @@ color-picker
         </form>
         <br>
         <br>
-        <h3>style</h3>
-        <div class="gray-frame sub-fields">
-            <div class="row">
-                <div class=col-sm-12>
-                    <div class=col-sm-6>
-                        <section class="form-group">
-                            <label>Preview</label>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="module template-view">
-                    <div class="image-main">
-                        <img src="images/img/f-img.jpg" alt="" style="border:2px solid black;" />
-                    </div>
-                </div>
-            </div>
-            <br>
-        </div>
-        <br>
-        <br>
-        <h3>style</h3>
+      
+
+          <h3>style</h3>
         <div class="gray-frame sub-fields">
             <!-- Date Event Group -->
             <div class="event-date fieldSection">
@@ -248,11 +228,11 @@ color-picker
                 <section class="radio-sec with-ftext col-sm-12">
                     <div class="col-sm-4">
                         <section class="radio-inline">
-                            <input type="radio" name="auto" id="radio10" />
+                            <input type="radio" name="auto" id="radio10" ng-model="data.auto"  value="0" ng-checked="data.auto==0" />
                             <label for="radio10"><span></span>Auto</label>
                         </section>
                         <section class="radio-inline">
-                            <input type="radio" name="fixed" id="radio9" />
+                            <input type="radio" name="auto" id="radio9"  ng-model="data.auto"  value="0" ng-checked="data.auto==1"/>
                             <label for="radio9"><span></span>Fixed</label>
                         </section>
                     </div>
@@ -260,7 +240,7 @@ color-picker
                         <input type="text" name="height" ng-model="data.height" ng-blur="title_text()" class="form-control" placeholder="160" required>
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" name="height" ng-model="data.width" ng-blur="title_text()" class="form-control" placeholder="330" required>
+                        <input type="text" name="width" ng-model="data.width" ng-blur="title_text()" class="form-control" placeholder="330" required>
                     </div>
                 </section>
             </div>
@@ -282,10 +262,10 @@ color-picker
             </section>
         </section>
     </div>
-   <!--  <div class="editr">
+    <div class="editr">
         <div class="editor-btn">
-            <button class="gray-btn btn">Save</button>
+            <button class="gray-btn btn" ng-click="saveEventWidgets()">Save</button>
         </div>
-    </div> -->
+    </div>
 </div>
 </div>
