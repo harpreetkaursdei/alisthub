@@ -349,7 +349,7 @@ $scope.click_menu = function(menu, data, valid) {
   $scope.enable_on = {};
   $scope.disable_on = {};
   
-  $scope.formdata.print_home = 1;
+  
   //$scope.formdata.print_home = 1;
   
    
@@ -397,8 +397,14 @@ $scope.click_menu = function(menu, data, valid) {
     if($stateParams.eventId!=undefined && $stateParams.eventId!='') {
       $scope.formdata.event_id = $stateParams.eventId;
     } 
-
-    $scope.formdata.online_sales_open = $scope.combine($scope.formdata.online_sales_open.date,$scope.formdata.online_sales_open.time);
+    if($scope.formdata.sales_immediatly == 1)
+    {
+    $scope.formdata.online_sales_open = new Date();
+    }
+    else{
+    $scope.formdata.online_sales_open = $scope.combine($scope.formdata.online_sales_open.date,$scope.formdata.online_sales_open.time);  
+    }
+    
     $scope.formdata.online_sales_close = $scope.combine($scope.formdata.online_sales_close.date,$scope.formdata.online_sales_close.time);
 
     if($scope.formdata.print_enable_date!=undefined && $scope.formdata.print_enable_date.date!=undefined && $scope.formdata.print_enable_date.time!=undefined && $scope.formdata.print_enable_date.date!='' && $scope.formdata.print_enable_date.time!=''){
@@ -412,13 +418,17 @@ $scope.click_menu = function(menu, data, valid) {
     console.log($scope.formdata);
 
     if ($localStorage.userId !== undefined) {
+      $scope.saveloader = true;
+      $scope.button     =  1 ;
+      
       $scope.formdata.user_id = $localStorage.userId;
       $scope.formdata.showclix_token     = $localStorage.showclix_token;
       $scope.formdata.showclix_user_id   = $localStorage.showclix_user_id;
       $scope.formdata.showclix_seller_id = $localStorage.showclix_seller_id;
       $scope.formdata.showclix_id        = $scope.data.showclix_id;
       $serviceTest.saveSetting($scope.formdata, function(response) {
-
+          $scope.saveloader = false;
+          $scope.button     =  0 ;
           if (response.code === 200) {
             $scope.getSetting();
             $anchorScroll();
@@ -493,7 +503,7 @@ $scope.click_menu = function(menu, data, valid) {
     });
 
   }
-
+  
   $scope.getSetting();
   
   $scope.immediate = function()
@@ -559,5 +569,5 @@ $scope.click_menu = function(menu, data, valid) {
     $location.path("/view_all_event/single");
     
   }
-
+  //$scope.formdata.print_home = 1; 
 });

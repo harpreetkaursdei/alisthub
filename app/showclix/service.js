@@ -540,7 +540,13 @@ module.exports = function()
                 headers: {"content-type": "application/json", 'X-API-Token':data.showclix_token},
                 url: "https://admin.alistixs.com/event/"+data.showclix_id+"/level/"+data.showclix_price_id+"/schedule.json",
                 form:   input }, function(error, response, body){
-                  return next({status:1,data:response.body});
+                  if (response.statusCode == 200) {
+                    return next({status:1,data:response.body});
+                  }
+                  else{
+                    return next({status:0,data:"Server Error"});
+                  }
+                  
     });  
   }
    

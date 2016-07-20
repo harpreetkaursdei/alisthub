@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="stylesheets/timepicker.css" type="text/css" />
 <script src="javascripts/timepicker.js" type="text/javascript"></script>
 <div class="container">
-    <div ng-show="pageloader"><img src="/images/icons/loader.gif"></div>
+    <div ng-show="pageloader"></div>
     <h1>Create an Event</h1>
     <!-- Step Form -->
     <div class="stage-container clearfix">
@@ -147,18 +147,19 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="Zipcode">Zipcode<span class="req">*</span></label>
-                                                    <input type="text" class="form-control" ng-model="data.zipcode" name="zipcode" ng-required='!venue_event_div'>
-                                                    <span style="color:red" ng-show="myForm.zipcode.$dirty && myForm.zipcode.$invalid">  <span  ng-show="myForm.zipcode.$error.required">Zipcode is required</span></span>
+                                                    <label for="City">State<span class="req">*</span></label>
+                                                    <input type="text" class="form-control" ng-model="data.state" name="state" ng-required='!venue_event_div'>
+                                                    <span style="color:red" ng-show="myForm.state.$dirty && myForm.state.$invalid">  <span  ng-show="myForm.state.$error.required">State is required</span></span>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label for="City">State<span class="req">*</span></label>
-                                                    <input type="text" class="form-control" ng-model="data.state" name="state" ng-required='!venue_event_div'>
-                                                    <span style="color:red" ng-show="myForm.state.$dirty && myForm.state.$invalid">  <span  ng-show="myForm.state.$error.required">State is required</span></span>
+                                                    <label for="Zipcode">Zipcode<span class="req">*</span></label>
+                                                    <input type="text" class="form-control" ng-model="data.zipcode" name="zipcode" ng-required='!venue_event_div'>
+                                                    <span style="color:red" ng-show="myForm.zipcode.$dirty && myForm.zipcode.$invalid">  <span  ng-show="myForm.zipcode.$error.required">Zipcode is required</span></span>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">

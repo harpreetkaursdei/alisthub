@@ -8,7 +8,7 @@ Module : Event setting
 angular.module('alisthub').controller('seriesStep4Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad , $http, $stateParams,$state,$anchorScroll) {
 var $serviceTest = $injector.get("event_setting");
 $scope.error_message = true;
-  
+ $rootScope.loader_div = false; 
   /** 
   Method: click_menu
   Description:Function for changing the tab 
@@ -447,6 +447,7 @@ $scope.selected2 = $scope.steps[3];
   $scope.pageloader = true;
   $serviceTest.getSettings($scope.eventSetting, function(response) {
     $scope.pageloader = false;
+    $rootScope.loader_div = true;
     $scope.formdata = response.result[0];
     if($scope.formdata!=undefined){
       $scope.formdata.will_call = parseInt($scope.formdata.will_call);
