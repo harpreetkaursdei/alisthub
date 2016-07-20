@@ -157,13 +157,16 @@ console.log( str );
             "package_id": data.package_id,
             "event_id": data.event_id
         };
-        console.log('input : ', input);
+
         var postData = {
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'X-API-Token': data.showclix_token },
-            url: "http://api.showclix.com/Event",
-            form: input
+            headers: {'Content-Type':'application/json','Pragma':'no-cache','X-API-Token':data.showclix_token},
+            url: "http://api.showclix.com/PackageEventMap",
+            body: input,
+            json: true
         };
 
+        console.log('postData : ', postData);
+       
         request.post(postData, function(error, response, body) {
             return next({ status: 1 });
             /*var str = response.body;
