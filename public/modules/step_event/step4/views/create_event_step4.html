@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="stylesheets/timepicker.css" type="text/css" />
 
 <div class="container">
-  <div ng-show="pageloader"><img src="/images/icons/loader.gif"></div>
+  <div ng-show="pageloader"></div>
     <h1>Create an Event</h1>
     <!-- Step Form -->
     <div class="stage-container clearfix">
@@ -44,7 +44,7 @@
                             <section class="col-sm-12">
                                 <section class="radio-sec">
                                     <section class="radio-inline">
-                                        <input type="radio" name="radio1" id="radio1" ng-model="formdata.print_home" value="1">
+                                        <input type="radio" name="radio1" id="radio1" ng-model="formdata.print_home" value="1" ng-checked="formdata.print_home == 1">
                                         <label for="radio1"><span></span>Always Available</label>
                                     </section>
                                     <section class="radio-inline">
@@ -138,7 +138,7 @@
                         <section class="row">
                             <div class="col-sm-4">
                                     <div class="form-group datepicker" ng-class="{ 'has-error' : eventSettingForm.online_sales_open.$dirty && eventSettingForm.online_sales_open.$invalid }">
-                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.online_sales_open.date" is-open="popup3.opened" datepicker-options="options3" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" name="online_sales_open" required/>
+                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.online_sales_open.date" is-open="popup3.opened" datepicker-options="options3" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" ng-disabled="show_imm==1" name="online_sales_open" required/>
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="open3()"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -147,7 +147,7 @@
                             </div>
                             <div class="col-sm-4">
                               <div class="input-group bootstrap-timepicker timepicker">
-                                <input  ng-model="formdata.online_sales_open.time" ng-change=""  class="form-control input-small timepick" type="text" id="timepicker1"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
+                                <input  ng-model="formdata.online_sales_open.time" ng-change=""  class="form-control input-small timepick" type="text" id="timepicker1" ng-disabled="show_imm==1"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
                               </div>
                             </div>
                         </section>
@@ -496,11 +496,15 @@
                 <!--/Advanced Settings-->
             
                 <div class="editr">
+                   
                     <div class="editor-btn">
-                        <button type="submit" ng-disabled="eventSettingForm.$invalid" class="gray-btn btn">Save</button>
-                        <button type="submit" ng-disabled="eventSettingForm.$invalid" ng-click="goto_list();" class="btn pink-btn">Submit</button>
+                        <button type="submit" ng-disabled="eventSettingForm.$invalid || button==1" class="gray-btn btn">Save</button>
+                        <button type="submit" ng-disabled="eventSettingForm.$invalid || button==1" ng-click="goto_list();" class="btn pink-btn">Submit</button>
                     </div>
                 </div>
+                 <div ng-show="saveloader" align="center">
+                 <img src="/images/icons/loader.gif">
+                 </div>
             </form>
         </div>
     </div>

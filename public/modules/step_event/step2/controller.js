@@ -49,7 +49,6 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
   $rootScope.success_message1 = false;
   $scope.data1 = {};
     
-
   $eventId = $localStorage.eventId;
     
     var event_id = '';
@@ -71,7 +70,7 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
 		$scope.data1.twitter=response.results[0].twitter_url != null?response.results[0].twitter_url:"";
 		$scope.data1.eventwebsite=response.results[0].website_url != null?response.results[0].website_url:"";
     		$scope.data1.eventinventory=response.results[0].inventory;
-        $scope.data1.price = response.results[0].price_type;
+        //$scope.data1.price = response.results[0].price_type;
         $scope.ageDropdown = 0;
         if(response.results[0].define_custom_age == 1) {
           $scope.ageDropdown = 1;
@@ -234,7 +233,7 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
   $scope.data1 = {};
 
   $scope.data1.type_of_event=0;
-  $scope.data1.price=0;
+  //$scope.data1.price=0;
 
 
   // $scope.data1 = {
@@ -1838,7 +1837,7 @@ angular.module('alisthub').controller('PricechangeCtrl', function($scope, $uibMo
   });
   
   // Delete Price Schedule
-  $scope.delete_schedule = function(id, level_id, event_id,schedule_id) {
+  $scope.delete_schedule = function(id, level_id, event_id,schedule_id,index) {
           var data = {};
 	  data.showclix_token     = $localStorage.showclix_token;
           data.showclix_user_id   = $localStorage.showclix_user_id;
@@ -1850,7 +1849,7 @@ angular.module('alisthub').controller('PricechangeCtrl', function($scope, $uibMo
           //console.log(data); return false;
           $serviceTest.delete_level_schedule(data, function(response) {
             if (response.code == 200) {
-              console.log(response);     
+                $scope.schedules.splice(index, 1); 
             }else{
 	      console.log(response);
 	    }
