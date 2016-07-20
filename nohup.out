@@ -9891,3 +9891,2397 @@ npm ERR!     /home/bigdata/public_html/alisthub/npm-debug.log
 > node ./bin/www
 
 connected as id 54413
+
+> alist@0.0.0 start /home/alistticx/alisthub
+> node ./bin/www
+
+connected as id 26179
+
+> alist@0.0.0 start /home/alistticx/alisthub
+> node ./bin/www
+
+connected as id 92498
+[0mGET / [36m304 [0m16.068 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.881 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m2.855 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.711 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m0.233 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.328 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.234 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.318 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.226 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.410 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.217 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.200 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.824 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.775 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.723 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.274 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.582 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m0.192 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.222 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.695 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m0.639 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.303 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.271 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.208 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.184 ms - -[0m
+[0mGET /javascripts/constants.js [36m304 [0m0.261 ms - -[0m
+[0mGET /modules/events/controller.js [36m304 [0m2.896 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m0.654 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m0.225 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.938 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.300 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.975 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.856 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.314 ms - -[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.522 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.299 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.321 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.394 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.206 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.242 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m0.243 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m376.359 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m41.052 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m38.354 ms - 996[0m
+[0mGET /modules/event_series/step4/service.js [36m304 [0m0.520 ms - -[0m
+[0mGET /modules/event_series/step4/controller.js [36m304 [0m0.351 ms - -[0m
+[0mGET /javascripts/bootstrap-timepicker.js [36m304 [0m0.299 ms - -[0m
+[0mGET /modules/event_series/step4/views/create_series_step4.html [36m304 [0m0.280 ms - -[0m
+[0mGET /images/icons/loader.gif [36m304 [0m0.471 ms - -[0m
+[0mGET /stylesheets/timepicker.css [36m304 [0m0.276 ms - -[0m
+[0mGET /javascripts/timepicker.js?_=1468909775377 [32m200 [0m3.264 ms - 336[0m
+[0mPOST /event/getSettings [32m200 [0m2023.136 ms - 24[0m
+[0mGET / [32m200 [0m1.710 ms - 15647[0m
+[0mGET /stylesheets/login.css [32m200 [0m2.177 ms - 3133[0m
+[0mGET /stylesheets/style.css [32m200 [0m2.173 ms - 38228[0m
+[0mGET /stylesheets/media.css [32m200 [0m0.635 ms - 1976[0m
+[0mGET /stylesheets/ng-table.css [32m200 [0m0.452 ms - 3400[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.443 ms - 9242[0m
+[0mGET /preview_template/assets/css/event.css [32m200 [0m0.527 ms - 282[0m
+[0mGET /stylesheets/angular-tooltips.css [32m200 [0m0.356 ms - 4208[0m
+[0mGET /stylesheets/autocomplete.css [32m200 [0m0.477 ms - 2264[0m
+[0mGET /stylesheets/angucomplete.css [32m200 [0m0.497 ms - 1439[0m
+[0mGET /images/favicon.ico [36m304 [0m0.402 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [32m200 [0m0.496 ms - 108057[0m
+[0mGET /stylesheets/animate.css [32m200 [0m0.507 ms - 75601[0m
+[0mGET /javascripts/angucomplete.js [32m200 [0m1.014 ms - 10600[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [32m200 [0m2.490 ms - 828[0m
+[0mGET /javascripts/ocLazyLoad.js [32m200 [0m2.432 ms - 58637[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m2.694 ms - 84380[0m
+[0mGET /javascripts/ng-table.js [32m200 [0m2.477 ms - 57077[0m
+[0mGET /javascripts/ngStorage.min.js [32m200 [0m2.548 ms - 2276[0m
+[0mGET /javascripts/autocomplete.js [32m200 [0m2.659 ms - 19156[0m
+[0mGET /javascripts/angular-re-captcha.js [32m200 [0m0.731 ms - 3756[0m
+[0mGET /javascripts/angular-ui-router.js [32m200 [0m1.550 ms - 30445[0m
+[0mGET /javascripts/angular-tooltips.js [32m200 [0m0.446 ms - 28050[0m
+[0mGET /javascripts/angular-csv-import.js [32m200 [0m0.957 ms - 3263[0m
+[0mGET /javascripts/communication.js [32m200 [0m1.203 ms - 4379[0m
+[0mGET /javascripts/constants.js [32m200 [0m0.771 ms - 25352[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.850 ms - 13404[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [32m200 [0m0.442 ms - 36489[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [32m200 [0m1.433 ms - 7261[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [32m200 [0m0.463 ms - 4148[0m
+[0mGET /javascripts/tinycolor-min.js [32m200 [0m0.405 ms - 19269[0m
+[0mGET /javascripts/app.js [32m200 [0m1.371 ms - 97714[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [32m200 [0m1.290 ms - 5035[0m
+[0mGET /javascripts/angularjs-color-picker.js [32m200 [0m0.371 ms - 31863[0m
+[0mGET /javascripts/angular-chart.min.js [32m200 [0m0.513 ms - 6038[0m
+[0mGET /javascripts/angular-min.js [32m200 [0m2.492 ms - 148496[0m
+[0mGET /javascripts/Chart.min.js [32m200 [0m0.341 ms - 139378[0m
+[0mGET /images/user.jpg [32m200 [0m0.421 ms - 3002[0m
+[0mGET /images/f-facebook.png [32m200 [0m0.474 ms - 2764[0m
+[0mGET /images/logo.png [32m200 [0m1.209 ms - 16692[0m
+[0mGET /images/arrow-wt.png [32m200 [0m0.515 ms - 988[0m
+[0mGET /modules/events/service.js [32m200 [0m0.590 ms - 5623[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.605 ms - 13404[0m
+[0mGET /modules/events/views/dashboard.html [32m200 [0m0.660 ms - 18935[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getUpcommingEvent [32m200 [0m88.237 ms - 1289[0m
+[0mPOST /event/getPastEvent [32m200 [0m144.488 ms - 1597[0m
+[0mPOST /event/getEventSeries [32m200 [0m209.706 ms - 345[0m
+[0mPOST /event/getEvents [32m200 [0m275.687 ms - 41496[0m
+[0mGET /ng-table/filters/start_date.html [32m200 [0m0.522 ms - -[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [32m200 [0m0.377 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m433.407 ms - 24952[0m
+[0mGET /images/icons/loader.gif [32m200 [0m0.734 ms - 2608[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mGET /modules/authentication/showclix_services.js [36m304 [0m0.637 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m161.251 ms - 24952[0m
+[0mGET /images/favicon.ico [36m304 [0m0.308 ms - -[0m
+[0mGET /modules/authentication/controller.js [36m304 [0m0.270 ms - -[0m
+[0mGET /modules/authentication/views/login.html [36m304 [0m0.276 ms - -[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getUpcommingEvent [32m200 [0m55.246 ms - 1289[0m
+[0mPOST /event/getPastEvent [32m200 [0m107.412 ms - 1597[0m
+[0mPOST /report/getSalesData [32m200 [0m141.737 ms - 24952[0m
+[0mPOST /event/getEventSeries [32m200 [0m160.717 ms - 345[0m
+[0mPOST /event/getEvents [32m200 [0m221.301 ms - 41496[0m
+[0mGET /images/favicon.ico [36m304 [0m0.264 ms - -[0m
+[0mGET /images/logo-l.png [32m200 [0m0.547 ms - 12431[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m349.449 ms - 24952[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m348.695 ms - 24952[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m358.874 ms - 24952[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m204.420 ms - 24952[0m
+[0mGET /modules/step_event/service.js [36m304 [0m0.756 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.869 ms - -[0m
+[0mGET /javascripts/bootstrap-timepicker.js [36m304 [0m0.240 ms - -[0m
+[0mGET /modules/step_event/controller.js [36m304 [0m0.238 ms - -[0m
+[0mGET /modules/step_event/views/create_event_step1.html [36m304 [0m0.339 ms - -[0m
+[0mGET /stylesheets/timepicker.css [36m304 [0m0.361 ms - -[0m
+[0mGET /javascripts/timepicker.js?_=1468911059614 [32m200 [0m0.603 ms - 336[0m
+[0mPOST /event/getEvent [32m200 [0m139.162 ms - 3011[0m
+[0mPOST /event_setting/venueListing [32m200 [0m256.884 ms - 63000[0m
+---------3-------
+---------6-------
+[0mPOST /event/saveEvent [32m200 [0m377.467 ms - 28[0m
+[0mGET /modules/step_event/step2/controller.js [36m304 [0m0.886 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m1.592 ms - -[0m
+[0mGET /modules/step_event/step2/views/create_event_step2.html [36m304 [0m0.283 ms - -[0m
+[0mPOST /event/getEvent [32m200 [0m110.009 ms - 3011[0m
+[0mPOST /event_setting/getBundles [32m200 [0m193.310 ms - 428[0m
+[0mPOST /event_setting/getEventProducts [32m200 [0m242.210 ms - 24[0m
+[0mPOST /event/getPricelevel [32m200 [0m310.974 ms - 547[0m
+[0mPOST /event/getEventCategory [32m200 [0m376.125 ms - 142[0m
+[0mPOST /event/getEventsdetail [32m200 [0m430.448 ms - 150[0m
+[0mPOST /event/getEventsdetail [32m200 [0m476.667 ms - 912[0m
+[0mPOST /event/saveInventory [32m200 [0m56.272 ms - 190[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getUpcommingEvent [32m200 [0m55.210 ms - 1289[0m
+[0mPOST /event/getEventSeries [32m200 [0m104.785 ms - 345[0m
+[0mPOST /event/getPastEvent [32m200 [0m160.922 ms - 1597[0m
+[0mPOST /event/getEvents [32m200 [0m222.230 ms - 41496[0m
+[0mGET /images/favicon.ico [36m304 [0m0.297 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m391.730 ms - 24952[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m39.147 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m37.742 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m74.252 ms - 996[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mGET /images/icons/loader.gif [36m304 [0m0.351 ms - -[0m
+[0mPOST /event/getPastEvent [32m200 [0m58.135 ms - 5353[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m112.843 ms - 7498[0m
+[0mGET /images/favicon.ico [36m304 [0m0.330 ms - -[0m
+[0mPOST /event/getEvents [32m200 [0m220.108 ms - 55277[0m
+[0mPOST /report/getSalesData [32m200 [0m365.331 ms - 24952[0m
+[0mPOST /event/getEventSeries [32m200 [0m266.225 ms - 578[0m
+[0mGET /images/events/%7B%7Bdata.image_1%7D%7D [33m404 [0m14.917 ms - 996[0m
+[0mGET /javascripts/timepicker.js?_=1468909235156 [32m200 [0m0.400 ms - 336[0m
+[0mGET /images/favicon.ico [36m304 [0m0.262 ms - -[0m
+query  SELECT * FROM `event_category` order by id asc
+[0mPOST /package/getEventCategoriesList [32m200 [0m108.815 ms - 1094[0m
+[0mPOST /package/getPackage [32m200 [0m172.073 ms - 2055[0m
+query  SELECT id, title, event_address , city FROM `events` where id in (2512,2512)
+[0mPOST /package/viewSelectedEvents [32m200 [0m76.990 ms - 108[0m
+[0mGET /images/events/132_image_1468583183494.jpg [36m304 [0m0.326 ms - -[0m
+[0mGET /images/events/%7B%7Bdata.image_1%7D%7D [33m404 [0m13.110 ms - 996[0m
+[0mGET /javascripts/timepicker.js?_=1468909235157 [32m200 [0m0.577 ms - 336[0m
+[0mGET /images/favicon.ico [36m304 [0m0.283 ms - -[0m
+query  SELECT * FROM `event_category` order by id asc
+[0mPOST /package/getEventCategoriesList [32m200 [0m108.753 ms - 1094[0m
+[0mPOST /package/getPackage [32m200 [0m165.112 ms - 1380[0m
+query  SELECT id, title, event_address , city FROM `events` where id in (2512,2512)
+[0mPOST /package/viewSelectedEvents [32m200 [0m55.897 ms - 108[0m
+[0mGET /images/events/132_image_1468909363941.jpg [32m200 [0m0.410 ms - 150906[0m
+[0mGET /images/icons/loader.gif [36m304 [0m0.261 ms - -[0m
+[0mGET /javascripts/timepicker.js?_=1468909235158 [32m200 [0m0.415 ms - 336[0m
+[0mGET /images/favicon.ico [36m304 [0m0.485 ms - -[0m
+req.body { eventsInPackage: 
+   [ { event_id: 2512, title: 'India vs West Indies 1st Test' },
+     { event_id: 2512, title: 'India vs West Indies 1st Test' } ],
+  package_id: '63',
+  user_id: '132' }
+req.body.eventsInPackage ,  [ { event_id: 2512, title: 'India vs West Indies 1st Test' },
+  { event_id: 2512, title: 'India vs West Indies 1st Test' } ]
+[0mPOST /package/getProductsInPackage [31m500 [0m13.051 ms - 1213[0m
+[0mPOST /package/getBundlesInPackage [32m200 [0m92.829 ms - 25[0m
+[0mPOST /package/getEventsInPackage [32m200 [0m146.576 ms - 140[0m
+[0mPOST /package/getPackage [32m200 [0m217.672 ms - 1380[0m
+[0mGET /javascripts/timepicker.js?_=1468909235159 [32m200 [0m2.088 ms - 336[0m
+[0mGET /images/favicon.ico [36m304 [0m0.711 ms - -[0m
+[0mPOST /package/getPackage [32m200 [0m109.569 ms - 1380[0m
+[0mGET /modules/authentication/showclix_services.js [36m304 [0m1.317 ms - -[0m
+[0mGET /modules/authentication/controller.js [36m304 [0m0.311 ms - -[0m
+[0mGET /modules/authentication/views/login.html [36m304 [0m0.302 ms - -[0m
+[0mGET /images/logo-l.png [36m304 [0m0.401 ms - -[0m
+[0mGET /images/bg.jpg [36m304 [0m0.252 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.338 ms - -[0m
+req.body before  { id: '63',
+  showclix_package_id: 4216578,
+  showclix_user: 28676,
+  showclix_seller: 22876,
+  showclix_url: 'http://api.showclix.com/Event/4216578',
+  user_id: '132',
+  package_name: 'sports package',
+  package_description: '<p>Enjoy sports package</p>\n',
+  online_sales_open_time: '1:00 PM',
+  online_sales_open_date_time: '2016-07-20T07:30:00.000Z',
+  immidiately: 0,
+  online_sales_close_time: '1:00 PM',
+  online_sales_close_date_time: '2016-07-28T07:30:00.000Z',
+  event_type: 1,
+  category: '12',
+  ages: 21,
+  custom_age: 0,
+  website: 'http://eventusa.com/green-bay-packers-ticket-packages/',
+  image: '132_image_1468909363941.jpg',
+  display_image_in_listing: 1,
+  price_type: 1,
+  print_home: '2',
+  print_enable_date: '2016-07-20T12:30:00.000Z',
+  print_disable_date: '2016-07-21T12:30:00.000Z',
+  print_description: 'Delivery Methods\nPrint at Home',
+  will_call: '2',
+  will_call_enable_date: '2016-07-22T12:30:00.000Z',
+  will_call_disable_date: '2016-07-23T12:30:00.000Z',
+  will_call_description: 'Will Call description',
+  donation: 1,
+  donation_name: 'Donation organization name',
+  custom_fee: 1,
+  custom_fee_name: 'custom fee name',
+  custom_fee_type: '2',
+  custom_fee_amount: '10',
+  custom_when: '2',
+  online_service_fee: '10',
+  box_office_service_fee: '10',
+  ticket_note: 'this is the ticket note10',
+  ticket_transaction_limit: 10,
+  checkout_time_limit: '600',
+  collect_name: 1,
+  private_event: 1,
+  show_seating_chart: 0,
+  url_short_name: 'sports-package',
+  created: '2016-07-19T06:22:43.000Z',
+  favorite_package: 0,
+  modified: '2016-07-19T01:23:39.000Z',
+  event_id: 4216578,
+  sales_immediatly: null,
+  short_name: 'sports-package',
+  online_sales_open: { date: null, time: null },
+  online_sales_close: { time: null },
+  showclix_token: '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5',
+  showclix_seller_id: '22876' }
+fields  [ 'print_home',
+  'print_enable_date',
+  'print_disable_date',
+  'print_description',
+  'will_call',
+  'will_call_enable_date',
+  'will_call_disable_date',
+  'will_call_description',
+  'donation',
+  'donation_name',
+  'custom_fee',
+  'custom_fee_name',
+  'custom_fee_type',
+  'custom_fee_amount',
+  'custom_when',
+  'online_service_fee',
+  'box_office_service_fee',
+  'ticket_note',
+  'ticket_transaction_limit',
+  'checkout_time_limit',
+  'collect_name',
+  'private_event',
+  'show_seating_chart',
+  'url_short_name' ]
+fieldsData   `print_home` = '2',  `print_enable_date` = '2016-07-20T12:30:00.000Z',  `print_disable_date` = '2016-07-21T12:30:00.000Z',  `print_description` = 'Delivery Methods
+Print at Home',  `will_call` = '2',  `will_call_enable_date` = '2016-07-22T12:30:00.000Z',  `will_call_disable_date` = '2016-07-23T12:30:00.000Z',  `will_call_description` = 'Will Call description',  `donation` = '1',  `donation_name` = 'Donation organization name',  `custom_fee` = '1',  `custom_fee_name` = 'custom fee name',  `custom_fee_type` = '2',  `custom_fee_amount` = '10',  `custom_when` = '2',  `online_service_fee` = '10',  `box_office_service_fee` = '10',  `ticket_note` = 'this is the ticket note10',  `ticket_transaction_limit` = '10',  `checkout_time_limit` = '600',  `collect_name` = '1',  `private_event` = '1',  `show_seating_chart` = '0',  `url_short_name` = 'sports-package', 
+------------------********postThirdStepPackageData  UPDATE *******--------------------
+{ method: 'PUT',
+  headers: 
+   { 'Content-Type': 'application/json',
+     Pragma: 'no-cache',
+     'X-API-Token': '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5' },
+  url: 'http://api.showclix.com/Event/4216578',
+  body: 
+   { user_id: 28676,
+     seller_id: 22876,
+     event_id: 4216578,
+     will_call_ticketing: '2',
+     delivery_type_2: '2',
+     description_2: 'Delivery Methods\nPrint at Home',
+     donation_live: 'y',
+     donation_name: 'Donation organization name',
+     custom_buyer_fee: 1,
+     ticket_note: 'this is the ticket note10',
+     ticket_purchase_limit: 10,
+     ticket_purchase_timelimit: '600',
+     private_event: 1,
+     date_edited: '2016-07-19 06:55:05',
+     status: 3 },
+  json: true }
+ i m here
+---------------------------response comming here--------------
+ PACKAGE UPDATED AND PACKAGE ID SENT
+-----------------------
+showclix_package_id  4216578
+query UPDATE `event_package` SET  `print_home` = '2',  `print_enable_date` = '2016-07-20T12:30:00.000Z',  `print_disable_date` = '2016-07-21T12:30:00.000Z',  `print_description` = 'Delivery Methods
+Print at Home',  `will_call` = '2',  `will_call_enable_date` = '2016-07-22T12:30:00.000Z',  `will_call_disable_date` = '2016-07-23T12:30:00.000Z',  `will_call_description` = 'Will Call description',  `donation` = '1',  `donation_name` = 'Donation organization name',  `custom_fee` = '1',  `custom_fee_name` = 'custom fee name',  `custom_fee_type` = '2',  `custom_fee_amount` = '10',  `custom_when` = '2',  `online_service_fee` = '10',  `box_office_service_fee` = '10',  `ticket_note` = 'this is the ticket note10',  `ticket_transaction_limit` = '10',  `checkout_time_limit` = '600',  `collect_name` = '1',  `private_event` = '1',  `show_seating_chart` = '0',  `url_short_name` = 'sports-package',  `modified` = '2016-07-19 06:55:05' WHERE id=63
+[0mPOST /package/postThirdStepPackageData [32m200 [0m368.497 ms - 190[0m
+req.body before  { id: '63',
+  showclix_package_id: 4216578,
+  showclix_user: 28676,
+  showclix_seller: 22876,
+  showclix_url: 'http://api.showclix.com/Event/4216578',
+  user_id: '132',
+  package_name: 'sports package',
+  package_description: '<p>Enjoy sports package</p>\n',
+  online_sales_open_time: '1:00 PM',
+  online_sales_open_date_time: '2016-07-20T07:30:00.000Z',
+  immidiately: 0,
+  online_sales_close_time: '1:00 PM',
+  online_sales_close_date_time: '2016-07-28T07:30:00.000Z',
+  event_type: 1,
+  category: '12',
+  ages: 21,
+  custom_age: 0,
+  website: 'http://eventusa.com/green-bay-packers-ticket-packages/',
+  image: '132_image_1468909363941.jpg',
+  display_image_in_listing: 1,
+  price_type: 1,
+  print_home: '2',
+  print_enable_date: '2016-07-20T12:30:00.000Z',
+  print_disable_date: '2016-07-21T12:30:00.000Z',
+  print_description: 'Delivery Methods\nPrint at Home',
+  will_call: '2',
+  will_call_enable_date: '2016-07-22T12:30:00.000Z',
+  will_call_disable_date: '2016-07-23T12:30:00.000Z',
+  will_call_description: 'Will Call description',
+  donation: 1,
+  donation_name: 'Donation organization name',
+  custom_fee: 1,
+  custom_fee_name: 'custom fee name',
+  custom_fee_type: '2',
+  custom_fee_amount: '10',
+  custom_when: '2',
+  online_service_fee: '10',
+  box_office_service_fee: '10',
+  ticket_note: 'this is the ticket note10',
+  ticket_transaction_limit: 10,
+  checkout_time_limit: '600',
+  collect_name: 1,
+  private_event: 1,
+  show_seating_chart: 0,
+  url_short_name: 'sports-package',
+  created: '2016-07-19T06:22:43.000Z',
+  favorite_package: 0,
+  modified: '2016-07-19T01:23:39.000Z',
+  event_id: 4216578,
+  sales_immediatly: null,
+  short_name: 'sports-package',
+  online_sales_open: { date: null, time: null },
+  online_sales_close: { time: null },
+  showclix_token: '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5',
+  showclix_seller_id: '22876' }
+fields  [ 'print_home',
+  'print_enable_date',
+  'print_disable_date',
+  'print_description',
+  'will_call',
+  'will_call_enable_date',
+  'will_call_disable_date',
+  'will_call_description',
+  'donation',
+  'donation_name',
+  'custom_fee',
+  'custom_fee_name',
+  'custom_fee_type',
+  'custom_fee_amount',
+  'custom_when',
+  'online_service_fee',
+  'box_office_service_fee',
+  'ticket_note',
+  'ticket_transaction_limit',
+  'checkout_time_limit',
+  'collect_name',
+  'private_event',
+  'show_seating_chart',
+  'url_short_name' ]
+fieldsData   `print_home` = '2',  `print_enable_date` = '2016-07-20T12:30:00.000Z',  `print_disable_date` = '2016-07-21T12:30:00.000Z',  `print_description` = 'Delivery Methods
+Print at Home',  `will_call` = '2',  `will_call_enable_date` = '2016-07-22T12:30:00.000Z',  `will_call_disable_date` = '2016-07-23T12:30:00.000Z',  `will_call_description` = 'Will Call description',  `donation` = '1',  `donation_name` = 'Donation organization name',  `custom_fee` = '1',  `custom_fee_name` = 'custom fee name',  `custom_fee_type` = '2',  `custom_fee_amount` = '10',  `custom_when` = '2',  `online_service_fee` = '10',  `box_office_service_fee` = '10',  `ticket_note` = 'this is the ticket note10',  `ticket_transaction_limit` = '10',  `checkout_time_limit` = '600',  `collect_name` = '1',  `private_event` = '1',  `show_seating_chart` = '0',  `url_short_name` = 'sports-package', 
+------------------********postThirdStepPackageData  UPDATE *******--------------------
+{ method: 'PUT',
+  headers: 
+   { 'Content-Type': 'application/json',
+     Pragma: 'no-cache',
+     'X-API-Token': '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5' },
+  url: 'http://api.showclix.com/Event/4216578',
+  body: 
+   { user_id: 28676,
+     seller_id: 22876,
+     event_id: 4216578,
+     will_call_ticketing: '2',
+     delivery_type_2: '2',
+     description_2: 'Delivery Methods\nPrint at Home',
+     donation_live: 'y',
+     donation_name: 'Donation organization name',
+     custom_buyer_fee: 1,
+     ticket_note: 'this is the ticket note10',
+     ticket_purchase_limit: 10,
+     ticket_purchase_timelimit: '600',
+     private_event: 1,
+     date_edited: '2016-07-19 06:55:16',
+     status: 3 },
+  json: true }
+ i m here
+---------------------------response comming here--------------
+ PACKAGE UPDATED AND PACKAGE ID SENT
+-----------------------
+showclix_package_id  4216578
+query UPDATE `event_package` SET  `print_home` = '2',  `print_enable_date` = '2016-07-20T12:30:00.000Z',  `print_disable_date` = '2016-07-21T12:30:00.000Z',  `print_description` = 'Delivery Methods
+Print at Home',  `will_call` = '2',  `will_call_enable_date` = '2016-07-22T12:30:00.000Z',  `will_call_disable_date` = '2016-07-23T12:30:00.000Z',  `will_call_description` = 'Will Call description',  `donation` = '1',  `donation_name` = 'Donation organization name',  `custom_fee` = '1',  `custom_fee_name` = 'custom fee name',  `custom_fee_type` = '2',  `custom_fee_amount` = '10',  `custom_when` = '2',  `online_service_fee` = '10',  `box_office_service_fee` = '10',  `ticket_note` = 'this is the ticket note10',  `ticket_transaction_limit` = '10',  `checkout_time_limit` = '600',  `collect_name` = '1',  `private_event` = '1',  `show_seating_chart` = '0',  `url_short_name` = 'sports-package',  `modified` = '2016-07-19 06:55:16' WHERE id=63
+[0mPOST /package/postThirdStepPackageData [32m200 [0m290.135 ms - 190[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m108.909 ms - 55277[0m
+[0mPOST /event/getPastEvent [32m200 [0m157.783 ms - 5353[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m211.349 ms - 7498[0m
+[0mGET /images/icons/event-single.png [36m304 [0m2.179 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m376.911 ms - 24952[0m
+[0mPOST /event/getEventSeries [32m200 [0m54.100 ms - 578[0m
+[0mGET /images/icons/event-series.png [36m304 [0m0.218 ms - -[0m
+[0mGET /images/icons/dollar.png [36m304 [0m0.606 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.233 ms - -[0m
+[0mGET / [36m304 [0m0.257 ms - -[0m
+[0mGET / [36m304 [0m0.343 ms - -[0m
+[0mGET / [36m304 [0m0.226 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.249 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.695 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m0.215 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.166 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.366 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.242 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.273 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.180 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.169 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.217 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.166 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.167 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.295 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.169 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.194 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.166 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.167 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m0.166 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.223 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.219 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m0.168 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.172 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.187 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.176 ms - -[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.482 ms - 13404[0m
+[0mGET /javascripts/constants.js [36m304 [0m0.242 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m0.196 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m0.173 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.178 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.210 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.278 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.215 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.214 ms - -[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.177 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.197 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.279 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.219 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.393 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.440 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m0.194 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m21.002 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.762 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m19.342 ms - 996[0m
+[0mGET /modules/events/service.js [36m304 [0m0.287 ms - -[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.237 ms - -[0m
+[0mGET /modules/events/views/create_an_event.html [36m304 [0m0.240 ms - -[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mGET /images/icons/event-single.png [36m304 [0m0.239 ms - -[0m
+[0mPOST /event/getEvents [32m200 [0m109.882 ms - 55277[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m158.499 ms - 7498[0m
+[0mPOST /event/getPastEvent [32m200 [0m210.510 ms - 5353[0m
+[0mPOST /event/getEventSeries [32m200 [0m258.193 ms - 578[0m
+[0mGET /images/icons/event-series.png [36m304 [0m0.310 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m349.395 ms - 24952[0m
+[0mGET /images/icons/dollar.png [36m304 [0m0.263 ms - -[0m
+[0mGET / [36m304 [0m0.562 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.233 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.216 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m0.167 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.162 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.166 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.173 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.326 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.168 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.192 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.356 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.341 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.156 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.235 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.312 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.169 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.295 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m0.212 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.216 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.241 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.184 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m0.168 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.171 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.170 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.172 ms - -[0m
+[0mGET /javascripts/constants.js [36m304 [0m7.103 ms - -[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.188 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m0.165 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m0.162 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.172 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.162 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.284 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.196 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.166 ms - -[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.188 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.167 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.163 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.230 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.164 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.163 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m0.169 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.533 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m15.139 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m6.059 ms - 996[0m
+[0mGET /modules/events/service.js [36m304 [0m0.272 ms - -[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.900 ms - -[0m
+[0mGET /modules/events/views/create_an_event.html [36m304 [0m0.232 ms - -[0m
+[0mGET /images/icons/event-series.png [36m304 [0m0.264 ms - -[0m
+[0mGET /images/icons/event-single.png [36m304 [0m0.165 ms - -[0m
+[0mGET /images/icons/dollar.png [36m304 [0m0.157 ms - -[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m109.991 ms - 55277[0m
+[0mPOST /report/getSalesData [32m200 [0m143.951 ms - 24952[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m161.750 ms - 7498[0m
+[0mPOST /event/getPastEvent [32m200 [0m55.546 ms - 5353[0m
+[0mPOST /event/getEventSeries [32m200 [0m94.265 ms - 578[0m
+[0mGET /modules/event_package/service.js [36m304 [0m0.292 ms - -[0m
+[0mGET /modules/event_setting/service.js [36m304 [0m0.253 ms - -[0m
+[0mGET /javascripts/bootstrap-timepicker.js [36m304 [0m0.239 ms - -[0m
+[0mGET /modules/event_package/step1/controller.js [36m304 [0m0.267 ms - -[0m
+[0mGET /modules/event_package/step1/views/event_package_step_1.html [36m304 [0m29.318 ms - -[0m
+[0mGET /images/events/%7B%7Bdata.image_1%7D%7D [33m404 [0m42.013 ms - 996[0m
+[0mGET /javascripts/timepicker.js?_=1468911781087 [32m200 [0m0.724 ms - 336[0m
+[0mGET /stylesheets/timepicker.css [36m304 [0m0.186 ms - -[0m
+query  SELECT * FROM `event_category` order by id asc
+[0mPOST /package/getEventCategoriesList [32m200 [0m54.676 ms - 1094[0m
+[0mGET /images/favicon.ico [36m304 [0m0.239 ms - -[0m
+Select e.id,e.showclix_id , e.user_id, e.title, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id where e.user_id = 132
+[0mPOST /event_setting/viewEvents [32m200 [0m112.081 ms - 33598[0m
+[0mGET /images/icons/loader.gif [36m304 [0m1.061 ms - -[0m
+[0mPOST /profile/showclix_login [32m200 [0m439.181 ms - 1783[0m
+[0mGET /modules/events/service.js [36m304 [0m0.867 ms - -[0m
+[0mGET /modules/events/controller.js [32m200 [0m9.917 ms - 13404[0m
+[0mGET /modules/events/views/dashboard.html [32m200 [0m0.993 ms - 18935[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m117.404 ms - 47251[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m170.000 ms - 1464[0m
+[0mPOST /event/getPastEvent [32m200 [0m226.640 ms - 1824[0m
+[0mPOST /event/getEventSeries [32m200 [0m56.008 ms - 121[0m
+[0mPOST /report/getSalesData [32m200 [0m400.191 ms - 24952[0m
+[0mGET /ng-table/filters/start_date.html [36m304 [0m0.870 ms - -[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [36m304 [0m0.680 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.217 ms - -[0m
+[0mGET /modules/step_event/step3/service.js [36m304 [0m0.680 ms - -[0m
+[0mGET /modules/step_event/service.js [36m304 [0m1.278 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.364 ms - -[0m
+[0mGET /modules/step_event/step3/controller.js [36m304 [0m0.404 ms - -[0m
+[0mGET /modules/step_event/step3/views/create_event_step3.html [36m304 [0m0.285 ms - -[0m
+[0mGET /%7B%7Bticket_image%7D%7D [33m404 [0m45.593 ms - 996[0m
+[0mGET /%7B%7Bbanner_image%7D%7D [33m404 [0m27.100 ms - 996[0m
+[0mGET /%7B%7Btemplate.image%7D%7D [33m404 [0m63.021 ms - 996[0m
+[0mGET /%7B%7Bsection3_image%7D%7D [33m404 [0m74.274 ms - 996[0m
+[0mGET /%7B%7Bbanner_image1%7D%7D [33m404 [0m13.925 ms - 996[0m
+[0mGET /%7B%7Bsite_url%7D%7D/images/bg/bg.png [33m404 [0m17.021 ms - 996[0m
+[0mGET /javascripts/ckeditor.js?_=1468909775379 [32m200 [0m0.575 ms - 565313[0m
+[0mPOST /event/getEvent [32m200 [0m125.691 ms - 5220[0m
+[0mPOST /event/getlookAndFeeltemplate [32m200 [0m173.882 ms - 2875[0m
+[0mGET /images/img/f-img.jpg [32m200 [0m0.535 ms - 12803[0m
+[0mGET /images/img/s-img.jpg [32m200 [0m1.253 ms - 21813[0m
+[0mGET /images/img/f-img-o.jpg [36m304 [0m0.219 ms - -[0m
+[0mGET /images/img/s-img-o.jpg [36m304 [0m0.219 ms - -[0m
+[0mGET /images/ticket.png [36m304 [0m0.193 ms - -[0m
+[0mGET /images/bg/bg.png [36m304 [0m0.201 ms - -[0m
+[0mGET /images/templates-1.jpg [36m304 [0m0.293 ms - -[0m
+[0mPOST /event/getTemplate [32m200 [0m55.651 ms - 2750[0m
+[0mGET / [36m304 [0m0.341 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.278 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.187 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m0.248 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.189 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.168 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.175 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.717 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.494 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.243 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.490 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.470 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.182 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.238 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.174 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.165 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.177 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m0.364 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.343 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.750 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.378 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.180 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.174 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.408 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m0.398 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.238 ms - -[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.179 ms - -[0m
+[0mGET /javascripts/constants.js [36m304 [0m0.159 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.161 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m0.332 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m0.314 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.161 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.159 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.229 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.163 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.167 ms - -[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.517 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m1.462 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m1.914 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.344 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m0.319 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m12.001 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m23.052 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m41.347 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m49.482 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m57.629 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m74.793 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m82.063 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m86.888 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.698 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.747 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.749 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m5.990 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m11.676 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.076 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.504 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m15.898 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m19.434 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m22.855 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m26.445 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m29.246 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m32.911 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m37.114 ms - 996[0m
+[0mGET /modules/events/service.js [36m304 [0m0.488 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.507 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.026 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.602 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.834 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.267 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.654 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.649 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.345 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.894 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.449 ms - 996[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.490 ms - -[0m
+[0mGET /modules/events/views/dashboard.html [36m304 [0m0.613 ms - -[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m371.204 ms - 24952[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.518 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.879 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.426 ms - 996[0m
+[0mGET /images/icons/loader.gif [36m304 [0m0.388 ms - -[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.558 ms - 996[0m
+[0mPOST /event/getEvents [32m200 [0m60.307 ms - 41496[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m94.464 ms - 1289[0m
+[0mPOST /event/getPastEvent [32m200 [0m85.537 ms - 1597[0m
+[0mPOST /event/getEventSeries [32m200 [0m134.597 ms - 345[0m
+[0mGET /ng-table/filters/start_date.html [32m200 [0m0.502 ms - -[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [32m200 [0m0.325 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.895 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.063 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.223 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.911 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.079 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.755 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.452 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m16.483 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.875 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.954 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.230 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.943 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.353 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.334 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.363 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.603 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.459 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.018 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.995 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.685 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.774 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.199 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.280 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.154 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.697 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.959 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.500 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.080 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.286 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.112 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m13.919 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m19.240 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m27.067 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m33.742 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.108 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.767 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.288 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.412 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.586 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.023 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.408 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.134 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.221 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.699 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.451 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m11.744 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.676 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.413 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.984 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m14.278 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m20.126 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.069 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.988 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.953 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.848 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.928 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.094 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.260 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.889 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.256 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.579 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.921 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.924 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.974 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.917 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.316 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.196 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.398 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.422 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.806 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.880 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.811 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.096 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m16.760 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.408 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.020 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.332 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.088 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.986 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.116 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.885 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.831 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.126 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.041 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.743 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.870 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.039 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.497 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.348 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.653 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.036 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.948 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.641 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.215 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.614 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.907 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.788 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.207 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.894 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.121 ms - 1108[0m
+[0mGET / [36m304 [0m0.367 ms - -[0m
+------------------******** INSERT *******--------------------
+{ user_id: '28676',
+  seller_id: '22876',
+  event: 'Dance academy',
+  behavior_set: '5',
+  description: '<p>Test event</p>\n',
+  private_event: '0',
+  inventory: 10,
+  ages: '18',
+  image: '',
+  event_category_id: '23',
+  date_added: '2016-07-19 07:03:07',
+  date_edited: '2016-07-19 07:03:07',
+  event_start: '2016-09-30 03:30:30',
+  sales_open: '2016-07-18 19:30:00',
+  sales_close: '02:00',
+  event_end: '2016-10-31 21:00:00',
+  short_name: 'dance-academy',
+  image_url: '',
+  thumbnail_url: '',
+  status: 1,
+  event_type: '3',
+  venue_id: '34657',
+  display_image: 0 }
+{ headers: 
+   { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+     'X-API-Token': '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5' },
+  url: 'http://api.showclix.com/Event',
+  form: 
+   { user_id: '28676',
+     seller_id: '22876',
+     event: 'Dance academy',
+     behavior_set: '5',
+     description: '<p>Test event</p>\n',
+     private_event: '0',
+     inventory: 10,
+     ages: '18',
+     image: '',
+     event_category_id: '23',
+     date_added: '2016-07-19 07:03:07',
+     date_edited: '2016-07-19 07:03:07',
+     event_start: '2016-09-30 03:30:30',
+     sales_open: '2016-07-18 19:30:00',
+     sales_close: '02:00',
+     event_end: '2016-10-31 21:00:00',
+     short_name: 'dance-academy',
+     image_url: '',
+     thumbnail_url: '',
+     status: 1,
+     event_type: '3',
+     venue_id: '34657',
+     display_image: 0 } }
+Response from showclix api ,  { status: 1,
+  operation: 'add_package',
+  location: 'http://api.showclix.com/Event/4216580' }
+-------------------------
+query
+INSERT INTO `event_package` SET  `package_name` = 'Dance academy',  `package_description` = '<p>Test event</p>
+',  `online_sales_open_time` = '1:00 AM',  `online_sales_open_date_time` = '2016-07-18 19:30:00',  `immidiately` = '0',  `online_sales_close_time` = '12:45 PM',  `online_sales_close_date_time` = '2016-07-22 07:15:00',  `event_type` = '1',  `category` = '23',  `ages` = '18',  `custom_age` = '',  `website` = 'http://www.londonlaunch.com',  `image` = '',  `display_image_in_listing` = '0',  user_id = 132 ,  `showclix_package_id` = 4216580  ,  `showclix_user` = 28676 ,  `showclix_seller` = 22876  ,  `showclix_url` = 'http://api.showclix.com/Event/4216580' ,  `created` = '2016-07-19 07:03:07' , `url_short_name` = 'dance-academy'
+-------------------------
+last added package_id for our local database :  64
+-------------------------
+req.body.event_ids [ 2535, 2307 ]
+ -------------------------
+chhosen showclix id of event : 4214812
+input :  { package_id: '4216580', event_id: 4214812 }
+ -------------------------
+chhosen showclix id of event : 0
+input :  { package_id: '4216580', event_id: 0 }
+[0mPOST /package/stepOneEventPackage [32m200 [0m342.183 ms - 24[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.442 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.171 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.465 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.350 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m0.252 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.171 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.243 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.165 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.182 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.167 ms - -[0m
+ ------------******* sdata1******------------------
+{ status: 1 }
+--------------------
+INSERT INTO package_event_map ( event_id , package_id ) VALUES ( 2307 , 64)
+ ------------******* sdata1******------------------
+{ status: 1 }
+--------------------
+INSERT INTO package_event_map ( event_id , package_id ) VALUES ( 2307 , 64)
+[0mGET /images/favicon.ico [36m304 [0m0.309 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.857 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.191 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.184 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.451 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.655 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.898 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m1.206 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.748 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.796 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.350 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.525 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.183 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m0.214 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.243 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.528 ms - -[0m
+[0mGET /javascripts/constants.js [36m304 [0m0.544 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.165 ms - -[0m
+[0mGET /modules/events/controller.js [32m200 [0m3.581 ms - 13510[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m3.360 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m1.028 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.285 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.172 ms - -[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.211 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.610 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.695 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.731 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.176 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.547 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m0.376 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.904 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.548 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.187 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m17.871 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m22.951 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m28.504 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.223 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.966 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.607 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.150 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.473 ms - 1108[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m6.897 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m60.975 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m35.016 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m63.100 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m72.123 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m82.852 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m91.543 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m103.870 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m111.097 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m123.080 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.805 ms - 1108[0m
+[0mGET /modules/events/service.js [36m304 [0m0.333 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.810 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.210 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.609 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.644 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.082 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.054 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.683 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.306 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.087 ms - 1108[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.231 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.449 ms - 1108[0m
+[0mGET /modules/events/views/dashboard.html [32m200 [0m0.725 ms - 18914[0m
+{ start_date: '2016:03:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m67.078 ms - 41496[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m109.050 ms - 1289[0m
+[0mPOST /event/getPastEvent [32m200 [0m160.980 ms - 1597[0m
+[0mPOST /event/getEventSeries [32m200 [0m212.896 ms - 345[0m
+[0mPOST /report/getSalesData [32m200 [0m355.429 ms - 24[0m
+[0mGET /images/icons/loader.gif [36m304 [0m0.451 ms - -[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m11.651 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.097 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.005 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m14.440 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m18.259 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m24.953 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m28.430 ms - 1108[0m
+[0mGET /ng-table/filters/start_date.html [32m200 [0m0.532 ms - -[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [32m200 [0m0.466 ms - -[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.253 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.880 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m15.195 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m20.747 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.374 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.836 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m13.893 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.034 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.398 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.643 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.321 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.609 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.147 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.340 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.747 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.749 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.061 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.646 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.669 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.071 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.006 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.780 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.002 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.196 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.238 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.676 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.868 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.630 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.183 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.995 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.693 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.363 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.056 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.407 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.432 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.666 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.562 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.172 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m11.407 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.415 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.583 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.518 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.778 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.769 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.388 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.493 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.310 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.890 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.073 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.764 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.923 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.252 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.036 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.140 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.445 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.028 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.476 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.383 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.113 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.872 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.266 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.786 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.874 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.169 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.126 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.119 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.115 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.300 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.352 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.067 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.369 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.528 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.972 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.345 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.762 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.797 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.952 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.955 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m2.940 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.223 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.438 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.989 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.897 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.484 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.826 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.577 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.680 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.116 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.469 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.960 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.257 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.751 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.328 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.879 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.237 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.519 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.832 ms - 1108[0m
+{ start_date: '2016:03:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m335.261 ms - 24[0m
+[0mGET /modules/event_package/step2/controller.js [36m304 [0m0.397 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.645 ms - -[0m
+[0mGET /modules/event_package/step2/views/event_package_step_2.html [36m304 [0m0.290 ms - -[0m
+[0mGET /images/icons/loader.gif [36m304 [0m0.247 ms - -[0m
+[0mGET /javascripts/timepicker.js?_=1468911781088 [32m200 [0m0.962 ms - 336[0m
+req.body { package_id: '64', user_id: '132' }
+req.body.eventsInPackage ,  undefined
+sql select ep.*, p.product_name from event_products ep LEFT JOIN products p ON ep.product_id = p.id where  ep.seller_id =132 AND ep.package_id =64 ORDER BY created DESC
+[0mPOST /package/getEventsInPackage [32m200 [0m116.921 ms - 102[0m
+[0mPOST /package/getBundlesInPackage [32m200 [0m166.862 ms - 25[0m
+[0mPOST /package/getProductsInPackage [32m200 [0m233.408 ms - 25[0m
+[0mPOST /package/getPackage [32m200 [0m309.833 ms - 1315[0m
+[0mGET / [32m200 [0m2.054 ms - 15647[0m
+[0mGET /stylesheets/style.css [32m200 [0m1.386 ms - 38228[0m
+[0mGET /stylesheets/login.css [32m200 [0m0.695 ms - 3133[0m
+[0mGET /stylesheets/media.css [32m200 [0m0.662 ms - 1976[0m
+[0mGET /stylesheets/ng-table.css [32m200 [0m2.381 ms - 3400[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.529 ms - 9242[0m
+[0mGET /stylesheets/angular-tooltips.css [32m200 [0m1.059 ms - 4208[0m
+[0mGET /preview_template/assets/css/event.css [32m200 [0m1.063 ms - 282[0m
+[0mGET /stylesheets/autocomplete.css [32m200 [0m0.444 ms - 2264[0m
+[0mGET /stylesheets/angucomplete.css [32m200 [0m0.454 ms - 1439[0m
+[0mGET /images/favicon.ico [36m304 [0m0.570 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [32m200 [0m0.494 ms - 108057[0m
+[0mGET /stylesheets/animate.css [32m200 [0m3.543 ms - 75601[0m
+[0mGET /javascripts/ngStorage.min.js [32m200 [0m1.915 ms - 2276[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m1.909 ms - 84380[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [32m200 [0m1.815 ms - 828[0m
+[0mGET /javascripts/angucomplete.js [32m200 [0m1.822 ms - 10600[0m
+[0mGET /javascripts/autocomplete.js [32m200 [0m2.029 ms - 19156[0m
+[0mGET /javascripts/ocLazyLoad.js [32m200 [0m1.510 ms - 58637[0m
+[0mGET /javascripts/angular-ui-router.js [32m200 [0m0.429 ms - 30445[0m
+[0mGET /javascripts/angular-re-captcha.js [32m200 [0m0.439 ms - 3756[0m
+[0mGET /javascripts/ng-table.js [32m200 [0m2.230 ms - 57077[0m
+[0mGET /javascripts/communication.js [32m200 [0m2.206 ms - 4379[0m
+[0mGET /javascripts/angular-csv-import.js [32m200 [0m1.429 ms - 3263[0m
+[0mGET /javascripts/angular-tooltips.js [32m200 [0m0.442 ms - 28050[0m
+[0mGET /javascripts/angular-min.js [32m200 [0m0.886 ms - 148496[0m
+[0mGET /javascripts/app.js [32m200 [0m1.750 ms - 97714[0m
+[0mGET /javascripts/constants.js [32m200 [0m0.590 ms - 25352[0m
+[0mGET /modules/events/controller.js [32m200 [0m2.060 ms - 13522[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [32m200 [0m0.610 ms - 36489[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [32m200 [0m0.578 ms - 7261[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [32m200 [0m0.734 ms - 4148[0m
+[0mGET /javascripts/tinycolor-min.js [32m200 [0m0.460 ms - 19269[0m
+[0mGET /javascripts/angularjs-color-picker.js [32m200 [0m0.653 ms - 31863[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [32m200 [0m0.544 ms - 5035[0m
+[0mGET /javascripts/angular-chart.min.js [32m200 [0m38.352 ms - 6038[0m
+[0mGET /javascripts/Chart.min.js [32m200 [0m0.464 ms - 139378[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m42.335 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m22.863 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m58.235 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m74.572 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m88.394 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m96.038 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m111.100 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m124.322 ms - 996[0m
+[0mGET /images/user.jpg [32m200 [0m1.120 ms - 3002[0m
+[0mGET /images/logo.png [32m200 [0m1.164 ms - 16692[0m
+[0mGET /images/f-facebook.png [32m200 [0m1.210 ms - 2764[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m16.468 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.441 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m11.971 ms - 996[0m
+[0mGET /images/arrow-wt.png [32m200 [0m0.548 ms - 988[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m9.248 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m12.016 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.709 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m16.284 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m31.804 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m36.602 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m42.131 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m49.377 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m60.529 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m70.809 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m74.267 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m78.681 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.603 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.330 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.492 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.497 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.329 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m12.376 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m15.662 ms - 996[0m
+[0mGET /modules/events/service.js [32m200 [0m0.798 ms - 5623[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.875 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.586 ms - 996[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.398 ms - -[0m
+[0mGET /modules/events/views/dashboard.html [36m304 [0m0.321 ms - -[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m73.038 ms - 41496[0m
+[0mPOST /event/getPastEvent [32m200 [0m127.101 ms - 1597[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m182.994 ms - 1289[0m
+[0mPOST /event/getEventSeries [32m200 [0m235.854 ms - 345[0m
+[0mPOST /report/getSalesData [32m200 [0m437.642 ms - 24952[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.354 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m14.603 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m21.232 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.711 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m15.225 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m22.011 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m27.284 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m33.024 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m38.431 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m44.033 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m49.411 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m57.430 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.999 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.252 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m16.508 ms - 996[0m
+[0mGET /ng-table/filters/start_date.html [32m200 [0m0.615 ms - -[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [32m200 [0m0.560 ms - -[0m
+[0mGET /images/icons/loader.gif [32m200 [0m0.420 ms - 2608[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.081 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m18.191 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.481 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.792 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.643 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.811 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.358 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.949 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.401 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.386 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.334 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.484 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.439 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m15.650 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.436 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.011 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.429 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.455 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.843 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.663 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.994 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.600 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.201 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m11.123 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.370 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.340 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.425 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.342 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.951 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.506 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.243 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.054 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.479 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.277 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.929 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.251 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.328 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.379 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.373 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.911 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.431 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.324 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.133 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.698 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.414 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.883 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.921 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.820 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.832 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.870 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.751 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.660 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.184 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.020 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.660 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.456 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m18.261 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.563 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.297 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.613 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.333 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.113 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.060 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m18.402 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m24.897 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m35.717 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m42.969 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m49.820 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m57.023 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.167 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.906 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m20.793 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m27.574 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m34.672 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m41.582 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m48.259 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m55.029 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m61.707 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.154 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.371 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.192 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.026 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.995 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m14.443 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.319 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m19.837 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m27.753 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.009 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.885 ms - 1108[0m
+[0mPOST /package/postSecondStepPackageData [32m200 [0m58.972 ms - 190[0m
+{ start_date: '2016:02:13 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m356.480 ms - 24[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mGET /modules/event_package/step3/controller.js [36m304 [0m0.414 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.267 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m345.028 ms - 24952[0m
+[0mGET /modules/event_package/step3/views/event_package_step_3.html [36m304 [0m0.409 ms - -[0m
+[0mGET /javascripts/timepicker.js?_=1468911781089 [32m200 [0m0.758 ms - 336[0m
+[0mPOST /package/getPackage [32m200 [0m110.968 ms - 1315[0m
+{ start_date: '2016:02:19 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m332.124 ms - 24[0m
+[0mGET / [36m304 [0m0.419 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m16.575 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m3.805 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m1.823 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m1.715 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m1.655 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.633 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m1.621 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m1.608 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m1.606 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m1.613 ms - -[0m
+[0mGET /javascripts/jquery.min.js [0m- [0m- ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.184 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.534 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m1.226 ms - -[0m
+[0mGET /modules/events/controller.js [0m- [0m- ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.167 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.159 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.228 ms - -[0m
+[0mGET / [36m304 [0m0.259 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.240 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.153 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.152 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m0.149 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.150 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.168 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.226 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.159 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.214 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.815 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.174 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.242 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.233 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.166 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.161 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.158 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.156 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.159 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.297 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m0.164 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.166 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.162 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m0.689 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.183 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.251 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.172 ms - -[0m
+[0mGET /javascripts/constants.js [36m304 [0m0.172 ms - -[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.496 ms - 13530[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m0.182 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m0.166 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.254 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.163 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.165 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.164 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.212 ms - -[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.237 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.184 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.198 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.166 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m0.173 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m29.849 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m30.675 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m64.457 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m79.937 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m92.033 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m99.584 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m14.076 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.705 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.205 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.724 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m11.225 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m7.532 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.293 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.940 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m13.013 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.832 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m15.343 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.767 ms - 996[0m
+[0mGET /modules/events/service.js [36m304 [0m0.284 ms - -[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.973 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.960 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.927 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.092 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.598 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.838 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.353 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.645 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.506 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.191 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.535 ms - 996[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.277 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.745 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.169 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.951 ms - 996[0m
+[0mGET /modules/events/views/dashboard.html [32m200 [0m0.561 ms - 18926[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m62.850 ms - 41496[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m109.723 ms - 1289[0m
+[0mPOST /event/getEventSeries [32m200 [0m149.042 ms - 345[0m
+[0mPOST /event/getPastEvent [32m200 [0m197.426 ms - 1597[0m
+[0mPOST /report/getSalesData [32m200 [0m392.242 ms - 24952[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.619 ms - 996[0m
+[0mGET /images/icons/loader.gif [36m304 [0m0.254 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.592 ms - 996[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [32m200 [0m0.601 ms - -[0m
+[0mGET /ng-table/filters/start_date.html [32m200 [0m0.422 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.040 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.711 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.282 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.309 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.265 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.961 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.463 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.479 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.167 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.400 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.037 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.454 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.780 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.059 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m14.390 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m23.653 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m13.737 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m27.330 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.470 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.307 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.332 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.830 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.308 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.707 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m15.233 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.474 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.872 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.108 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.370 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.693 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.952 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m14.930 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.141 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.501 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.586 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.389 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.551 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.846 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.084 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.410 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.442 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.413 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.851 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.231 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.646 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.906 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.991 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.346 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.851 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.334 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.525 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.931 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.192 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.933 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.292 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.719 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.522 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.574 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.708 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.718 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.468 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.127 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.738 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.592 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.716 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.788 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.215 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.991 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.336 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.818 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.664 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.002 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.326 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.541 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.377 ms - 996[0m
+{ start_date: '2016:02:13 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.578 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.723 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.130 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.910 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.257 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.437 ms - 996[0m
+[0mPOST /report/getSalesData [32m200 [0m340.377 ms - 24[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.368 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.377 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.166 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.629 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.138 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.633 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.947 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.087 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.599 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.350 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.922 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m13.049 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.314 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.273 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.631 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m28.350 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.156 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.457 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.309 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.348 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.392 ms - 1108[0m
+{ start_date: '2016:02:19 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m362.920 ms - 24[0m
+[0mGET / [36m304 [0m0.277 ms - -[0m
+[0mGET / [36m304 [0m1.124 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.346 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.233 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m0.227 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.472 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.465 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.229 ms - -[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.838 ms - 13528[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.359 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.238 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.206 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.245 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.535 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.505 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.257 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.226 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.233 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m3.318 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.510 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.263 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.254 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.283 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.178 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.368 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.329 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.155 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.309 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.247 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.477 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.483 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.547 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.247 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.255 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.256 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.259 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.256 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.377 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m0.254 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.259 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.234 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m0.215 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.248 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m0.249 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.221 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.246 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.258 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.227 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.240 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m1.045 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.256 ms - -[0m
+[0mGET /javascripts/constants.js [36m304 [0m0.249 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m0.267 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.338 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m0.276 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.244 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.227 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.860 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.257 ms - -[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.241 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.247 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.248 ms - -[0m
+[0mGET /javascripts/constants.js [36m304 [0m0.241 ms - -[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.540 ms - 13528[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.248 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m0.214 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m0.214 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.269 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.309 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.211 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.214 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.263 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.216 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.175 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.501 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.447 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m0.280 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.064 ms - 1108[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.327 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.223 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.237 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.219 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m1.850 ms - -[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.609 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.523 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.151 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.231 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.415 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m12.172 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.770 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.186 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.775 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.674 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.565 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.671 ms - 1108[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m7.605 ms - 1108[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m5.112 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.039 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m9.967 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m17.748 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m23.018 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m28.762 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m33.783 ms - 1108[0m
+[0mGET /modules/events/service.js [36m304 [0m0.328 ms - -[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.050 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.765 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.133 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.636 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.574 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.558 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.405 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.891 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.320 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.165 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.653 ms - 1108[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.295 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.495 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.493 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.967 ms - 1108[0m
+[0mGET /modules/events/views/dashboard.html [36m304 [0m0.213 ms - -[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m59.343 ms - 41496[0m
+[0mPOST /event/getPastEvent [32m200 [0m112.193 ms - 1597[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m166.576 ms - 1289[0m
+[0mPOST /event/getEventSeries [32m200 [0m214.816 ms - 345[0m
+[0mGET /images/icons/loader.gif [36m304 [0m0.265 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m405.316 ms - 24952[0m
+[0mGET /ng-table/filters/start_date.html [32m200 [0m0.523 ms - -[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [32m200 [0m0.530 ms - -[0m
+{ start_date: '2016:02:19 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m336.648 ms - 24[0m
+{ start_date: '2016:02:13 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m125.010 ms - 24[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m371.373 ms - 24952[0m
+req.body before  { id: '64',
+  showclix_package_id: 4216580,
+  showclix_user: 28676,
+  showclix_seller: 22876,
+  showclix_url: 'http://api.showclix.com/Event/4216580',
+  user_id: '132',
+  package_name: 'Dance academy',
+  package_description: '<p>Test event</p>\n',
+  online_sales_open_time: '1:00 AM',
+  online_sales_open_date_time: '2016-07-18T19:30:00.000Z',
+  immidiately: 0,
+  online_sales_close_time: '12:45 PM',
+  online_sales_close_date_time: '2016-07-22T07:15:00.000Z',
+  event_type: 1,
+  category: '23',
+  ages: 18,
+  custom_age: 0,
+  website: 'http://www.londonlaunch.com',
+  image: '',
+  display_image_in_listing: 0,
+  price_type: 0,
+  print_home: '1',
+  print_enable_date: { date: null, time: null },
+  print_disable_date: { date: null, time: null },
+  print_description: null,
+  will_call: '1',
+  will_call_enable_date: { date: null, time: null },
+  will_call_disable_date: { date: null, time: null },
+  will_call_description: '',
+  donation: 1,
+  donation_name: 'test',
+  custom_fee: 0,
+  custom_fee_name: null,
+  custom_fee_type: null,
+  custom_fee_amount: null,
+  custom_when: null,
+  online_service_fee: '10',
+  box_office_service_fee: '10',
+  ticket_note: 'this is the ticket note',
+  ticket_transaction_limit: 2,
+  checkout_time_limit: '300',
+  collect_name: 1,
+  private_event: 1,
+  show_seating_chart: 0,
+  url_short_name: 'dance-academy',
+  created: '2016-07-19T07:03:07.000Z',
+  favorite_package: 0,
+  modified: '2016-07-19T02:03:51.000Z',
+  event_id: 4216580,
+  sales_immediatly: null,
+  short_name: 'dance-academy',
+  online_sales_open: { date: null, time: null },
+  online_sales_close: { time: null },
+  showclix_token: '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5',
+  showclix_seller_id: '22876' }
+fields  [ 'print_home',
+  'print_enable_date',
+  'print_disable_date',
+  'print_description',
+  'will_call',
+  'will_call_enable_date',
+  'will_call_disable_date',
+  'will_call_description',
+  'donation',
+  'donation_name',
+  'custom_fee',
+  'custom_fee_name',
+  'custom_fee_type',
+  'custom_fee_amount',
+  'custom_when',
+  'online_service_fee',
+  'box_office_service_fee',
+  'ticket_note',
+  'ticket_transaction_limit',
+  'checkout_time_limit',
+  'collect_name',
+  'private_event',
+  'show_seating_chart',
+  'url_short_name' ]
+fieldsData   `print_home` = '1',  `print_enable_date` = '[object Object]',  `print_disable_date` = '[object Object]',  `print_description` = '',  `will_call` = '1',  `will_call_enable_date` = '[object Object]',  `will_call_disable_date` = '[object Object]',  `will_call_description` = '',  `donation` = '1',  `donation_name` = 'test',  `custom_fee` = '0',  `custom_fee_name` = '',  `custom_fee_type` = '',  `custom_fee_amount` = '',  `custom_when` = '',  `online_service_fee` = '10',  `box_office_service_fee` = '10',  `ticket_note` = 'this is the ticket note',  `ticket_transaction_limit` = '2',  `checkout_time_limit` = '300',  `collect_name` = '1',  `private_event` = '1',  `show_seating_chart` = '0',  `url_short_name` = 'dance-academy', 
+------------------********postThirdStepPackageData  UPDATE *******--------------------
+{ method: 'PUT',
+  headers: 
+   { 'Content-Type': 'application/json',
+     Pragma: 'no-cache',
+     'X-API-Token': '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5' },
+  url: 'http://api.showclix.com/Event/4216580',
+  body: 
+   { user_id: 28676,
+     seller_id: 22876,
+     event_id: 4216580,
+     will_call_ticketing: '1',
+     delivery_type_2: '1',
+     description_2: '',
+     donation_live: 'y',
+     donation_name: 'test',
+     custom_buyer_fee: 0,
+     ticket_note: 'this is the ticket note',
+     ticket_purchase_limit: 2,
+     ticket_purchase_timelimit: '300',
+     private_event: 1,
+     date_edited: '2016-07-19 07:08:24',
+     status: 3 },
+  json: true }
+ i m here
+---------------------------response comming here--------------
+ PACKAGE UPDATED AND PACKAGE ID SENT
+-----------------------
+showclix_package_id  4216580
+query UPDATE `event_package` SET  `print_home` = '1',  `print_enable_date` = '[object Object]',  `print_disable_date` = '[object Object]',  `print_description` = '',  `will_call` = '1',  `will_call_enable_date` = '[object Object]',  `will_call_disable_date` = '[object Object]',  `will_call_description` = '',  `donation` = '1',  `donation_name` = 'test',  `custom_fee` = '0',  `custom_fee_name` = '',  `custom_fee_type` = '',  `custom_fee_amount` = '',  `custom_when` = '',  `online_service_fee` = '10',  `box_office_service_fee` = '10',  `ticket_note` = 'this is the ticket note',  `ticket_transaction_limit` = '2',  `checkout_time_limit` = '300',  `collect_name` = '1',  `private_event` = '1',  `show_seating_chart` = '0',  `url_short_name` = 'dance-academy',  `modified` = '2016-07-19 07:08:24' WHERE id=64
+[0mGET /images/favicon.ico [36m304 [0m0.407 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.343 ms - -[0m
+[0mGET /%7B%7Bsite_url%7D%7D/images/bg/bg.png [33m404 [0m6.800 ms - 1108[0m
+[0mGET /%7B%7Bticket_image%7D%7D [33m404 [0m10.830 ms - 1108[0m
+[0mGET /%7B%7Bbanner_image%7D%7D [33m404 [0m5.610 ms - 1108[0m
+[0mGET /%7B%7Btemplate.image%7D%7D [33m404 [0m12.594 ms - 1108[0m
+[0mGET /%7B%7Bbanner_image1%7D%7D [33m404 [0m16.739 ms - 1108[0m
+[0mGET /%7B%7Bsection3_image%7D%7D [33m404 [0m20.677 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m6.463 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m12.649 ms - 1108[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m6.062 ms - 1108[0m
+[0mPOST /package/postThirdStepPackageData [32m200 [0m33136.094 ms - 193[0m
+[0mGET /javascripts/ckeditor.js?_=1468912412015 [32m200 [0m0.401 ms - 565313[0m
+[0mPOST /event/getlookAndFeeltemplate [32m200 [0m55.057 ms - 2875[0m
+[0mPOST /event/getEvent [32m200 [0m155.322 ms - 5220[0m
+[0mGET /%7B%7Btemplate.image%7D%7D [33m404 [0m6.689 ms - 1108[0m
+req.body before  { id: '64',
+  showclix_package_id: 4216580,
+  showclix_user: 28676,
+  showclix_seller: 22876,
+  showclix_url: 'http://api.showclix.com/Event/4216580',
+  user_id: '132',
+  package_name: 'Dance academy',
+  package_description: '<p>Test event</p>\n',
+  online_sales_open_time: '1:00 AM',
+  online_sales_open_date_time: '2016-07-18T19:30:00.000Z',
+  immidiately: 0,
+  online_sales_close_time: '12:45 PM',
+  online_sales_close_date_time: '2016-07-22T07:15:00.000Z',
+  event_type: 1,
+  category: '23',
+  ages: 18,
+  custom_age: 0,
+  website: 'http://www.londonlaunch.com',
+  image: '',
+  display_image_in_listing: 0,
+  price_type: 0,
+  print_home: '1',
+  print_enable_date: { date: null, time: null },
+  print_disable_date: { date: null, time: null },
+  print_description: null,
+  will_call: '1',
+  will_call_enable_date: { date: null, time: null },
+  will_call_disable_date: { date: null, time: null },
+  will_call_description: '',
+  donation: 1,
+  donation_name: 'test',
+  custom_fee: 0,
+  custom_fee_name: null,
+  custom_fee_type: null,
+  custom_fee_amount: null,
+  custom_when: null,
+  online_service_fee: '10',
+  box_office_service_fee: '10',
+  ticket_note: 'this is the ticket note',
+  ticket_transaction_limit: 2,
+  checkout_time_limit: '300',
+  collect_name: 1,
+  private_event: 1,
+  show_seating_chart: 0,
+  url_short_name: 'dance-academy',
+  created: '2016-07-19T07:03:07.000Z',
+  favorite_package: 0,
+  modified: '2016-07-19T02:03:51.000Z',
+  event_id: 4216580,
+  sales_immediatly: null,
+  short_name: 'dance-academy',
+  online_sales_open: { date: null, time: null },
+  online_sales_close: { time: null },
+  showclix_token: '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5',
+  showclix_seller_id: '22876' }
+fields  [ 'print_home',
+  'print_enable_date',
+  'print_disable_date',
+  'print_description',
+  'will_call',
+  'will_call_enable_date',
+  'will_call_disable_date',
+  'will_call_description',
+  'donation',
+  'donation_name',
+  'custom_fee',
+  'custom_fee_name',
+  'custom_fee_type',
+  'custom_fee_amount',
+  'custom_when',
+  'online_service_fee',
+  'box_office_service_fee',
+  'ticket_note',
+  'ticket_transaction_limit',
+  'checkout_time_limit',
+  'collect_name',
+  'private_event',
+  'show_seating_chart',
+  'url_short_name' ]
+fieldsData   `print_home` = '1',  `print_enable_date` = '[object Object]',  `print_disable_date` = '[object Object]',  `print_description` = '',  `will_call` = '1',  `will_call_enable_date` = '[object Object]',  `will_call_disable_date` = '[object Object]',  `will_call_description` = '',  `donation` = '1',  `donation_name` = 'test',  `custom_fee` = '0',  `custom_fee_name` = '',  `custom_fee_type` = '',  `custom_fee_amount` = '',  `custom_when` = '',  `online_service_fee` = '10',  `box_office_service_fee` = '10',  `ticket_note` = 'this is the ticket note',  `ticket_transaction_limit` = '2',  `checkout_time_limit` = '300',  `collect_name` = '1',  `private_event` = '1',  `show_seating_chart` = '0',  `url_short_name` = 'dance-academy', 
+------------------********postThirdStepPackageData  UPDATE *******--------------------
+{ method: 'PUT',
+  headers: 
+   { 'Content-Type': 'application/json',
+     Pragma: 'no-cache',
+     'X-API-Token': '3f89471ef8e7c2861067f5f682e9a752fa583a73b97a16df39be3b254faad3e5' },
+  url: 'http://api.showclix.com/Event/4216580',
+  body: 
+   { user_id: 28676,
+     seller_id: 22876,
+     event_id: 4216580,
+     will_call_ticketing: '1',
+     delivery_type_2: '1',
+     description_2: '',
+     donation_live: 'y',
+     donation_name: 'test',
+     custom_buyer_fee: 0,
+     ticket_note: 'this is the ticket note',
+     ticket_purchase_limit: 2,
+     ticket_purchase_timelimit: '300',
+     private_event: 1,
+     date_edited: '2016-07-19 07:09:10',
+     status: 3 },
+  json: true }
+ i m here
+---------------------------response comming here--------------
+ PACKAGE UPDATED AND PACKAGE ID SENT
+-----------------------
+showclix_package_id  4216580
+query UPDATE `event_package` SET  `print_home` = '1',  `print_enable_date` = '[object Object]',  `print_disable_date` = '[object Object]',  `print_description` = '',  `will_call` = '1',  `will_call_enable_date` = '[object Object]',  `will_call_disable_date` = '[object Object]',  `will_call_description` = '',  `donation` = '1',  `donation_name` = 'test',  `custom_fee` = '0',  `custom_fee_name` = '',  `custom_fee_type` = '',  `custom_fee_amount` = '',  `custom_when` = '',  `online_service_fee` = '10',  `box_office_service_fee` = '10',  `ticket_note` = 'this is the ticket note',  `ticket_transaction_limit` = '2',  `checkout_time_limit` = '300',  `collect_name` = '1',  `private_event` = '1',  `show_seating_chart` = '0',  `url_short_name` = 'dance-academy',  `modified` = '2016-07-19 07:09:10' WHERE id=64
+[0mGET /modules/events/views/dashboard.html [32m200 [0m0.727 ms - 18926[0m
+[0mGET /images/favicon.ico [36m304 [0m0.223 ms - -[0m
+[0mGET /images/icons/loader.gif [36m304 [0m0.232 ms - -[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m369.236 ms - 24952[0m
+[0mGET /ng-table/filters/start_date.html [36m304 [0m0.268 ms - -[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [36m304 [0m0.230 ms - -[0m
+[0mGET /modules/events/allevent_controller.js [36m304 [0m0.243 ms - -[0m
+[0mGET /modules/events/views/view_all_event.html [32m200 [0m0.457 ms - 10378[0m
+{}
+SELECT events.id, events.title, events.showclix_id,events.recurring_or_not, events.sub_title, events.image_name, events.start_date, events.end_date, events.event_location, events.city, events.event_address, events.website_url, events.description, events.short_description FROM events LEFT JOIN event_dates ON events.id = event_dates.event_id where events.parent_id IS NULL and events.user_id=132 ORDER BY events.id DESC
+[0mGET /images/favicon.ico [36m304 [0m0.235 ms - -[0m
+[0mPOST /package/postThirdStepPackageData [32m200 [0m21192.730 ms - 190[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m19303.730 ms - 7498[0m
+[0mPOST /event/getPastEvent [32m200 [0m19355.071 ms - 5353[0m
+[0mPOST /event/getEvents [32m200 [0m19463.426 ms - 55277[0m
+[0mPOST /event/getEventSeries [32m200 [0m19198.247 ms - 578[0m
+Fail
+[0mPOST /event/getAllEvent [32m200 [0m13313.308 ms - 13320[0m
+[0mPOST /event/getTemplate [32m200 [0m10209.972 ms - 2750[0m
+[0mGET / [32m200 [0m0.431 ms - 15647[0m
+[0mGET /stylesheets/login.css [32m200 [0m0.411 ms - 3133[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.434 ms - 38228[0m
+[0mGET /stylesheets/ng-table.css [32m200 [0m0.400 ms - 3400[0m
+[0mGET /stylesheets/media.css [32m200 [0m0.346 ms - 1976[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.326 ms - 9242[0m
+[0mGET /stylesheets/angular-tooltips.css [32m200 [0m0.412 ms - 4208[0m
+[0mGET /stylesheets/autocomplete.css [32m200 [0m0.713 ms - 2264[0m
+[0mGET /preview_template/assets/css/event.css [32m200 [0m0.759 ms - 282[0m
+[0mGET /stylesheets/angucomplete.css [32m200 [0m0.323 ms - 1439[0m
+[0mGET /images/favicon.ico [36m304 [0m0.202 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [32m200 [0m2.092 ms - 108057[0m
+[0mGET /stylesheets/animate.css [32m200 [0m0.431 ms - 75601[0m
+[0mGET /javascripts/ngStorage.min.js [32m200 [0m0.402 ms - 2276[0m
+[0mGET /javascripts/angucomplete.js [32m200 [0m0.944 ms - 10600[0m
+[0mGET /javascripts/ocLazyLoad.js [32m200 [0m0.925 ms - 58637[0m
+[0mGET /javascripts/ng-table.js [32m200 [0m0.395 ms - 57077[0m
+[0mGET /javascripts/angular-re-captcha.js [32m200 [0m0.635 ms - 3756[0m
+[0mGET /javascripts/autocomplete.js [32m200 [0m0.602 ms - 19156[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [32m200 [0m0.300 ms - 828[0m
+[0mGET /javascripts/angular-ui-router.js [32m200 [0m0.604 ms - 30445[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m0.316 ms - 84380[0m
+[0mGET /javascripts/angular-min.js [32m200 [0m0.955 ms - 148496[0m
+[0mGET /javascripts/angular-tooltips.js [32m200 [0m0.406 ms - 28050[0m
+[0mGET /javascripts/angular-csv-import.js [32m200 [0m0.304 ms - 3263[0m
+[0mGET /javascripts/communication.js [32m200 [0m0.316 ms - 4379[0m
+[0mGET /javascripts/constants.js [32m200 [0m0.325 ms - 25352[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.414 ms - 13528[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [32m200 [0m0.409 ms - 36489[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [32m200 [0m0.419 ms - 7261[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [32m200 [0m0.393 ms - 4148[0m
+[0mGET /javascripts/app.js [32m200 [0m0.297 ms - 97714[0m
+[0mGET /javascripts/tinycolor-min.js [32m200 [0m0.402 ms - 19269[0m
+[0mGET /javascripts/angularjs-color-picker.js [32m200 [0m0.412 ms - 31863[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [32m200 [0m0.386 ms - 5035[0m
+[0mGET /javascripts/Chart.min.js [32m200 [0m0.465 ms - 139378[0m
+[0mGET /javascripts/angular-chart.min.js [32m200 [0m0.417 ms - 6038[0m
+[0mGET /images/user.jpg [32m200 [0m1.859 ms - 3002[0m
+[0mGET /images/logo.png [32m200 [0m0.827 ms - 16692[0m
+[0mGET /images/f-facebook.png [32m200 [0m0.332 ms - 2764[0m
+[0mGET /images/arrow-wt.png [32m200 [0m3.446 ms - 988[0m
+[0mGET /modules/events/service.js [32m200 [0m0.403 ms - 5623[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.427 ms - 13528[0m
+[0mGET /modules/events/views/dashboard.html [32m200 [0m0.429 ms - 18937[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m60.692 ms - 41496[0m
+[0mPOST /event/getEventSeries [32m200 [0m109.008 ms - 345[0m
+[0mPOST /event/getPastEvent [32m200 [0m161.388 ms - 1597[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m207.793 ms - 1289[0m
+[0mGET /ng-table/filters/start_date.html [32m200 [0m0.428 ms - -[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [32m200 [0m1.239 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m419.011 ms - 24952[0m
+[0mGET /images/icons/loader.gif [32m200 [0m0.423 ms - 2608[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.247 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.453 ms - 1108[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m7.202 ms - 1108[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.243 ms - 1108[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.466 ms - 1108[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m6.185 ms - 1108[0m
+{ start_date: '2016:02:13 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m391.397 ms - 24[0m
+{ start_date: '2016:02:19 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m333.743 ms - 24[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m144.022 ms - 24952[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_user_id: '28676',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m110.386 ms - 55277[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m55.905 ms - 7498[0m
+[0mPOST /event/getPastEvent [32m200 [0m99.984 ms - 5353[0m
+[0mPOST /event/getEventSeries [32m200 [0m69.362 ms - 578[0m
+[0mPOST /report/getSalesData [32m200 [0m402.397 ms - 24952[0m
+[0mGET /images/favicon.ico [36m304 [0m0.230 ms - -[0m
+[0mGET /images/events/%7B%7Bdata.image_1%7D%7D [33m404 [0m4.936 ms - 1108[0m
+[0mGET /javascripts/timepicker.js?_=1468911781090 [32m200 [0m0.478 ms - 336[0m
+[0mGET /images/favicon.ico [36m304 [0m0.281 ms - -[0m
+query  SELECT * FROM `event_category` order by id asc
+[0mPOST /package/getEventCategoriesList [32m200 [0m55.453 ms - 1094[0m
+[0mPOST /package/getPackage [32m200 [0m179.730 ms - 2055[0m
+query  SELECT id, title, event_address , city FROM `events` where id in (2512,2512)
+[0mPOST /package/viewSelectedEvents [32m200 [0m56.168 ms - 108[0m
+[0mGET /images/events/132_image_1468583183494.jpg [36m304 [0m0.195 ms - -[0m
+[0mGET /images/events/%7B%7Bdata.image_1%7D%7D [33m404 [0m4.294 ms - 1108[0m
+[0mGET /javascripts/timepicker.js?_=1468911781091 [32m200 [0m0.344 ms - 336[0m
+[0mGET /images/favicon.ico [36m304 [0m0.197 ms - -[0m
+query  SELECT * FROM `event_category` order by id asc
+[0mPOST /package/getEventCategoriesList [32m200 [0m54.287 ms - 1094[0m
+[0mPOST /package/getPackage [32m200 [0m160.755 ms - 1570[0m
+query  SELECT id, title, event_address , city FROM `events` where id in (2512,2512)
+[0mPOST /package/viewSelectedEvents [32m200 [0m54.216 ms - 108[0m
+[0mGET /images/events/132_image_1468909363941.jpg [36m304 [0m0.215 ms - -[0m
+{ start_date: '2016:02:13 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m396.923 ms - 24[0m
+{ start_date: '2016:02:19 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /report/getSalesData [32m200 [0m352.890 ms - 24[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mGET /modules/authentication/showclix_services.js [36m304 [0m0.271 ms - -[0m
+[0mPOST /report/getSalesData [32m200 [0m344.161 ms - 24952[0m
+[0mGET /images/favicon.ico [36m304 [0m0.914 ms - -[0m
+[0mGET /modules/authentication/controller.js [36m304 [0m0.205 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.215 ms - -[0m
+[0mGET /modules/authentication/views/login.html [36m304 [0m0.231 ms - -[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m56.168 ms - 41496[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m106.208 ms - 1289[0m
+[0mPOST /event/getEventSeries [32m200 [0m153.908 ms - 345[0m
+[0mPOST /event/getPastEvent [32m200 [0m202.719 ms - 1597[0m
+[0mPOST /report/getSalesData [32m200 [0m345.151 ms - 24952[0m
+[0mGET /images/favicon.ico [36m304 [0m0.209 ms - -[0m
+[0mGET /images/logo-l.png [32m200 [0m0.387 ms - 12431[0m
+[0mGET /stylesheets/timepicker.css [36m304 [0m0.248 ms - -[0m
+[0mGET /javascripts/timepicker.js?_=1468911781092 [32m200 [0m1.199 ms - 336[0m
+[0mGET /images/favicon.ico [36m304 [0m0.217 ms - -[0m
+[0mPOST /package/getPackage [32m200 [0m109.422 ms - 1570[0m
+[0mGET / [32m200 [0m0.429 ms - 15647[0m
+[0mGET / [32m200 [0m0.412 ms - 15647[0m
+[0mGET / [32m200 [0m0.688 ms - 15647[0m
+[0mGET / [32m200 [0m0.385 ms - 15647[0m
+[0mGET / [32m200 [0m0.305 ms - 15647[0m
+[0mGET / [32m200 [0m0.447 ms - 15647[0m
+[0mGET / [32m200 [0m0.358 ms - 15647[0m
+[0mGET / [0m- [0m- ms - -[0m
+[0mGET / [32m200 [0m0.424 ms - 15647[0m
+[0mGET / [32m200 [0m0.353 ms - 15647[0m
+[0mGET / [32m200 [0m0.399 ms - 15647[0m
+[0mGET / [32m200 [0m0.464 ms - 15647[0m
+[0mGET / [32m200 [0m0.274 ms - 15647[0m
+[0mGET / [32m200 [0m0.396 ms - 15647[0m
+[0mGET / [32m200 [0m0.289 ms - 15647[0m
+[0mGET / [32m200 [0m0.354 ms - 15647[0m
+[0mGET /stylesheets/login.css [32m200 [0m0.377 ms - 3133[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.410 ms - 9242[0m
+[0mGET /stylesheets/ng-table.css [32m200 [0m0.732 ms - 3400[0m
+[0mGET /preview_template/assets/css/event.css [32m200 [0m0.622 ms - 282[0m
+[0mGET /stylesheets/angular-tooltips.css [32m200 [0m0.296 ms - 4208[0m
+[0mGET /stylesheets/media.css [32m200 [0m0.558 ms - 1976[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.456 ms - 38228[0m
+[0mGET / [32m200 [0m0.430 ms - 15647[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [32m200 [0m0.438 ms - 108057[0m
+[0mGET / [32m200 [0m0.362 ms - 15647[0m
+[0mGET /stylesheets/login.css [32m200 [0m0.348 ms - 3133[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.407 ms - 38228[0m
+[0mGET /stylesheets/media.css [32m200 [0m0.359 ms - 1976[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m2.092 ms - 9242[0m
+[0mGET / [32m200 [0m0.525 ms - 15647[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.544 ms - 9242[0m
+[0mGET /stylesheets/login.css [32m200 [0m0.429 ms - 3133[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.420 ms - 38228[0m
+[0mGET /preview_template/assets/css/event.css [32m200 [0m0.383 ms - 282[0m
+[0mGET / [32m200 [0m0.341 ms - 15647[0m
+[0mGET /stylesheets/login.css [32m200 [0m0.504 ms - 3133[0m
+[0mGET /stylesheets/media.css [32m200 [0m0.279 ms - 1976[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.382 ms - 38228[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.328 ms - 9242[0m
+[0mGET / [32m200 [0m0.301 ms - 15647[0m
+[0mGET / [32m200 [0m0.357 ms - 15647[0m
+[0mGET / [32m200 [0m0.304 ms - 15647[0m
+[0mGET / [32m200 [0m0.298 ms - 15647[0m
+[0mGET / [32m200 [0m0.350 ms - 15647[0m
+[0mGET / [32m200 [0m0.481 ms - 15647[0m
+[0mGET / [32m200 [0m0.456 ms - 15647[0m
+[0mGET / [32m200 [0m0.531 ms - 15647[0m
+[0mGET / [32m200 [0m0.531 ms - 15647[0m
+[0mGET / [32m200 [0m0.291 ms - 15647[0m
+[0mGET / [32m200 [0m0.368 ms - 15647[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.753 ms - 9242[0m
+[0mGET /stylesheets/style.css [0m- [0m- ms - -[0m
+[0mGET /preview_template/assets/css/event.css [0m- [0m- ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [0m- [0m- ms - -[0m
+[0mGET /stylesheets/login.css [0m- [0m- ms - -[0m
+[0mGET /stylesheets/ng-table.css [0m- [0m- ms - -[0m
+[0mGET /stylesheets/media.css [0m- [0m- ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [0m- [0m- ms - -[0m
+[0mGET / [32m200 [0m0.372 ms - 15647[0m
+[0mGET / [32m200 [0m0.496 ms - 15647[0m
+[0mGET /stylesheets/login.css [32m200 [0m0.414 ms - 3133[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.690 ms - 38228[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.743 ms - 9242[0m
+[0mGET /stylesheets/media.css [32m200 [0m0.689 ms - 1976[0m
+[0mGET /stylesheets/ng-table.css [32m200 [0m0.303 ms - 3400[0m
+[0mGET /preview_template/assets/css/event.css [32m200 [0m0.407 ms - 282[0m
+[0mGET /stylesheets/angular-tooltips.css [32m200 [0m0.405 ms - 4208[0m
+[0mGET /javascripts/ngStorage.min.js [32m200 [0m1.060 ms - 2276[0m
+[0mGET /javascripts/angular-ui-router.js [32m200 [0m0.544 ms - 30445[0m
+[0mGET /javascripts/ocLazyLoad.js [32m200 [0m0.343 ms - 58637[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m0.941 ms - 84380[0m
+[0mGET /stylesheets/autocomplete.css [32m200 [0m0.476 ms - 2264[0m
+[0mGET /javascripts/angular-min.js [32m200 [0m0.780 ms - 148496[0m
+[0mGET /stylesheets/angucomplete.css [32m200 [0m0.398 ms - 1439[0m
+[0mGET /javascripts/autocomplete.js [32m200 [0m1.108 ms - 19156[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [32m200 [0m0.408 ms - 108057[0m
+[0mGET /javascripts/angucomplete.js [32m200 [0m0.799 ms - 10600[0m
+[0mGET /javascripts/angular-re-captcha.js [32m200 [0m0.313 ms - 3756[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [32m200 [0m0.522 ms - 828[0m
+[0mGET /javascripts/ng-table.js [32m200 [0m0.426 ms - 57077[0m
+[0mGET /javascripts/angular-tooltips.js [32m200 [0m0.454 ms - 28050[0m
+[0mGET /javascripts/angular-csv-import.js [32m200 [0m1.061 ms - 3263[0m
+[0mGET /javascripts/communication.js [32m200 [0m0.383 ms - 4379[0m
+[0mGET /javascripts/constants.js [32m200 [0m0.313 ms - 25352[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.436 ms - 13528[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [32m200 [0m0.380 ms - 36489[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [32m200 [0m0.450 ms - 4148[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [32m200 [0m0.405 ms - 7261[0m
+[0mGET /javascripts/tinycolor-min.js [32m200 [0m0.410 ms - 19269[0m
+[0mGET /javascripts/app.js [32m200 [0m1.050 ms - 97714[0m
+[0mGET /javascripts/angularjs-color-picker.js [32m200 [0m0.407 ms - 31863[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [32m200 [0m0.336 ms - 5035[0m
+[0mGET /javascripts/angular-chart.min.js [32m200 [0m0.427 ms - 6038[0m
+[0mGET /images/favicon.ico [36m304 [0m0.231 ms - -[0m
+[0mGET /stylesheets/animate.css [32m200 [0m0.476 ms - 75601[0m
+[0mGET /javascripts/Chart.min.js [32m200 [0m0.542 ms - 139378[0m
+[0mGET /images/f-facebook.png [32m200 [0m0.416 ms - 2764[0m
+[0mGET /images/user.jpg [32m200 [0m0.389 ms - 3002[0m
+[0mGET /images/logo.png [32m200 [0m0.934 ms - 16692[0m
+[0mGET /images/arrow-wt.png [32m200 [0m0.368 ms - 988[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m72.979 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m24.193 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m24.415 ms - 996[0m
+[0mGET /modules/event_package/service.js [32m200 [0m0.784 ms - 8719[0m
+[0mGET /modules/event_setting/service.js [32m200 [0m0.373 ms - 12488[0m
+[0mGET /modules/event_package/step3/controller.js [32m200 [0m0.584 ms - 14629[0m
+[0mGET /javascripts/bootstrap-timepicker.js [32m200 [0m0.338 ms - 34375[0m
+[0mGET /modules/event_package/step3/views/event_package_step_3.html [32m200 [0m0.476 ms - 33718[0m
+[0mGET /stylesheets/timepicker.css [32m200 [0m0.379 ms - 3836[0m
+[0mGET /javascripts/timepicker.js?_=1468914346382 [32m200 [0m0.402 ms - 336[0m
+[0mGET / [32m200 [0m0.377 ms - 15647[0m
+[0mGET /stylesheets/login.css [32m200 [0m0.375 ms - 3133[0m
+[0mGET /stylesheets/media.css [32m200 [0m0.268 ms - 1976[0m
+[0mGET /stylesheets/ng-table.css [32m200 [0m0.275 ms - 3400[0m
+[0mGET /preview_template/assets/css/event.css [32m200 [0m0.287 ms - 282[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.516 ms - 38228[0m
+[0mGET /stylesheets/custom-style.css [32m200 [0m0.369 ms - 9242[0m
+[0mGET /stylesheets/angular-tooltips.css [32m200 [0m0.317 ms - 4208[0m
+[0mGET /javascripts/angular-ui-router.js [32m200 [0m0.334 ms - 30445[0m
+[0mGET /javascripts/ngStorage.min.js [32m200 [0m0.327 ms - 2276[0m
+[0mGET /javascripts/ocLazyLoad.js [32m200 [0m0.462 ms - 58637[0m
+[0mGET /stylesheets/autocomplete.css [32m200 [0m0.340 ms - 2264[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [32m200 [0m0.290 ms - 108057[0m
+[0mGET /stylesheets/angucomplete.css [32m200 [0m0.416 ms - 1439[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m0.395 ms - 84380[0m
+[0mGET /javascripts/angucomplete.js [32m200 [0m0.403 ms - 10600[0m
+[0mGET /javascripts/autocomplete.js [32m200 [0m0.300 ms - 19156[0m
+[0mGET /javascripts/angular-min.js [32m200 [0m0.375 ms - 148496[0m
+[0mGET /javascripts/angular-re-captcha.js [32m200 [0m0.320 ms - 3756[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [32m200 [0m0.405 ms - 828[0m
+[0mGET /javascripts/ng-table.js [32m200 [0m0.391 ms - 57077[0m
+[0mGET /javascripts/angular-tooltips.js [32m200 [0m0.434 ms - 28050[0m
+[0mGET /javascripts/angular-csv-import.js [32m200 [0m0.398 ms - 3263[0m
+[0mGET /javascripts/communication.js [32m200 [0m0.704 ms - 4379[0m
+[0mGET /javascripts/constants.js [32m200 [0m0.431 ms - 25681[0m
+[0mGET /modules/events/controller.js [32m200 [0m0.355 ms - 13528[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [32m200 [0m0.400 ms - 36489[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [32m200 [0m0.301 ms - 7261[0m
+[0mGET /javascripts/app.js [32m200 [0m0.325 ms - 97714[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [32m200 [0m0.293 ms - 4148[0m
+[0mGET /javascripts/tinycolor-min.js [32m200 [0m0.406 ms - 19269[0m
+[0mGET /javascripts/angularjs-color-picker.js [32m200 [0m0.364 ms - 31863[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [32m200 [0m0.383 ms - 5035[0m
+[0mGET /javascripts/angular-chart.min.js [32m200 [0m0.395 ms - 6038[0m
+[0mGET /images/favicon.ico [36m304 [0m0.318 ms - -[0m
+[0mGET /stylesheets/animate.css [32m200 [0m0.376 ms - 75601[0m
+[0mGET /javascripts/Chart.min.js [32m200 [0m0.299 ms - 139378[0m
+[0mGET /images/user.jpg [32m200 [0m0.380 ms - 3002[0m
+[0mGET /images/logo.png [32m200 [0m0.297 ms - 16692[0m
+[0mGET /images/f-facebook.png [32m200 [0m0.385 ms - 2764[0m
+[0mGET /images/arrow-wt.png [32m200 [0m0.271 ms - 988[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.906 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m10.113 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m7.134 ms - 996[0m
+[0mGET /modules/event_package/service.js [32m200 [0m0.445 ms - 8719[0m
+[0mGET /modules/event_setting/service.js [32m200 [0m0.303 ms - 12488[0m
+[0mGET /javascripts/bootstrap-timepicker.js [36m304 [0m0.256 ms - -[0m
+[0mGET /modules/event_package/step3/controller.js [36m304 [0m1.109 ms - -[0m
+[0mGET /modules/event_package/step3/views/event_package_step_3.html [36m304 [0m0.264 ms - -[0m
+[0mGET /javascripts/timepicker.js?_=1468914507815 [32m200 [0m0.992 ms - 336[0m
+[0mGET /stylesheets/timepicker.css [36m304 [0m0.207 ms - -[0m
+[0mPOST /package/getPackage [32m200 [0m115.396 ms - 1570[0m
+[0mGET /modules/event_setting/services/venue_service.js [36m304 [0m0.270 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m0.186 ms - -[0m
+[0mGET /modules/event_setting/controller.js [36m304 [0m0.319 ms - -[0m
+[0mGET /modules/event_setting/views/event_setting.html [36m304 [0m0.255 ms - -[0m
+{ venueresult: RowDataPacket { count: 57 },
+  quesresult: RowDataPacket { count: 9 },
+  productresult: RowDataPacket { count: 5 },
+  discountresult: RowDataPacket { count: 2 },
+  code: 200 }
+[0mPOST /event_setting/getSettingCount [32m200 [0m289.333 ms - 121[0m
+[0mGET /modules/events/service.js [36m304 [0m0.241 ms - -[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.254 ms - -[0m
+[0mGET /modules/events/views/dashboard.html [32m200 [0m0.444 ms - 18937[0m
+[0mGET /images/icons/loader.gif [32m200 [0m0.398 ms - 2608[0m
+{ start_date: '2016:01:21 00:00:00',
+  end_date: '2016:02:20 00:00:00',
+  showclix_user_id: '28676',
+  showclix_token: '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412',
+  showclix_seller_id: 22214 }
+[0mPOST /event/getEvents [32m200 [0m111.039 ms - 55277[0m
+[0mPOST /event/getUpcommingEvent [32m200 [0m161.226 ms - 7498[0m
+[0mPOST /event/getPastEvent [32m200 [0m55.066 ms - 5353[0m
+[0mPOST /report/getSalesData [32m200 [0m395.254 ms - 24952[0m
+[0mPOST /event/getEventSeries [32m200 [0m92.658 ms - 578[0m
+[0mGET /ng-table/filters/online_sales_open_date.html [36m304 [0m0.522 ms - -[0m
+[0mGET /ng-table/filters/start_date.html [36m304 [0m0.236 ms - -[0m
+[0mGET /images/favicon.ico [36m304 [0m1.136 ms - -[0m
+[0mGET /modules/event_setting/services/question_service.js [32m200 [0m0.489 ms - 4497[0m
+[0mGET /modules/event_setting/services/discount_service.js [32m200 [0m0.326 ms - 6572[0m
+[0mGET /images/favicon.ico [36m304 [0m0.250 ms - -[0m
+[0mGET /modules/events/package_event_overview_controller.js [32m200 [0m1.011 ms - 21654[0m
+[0mGET /modules/events/views/package_event_overview.html [32m200 [0m0.678 ms - 45661[0m
+[0mGET /%7B%7Bdata.preview_image%7D%7D [33m404 [0m13.566 ms - 996[0m
+[0mGET /%7B%7Btemplate.image%7D%7D [33m404 [0m7.940 ms - 996[0m
+[0mPOST /package/getBundlesInPackage [32m200 [0m131.249 ms - 25[0m
+[0mPOST /package/getPackage [32m200 [0m192.761 ms - 1268[0m
+query  SELECT id, title, event_address , city FROM `events` where id in ()
+-------------------------
+SELECT * FROM question_assignments qa JOIN questions q ON qa.seller_id = q.seller_id AND qa.question_id = q.id WHERE qa.seller_id = 132 AND qa.event_id IN  () group by qa.question_id
+/home/alistticx/alisthub/node_modules/mysql/lib/protocol/Parser.js:77
+        throw err; // Rethrow non-MySQL errors
+        ^
+
+Error: Can't set headers after they are sent.
+    at ServerResponse.OutgoingMessage.setHeader (_http_outgoing.js:346:11)
+    at ServerResponse.header (/home/alistticx/alisthub/node_modules/express/lib/response.js:718:10)
+    at ServerResponse.send (/home/alistticx/alisthub/node_modules/express/lib/response.js:163:12)
+    at ServerResponse.json (/home/alistticx/alisthub/node_modules/express/lib/response.js:249:15)
+    at Query._callback (/home/alistticx/alisthub/app/event_package/controllers/package.js:670:13)
+    at Query.Sequence.end (/home/alistticx/alisthub/node_modules/mysql/lib/protocol/sequences/Sequence.js:96:24)
+    at Query.ErrorPacket (/home/alistticx/alisthub/node_modules/mysql/lib/protocol/sequences/Query.js:94:8)
+    at Protocol._parsePacket (/home/alistticx/alisthub/node_modules/mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/home/alistticx/alisthub/node_modules/mysql/lib/protocol/Parser.js:73:12)
+    at Protocol.write (/home/alistticx/alisthub/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/home/alistticx/alisthub/node_modules/mysql/lib/Connection.js:96:28)
+
+npm ERR! Linux 3.13.0-74-generic
+npm ERR! argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
+npm ERR! node v6.2.2
+npm ERR! npm  v3.9.5
+npm ERR! code ELIFECYCLE
+npm ERR! alist@0.0.0 start: `node ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the alist@0.0.0 start script 'node ./bin/www'.
+npm ERR! Make sure you have the latest version of node.js and npm installed.
+npm ERR! If you do, this is most likely a problem with the alist package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node ./bin/www
+npm ERR! You can get information on how to open an issue for this project with:
+npm ERR!     npm bugs alist
+npm ERR! Or if that isn't available, you can get their info via:
+npm ERR!     npm owner ls alist
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/alistticx/alisthub/npm-debug.log

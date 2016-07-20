@@ -79,38 +79,32 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
 
     //$scope.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     
-    
-
-    
-    
-    
-
-    
     $rootScope.class_status=false;
     var eventService = $injector.get("events");
     var packageService = $injector.get("event_package");
 
-    
-
     $scope.getChart = function(days) {
-      console.log('dsf');
-      $scope.chartData = [];
-      $scope.series = ["Sales"];
-      $scope.colors = [];
-      $scope.labels = [];
 
+      $scope.daysShow = days + " days";
+      if(days==1){
+        $scope.daysShow = "24 hours";  
+      }
 
-      var manualStartDate = formatsearchDate(new Date().setDate(new Date().getDate() - 15));
-      var manualEndDate = formatsearchDate(new Date().setDate(new Date().getDate() - 1));
+      $rootScope.loader_div = false;
+      var manualStartDate = formatsearchDate(new Date().setDate(new Date().getDate() - (150+parseInt(days))));
+      var manualEndDate = formatsearchDate(new Date().setDate(new Date().getDate() - 150));
       
       $scope.salesData = {};
       $scope.salesData.start_date = manualStartDate;
       $scope.salesData.end_date = manualEndDate;
-      console.log($scope.salesData);
+      //console.log($scope.salesData);
 
-      $scope.salesData.showclix_token     = $localStorage.showclix_token;
-      $scope.salesData.showclix_user_id   = $localStorage.showclix_user_id;
-      $scope.salesData.showclix_seller_id = $localStorage.showclix_seller_id;
+      //$scope.salesData.showclix_token     = $localStorage.showclix_token;
+      //$scope.salesData.showclix_seller_id = $localStorage.showclix_seller_id;
+      $scope.salesData.showclix_user_id = $localStorage.showclix_user_id;
+      $scope.salesData.showclix_token = '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412';
+      $scope.salesData.showclix_seller_id = 22214;
+      console.log("showclix_seller_id: " + $localStorage.showclix_seller_id);
 
       eventService.getSalesData($scope.salesData,function(response) {
         if (response!=null) {
@@ -119,19 +113,30 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
             $scope.showClixDataObj.push(JSON.parse(response.data));
             //console.log("showClixDataObj: " + $scope.showClixDataObj);
             
+            $scope.chartDataRevenue = [];
+            $scope.chartDataTicket = [];
+            $scope.series = ['Tickets Revenue','Tickets Sold'];
+            $scope.colors = [];
+            $scope.labels = [];
 
-            for(var i = 165; i < 165+days; i++) {
+            for(var i = 165+days; i > 165; i--) {
               var setdate = i; 
               var setdate = formatDateGraph(new Date().setDate(new Date().getDate() - i));
               var dataForDate = getObjects(graphData, 'date', setdate);
               var dateTotalTicketRevenue = 0;
+              var dateTotalTicketTicket = 0;
               for(var keyDate in dataForDate) {
+                console.log("dataForDate: " + dataForDate[keyDate]);
                 dateTotalTicketRevenue = dateTotalTicketRevenue + parseFloat(dataForDate[keyDate].total_cost);
+                dateTotalTicketTicket = dateTotalTicketTicket + parseInt(dataForDate[keyDate].tickets);
               }
-              
+               
               $scope.labels.push(graphDate(setdate));
-              $scope.colors.push('#2E7D32');
-              $scope.chartData.push(dateTotalTicketRevenue);
+              $scope.colors.push('#c129b9','#0275d0');
+              $scope.chartDataRevenue.push(dateTotalTicketRevenue);
+              $scope.chartDataTicket.push(dateTotalTicketTicket);
+
+              $scope.chartData=[$scope.chartDataRevenue,$scope.chartDataTicket];
 
               var graphData = $scope.showClixDataObj[0];
               $scope.totalTicketSold = 0;
@@ -140,6 +145,7 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
                 $scope.totalTicketSold = $scope.totalTicketSold + parseInt(graphData[key].tickets);
                 $scope.totalTicketRevenue = $scope.totalTicketRevenue + parseFloat(graphData[key].total_cost);
               }
+
             }
           }
         }

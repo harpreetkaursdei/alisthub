@@ -8,7 +8,7 @@ Module : Event setting
 angular.module('alisthub').controller('stepevent4Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad , $http,$stateParams,$anchorScroll) {
   var $serviceTest = $injector.get("event_setting");
   $scope.error_message = true;
-  
+  $rootScope.loader_div = false;
   /**  
   Method: click_menu
   Description:Function for changing the tab 
@@ -348,7 +348,11 @@ $scope.click_menu = function(menu, data, valid) {
   $scope.formdata = {};
   $scope.enable_on = {};
   $scope.disable_on = {};
-
+  
+  $scope.formdata.print_home = 1;
+  //$scope.formdata.print_home = 1;
+  
+   
   $scope.next_func = function(formdata) {
     console.log(formdata);
     $http.post('/event/postCreateEventStepFour' , formdata).then(function(response) {
@@ -403,7 +407,8 @@ $scope.click_menu = function(menu, data, valid) {
     if($scope.formdata.print_disable_date!=undefined && $scope.formdata.print_disable_date.date!=undefined && $scope.formdata.print_disable_date.time!=undefined && $scope.formdata.print_disable_date.date!='' && $scope.formdata.print_disable_date.time!=''){
       $scope.formdata.print_disable_date = $scope.combine($scope.formdata.print_disable_date.date,$scope.formdata.print_disable_date.time);
     }
-
+    $scope.formdata.online_sales_close_time = $scope.formdata.online_sales_close.time;
+    
     console.log($scope.formdata);
 
     if ($localStorage.userId !== undefined) {
@@ -448,6 +453,7 @@ $scope.click_menu = function(menu, data, valid) {
     //To get settings
     $serviceTest.getSettings($scope.eventSetting, function(response) {
       $scope.pageloader = false;
+      $rootScope.loader_div = true;
       $scope.formdata = response.result[0];
       if($scope.formdata!=undefined){
         $scope.formdata.will_call = parseInt($scope.formdata.will_call);

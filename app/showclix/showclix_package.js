@@ -34,12 +34,14 @@ module.exports = function() {
 
         */
         var input = {
+
             "user_id": data.showclix_user,
             "seller_id": data.showclix_seller,
             "event": data.package_name,
             "behavior_set": "5",
             "description": data.package_description,
             "private_event": "0",
+            "inventory": 10,
             "ages": data.ages,
             "image": data.image_full_url ,
             "event_category_id": data.category,

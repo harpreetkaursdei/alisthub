@@ -1,20 +1,19 @@
+<link rel="stylesheet" href="stylesheets/event_widgets.css" type="text/css" />
 <div class="container">
     <h1>tracking tag</h1>
     <!-- Form COntainer -->
     <div class="wt-frame form-section">
         <form class="event-form">
-            <!-- Event Detail Form -->
-            <div class="form-group row">
-                <section class="col-sm-6">
-                    <section class="search-event">
-                        <input type="text" name="trackingtag" ng-model="filter" class="form-control search-field" placeholder="Enter your keyword">
-                        <i class="fa fa-search"></i>
-                    </section>
-                </section>
-            </div>
-            <!--Ticket Types Start -->
             <div class="module">
                 <section class="gray-frame sub-fields">
+                    <div class="form-group row">
+                        <section class="col-sm-6">
+                            <section class="search-event">
+                                <input type="text" name="trackingtag" ng-model="filter" class="form-control search-field" placeholder="Enter your keyword">
+                                <i class="fa fa-search"></i>
+                            </section>
+                        </section>
+                    </div>
                     <section class="grid-btn-top row">
                         <section class="col-sm-6">
                             <section class="top-buttons">
@@ -32,15 +31,13 @@
                                         <td title="'source'" filter="{ name: 'text'}" sortable="'source'">{{data1.source}}</td>
                                         <td title="'USER'" filter="{ name: 'text'}" sortable="'user'">{{data1.username}}</td>
                                         <td title="'sales'" filter="{ name: 'text'}" sortable="'sales'">{{data1.sales}}</td>
-                                         <td title="'ticket'" filter="{ name: 'text'}" sortable="'ticket'">{{data1.ticket}}</td>
-                                           <td title="'revenue'" filter="{ name: 'text'}" sortable="'revenue'">{{data1.revenue}}</td>
+                                        <td title="'ticket'" filter="{ name: 'text'}" sortable="'ticket'">{{data1.ticket}}</td>
+                                        <td title="'revenue'" filter="{ name: 'text'}" sortable="'revenue'">{{data1.revenue}}</td>
                                         <td title="'MANAGE'" class="action">
-                                            <a title="Edit tag" ng-click="open('lg1',data1.id)" style="cursor: pointer;"><i class="fa fa-edit"></i></a>
-
-                                            <a title="detail" ng-click="open1()" style="cursor: pointer;"><i class="fa fa-link"></i></a>
-                                            <a title="detail"  style="cursor: pointer;"><i class="fa fa-eye"></i></a>
-                                            <a title="Delete tag" ng-click="delete('lg2',data1.id)" ng-confirm-clicks="Would you like to delete this tag?" style="cursor: pointer;"><i class="fa fa-trash"></i></a>
-                                           
+                                            <a title="Edit tag" ng-click="open('lg1',data1.id)" class="tracking_tag"><i class="fa fa-edit"></i></a>
+                                            <a title="detail" class="tracking_tag" class="tracking_tag" ng-click="open1()"><i class="fa fa-link"></i></a>
+                                            <a title="detail" class="tracking_tag"><i class="fa fa-eye"></i></a>
+                                            <a title="Delete tag" class="tracking_tag" ng-click="delete('lg2',data1.id)" ng-confirm-clicks="Would you like to delete this tag?"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     <tr ng-show="loader">
@@ -49,7 +46,6 @@
                                     <tr ng-if="$data == ''">
                                         <td colspan="4" align="center">No Record found!</td>
                                     </tr>
-                                   
                                 </tbody>
                             </table>
                         </div>
@@ -77,7 +73,7 @@
 </div>
 <script type="text/ng-template" id="add_tracking_tag.html">
     <div class="modal-header">
-        <h3 class="modal-title">NEW TAG</h3><a style="float:right;cursor: pointer;" ng-click="Cancel()">X</a>
+        <h3 class="modal-title">{{page_title}} TAG</h3><a class="add_tracking_tag" ng-click="Cancel()">X</a>
     </div>
     <div class="modal-body">
         <form>
@@ -96,9 +92,9 @@
             <fieldset class="form-group">
                 <div class="col-sm-4">user</div>
                 <div class="col-sm-8">
-                    <select class= "form-control"  name="user" ng-model="data.user">
+                    <select class="form-control" name="user" ng-model="data.user">
                         <option value="">-Select-</option>
-                        <option  ng-repeat="ud in userData" value="{{ud.id}}">{{ud.first_name}} {{ud.last_name}}</option>
+                        <option ng-repeat="ud in userData" value="{{ud.id}}">{{ud.first_name}} {{ud.last_name}}</option>
                     </select>
                 </div>
             </fieldset>
@@ -108,16 +104,13 @@
         <button class="btn btn-primary" type="submit" ng-click="saveTag()">Save tag</button>
     </div>
 </script>
-
-
 <script type="text/ng-template" id="link.html">
     <div class="modal-header">
-        <a style="float:right;cursor: pointer;" ng-click="Cancel()">X</a>
+        <a class="link" ng-click="Cancel()">X</a>
     </div>
     <div class="modal-body">
-
-    <h5> Example Link for 12345</h5>
-    <br>
+        <h5> Example Link for 12345</h5>
+        <br>
         <p>You can append /tag/12345 to any event listing url. For example:</p>
         <br>
         <br>

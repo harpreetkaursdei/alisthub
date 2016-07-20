@@ -759,6 +759,21 @@ exports.getPriceLevelChange = function(req,res) {
 
 exports.postPriceChange = function(req,res) {
     
+    function update_showclix_data(id,data)
+    {
+        var query5 = "UPDATE schedule_price_level SET showclix_price_schedule_id="+data.price_schedule_id+"  where id="+id;
+        console.log(query5);
+        connection.query(query5, function(err7, responce) {
+        })
+    }
+    
+    function rollback(id)
+    {
+        var query5 = "DELETE schedule_price_level where id="+id;
+        connection.query(query5, function(err7, responce) {
+        })
+    }
+    
     var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
     var Date1=new Date(req.body.startdate_pricechange);
     var mon=Date1.getMonth()+1;
@@ -774,20 +789,26 @@ exports.postPriceChange = function(req,res) {
     var change_price_date=date+" "+month+":"+req.body.time+":00";
  
     var query = "INSERT INTO schedule_price_level SET `price`='"+req.body.new_price+"',`apply_to`='"+req.body.apply+"',`start_date`='"+change_price_date+"',`start_date_hour`='"+req.body.month+"',`start_date_minute`='"+req.body.time+"',`start_date_am_pm`='"+req.body.interval+"',`showclix_id`='"+req.body.showclix_id+"',`showclix_price_id`='"+req.body.showclix_price_id+"',`created`='"+curtime+"'";
- console.log(query);
+ //console.log(query);
  connection.query(query, function(err, results) {
      if (err) {
       res.json({error:err,code:101});
      }else{
-     
+     var insertId = results.insertId;
      // showclix start 
                 var showClix2 = new showClix();
                     req.body.start_date      = change_price_date;
                     req.body.start_date_date = date;
                     showClix2.change_price_level(req.body,res,function(sdata){
+                        console.log(sdata);
                         if (sdata.status == 1) {
+                            console.log(sdata.data.price_schedule_id);
+                            var sdata2 = JSON.parse(sdata.data);
+                            console.log(sdata2);
+                           update_showclix_data(insertId,sdata2) 
                            res.json({result:results,code:200});
                         } else {
+                           rollback(insertId);
                            res.json({result:"",error:"Server down",code:101});  
                         }
                     });
@@ -1212,6 +1233,30 @@ exports.deleteEvent= function(req, res) {
                            });
                     
                     
+                } else {
+                    res.json({result:"",error:sdata.error,code:101});  
+                }
+        });
+//showclix end
+}
+
+// Delete schedule price level
+exports.delete_level_schedule = function(req, res) {
+
+// showclix start
+        var showClix2 = new showClix();
+        
+        showClix2.delete_level_schedule(req.body,res,function(sdata){
+            if (sdata.status == 1) {
+                    connection.query("Delete from schedule_price_level where id=" + req.body.id, function(err, result1) {
+                    
+                           if (err) {
+                               res.json({ error: err, code: 101 });
+                           }
+                           else{
+                           res.json({ result: result1, code: 200 });
+                           }
+                       });
                 } else {
                     res.json({result:"",error:sdata.error,code:101});  
                 }
