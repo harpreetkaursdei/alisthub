@@ -12285,3 +12285,10 @@ npm ERR! There is likely additional logging output above.
 
 npm ERR! Please include the following file with any support request:
 npm ERR!     /home/alistticx/alisthub/npm-debug.log
+
+> alist@0.0.0 start /home/alistticx/alisthub
+> node ./bin/www
+
+connected as id 269597
+[0mGET /images/bg/bg.png [36m304 [0m12.985 ms - -[0m
+[0mGET /favicon.ico [33m404 [0m398.533 ms - 996[0m
