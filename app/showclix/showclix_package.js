@@ -25,20 +25,18 @@ module.exports = function() {
             "behavior_set": "5",
             "description": data.package_description,
             "private_event": "0",
-            "inventory": 10,
             "ages": data.ages,
             "image": data.image_full_url,
             "event_category_id": data.category,
             "date_added": data.created,
             "date_edited": data.modified,
-            "event_start": "2016-09-30 03:30:30",
+            "event_start": "2016-08-10 00:00:00",
             "sales_open": data.online_sales_open_date_time,
-            "sales_close": '02:00',
-            "event_end": "2016-10-31 21:00:00",
+            "sales_close": '00:00',
             "short_name": data.short_name,
             "image_url": data.image,
             "thumbnail_url": data.image,
-            "status": data.status,
+            "status": 5,
             "event_type": "3",
             "venue_id": "34657",
             "display_image": data.display_image_in_listing,
@@ -162,9 +160,9 @@ module.exports = function() {
             "ticket_purchase_limit": data.ticket_transaction_limit,
             "ticket_purchase_timelimit": data.checkout_time_limit,
             "private_event": data.private_event,
-            // "short_name": data.url_short_name,
+            "short_name": data.url_short_name,
             "date_edited": data.modified,
-            "status": data.status,
+            "status": 5,
         };
 
         input.donation_live = data.donation == 1 ?'y':'n';
@@ -173,10 +171,13 @@ module.exports = function() {
         }
 
         input.approved      = 1;
-        input.approval_note = 'Approved by default from alist-ticket';
+
+ /*       input.approval_note = 'Approved by default from alist-ticket';
         input.bos_price     = data.box_office_service_fee;
         input.approval_user_id = data.showclix_user;
         input.date_approved = data.modified ;
+
+*/
 
         var postData = {
             method: 'PUT',

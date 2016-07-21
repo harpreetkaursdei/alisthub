@@ -296,7 +296,6 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
             $scope.data.event_ids = $rootScope.choosenSelectedEventsIds = $scope.event_ids;
             $scope.viewEvents();
-
             $rootScope.loader_div = true;
         });
 
@@ -680,6 +679,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
     $scope.disableOpenDateTime = function() {
         // body...
+        console.log('disableOpenDateTime called');
     };
     /************** Function  disable open date and time ends **************/
 
@@ -794,7 +794,6 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         return startDateTime;
     }
 
-
     $scope.eventmakeAssignment = function() {
         console.log('eventmakeAssignment');
 
@@ -820,10 +819,6 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         for (var key in $scope.eventInfo.eventcheckboxGlobalIds) {
             var eventId = $scope.eventInfo.eventcheckboxGlobalIds[key];
 
-            $rootScope.FinalEvents.push($rootScope.allEvents[eventId]);
-            $rootScope.allEventsStartDates.push($rootScope.allEvents[eventId].date);
-
-
         }
 
         console.log('before $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
@@ -835,7 +830,6 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
     };
 
     /** View list of all Events for assigning discount coupons ***/
-
 
     $scope.viewEvents = function() {
         $scope.data = {};
