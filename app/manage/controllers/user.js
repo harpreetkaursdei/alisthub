@@ -184,16 +184,24 @@ Created By: Deepak khokkar
 exports.checkSellerSubUser = function(req,res) {
   //console.log("body request: " + req.body.userData.email);
   //console.log("body request: " + req.body.userData.password);
-  var sql = 'SELECT * from seller_users where email = "'+req.body.userData.email+ '" and password = '+req.body.userData.password ;
-  
-  //console.log(sql);  res.json({result:'results',code:200});
-
+  var sql ='SELECT * from seller_users where email = "'+req.body.userData.email+'" and password = '+req.body.userData.password ;
+  var sqlc ='SELECT count(*) as cnt from seller_users where email = "'+req.body.userData.email+'" and password = '+req.body.userData.password ;
+  console.log(sql);
+  connection.query(sqlc, function(err01, resultsc) {
+  if(resultsc > 0) { 
   connection.query(sql, function(err, results) {
+    console.log(err);
+    console.log(results);
     if (err) {
       res.json({error:err,code:101});
     }
     else{
     res.json({result:results,code:200});
     }
+  });
+  }
+  else{
+     res.json({error:"User not found.",code:101});
+  }
   });
 }

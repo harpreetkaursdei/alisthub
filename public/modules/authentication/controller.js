@@ -106,6 +106,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
             //////////////  SHOWCLIX SERVICE ////////////////////
             $scope.showclix_data = {};
             $scope.showclix_data = {"email":"manojks@smartdatainc.net","password":"manojks@2015"};
+            //$scope.showclix_data = {"email":"gyanp12387@smartdatainc.net","password":"12345678"};
+             
                 /////////////////////////////////////////////////////////////////////////////
                 var url = webservices.getUserlogin+"?data="+JSON.stringify(jsonData)+"&callback=jsonp_callback9";
                     
@@ -115,7 +117,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                     if ((data.message == 'error') || (data.user == undefined)) {
 
                         showclix.checkSellerSubUser({ 'userData' : jsonData },function(seller_response) {
-                            if(seller_response.code==101 && seller_response.result[0]==undefined) {
+                            if(seller_response.code==101) {
                                 if (data.errorMsg == 'AccountNotActivated') {
                                     $scope.error = global_message.LoginAuthNotMatchingError;
                                     $scope.error_message = false;
@@ -132,10 +134,10 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                                         $scope.error_message = true;
                                     }, 3000);
                                 }
-                            } else {
-                               
-
-                               $http({
+                            }
+                            else
+                            {
+                                $http({
                                     url: showclix_webservices.generateToken,
                                     method: 'POST',
                                     data: $scope.showclix_data,
@@ -144,7 +146,9 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                                         "Accept": "application/json",
                                     }
                                 }).success(function(datas, status, headers, config) {
-                                    var response = JSON.parse(datas.body);
+                                    
+                                    //var response = JSON.parse(datas.body);
+                                    var response = datas;
 
                                     if (response != null && response != "" && response.token) {
                                         $rootScope.class_status = 0;
@@ -193,9 +197,10 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                                 "Accept": "application/json",
                             }
                         }).success(function(datas, status, headers, config) {
-                        var response = JSON.parse(datas.body);
-
                         
+                       
+                        var response = datas;
+                     
                         
                         if (response != null && response != "" && response.token) {
                          

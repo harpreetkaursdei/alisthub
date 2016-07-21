@@ -44,6 +44,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     $scope.data = {};
     $scope.data.event_type = 1;
     $scope.data.immidiately = 0;
+    $rootScope.loader_div = false;
 
     $scope.selected = $scope.events[0];
     $scope.selected2 = $scope.steps[0];
@@ -51,7 +52,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     $rootScope.FinalEvents = [];
     $rootScope.choosenEventsArea = false;
     $rootScope.eventsChoosedFlag = false;
-    $rootScope.eventInfoMessage = false;
+    $rootScope.eventInfoMessage = true;
     $rootScope.packageId = '';
 
     $scope.error_message = true;
@@ -59,7 +60,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     $scope.end_time_error = true;
     $scope.loader = false;
 
-      $scope.success_message = false;
+    $scope.success_message = false;
 
     if ($localStorage.userId != undefined) {
         $scope.data.user_id = $localStorage.userId;
@@ -154,14 +155,13 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
     $scope.slugify = function(text) {
         return text.toString().toLowerCase().trim()
-        .replace(/\s+/g, '-')           // Replace spaces with -
-        .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-        .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-        .replace(/^-+/, '')             // Trim - from start of text
-        .replace(/-+$/, '')            // Trim - from end of text
-        .replace(/&/g, '-and-');         // Replace & with 'and'
+            .replace(/\s+/g, '-') // Replace spaces with -
+            .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+            .replace(/\-\-+/g, '-') // Replace multiple - with single -
+            .replace(/^-+/, '') // Trim - from start of text
+            .replace(/-+$/, '') // Trim - from end of text
+            .replace(/&/g, '-and-'); // Replace & with 'and'
     };
-
 
     // Disable weekend selection
     function disabled(data) {
@@ -187,62 +187,60 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
         entities: false
     };
 
-
-
     //////////////////////////////
-   // Called when the editor is completely ready.
-  $scope.onReady = function() {
-  
-  };
- 
-  $scope.options = {
-    customClass: getDayClass,
-    minDate: new Date(),
-    showWeeks: false
-  };
+    // Called when the editor is completely ready.
+    $scope.onReady = function() {
 
-  $scope.options1 = {
-    customClass: getDayClass,
-    minDate: new Date(),
-    showWeeks: false
-  };
-  $scope.options2 = {
-    customClass: getDayClass,
-    minDate: new Date(),
-    showWeeks: false
-  };
-  // $scope.options4 = {
-  //   customClass: getDayClass,
-  //   minDate: new Date(),
-  //   showWeeks: false
-  // };
+    };
 
-  var tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  var afterTomorrow = new Date(tomorrow);
-  afterTomorrow.setDate(tomorrow.getDate() + 1);
-  $scope.events = [{
-    date: tomorrow,
-    status: 'full'
-  }, {
-    date: afterTomorrow,
-    status: 'partially'
-  }];
+    $scope.options = {
+        customClass: getDayClass,
+        minDate: new Date(),
+        showWeeks: false
+    };
 
-  function getDayClass(data) {
-    var date = data.date,
-      mode = data.mode;
-    if (mode === 'day') {
-      var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
-      for (var i = 0; i < $scope.events.length; i++) {
-        var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
-        if (dayToCheck === currentDay) {
-          return $scope.events[i].status;
+    $scope.options1 = {
+        customClass: getDayClass,
+        minDate: new Date(),
+        showWeeks: false
+    };
+    $scope.options2 = {
+        customClass: getDayClass,
+        minDate: new Date(),
+        showWeeks: false
+    };
+    // $scope.options4 = {
+    //   customClass: getDayClass,
+    //   minDate: new Date(),
+    //   showWeeks: false
+    // };
+
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var afterTomorrow = new Date(tomorrow);
+    afterTomorrow.setDate(tomorrow.getDate() + 1);
+    $scope.events = [{
+        date: tomorrow,
+        status: 'full'
+    }, {
+        date: afterTomorrow,
+        status: 'partially'
+    }];
+
+    function getDayClass(data) {
+        var date = data.date,
+            mode = data.mode;
+        if (mode === 'day') {
+            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+            for (var i = 0; i < $scope.events.length; i++) {
+                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+                if (dayToCheck === currentDay) {
+                    return $scope.events[i].status;
+                }
+            }
         }
-      }
+        return '';
     }
-    return '';
-  }
     /************** ck editor ends ****************/
 
     //To get Event Category
@@ -260,19 +258,13 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
     if ($state.params.packageId === '') {
         $localStorage.packageId = null;
-    } 
+    }
 
     if ($state.params.packageId != '') {
-       $localStorage.packageId = $state.params.packageId;
-    } 
+        $localStorage.packageId = $state.params.packageId;
+    }
 
-console.log('$state.params.packageId' , $state.params.packageId);
-
-
-    if ( $localStorage.packageId) {
-        console.log($localStorage);
-        console.log('edit called');
-
+    if ($localStorage.packageId) {
         var packageId = $state.params.packageId;
         //$scope.data.package_id = $localStorage.packageId;
 
@@ -288,17 +280,12 @@ console.log('$state.params.packageId' , $state.params.packageId);
                 $scope.data.defined_age = 1;
             }
 
-            console.log('$scope.data.defined_age' , $scope.data.defined_age) ;
-            console.log('$scope.data.ages' , $scope.data.ages) ;
-
             if ($scope.data.defined_age === undefined || $scope.data.defined_age != 1) {
-                console.log('---------------------> $scope.data.ages e' , $scope.data.ages) ; 
                 $scope.data.ages = $scope.data.ages;
             }
-            
+
             $scope.data.short_name = $scope.data.url_short_name = $scope.data.url_short_name;
-            console.log('$scope.package_events', $scope.package_events);
-            $scope.data.image_1 = $scope.data.image ;
+            $scope.data.image_1 = $scope.data.image;
             $scope.event_ids = [];
             $scope.event_idsStr = '';
             for (var index in $scope.package_events) {
@@ -307,20 +294,15 @@ console.log('$state.params.packageId' , $state.params.packageId);
                 $scope.event_idsStr += valId + ",";
             }
 
-            $rootScope.choosenSelectedEventsIds = $scope.event_ids;
-            console.log('$rootScope.choosenSelectedEventsIds' , $rootScope.choosenSelectedEventsIds) ;
-            console.log('$scope.data.event_ids', $scope.event_ids);
-            console.log('$scope.data.event_idsStr', $scope.event_idsStr);
-
+            $scope.data.event_ids = $rootScope.choosenSelectedEventsIds = $scope.event_ids;
             $scope.viewEvents();
+            $rootScope.loader_div = true;
         });
 
         $scope.viewEvents = function() {
             $scope.eventPostData = {};
             $scope.eventPostData.user_id = userId;
             $scope.eventPostData.choosenEventsIds = $scope.event_idsStr;
-
-            console.log('$scope.eventPostData', $scope.eventPostData);
             $serviceTest.viewSelectedEvents($scope.eventPostData, function(response) {
                 if (response.code == 200) {
                     $scope.choosenEventsArea = true;
@@ -356,76 +338,69 @@ console.log('$state.params.packageId' , $state.params.packageId);
         console.log('m here');
         console.log('menu', menu);
         console.log('menu.id', menu.id);
-
-console.log('$localStorage.packageId' , $localStorage.packageId);
-
+        console.log('$localStorage.packageId', $localStorage.packageId);
 
         if (menu.id == 1) {
-           // do nothing stay on step 1
+            // do nothing stay on step 1
         }
         if (menu.id == 2) {
             console.log('in cond 2');
             console.log('$localStorage.packageId', $localStorage.packageId);
             console.log('$rootScope.packageId', $rootScope.packageId);
 
-            if ($localStorage.packageId != undefined && $localStorage.packageId !== '' && $rootScope.packageId  == "" && $state.params.packageId != '') {
+            if ($localStorage.packageId != undefined && $localStorage.packageId !== '' && $rootScope.packageId == "" && $state.params.packageId != '') {
                 console.log(' edit case......... go ..............');
 
                 $location.path("/event_package_step_2/" + $localStorage.packageId);
             }
 
-            if ($localStorage.packageId != undefined && $localStorage.packageId != '' && $rootScope.packageId  !== "" && $rootScope.packageId === $localStorage.packageId ) {
+            if ($localStorage.packageId != undefined && $localStorage.packageId != '' && $rootScope.packageId !== "" && $rootScope.packageId === $localStorage.packageId) {
                 console.log(' edit case......... goooooooooo ..............');
                 $location.path("/event_package_step_2/" + $localStorage.packageId);
             }
 
-            if ($localStorage.packageId == undefined && $rootScope.packageId == '' ) {
+            if ($localStorage.packageId == undefined && $rootScope.packageId == '') {
                 console.log('save & go in case of direct edit');
 
-                           if($localStorage.packageId == undefined || $localStorage.packageId =='' || $localStorage.packageId == 'undefined') {
-    console.log('empty package id, break the code here');
+                if ($localStorage.packageId == undefined || $localStorage.packageId == '' || $localStorage.packageId == 'undefined') {
+                    console.log('empty package id, break the code here');
 
-      $scope.error_message = false;
-                $scope.error = global_message.error_in_step1;
-                $timeout(function() {
-                    $scope.error = '';
-                    $scope.error_message = true;
-                }, 3000);
+                    $scope.error_message = false;
+                    $scope.error = global_message.error_in_step1;
+                    $timeout(function() {
+                        $scope.error = '';
+                        $scope.error_message = true;
+                    }, 3000);
 
+                    return false;
+                }
 
-           
-
-    return false;
-}
-
-               // $scope.stepOne();
+                // $scope.stepOne();
                 $location.path("/event_package_step_2/" + $localStorage.packageId);
             }
 
         }
 
-        
-
         if (menu.id == 3) {
-           // Go to step 3
+            // Go to step 3
             console.log('in cond 2');
             console.log('$localStorage.packageId', $localStorage.packageId);
             console.log('$rootScope.packageId', $rootScope.packageId);
 
-            if($localStorage.packageId == undefined || $localStorage.packageId =='' || $localStorage.packageId == 'undefined') {
-    console.log('empty package id, break the code here');
+            if ($localStorage.packageId == undefined || $localStorage.packageId == '' || $localStorage.packageId == 'undefined') {
+                console.log('empty package id, break the code here');
 
-      $scope.error_message = false;
+                $scope.error_message = false;
                 $scope.error = global_message.error_in_step1;
                 $timeout(function() {
                     $scope.error = '';
                     $scope.error_message = true;
                 }, 3000);
 
-    return false;
-}
+                return false;
+            }
 
-            if ($localStorage.packageId !== '' && $rootScope.packageId  == "" && $state.params.packageId != '') {
+            if ($localStorage.packageId !== '' && $rootScope.packageId == "" && $state.params.packageId != '') {
                 console.log(' edit case......... go ..............');
                 $location.path("/event_package_step_3/" + $localStorage.packageId);
             }
@@ -452,8 +427,8 @@ console.log('$localStorage.packageId' , $localStorage.packageId);
 
     $scope.changedendtime = function() {
 
-console.log('$scope.data.online_sales_open_date' , $scope.data.online_sales_open_date);
-console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open_time);
+        console.log('$scope.data.online_sales_open_date', $scope.data.online_sales_open_date);
+        console.log('$scope.data.online_sales_open_time', $scope.data.online_sales_open_time);
         if ($scope.data.immidiately != 1 && $scope.data.online_sales_open_date !== '' && $scope.data.online_sales_open_date != undefined && $scope.data.online_sales_close_date != '' && $scope.data.online_sales_close_date != undefined) {
 
             var od = $scope.data.online_sales_open_date;
@@ -490,9 +465,9 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
                     }
                 }
             }
-console.log(' ------------------------------ ' );
-console.log('$scope.data.online_sales_open_date' , $scope.data.online_sales_open_date);
-console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open_time);
+            console.log(' ------------------------------ ');
+            console.log('$scope.data.online_sales_open_date', $scope.data.online_sales_open_date);
+            console.log('$scope.data.online_sales_open_time', $scope.data.online_sales_open_time);
             //$scope.select_delect_event = false;
             //$rootScope.endevent_time = $filter('date')($scope.endtime, 'shortTime');
         }
@@ -551,28 +526,28 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
     /************** Date Time Merge ends **************/
 
     /************** Function to check form errors starts **************/
-    $scope.formatDate = function(d){
+    $scope.formatDate = function(d) {
         var d2 = new Date();
-        var n2 = d2.getTimezoneOffset(); 
+        var n2 = d2.getTimezoneOffset();
         if (n2 > 0) {
-          var newdate = new Date(d .getTime() + n2*60000);
+            var newdate = new Date(d.getTime() + n2 * 60000);
         } else {
-          var newdate = new Date(d .getTime() - n2*60000);
+            var newdate = new Date(d.getTime() - n2 * 60000);
         }
-        
+
         d = newdate;
         console.log(d);
-        
-        function addZero(n){
-           return n < 10 ? '0' + n : '' + n;
+
+        function addZero(n) {
+            return n < 10 ? '0' + n : '' + n;
         }
-        console.log(d.getFullYear()+"-"+ addZero(d.getMonth()+1) + "-" + addZero(d.getDate()) + " " + 
-                 addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes()));
-      
-          return d.getFullYear()+"-"+ addZero(d.getMonth()+1) + "-" + addZero(d.getDate()) + " " + 
-                 addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes());
-  }
-    
+        console.log(d.getFullYear() + "-" + addZero(d.getMonth() + 1) + "-" + addZero(d.getDate()) + " " +
+            addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes()));
+
+        return d.getFullYear() + "-" + addZero(d.getMonth() + 1) + "-" + addZero(d.getDate()) + " " +
+            addZero(d.getHours()) + ":" + addZero(d.getMinutes()) + ":" + addZero(d.getMinutes());
+    }
+
     $scope.checkErrors = function() {
         var error = $scope.myForm.$error;
         angular.forEach(error.required, function(field) {
@@ -605,20 +580,25 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
     /************** Function to save data of step one starts **************/
 
     $scope.stepOne = function() {
- 
-    $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
 
-    if($scope.data.online_sales_open_date!=undefined && $scope.data.online_sales_open_time!=undefined && $scope.data.online_sales_open_date!='' && $scope.data.online_sales_open_time!=''){
-    $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date , $scope.data.online_sales_open_time );  
-    } 
+            $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
 
-   if($scope.data.online_sales_close_date!=undefined && $scope.data.online_sales_close_time!=undefined && $scope.data.online_sales_close_date!='' && $scope.data.online_sales_close_time!=''){
-    $scope.data.online_sales_close_date_time = $scope.combine($scope.data.online_sales_close_date , $scope.data.online_sales_close_time );  
-    } 
-            console.log('$rootScope.eventcheckboxGlobalIds', $rootScope.eventcheckboxGlobalIds);
-            $scope.data.event_ids = $rootScope.eventcheckboxGlobalIds;
+            if ($scope.data.online_sales_open_date != undefined && $scope.data.online_sales_open_time != undefined && $scope.data.online_sales_open_date != '' && $scope.data.online_sales_open_time != '') {
+                $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date, $scope.data.online_sales_open_time);
+            }
+
+            if ($scope.data.online_sales_close_date != undefined && $scope.data.online_sales_close_time != undefined && $scope.data.online_sales_close_date != '' && $scope.data.online_sales_close_time != '') {
+                $scope.data.online_sales_close_date_time = $scope.combine($scope.data.online_sales_close_date, $scope.data.online_sales_close_time);
+            }
+
+            if ($rootScope.choosenSelectedEventsIds != '' && $rootScope.choosenSelectedEventsIds != undefined) {
+                $scope.data.event_ids = $rootScope.choosenSelectedEventsIds;
+            }
+
+            if ($rootScope.eventcheckboxGlobalIds != '' && $rootScope.eventcheckboxGlobalIds != undefined) {
+                $scope.data.event_ids = $rootScope.eventcheckboxGlobalIds;
+            }
             console.log('$scope.data ', $scope.data);
-
 
             //$scope.loader = false;
             if ($localStorage.userId != undefined) {
@@ -627,51 +607,45 @@ console.log('$scope.data.online_sales_open_time' , $scope.data.online_sales_open
                 $scope.data.showclix_token = $localStorage.showclix_token;
                 $scope.data.showclix_seller_id = $localStorage.showclix_seller_id;
 
+                var showclix_event_ids = [];               
+                 angular.forEach($rootScope.FinalEvents,function(value,key){
+                     var id = value.id;
+                    var showclix_event_id = value.showclix_id;
+                    if (id != undefined && showclix_event_id  != undefined) {
+                        showclix_event_ids[id] = showclix_event_id;
+                        showclix_event_ids.push({"key":id,"value":showclix_event_id});
+                    }
+                }); 
 
-        var showclix_event_ids = [];
-        for (var key in $rootScope.FinalEvents) {
-            // make changes here.................... put showclix id in array
-            var id = $rootScope.FinalEvents[key].id;
-            var showclix_event_id = $rootScope.FinalEvents[key].showclix_id;
-            if( id != null && showclix_event_id != null)
-            showclix_event_ids[id] = showclix_event_id;
-            //showclix_event_ids.push($rootScope.allEvents[eventId]);
-        }
-
-$scope.data.showclix_event_ids = showclix_event_ids;
-console.log("-==================-");
-console.log($scope.data.showclix_event_ids);
+                $scope.data.showclix_event_ids = showclix_event_ids;
 
                 $serviceTest.stepOneEventPackage($scope.data, function(response) {
-                    console.log('response', response);
                     //$scope.loader = false;
                     if (response.code == 200) {
                         $rootScope.packageId = $scope.data.id = response.result;
                         $localStorage.packageId = $scope.data.id;
 
-
                         $scope.success = global_message.save_package;
 
                         $scope.success_message = true;
                         $timeout(function() {
-                          $scope.success = '';
-                          $scope.success_message = false;
+                            $scope.success = '';
+                            $scope.success_message = false;
                         }, 3000);
                         // window.location.reload();
-    
 
-                        // $location.path("/event_package_step_2/"+$scope.data.package_id);
+                        $location.path("/event_package_step_2/" + $rootScope.packageId);
                     } else {
                         //$scope.error_message = response.error;
 
-                         $scope.error = response.error;
-            $scope.error_message = false;
+                        $scope.error = response.error;
+                        $scope.error_message = false;
 
-            $timeout(function() {
-              $scope.success = '';
-              $scope.error_message = true;
-              $scope.error = '';
-            }, 5000);
+                        $timeout(function() {
+                            $scope.success = '';
+                            $scope.error_message = true;
+                            $scope.error = '';
+                        }, 5000);
 
                     }
 
@@ -797,43 +771,6 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         })
     }
 
-    $scope.eventmakeAssignment = function() {
-        console.log('eventmakeAssignment' );
-
-        if ($rootScope.eventcheckboxGlobalIds != []) {
-            $uibModalInstance.dismiss('cancel');
-        }
-
-
-
-
-$rootScope.allEventsDates = [];
-        $scope.eventInfo = {};
-        if ($localStorage.userId != undefined) {
-            $scope.eventInfo.user_id = $localStorage.userId;
-            $scope.eventInfo.eventcheckboxGlobalIds = $rootScope.eventcheckboxGlobalIds;
-        }
-
-        $rootScope.choosenEventsArea = false;
-        //$rootScope.FinalEvents = [];
-        while($rootScope.FinalEvents.length > 0) {
-    $rootScope.FinalEvents.pop();
-}
-        $rootScope.choosenEventsArea = true;
-        for (var key in $scope.eventInfo.eventcheckboxGlobalIds) {
-            var eventId = $scope.eventInfo.eventcheckboxGlobalIds[key];
-            $rootScope.FinalEvents.push($rootScope.allEvents[eventId]);
-        }
-
-        console.log('before $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
-        $rootScope.eventsChoosedFlag = true;
-        console.log('$rootScope.eventcheckboxGlobalIds', $rootScope.eventcheckboxGlobalIds);
-        console.log('after $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
-        console.log('$rootScope.FinalEvents', $rootScope.FinalEvents);
-    };
-
-    /** View list of all Events for assigning discount coupons ***/
-
     $scope.combine = function(dt, timeString) {
         var startDateTime;
         var parts = /^(\d+):(\d+) (AM|PM)$/.exec(timeString);
@@ -853,6 +790,44 @@ $rootScope.allEventsDates = [];
         }
         return startDateTime;
     }
+
+    $scope.eventmakeAssignment = function() {
+        console.log('eventmakeAssignment');
+
+        if ($rootScope.eventcheckboxGlobalIds != []) {
+            $uibModalInstance.dismiss('cancel');
+        }
+
+        $rootScope.allEventsStartDates = [];
+
+        $scope.eventInfo = {};
+        if ($localStorage.userId != undefined) {
+            $scope.eventInfo.user_id = $localStorage.userId;
+            $scope.eventInfo.eventcheckboxGlobalIds = $rootScope.eventcheckboxGlobalIds;
+        }
+
+        $rootScope.choosenEventsArea = false;
+        //$rootScope.FinalEvents = [];
+        while ($rootScope.FinalEvents.length > 0) {
+            $rootScope.FinalEvents.pop();
+        }
+        $rootScope.choosenEventsArea = true;
+        for (var key in $scope.eventInfo.eventcheckboxGlobalIds) {
+            var eventId = $scope.eventInfo.eventcheckboxGlobalIds[key];
+            $rootScope.FinalEvents.push($rootScope.allEvents[eventId]);
+            $rootScope.allEventsStartDates.push($rootScope.allEvents[eventId].date);
+
+        }
+
+        console.log('before $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
+        $rootScope.eventsChoosedFlag = true;
+        console.log('$rootScope.eventcheckboxGlobalIds', $rootScope.eventcheckboxGlobalIds);
+        console.log('after $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
+        console.log('$rootScope.FinalEvents', $rootScope.FinalEvents);
+        console.log('$rootScope.allEventsStartDates', $rootScope.allEventsStartDates);
+    };
+
+    /** View list of all Events for assigning discount coupons ***/
 
     $scope.viewEvents = function() {
         $scope.data = {};
@@ -875,16 +850,13 @@ $rootScope.allEventsDates = [];
                         var valId = $scope.eventdata[index].id;
 
                         $scope.eventdata[index].checked = 0;
-                        if ($rootScope.choosenSelectedEventsIds != undefined ) {
+                        if ($rootScope.choosenSelectedEventsIds != undefined) {
                             if ($rootScope.choosenSelectedEventsIds.indexOf(valId) !== -1) {
                                 $scope.eventdata[index].checked = 1;
                             }
                         }
 
                         var val = $scope.eventdata[index];
-
-    
-
 
                         var obj = {};
                         obj[valId] = val;
@@ -907,17 +879,17 @@ $rootScope.allEventsDates = [];
 
                     if ($rootScope.choosenSelectedEventsIds != '' && $rootScope.choosenSelectedEventsIds != undefined) {
                         console.log('$rootScope.choosenSelectedEventsIds', $rootScope.choosenSelectedEventsIds);
-                       // $scope.eventcheckbox = [];
+                        // $scope.eventcheckbox = [];
                         console.log('$rootScope.choosenSelectedEventsIds');
                         $scope.eventcheckbox = $rootScope.choosenSelectedEventsIds;
-console.log('$scope.eventcheckbox ' , $scope.eventcheckbox );
+                        console.log('$scope.eventcheckbox ', $scope.eventcheckbox);
 
                         if ($scope.eventcheckbox.length > 0) {
-            $scope.enableEventAssign = true;
-            $rootScope.eventcheckboxGlobalIds = $scope.eventcheckbox;
-        } else {
-            $scope.enableEventAssign = false;
-        }
+                            $scope.enableEventAssign = true;
+                            $rootScope.eventcheckboxGlobalIds = $scope.eventcheckbox;
+                        } else {
+                            $scope.enableEventAssign = false;
+                        }
                     }
 
                     console.log('$scope.eventdata', $scope.eventdata);
