@@ -524,6 +524,23 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
             }
         }
         
+        $scope.changeBackground=function()
+        {
+          console.log("I am here.");  
+        }
+         var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+marker.setMap(map); 
         $scope.encodeImageFileAsURL3 = function() {
             var filesSelected = document.getElementById("my_file3").files;
             if (filesSelected.length > 0) {
