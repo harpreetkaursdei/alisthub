@@ -2159,6 +2159,28 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
          }])
 
  .run(function($rootScope,$localStorage) {
+      
+      $rootScope.send_newsletter = function()
+      {
+         console.log($rootScope.news_letter_email+"hkhkhkh"); 
+         $rootScope.error_message_news = false;
+         $rootScope.error_news = "";
+         if ($rootScope.news_letter_email != "" && $rootScope.news_letter_email != null && $rootScope.news_letter_email !== undefined)
+         {
+          
+            
+           console.log($rootScope.news_letter_email+"hkhkhkh");
+           
+           
+         }
+         else
+         {
+            $rootScope.error_message_news = true;
+            $rootScope.error_news         = "Enter email";
+         }
+      }
+      
+      
       $rootScope.checkPermission = function(per,method) {
           //console.log("Permissiondsad: " + per + "---" + method);
           var permitted = true; 
