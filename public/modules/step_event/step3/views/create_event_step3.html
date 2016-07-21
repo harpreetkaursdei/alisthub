@@ -45,14 +45,28 @@
         .prepend( "<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
     }
   
-  
+  function selectorInnerColor()
+  {
+    var inner_background=$("#inner_background").val();
+    
+    $('.portlet').css("background",inner_background);
+  }
+  function selectorTextColor()
+  {
+    var text_color=$("#text_color").val();
+     
+    $('.portlet').css("color",text_color);
+  }
   </script>
-<link rel="stylesheet" type="text/css" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" />
+
 <div class="preview_overlay"></div>
 <div class="container">
 <h1>Create an Event</h1>
 <!-- Step Form -->
-
+<div style="display:none;">
+<a id="selectorBackground" onClick="selectorInnerColor();">Something</a>
+<a id="selectorTextColor" onClick="selectorTextColor();">Something12</a>
+</div>
 <div class="stage-container clearfix">
   <div class="stage" ng-repeat="step in steps" ng-class="{current: isActive2(step)}" ng-click="click_menu(step)">
     <div class="stage-icon"><i class="{{step.icon}}"></i> </div>

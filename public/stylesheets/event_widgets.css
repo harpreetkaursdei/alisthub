@@ -1,0 +1,72 @@
+  /**********event widgets************/
+  
+  color-picker.color-picker-event {
+      float: none !important;
+  }
+  
+  #sc_event_list {
+      height: 200px;
+  }
+  /************tracking tag*************/
+  
+  a.add_tracking_tag {
+      float: right !important;
+      cursor: pointer;
+  }
+  
+  a.link {
+      float: right;
+      cursor: pointer;
+  }
+  /********************/
+  
+  table.checkout_table {
+      border: 2px solid #ccc;
+      width: 100%;
+  }
+  
+  table.checkout_table th,
+  table.checkout_table td {
+      text-align: left;
+      padding: 8px;
+  }
+  
+  table.checkout_table tr:nth-child(even) {
+      background-color: #f2f2f2
+  }
+  
+  table.checkout_table td img {
+      margin-left: 48%;
+  }
+  
+  .event {
+      width: 100%;
+  }
+  
+  span.span_ctrl {
+      margin-left: 40%;
+  }
+  
+  #sc_event_list {
+      height: 200px !important;
+  }
+  
+  .scroll_list {
+      height: 275px;
+      overflow: hidden;
+      padding: 0 15px;
+      width: 100%;
+  }
+  
+  textarea.checkout_popup {
+      width: 100%;
+      background: #002B36;
+      color: #FFF;
+      padding-top: 24px;
+      font-size: 12px;
+  }
+  
+  a.header_cancle {
+      float: right;
+      cursor: pointer;
+  }

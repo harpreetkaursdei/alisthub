@@ -8,6 +8,7 @@ module.exports = function()
     
   this.getSalesData = function(req,res,next)
   {
+
     var reportDataUrl = "https://api.showclix.com/Sale/search?seller = " + req.showclix_seller_id;
 
     if(req.end_date && req.start_date){
@@ -27,9 +28,10 @@ module.exports = function()
                   //console.log("====================");
                   //console.log(response.statusCode);
                   //console.log("====================");
-                  //console.log(body);
+                  //console.log(body); 
 
-                if(response.statusCode == 200) {
+                  if(response.statusCode == 200) {
+
                   return next({status:1,data:response.body});
                 } else {
                   return next({status:0,data:""});

@@ -80,6 +80,10 @@ module.exports = function(app, express) {
   //router.get('/getShowclixPricelevel/:id', Event.getShowclixPricelevel);
   /*Remove Price level*///
   router.post('/removepricelevel', Event.removepricelevel);
+  
+  /*Remove Price level Scedule*///
+  router.post('/delete_level_schedule', Event.delete_level_schedule);
+  
   /*change price level status*///
   router.post('/changePricelevelStatus', Event.changePricelevelStatus);
   /*get single price level*///
@@ -247,6 +251,6 @@ module.exports = function(app, express) {
 
 
 
-	app.use('/event', router);
+  app.use('/event', router);
 
 }

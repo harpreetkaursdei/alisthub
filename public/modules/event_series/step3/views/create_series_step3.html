@@ -41,13 +41,28 @@
         .addClass( "ui-widget-header ui-corner-all" )
         .prepend( "<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
     }
+   function selectorInnerColor()
+  {
+    var inner_background=$("#inner_background").val();
   
+    $('.portlet').css("background",inner_background);
+  }
+  function selectorTextColor()
+  {
+    var text_color=$("#text_color").val();
+    
+    $('.portlet').css("color",text_color);
+  }
   
   </script>
+<div class="preview_overlay"></div>
 <div class="container">
 <h1>Create an Event</h1>
 <!-- Step Form -->
-
+<div style="display:none;">
+<a id="selectorBackground" onClick="selectorInnerColor();">Something</a>
+<a id="selectorTextColor" onClick="selectorTextColor();">Something12</a>
+</div>
 <div class="stage-container clearfix">
   <div class="stage" ng-repeat="step in steps" ng-class="{current: isActive2(step)}" ng-click="click_menu(step)">
     <div class="stage-icon"><i class="{{step.icon}}"></i> </div>
@@ -293,9 +308,11 @@
         
       </section>
     </section>
-    <section ng-hide="preview_div" >
+    <section class="preview-box" ng-hide="preview_div">
+	<div class="preview_close"><i class="fa fa-times-circle-o" aria-hidden="true"></i>
+</div>
       <section id="preview_div"></section>
-      <a class="btn pink-btn" style="margin-top:4%" href="/#/create_event_step4/{{eventId}}">Continue</a> </section>
+      <a class="btn pink-btn" style="margin-top:4%" href="/#/create_series_step4/{{eventId}}">Continue</a> </section>
   </div>
   <script type="text/javascript">
 
@@ -382,10 +399,17 @@ function remove_widget_dynamic(widgetId)
 	       $("#preview_div").show().html(arr);
 
 		$("#lookstep4").click();
+               $(".preview_overlay,.preview_close").show();
+		$('html,body').animate({
+			scrollTop: $(".preview_close").offset().top},
+			'slow');
 	      }
 	    });
 	  
         })
+  $('.preview_close').on('click', function() {
+         $(".preview_overlay,.preview_close").hide();
+        });
           $('.col2').on('mouseenter',function() {
 	          
 		   if($(this).attr('id')=='section1')
@@ -672,5 +696,5 @@ function remove_widget_dynamic(widgetId)
         <button type="button" class="btn pink-btn btn-small" onclick="return save_block()">Save</button>
       </div>
     </div>
-  </div>
+  </div> 
 </div>

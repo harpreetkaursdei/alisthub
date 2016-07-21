@@ -52,15 +52,20 @@
                                 <thead>
                                     <tr>
                                         <th width="20%">ID</th>
-                                        <th width="80%">Event</th>
+                                        <th width="40%">Event</th>
+                                        <th width="40%">Event</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="event in FinalEvents" >
                                         <td><a href="#"><strong>{{event.id}}</strong></a></td>
                                         <td>
-                                            <p> <b>{{event.title}}</b><span ng-if="event.event_address != '' || event.event_address != NULL || event.event_address != null || event.event_address != 'null' ||  event.event_address != undefined " > @ {{event.event_address}} </span></p>
+                                            <p> <b>{{event.title}}</b>
+                                            <span ng-if="event.parent_id != NULL ">(Series Event)</span><span ng-if="event.parent_id == NULL ">(Single Event)</span></p>
                                         </td>
+
+                                        <td>{{event.date | date:"dd MMMM yyyy"}} {{event.start_time}} <span ng-if="event.event_address != '' || event.event_address != NULL || event.event_address != null || event.event_address != 'null' ||  event.event_address != undefined " > @ {{event.event_address}} </span> </td>
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -265,7 +270,7 @@
                 </div>
                 <div class="col-sm-12">
                     <label class="form-label">Package Website</label>
-                    <input type="url" name="website" ng-model="data.website" class="form-control" tooltips tooltip-template="The website URL you provide will appear on your ticketing page. If you do not have a website, you can input a Facebook, MySpace or blog link in this section." >
+                    <input type="url" name="website" ng-model="data.website" class="form-control" ng-pattern="/^https?:\/\/[a-zA-Z0-9.\-]+\.[a-zA-Z]+(\/.*)?$/" tooltips tooltip-template="The website URL you provide will appear on your ticketing page. If you do not have a website, you can input a Facebook, MySpace or blog link in this section." >
                 </div>
                 <div class="col-sm-12">
                     <br>
@@ -290,8 +295,8 @@
                 </div>
                 <!-- ng-disabled="myForm.$invalid || eventsChoosedFlag == false" -->
                 <div class="editor-btn">
-                    <button type="submit"  ng-disabled="myForm.$invalid || eventsChoosedFlag == false"  ng-click="stepOne()" class="gray-btn btn">Save</button> 
-                    <button type="button" ng-disabled="myForm.$invalid || eventsChoosedFlag == false"  ng-click="click_menu(steps[1])" class="pink-btn btn">Next</button>
+                    <button type="submit"  ng-disabled="myForm.$invalid || eventsChoosedFlag == false"  ng-click="stepOne()" class="gray-btn btn">Save & Continue</button> 
+                    <!--<button type="button" ng-disabled="myForm.$invalid || eventsChoosedFlag == false"  ng-click="click_menu(steps[1])" class="pink-btn btn">Next</button> -->
                 </div>
             </form>
             
@@ -336,11 +341,11 @@
 <tr ng-repeat="edata in $data | filter:filter">
 <td  width="5%" header-class="'header-text-align'" header="'ng-table/headers/checkbox4.html'"><input type="checkbox" name="checkall" ng-model="edata.selected"  ng-click="eventoptionToggled(edata.id);" ng-checked="edata.checked == 1">
 </td>
-<td width="15%" header-class="'header-text-align'" title="'Event Name'" filter="{ title: 'text'}" sortable="'title'"><strong>{{edata.title}}</strong>
+<td width="15%" header-class="'header-text-align'" title="'Event Name'" filter="{ title: 'text'}" sortable="'title'"><strong>{{edata.title}} </strong><span ng-if="edata.parent_id != NULL ">(Series Event)</span><span ng-if="edata.parent_id == NULL ">(Single Event)</span>
 </td>
 <td width="12%" header-class="'header-text-align'" title="'Venue'" filter="{ event_address: 'text'}" sortable="'event_address'">{{edata.event_address}}
 </td>
-<td width="12%" header-class="'header-text-align'" title="'City'" filter="{ city: 'text'}" sortable="'city'" class="numbers">{{edata.city}}</td>
+<td width="12%" header-class="'header-text-align'" title="'Date & Type'" filter="{ city: 'text'}" sortable="'city'" class="numbers">{{edata.date | date:"dd MMMM yyyy"}} {{edata.start_time}}</td>
 </tr>
 <tr ng-if="$data == ''">
 <td colspan="4" align="center">No Record found!</td>

@@ -8,7 +8,7 @@ Module : Event step
 
 angular.module("google.places", []);
 angular.module('alisthub', ['google.places', 'angucomplete']).controller('seriesStep1Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
-
+  $rootScope.loader_div = false;
   $scope.loader = false;
    //For Step 1
   var $serviceTest = $injector.get("venues");
@@ -20,7 +20,8 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('series
      
          $scope.checkeventurl = function() 
          {
-          if($stateParams.eventId==='' || $stateParams.eventId=== undefined)
+          console.log($stateParams.eventId);
+          if($stateParams.eventId==='' || $stateParams.eventId === undefined || $stateParams.eventId === null)
           {
             $serviceTest.checkeventurl({'eventurl':$scope.data.eventurl},function(response){
              
@@ -270,7 +271,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('series
     }, function(response) {
        $scope.venueloader = false;
       if (response !== null) {
-
+        $rootScope.loader_div = true;
         if (response.code === 200) {
           $scope.total_venue = response.result;
           if ($scope.total_venue != "") {

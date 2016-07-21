@@ -1,6 +1,6 @@
 angular.module('alisthub').controller('stepevent2Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
   $scope.loader = false;
-  
+  $rootScope.loader_div = false;
 
   //For Step 1
   var $serviceTest = $injector.get("venues");
@@ -49,7 +49,6 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
   $rootScope.success_message1 = false;
   $scope.data1 = {};
     
-
   $eventId = $localStorage.eventId;
     
     var event_id = '';
@@ -61,6 +60,7 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
     $scope.pageloader = true; 
     $serviceTest.getEvent({'event_id':event_id},function(response){
       $scope.pageloader = false;
+      $rootScope.loader_div = true;
         $scope.data1=response.results[0];
 	$localStorage.showclix_id = response.results[0].showclix_id;
 	        $scope.data1.type_of_event = response.results[0].type_of_event == null?0:response.results[0].type_of_event;
@@ -70,7 +70,7 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
 		$scope.data1.twitter=response.results[0].twitter_url != null?response.results[0].twitter_url:"";
 		$scope.data1.eventwebsite=response.results[0].website_url != null?response.results[0].website_url:"";
     		$scope.data1.eventinventory=response.results[0].inventory;
-        $scope.data1.price = response.results[0].price_type;
+        //$scope.data1.price = response.results[0].price_type;
         $scope.ageDropdown = 0;
         if(response.results[0].define_custom_age == 1) {
           $scope.ageDropdown = 1;
@@ -232,8 +232,8 @@ angular.module('alisthub').controller('stepevent2Controller', function($scope, $
 
   $scope.data1 = {};
 
-$scope.data1.type_of_event=0;
-$scope.data1.price=0;
+  $scope.data1.type_of_event=0;
+  //$scope.data1.price=0;
 
 
   // $scope.data1 = {
@@ -329,6 +329,34 @@ $scope.data1.price=0;
     });
   }
 
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var afterTomorrow = new Date(tomorrow);
+  afterTomorrow.setDate(tomorrow.getDate() + 1);
+  $scope.events = [{
+    date: tomorrow,
+    status: 'full'
+  }, {
+    date: afterTomorrow,
+    status: 'partially'
+  }];
+  
+  function getDayClass(data) {
+    var date = data.date,
+      mode = data.mode;
+    if (mode === 'day') {
+      var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+      for (var i = 0; i < $scope.events.length; i++) {
+        var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+        if (dayToCheck === currentDay) {
+          return $scope.events[i].status;
+        }
+      }
+    }
+    return '';
+  }
+
+  
  $scope.open1 = function() {
     $scope.popup1.opened = true;
   };
@@ -344,7 +372,33 @@ $scope.data1.price=0;
     $scope.popup4.opened = true;
   };
   ////
+  $scope.inlineOptions = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: true
+  };
+   $scope.dateOptions = {
+    dateDisabled: disabled,
+    formatYear: 'yy',
 
+    minDate: new Date(),
+    startingDay: 1
+  };
+  
+  $scope.options_1 = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+  
+  // Disable weekend selection
+  function disabled(data) {
+    var date = data.date,
+      mode = data.mode;
+    return '';
+
+  }
+  
   $scope.popup1 = {
     opened: false
   };
@@ -358,9 +412,10 @@ $scope.data1.price=0;
   $scope.popup4 = {
     opened: false
   };
-$scope.success_message = false;
+  $scope.success_message = false;
   $scope.error_message = true;
-
+  
+  
   $scope.multiple_event_div = $scope.venue_event_div = $scope.price_and_link_div = $scope.look_and_feel_div = $scope.setting_div = $scope.dynamic_age_div = $scope.return_age_text_div = true;
 
   //To show custom age div
@@ -634,7 +689,7 @@ $scope.success_message = false;
       }
     });
   };
-
+  
   //Add bundle pop up
   $scope.add_bundle = function(size, bundleId) {
     $rootScope.editBundleId = bundleId;
@@ -1640,7 +1695,60 @@ angular.module('alisthub').controller('PricechangeCtrl', function($scope, $uibMo
   $scope.open1 = function() {
     $scope.popup1.opened = true;
   };
+  $scope.inlineOptions = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: true
+  };
+   $scope.dateOptions = {
+    dateDisabled: disabled,
+    formatYear: 'yy',
 
+    minDate: new Date(),
+    startingDay: 1
+  };
+  
+  $scope.options_1 = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+  
+  // Disable weekend selection
+  function disabled(data) {
+    var date = data.date,
+      mode = data.mode;
+    return '';
+
+  }
+  
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var afterTomorrow = new Date(tomorrow);
+  afterTomorrow.setDate(tomorrow.getDate() + 1);
+  $scope.events = [{
+    date: tomorrow,
+    status: 'full'
+  }, {
+    date: afterTomorrow,
+    status: 'partially'
+  }];
+
+  function getDayClass(data) {
+    var date = data.date,
+      mode = data.mode;
+    if (mode === 'day') {
+      var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+      for (var i = 0; i < $scope.events.length; i++) {
+        var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+        if (dayToCheck === currentDay) {
+          return $scope.events[i].status;
+        }
+      }
+    }
+    return '';
+  }
+  
   $scope.popup1 = {
     opened: false
   };
@@ -1719,13 +1827,34 @@ angular.module('alisthub').controller('PricechangeCtrl', function($scope, $uibMo
   $scope.schedules = {};
   data5.showclix_price_id   = $rootScope.showclix_price_id;
   data5.showclix_id         = $localStorage.showclix_id;
+  $scope.dataloader = true;
   $serviceTest.getPriceLevelChange(data5, function(response) {
+    $scope.dataloader = false;
       if (response.code === 200) {
 	console.log(response.result);
 	$scope.schedules = response.result;
       }
   });
   
+  // Delete Price Schedule
+  $scope.delete_schedule = function(id, level_id, event_id,schedule_id,index) {
+          var data = {};
+	  data.showclix_token     = $localStorage.showclix_token;
+          data.showclix_user_id   = $localStorage.showclix_user_id;
+          data.showclix_seller_id = $localStorage.showclix_seller_id;
+	  data.showclix_price_id  = level_id;
+	  data.showclix_id        = event_id;
+	  data.id                 = id;
+	  data.showclix_price_schedule_id  = schedule_id;
+          //console.log(data); return false;
+          $serviceTest.delete_level_schedule(data, function(response) {
+            if (response.code == 200) {
+                $scope.schedules.splice(index, 1); 
+            }else{
+	      console.log(response);
+	    }
+          });
+  }
   
   //Price change function
   $scope.pricechangefunc = function(data2) {
@@ -1736,7 +1865,11 @@ angular.module('alisthub').controller('PricechangeCtrl', function($scope, $uibMo
     data2.showclix_seller_id  = $localStorage.showclix_seller_id;
     data2.showclix_price_id   = $rootScope.showclix_price_id;
     data2.showclix_id         = $localStorage.showclix_id;
+    $scope.loader = true;
+    $scope.button = 1;
     $serviceTest.postPriceChange(data2, function(response) {
+      $scope.loader = false;
+      $scope.button = 0;
       if (response.code === 200) {
         $rootScope.success1 = global_message.price_level_update;
         $timeout(function() {

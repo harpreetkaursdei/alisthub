@@ -347,6 +347,20 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
           });
     }
     
+    $scope.socialLink=function(size)
+    {
+      $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'socialLinktemplate.html',
+            controller: 'socialLinkCtrl',
+            size: size,
+            resolve: {
+              items: function () {
+                return $scope.items;
+              }
+            }
+          });  
+    }
    
   
     
@@ -376,11 +390,15 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
     
     $scope.$watch('backgroundColor', function(newValue, oldValue) {
              $scope.background_outer=newValue;
-             console.log("********",$scope.background_outer);
+             
+            
         });
     $scope.$watch('InnerbackgroundColor', function(newValue, oldValue) {
             
              $scope.background_inner=newValue;
+              $timeout(function() {
+              angular.element('#selectorBackground').triggerHandler('click');
+             }, 100);
         }); 
     $scope.$watch('TextColor', function(newValue, oldValue) {
              
@@ -389,6 +407,9 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
              }else{
              $scope.text_color=newValue;
              }
+             $timeout(function() {
+              angular.element('#selectorTextColor').triggerHandler('click');
+             }, 100);
         });
     $scope.$watch('OuterborderColor', function(newValue, oldValue) {
             
@@ -570,6 +591,29 @@ angular.module('alisthub').controller('PreviewTemplateCtrl', function($scope, $u
         $scope.preview_image=response.result[0].preview_image;
        }
     });
+     $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
+});
+
+angular.module('alisthub').controller('socialLinkCtrl', function($scope, $uibModalInstance, items,$rootScope,$localStorage,$injector,$timeout,$stateParams, $state) {
+    var $serviceTest = $injector.get("Lookservice");
+    var event_id=$stateParams.eventId;
+     $scope.items = items;
+     $scope.selected = {
+      item: $scope.items[0]
+     };
+    $scope.updatesociallink=function(sociallink)
+    {
+         
+        $serviceTest.updatesociallink({'eventId':event_id,'social_link':sociallink},function(response){
+           if (response.code=='200') {
+            $rootScope.sociallink=sociallink;
+           }
+        });
+      $uibModalInstance.close($scope.selected.item);  
+    }
+   
      $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };

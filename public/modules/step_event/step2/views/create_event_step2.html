@@ -1,5 +1,5 @@
 <div class="container">
-  <div ng-show="pageloader"><img src="/images/icons/loader.gif"></div>
+  <div ng-show="pageloader"></div>
   <h1>Create an Event</h1>
   <!-- Step Form -->
   
@@ -557,6 +557,7 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
            <h3 class="modal-title" style="float:left;">Schedule Price Change</h3><a style="float:right;cursor: pointer;" ng-click="cancel()">X</a>
         </div>
         <div class="modal-body">
+            <div ng-show="dataloader" align="center"><img src="/images/icons/loader.gif"></div>
             <div class="table-responsive" ng-if="schedules != ''">
                     <table class="table table-striped">
                         <thead>
@@ -573,7 +574,9 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
                           <td >$ {{data.price}}</td>
                           <td>{{data.start_date | date:'fullDate'}} </td>
                           <td>{{data.start_date_hour}} {{data.start_date_minute}} {{data.start_date_am_pm}}</td>
-                          <td><a onclick="delete_schedule()">Delete</a></td>
+                          <td>
+                            <a style="cursor: pointer;" ng-click="delete_schedule(data.id,data.showclix_price_id,data.showclix_id,data.showclix_price_schedule_id,$index)"><i class="fa fa-trash"></i></a>
+                            </td>
                         </tr>
                     </table>
             </div>
@@ -587,7 +590,7 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
                <div class="col-sm-3">
                    <!-- <input type="text" name="date" ng-model="data2.date" class="form-control"  value="">-->
                    <div class="form-group datepicker">
-                         <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="data2.startdate_pricechange" is-open="popup1.opened" datepicker-options="dateOptions"  close-text="Close" alt-input-formats="altInputFormats" />
+                         <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="data2.startdate_pricechange" is-open="popup1.opened" datepicker-options="options_1"  close-text="Close" alt-input-formats="altInputFormats" />
                          <span class="input-group-btn">
                            <i class="glyphicon glyphicon-calendar" ng-click="open1()"></i></span>
                      </div>
@@ -629,9 +632,10 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary"  
-ng-disabled="pricechangeform.$invalid"  type="submit">Submit</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+ng-disabled="pricechangeform.$invalid || button == 1"  type="submit">Submit</button>
+            <button class="btn btn-warning" ng-disabled="button == 1" type="button" ng-click="cancel()">Cancel</button>
         </div>
+        <div ng-show="loader" align="center"><img src="/images/icons/loader.gif"></div>
 </script>
 
 

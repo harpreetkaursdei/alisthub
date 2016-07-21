@@ -8,7 +8,7 @@ Module : Event setting
 angular.module('alisthub').controller('stepevent4Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad , $http,$stateParams,$anchorScroll) {
   var $serviceTest = $injector.get("event_setting");
   $scope.error_message = true;
-  
+  $rootScope.loader_div = false;
   /**  
   Method: click_menu
   Description:Function for changing the tab 
@@ -348,7 +348,11 @@ $scope.click_menu = function(menu, data, valid) {
   $scope.formdata = {};
   $scope.enable_on = {};
   $scope.disable_on = {};
-
+  
+  
+  //$scope.formdata.print_home = 1;
+  
+   
   $scope.next_func = function(formdata) {
     console.log(formdata);
     $http.post('/event/postCreateEventStepFour' , formdata).then(function(response) {
@@ -393,8 +397,14 @@ $scope.click_menu = function(menu, data, valid) {
     if($stateParams.eventId!=undefined && $stateParams.eventId!='') {
       $scope.formdata.event_id = $stateParams.eventId;
     } 
-
-    $scope.formdata.online_sales_open = $scope.combine($scope.formdata.online_sales_open.date,$scope.formdata.online_sales_open.time);
+    if($scope.formdata.sales_immediatly == 1)
+    {
+    $scope.formdata.online_sales_open = new Date();
+    }
+    else{
+    $scope.formdata.online_sales_open = $scope.combine($scope.formdata.online_sales_open.date,$scope.formdata.online_sales_open.time);  
+    }
+    
     $scope.formdata.online_sales_close = $scope.combine($scope.formdata.online_sales_close.date,$scope.formdata.online_sales_close.time);
 
     if($scope.formdata.print_enable_date!=undefined && $scope.formdata.print_enable_date.date!=undefined && $scope.formdata.print_enable_date.time!=undefined && $scope.formdata.print_enable_date.date!='' && $scope.formdata.print_enable_date.time!=''){
@@ -403,17 +413,22 @@ $scope.click_menu = function(menu, data, valid) {
     if($scope.formdata.print_disable_date!=undefined && $scope.formdata.print_disable_date.date!=undefined && $scope.formdata.print_disable_date.time!=undefined && $scope.formdata.print_disable_date.date!='' && $scope.formdata.print_disable_date.time!=''){
       $scope.formdata.print_disable_date = $scope.combine($scope.formdata.print_disable_date.date,$scope.formdata.print_disable_date.time);
     }
-
+    $scope.formdata.online_sales_close_time = $scope.formdata.online_sales_close.time;
+    
     console.log($scope.formdata);
 
     if ($localStorage.userId !== undefined) {
+      $scope.saveloader = true;
+      $scope.button     =  1 ;
+      
       $scope.formdata.user_id = $localStorage.userId;
       $scope.formdata.showclix_token     = $localStorage.showclix_token;
       $scope.formdata.showclix_user_id   = $localStorage.showclix_user_id;
       $scope.formdata.showclix_seller_id = $localStorage.showclix_seller_id;
       $scope.formdata.showclix_id        = $scope.data.showclix_id;
       $serviceTest.saveSetting($scope.formdata, function(response) {
-
+          $scope.saveloader = false;
+          $scope.button     =  0 ;
           if (response.code === 200) {
             $scope.getSetting();
             $anchorScroll();
@@ -448,6 +463,7 @@ $scope.click_menu = function(menu, data, valid) {
     //To get settings
     $serviceTest.getSettings($scope.eventSetting, function(response) {
       $scope.pageloader = false;
+      $rootScope.loader_div = true;
       $scope.formdata = response.result[0];
       if($scope.formdata!=undefined){
         $scope.formdata.will_call = parseInt($scope.formdata.will_call);
@@ -487,7 +503,7 @@ $scope.click_menu = function(menu, data, valid) {
     });
 
   }
-
+  
   $scope.getSetting();
   
   $scope.immediate = function()
@@ -553,5 +569,5 @@ $scope.click_menu = function(menu, data, valid) {
     $location.path("/view_all_event/single");
     
   }
-
+  //$scope.formdata.print_home = 1; 
 });

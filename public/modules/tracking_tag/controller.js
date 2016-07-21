@@ -38,6 +38,7 @@ var $serviceTag = $injector.get("tracking");
 
                
                 if (size == 'lg') {
+                    $scope.page_title = 'ADD';
                     $scope.saveTag = function() {
                         if ($localStorage.userId != undefined) {
                             $scope.data.seller_id = $localStorage.userId;
