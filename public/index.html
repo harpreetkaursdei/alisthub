@@ -115,7 +115,7 @@
                                     <li ng-if="userType=='seller'">
                                         <a href="javascript:void(0)">Reports</a>
                                         <ul>
-                                            <li><a  href="javascript:void(0)">Reports Dashboard</a></li>
+                                            <li><a  href="#/report">Reports Dashboard</a></li>
                                             <li><a  href="javascript:void(0)">Box Office</a></li>
                                             <li><a  href="javascript:void(0)">Ticket Sales</a></li>
                                         </ul>
@@ -197,11 +197,14 @@
               </div>
               <div class="col-sm-12 col-md-3  nwsltr">
                 <h2>Stay Connected</h2>
-                <div class="newletter-row">
-                    <input type="text" placeholder="Enter your email ID"/>
-                    <button class="ent"><i class="fa fa-arrow-circle-right"></i></button>
+                <form  name="myForm_r" novalidate>
+                <div class="newletter-row" ng-class="{ 'has-error' : myForm_r.news_letter_email.$dirty && myForm_r.news_letter_email.$invalid }">
+                    <input type="email" name="news_letter_email" ng-model="news_letter_email" placeholder="Enter your email ID" required/>
+                    <p class="help-inline error-fld ng-binding"  ng-show="myForm_r.eventname.$dirty && myForm_r.eventname.$invalid">Enter email</p>
+                    <span ng-show="error_message_news"><p class="error-fld" >{{error_news}}</p></span>
+                    <button class="ent" ng-click="send_newsletter();"><i class="fa fa-arrow-circle-right"></i></button>
                 </div>
-                
+                </form>
                 <ul class="socialmedia">
                     <li><a class="cursor" href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
                     <li><a class="cursor" href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>

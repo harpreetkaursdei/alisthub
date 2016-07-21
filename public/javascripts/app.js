@@ -2006,6 +2006,27 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
               }]
             }
         })
+      /* Setting for event dashboard screen */
+      .state('report', {
+          url: '/report',
+           views: {
+              "lazyLoadView": {
+                controller: 'reportController', // This view will use AppCtrl loaded below in the resolve
+                templateUrl: 'modules/reports/views/report.html'
+              }
+          },
+           resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+            authentication:routerApp.logauthentication,
+            resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+              // you can lazy load files for an existing module
+              return $ocLazyLoad.load('modules/reports/service.js').then(function(){
+              }).then(function(){
+              return $ocLazyLoad.load(['modules/reports/controller.js']);
+              })
+            }]
+          }
+      })
+
 
 
 
@@ -2159,6 +2180,28 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
          }])
 
  .run(function($rootScope,$localStorage) {
+      
+      $rootScope.send_newsletter = function()
+      {
+         console.log($rootScope.news_letter_email+"hkhkhkh"); 
+         $rootScope.error_message_news = false;
+         $rootScope.error_news = "";
+         if ($rootScope.news_letter_email != "" && $rootScope.news_letter_email != null && $rootScope.news_letter_email !== undefined)
+         {
+          
+            
+           console.log($rootScope.news_letter_email+"hkhkhkh");
+           
+           
+         }
+         else
+         {
+            $rootScope.error_message_news = true;
+            $rootScope.error_news         = "Enter email";
+         }
+      }
+      
+      
       $rootScope.checkPermission = function(per,method) {
           //console.log("Permissiondsad: " + per + "---" + method);
           var permitted = true; 
