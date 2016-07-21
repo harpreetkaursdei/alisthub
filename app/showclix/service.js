@@ -540,7 +540,13 @@ module.exports = function()
                 headers: {"content-type": "application/json", 'X-API-Token':data.showclix_token},
                 url: "https://admin.alistixs.com/event/"+data.showclix_id+"/level/"+data.showclix_price_id+"/schedule.json",
                 form:   input }, function(error, response, body){
-                  return next({status:1,data:response.body});
+                  if (response.statusCode == 200) {
+                    return next({status:1,data:response.body});
+                  }
+                  else{
+                    return next({status:0,data:"Server Error"});
+                  }
+                  
     });  
   }
    
@@ -585,14 +591,13 @@ module.exports = function()
   
   this.delete_level_schedule = function(req,res,next)
   {
-    console.log(req);
-    console.log("https://admin.alistixs.com/rest.api/PriceLevelSchedule/"+req.showclix_price_schedule_id);
+    
     request.delete({
                 headers: {'X-API-Token':req.showclix_token}, 
                 url:     "https://admin.alistixs.com/rest.api/PriceLevelSchedule/"+req.showclix_price_schedule_id,
                 form:    {} }, function(error, response, body){
                    console.log(response.statusCode);
-                   console.log(body);
+                   //console.log(body);
                   if (response.statusCode == 200) {
                     return next({status:1,data:response.body});
                   }

@@ -44,6 +44,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     $scope.data = {};
     $scope.data.event_type = 1;
     $scope.data.immidiately = 0;
+    $rootScope.loader_div = false;
 
     $scope.selected = $scope.events[0];
     $scope.selected2 = $scope.steps[0];
@@ -51,7 +52,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     $rootScope.FinalEvents = [];
     $rootScope.choosenEventsArea = false;
     $rootScope.eventsChoosedFlag = false;
-    $rootScope.eventInfoMessage = false;
+    $rootScope.eventInfoMessage = true;
     $rootScope.packageId = '';
 
     $scope.error_message = true;
@@ -313,6 +314,8 @@ console.log('$state.params.packageId' , $state.params.packageId);
             console.log('$scope.data.event_idsStr', $scope.event_idsStr);
 
             $scope.viewEvents();
+
+            $rootScope.loader_div = true;
         });
 
         $scope.viewEvents = function() {
@@ -660,7 +663,7 @@ console.log($scope.data.showclix_event_ids);
                         // window.location.reload();
     
 
-                        // $location.path("/event_package_step_2/"+$scope.data.package_id);
+                         $location.path("/event_package_step_2/"+$scope.data.package_id);
                     } else {
                         //$scope.error_message = response.error;
 
@@ -797,43 +800,6 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         })
     }
 
-    $scope.eventmakeAssignment = function() {
-        console.log('eventmakeAssignment' );
-
-        if ($rootScope.eventcheckboxGlobalIds != []) {
-            $uibModalInstance.dismiss('cancel');
-        }
-
-
-
-
-$rootScope.allEventsDates = [];
-        $scope.eventInfo = {};
-        if ($localStorage.userId != undefined) {
-            $scope.eventInfo.user_id = $localStorage.userId;
-            $scope.eventInfo.eventcheckboxGlobalIds = $rootScope.eventcheckboxGlobalIds;
-        }
-
-        $rootScope.choosenEventsArea = false;
-        //$rootScope.FinalEvents = [];
-        while($rootScope.FinalEvents.length > 0) {
-    $rootScope.FinalEvents.pop();
-}
-        $rootScope.choosenEventsArea = true;
-        for (var key in $scope.eventInfo.eventcheckboxGlobalIds) {
-            var eventId = $scope.eventInfo.eventcheckboxGlobalIds[key];
-            $rootScope.FinalEvents.push($rootScope.allEvents[eventId]);
-        }
-
-        console.log('before $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
-        $rootScope.eventsChoosedFlag = true;
-        console.log('$rootScope.eventcheckboxGlobalIds', $rootScope.eventcheckboxGlobalIds);
-        console.log('after $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
-        console.log('$rootScope.FinalEvents', $rootScope.FinalEvents);
-    };
-
-    /** View list of all Events for assigning discount coupons ***/
-
     $scope.combine = function(dt, timeString) {
         var startDateTime;
         var parts = /^(\d+):(\d+) (AM|PM)$/.exec(timeString);
@@ -853,6 +819,49 @@ $rootScope.allEventsDates = [];
         }
         return startDateTime;
     }
+
+
+    $scope.eventmakeAssignment = function() {
+        console.log('eventmakeAssignment' );
+
+        if ($rootScope.eventcheckboxGlobalIds != []) {
+            $uibModalInstance.dismiss('cancel');
+        }
+
+
+
+
+$rootScope.allEventsStartDates = [];
+
+        $scope.eventInfo = {};
+        if ($localStorage.userId != undefined) {
+            $scope.eventInfo.user_id = $localStorage.userId;
+            $scope.eventInfo.eventcheckboxGlobalIds = $rootScope.eventcheckboxGlobalIds;
+        }
+
+        $rootScope.choosenEventsArea = false;
+        //$rootScope.FinalEvents = [];
+        while($rootScope.FinalEvents.length > 0) {
+    $rootScope.FinalEvents.pop();
+}
+        $rootScope.choosenEventsArea = true;
+        for (var key in $scope.eventInfo.eventcheckboxGlobalIds) {
+            var eventId = $scope.eventInfo.eventcheckboxGlobalIds[key];
+    $rootScope.FinalEvents.push($rootScope.allEvents[eventId]);
+    $rootScope.allEventsStartDates.push($rootScope.allEvents[eventId].date );
+            
+        }
+
+        console.log('before $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
+        $rootScope.eventsChoosedFlag = true;
+        console.log('$rootScope.eventcheckboxGlobalIds', $rootScope.eventcheckboxGlobalIds);
+        console.log('after $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
+        console.log('$rootScope.FinalEvents', $rootScope.FinalEvents);
+         console.log('$rootScope.allEventsStartDates', $rootScope.allEventsStartDates);
+    };
+
+    /** View list of all Events for assigning discount coupons ***/
+
 
     $scope.viewEvents = function() {
         $scope.data = {};

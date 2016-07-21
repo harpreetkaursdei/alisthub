@@ -557,8 +557,7 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
            <h3 class="modal-title" style="float:left;">Schedule Price Change</h3><a style="float:right;cursor: pointer;" ng-click="cancel()">X</a>
         </div>
         <div class="modal-body">
-           <div ng-show="loader" align="center"><img src="/images/icons/loader.gif"></div>
-           <div ng-show="dataloader" align="center"><img src="/images/icons/loader.gif"></div>
+            <div ng-show="dataloader" align="center"><img src="/images/icons/loader.gif"></div>
             <div class="table-responsive" ng-if="schedules != ''">
                     <table class="table table-striped">
                         <thead>
@@ -576,7 +575,7 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
                           <td>{{data.start_date | date:'fullDate'}} </td>
                           <td>{{data.start_date_hour}} {{data.start_date_minute}} {{data.start_date_am_pm}}</td>
                           <td>
-                            <a style="cursor: pointer;" ng-click="delete_schedule(data.id,data.showclix_price_id,data.showclix_id,data.showclix_price_schedule_id)"><i class="fa fa-trash"></i></a>
+                            <a style="cursor: pointer;" ng-click="delete_schedule(data.id,data.showclix_price_id,data.showclix_id,data.showclix_price_schedule_id,$index)"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     </table>
@@ -636,6 +635,7 @@ ng-disabled="pricelevelForm.$invalid"  type="submit">Submit</button>
 ng-disabled="pricechangeform.$invalid || button == 1"  type="submit">Submit</button>
             <button class="btn btn-warning" ng-disabled="button == 1" type="button" ng-click="cancel()">Cancel</button>
         </div>
+        <div ng-show="loader" align="center"><img src="/images/icons/loader.gif"></div>
 </script>
 
 

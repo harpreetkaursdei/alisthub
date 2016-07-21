@@ -9,8 +9,8 @@ var showClix   = require('./../../showclix/service.js');
 var showClixPackage   = require('./../../showclix/showclix_package.js');
 
 var fs         = require('fs');
-var moment     = require('moment-timezone');
 var path_event = process.cwd()+'/public/images/events';
+var image_url = "http://52.39.212.226:4004/images/";
 
 exports.stepOneEventPackage = function(req,res) {
 
@@ -54,7 +54,9 @@ req.body.online_sales_close_date_time = moment(req.body.online_sales_close_date_
     req.body.showclix_seller = '22876';
 
     data = req.body;
+    data.image_full_url = image_url+"events/"+req.body.image ;
 
+console.log('data.image_full_url ===> ' , data.image_full_url );
     var showClixPackage2 = new showClixPackage();
 
           showClixPackage2.add_package(data,res,function(sdata){
@@ -660,8 +662,7 @@ exports.viewSelectedEvents = function(req, res) {
   if(req.body.choosenEventsIds != undefined && choosenEventsIds != "") {
     var choosenEventsIds = req.body.choosenEventsIds;
     choosenEventsIdsStr = choosenEventsIds.substr(0, choosenEventsIds.length-1);
-
-    var query = "SELECT id, title, event_address , city FROM `events` where id in ("+choosenEventsIdsStr+")";
+    var query = "SELECT e.id, e.parent_id , e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id LEFT JOIN event_dates ed ON e.id = ed.event_id where e.id in ("+choosenEventsIdsStr+")";
     console.log('query ' , query);
     connection.query(query, function(err, results) {
         if (err) {
@@ -991,19 +992,31 @@ exports.delPackage = function(req,res) {
    
     var package_id=req.body.package_id;
     var user_id=req.body.user_id;
+    data = req.body;
 
-    if(package_id!=undefined){
-      var sql="delete from event_package where id="+package_id+" and user_id ="+user_id;
+    var showClixPackage2 = new showClixPackage();
+    showClixPackage2.delete_package(data,res,function(sdata){
+          if(package_id!=undefined && data.status == 1) {
+var sql="delete from event_package where id="+package_id+" and user_id ="+user_id;
+var sql2 = "delete from package_event_map where package_id="+package_id;
 
-      connection.query(sql,function(err,result){
-        if (err) {
-          res.send({err:err , code:101}); 
-        }
-        res.send({"results":result, code:200});  
-      });
-    } else {
-      res.send({"results":{},code:200});
-    }
+      console.log('sql ' , sql);
+            connection.query(sql,function(err,result){
+              if (err) {
+                res.send({err:err , code:101}); 
+              }
+
+              connection.query(sql2,function(err2,result2){
+              if (err2) {
+              res.send({err:err2 , code:101}); 
+              } else {
+                res.send({"results":result2, code:200});  
+              }
+              
+              });
+            });
+          }
+    });    
 }
 
 exports.addFavouritePackage = function(req,res) {

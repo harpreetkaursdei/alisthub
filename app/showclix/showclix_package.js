@@ -14,7 +14,6 @@ module.exports = function() {
                 form:    {} }, function(error, response, body){
                     return next({status:1,location:""});
                 });
-    
   }
 
     this.add_package = function(data, res, next) {
@@ -35,7 +34,7 @@ module.exports = function() {
 
         */
         var input = {
-             
+
             "user_id": data.showclix_user,
             "seller_id": data.showclix_seller,
             "event": data.package_name,
@@ -44,7 +43,7 @@ module.exports = function() {
             "private_event": "0",
             "inventory": 10,
             "ages": data.ages,
-            "image": data.image,
+            "image": data.image_full_url ,
             "event_category_id": data.category,
             "date_added": data.created,
             "date_edited": data.modified,
@@ -59,6 +58,7 @@ module.exports = function() {
             "event_type": "3",
             "venue_id": "34657",
             "display_image": data.display_image_in_listing,
+            "url": data.website,
         };
 
 
@@ -159,13 +159,16 @@ console.log( str );
             "package_id": data.package_id,
             "event_id": data.event_id
         };
-        console.log('input : ', input);
+
         var postData = {
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'X-API-Token': data.showclix_token },
-            url: "http://api.showclix.com/Event",
-            form: input
+            headers: {'Content-Type':'application/json','Pragma':'no-cache','X-API-Token':data.showclix_token},
+            url: "http://api.showclix.com/PackageEventMap",
+            body: input,
+            json: true
         };
 
+        console.log('postData : ', postData);
+       
         request.post(postData, function(error, response, body) {
             return next({ status: 1 });
             /*var str = response.body;
@@ -326,3 +329,4 @@ console.log( str );
     }
 
 }
+
