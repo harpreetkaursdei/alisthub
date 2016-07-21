@@ -11,7 +11,7 @@ module.exports = function() {
             url: "https://api.showclix.com/Event/" + showclix_id,
             form: {}
         }, function(error, response, body) {
-            return next({ status: 1, location: "" });
+            return next({ status: 1 });
         });
     }
 
