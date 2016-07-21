@@ -81,6 +81,7 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
     
     $rootScope.class_status=false;
     var eventService = $injector.get("events");
+    var packageService = $injector.get("event_package");
 
     $scope.getChart = function(days) {
 
@@ -388,6 +389,70 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
      }
      });
     }
+
+    $scope.delPackage=function(package_id)
+    {
+      $scope.packageData = {};
+      $scope.packageData.package_id = package_id;
+      $scope.packageData.user_id = $localStorage.userId ;
+      $scope.packageData.showclix_token     = $localStorage.showclix_token;
+      $scope.packageData.showclix_user_id   = $localStorage.showclix_user_id;
+      $scope.packageData.showclix_seller_id = $localStorage.showclix_seller_id;
+ console.log($scope.packageData);
+
+     packageService.delPackage($scope.packageData ,function(response){
+       if(response.code==200)
+     {
+     eventService.getEventUser({'user_id':$localStorage.userId},function(response){
+              
+              if (response!=null) {
+
+              if (response.code == 200)
+              {
+                $scope.upcoming_event_data=$scope.past_event_data=$scope.event_package_data =response.results;
+               $scope.tableParams = new ngTableParams(
+                              {
+                                      page: 1,            // show first page
+                                      count: 50,           // count per page
+                                      sorting: {name:'asc'},
+                                      
+                              },
+                              {
+                                      data:$scope.upcoming_event_data
+                              });
+               $scope.tableParams1 = new ngTableParams(
+                              {
+                                      page: 1,            // show first page
+                                      count: 5,           // count per page
+                                      sorting: {name:'asc'},
+                                      
+                              },
+                              {
+                                      data1:$scope.past_event_data
+                              });
+              $scope.tableParams2 = new ngTableParams(
+                              {
+                                      page: 1,            // show first page
+                                      count: 5,           // count per page
+                                      sorting: {name:'asc'},
+                                      
+                              },
+                              {
+                                      data2:$scope.event_package_data
+                              });
+              }
+
+              }else{
+               $scope.upcoming_event_data=$scope.past_event_data=$scope.event_package_data =[];   
+              }
+              
+          });
+     }
+     });
+    }
+
+
+
  
    if (!$localStorage.isuserloggedIn) {
       $state.go('login');

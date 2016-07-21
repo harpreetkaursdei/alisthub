@@ -296,6 +296,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
             $scope.data.event_ids = $rootScope.choosenSelectedEventsIds = $scope.event_ids;
             $scope.viewEvents();
+
             $rootScope.loader_div = true;
         });
 
@@ -634,7 +635,9 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
                         }, 3000);
                         // window.location.reload();
 
-                        $location.path("/event_package_step_2/" + $rootScope.packageId);
+
+                         $location.path("/event_package_step_2/"+$scope.data.id);
+
                     } else {
                         //$scope.error_message = response.error;
 
@@ -791,6 +794,7 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         return startDateTime;
     }
 
+
     $scope.eventmakeAssignment = function() {
         console.log('eventmakeAssignment');
 
@@ -799,6 +803,7 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         }
 
         $rootScope.allEventsStartDates = [];
+
 
         $scope.eventInfo = {};
         if ($localStorage.userId != undefined) {
@@ -814,8 +819,10 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         $rootScope.choosenEventsArea = true;
         for (var key in $scope.eventInfo.eventcheckboxGlobalIds) {
             var eventId = $scope.eventInfo.eventcheckboxGlobalIds[key];
+
             $rootScope.FinalEvents.push($rootScope.allEvents[eventId]);
             $rootScope.allEventsStartDates.push($rootScope.allEvents[eventId].date);
+
 
         }
 
@@ -824,10 +831,11 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         console.log('$rootScope.eventcheckboxGlobalIds', $rootScope.eventcheckboxGlobalIds);
         console.log('after $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
         console.log('$rootScope.FinalEvents', $rootScope.FinalEvents);
-        console.log('$rootScope.allEventsStartDates', $rootScope.allEventsStartDates);
+
     };
 
     /** View list of all Events for assigning discount coupons ***/
+
 
     $scope.viewEvents = function() {
         $scope.data = {};

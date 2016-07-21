@@ -128,7 +128,7 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/events/service.js').then(function(){
+                return $ocLazyLoad.load(['modules/events/service.js' , 'modules/event_package/service.js' ]).then(function(){
                 }).then(function(){
                 return $ocLazyLoad.load(['modules/events/controller.js']);
                 })
@@ -149,7 +149,7 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/events/service.js').then(function(){
+                return $ocLazyLoad.load('modules/events/service.js', 'modules/event_package/service.js').then(function(){
                 }).then(function(){
                 return $ocLazyLoad.load(['modules/events/controller.js']);
                 })
@@ -1686,22 +1686,43 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             views: {
                 "lazyLoadView": {
                   controller: 'helpController',
-                  templateUrl: 'modules/faqs/views/help_view.html'
+                  templateUrl: 'modules/static_pages/views/help_view.html'
                 }
             },
              resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/faqs/service.js').then(function(){
+                return $ocLazyLoad.load('modules/static_pages/service.js').then(function(){
                 }).then(function(){
-                return $ocLazyLoad.load(['modules/faqs/controller.js']);
+                return $ocLazyLoad.load(['modules/static_pages/controller.js']);
                 })
               }]
             }
           
         })
-
+/////////////////////////site map section/////////////////////////////
+.state('site_map', {
+            url: '/site_map',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'helpController',
+                  templateUrl: 'modules/static_pages/views/site_map.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/static_pages/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/static_pages/controller.js']);
+                })
+              }]
+            }
+          
+        })
 
 /////////////////////////faq section/////////////////////////////
 .state('faq', {
@@ -1710,22 +1731,68 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             views: {
                 "lazyLoadView": {
                   controller: 'helpController',
-                  templateUrl: 'modules/faqs/views/faq.html'
+                  templateUrl: 'modules/static_pages/views/faq.html'
                 }
             },
              resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/faqs/service.js').then(function(){
+                return $ocLazyLoad.load('modules/static_pages/service.js').then(function(){
                 }).then(function(){
-                return $ocLazyLoad.load(['modules/faqs/controller.js']);
+                return $ocLazyLoad.load(['modules/static_pages/controller.js']);
                 })
               }]
             }
           
         })
 
+
+/////////////////////////work for us section/////////////////////////////
+.state('work_for_us', {
+            url: '/work_for_us',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'helpController',
+                  templateUrl: 'modules/static_pages/views/work_for_us.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/static_pages/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/static_pages/controller.js']);
+                })
+              }]
+            }
+          
+        })
+
+/////////////////////////contact us section/////////////////////////////
+.state('contact_us', {
+            url: '/contact_us',
+            
+            views: {
+                "lazyLoadView": {
+                  controller: 'helpController',
+                  templateUrl: 'modules/static_pages/views/contact_us.html'
+                }
+            },
+             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              authentication:routerApp.logauthentication,
+              resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+                // you can lazy load files for an existing module
+                return $ocLazyLoad.load('modules/static_pages/service.js').then(function(){
+                }).then(function(){
+                return $ocLazyLoad.load(['modules/static_pages/controller.js']);
+                })
+              }]
+            }
+          
+        })
 /////////////////////////support section/////////////////////////////
 .state('support', {
             url: '/support',
@@ -1733,16 +1800,16 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             views: {
                 "lazyLoadView": {
                   controller: 'helpController',
-                  templateUrl: 'modules/faqs/views/support.html'
+                  templateUrl: 'modules/static_pages/views/support.html'
                 }
             },
              resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/faqs/service.js').then(function(){
+                return $ocLazyLoad.load('modules/static_pages/service.js').then(function(){
                 }).then(function(){
-                return $ocLazyLoad.load(['modules/faqs/controller.js']);
+                return $ocLazyLoad.load(['modules/static_pages/controller.js']);
                 })
               }]
             }
@@ -1756,22 +1823,21 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             views: {
                 "lazyLoadView": {
                   controller: 'helpController',
-                  templateUrl: 'modules/faqs/views/knowledgeBase.html'
+                  templateUrl: 'modules/static_pages/views/knowledgeBase.html'
                 }
             },
              resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/faqs/service.js').then(function(){
+                return $ocLazyLoad.load('modules/static_pages/service.js').then(function(){
                 }).then(function(){
-                return $ocLazyLoad.load(['modules/faqs/controller.js']);
+                return $ocLazyLoad.load(['modules/static_pages/controller.js']);
                 })
               }]
             }
           
         })
-
 
 /////////////////// Widgets setting///////////////////////
        .state('widgets', {
