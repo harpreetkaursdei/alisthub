@@ -4,7 +4,6 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     //For Step 1
 
     var $serviceTest = $injector.get("event_package");
-
     //////////////////////////////////////////////////////
 
     if (window.innerWidth > 767) {
@@ -44,7 +43,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     $scope.data = {};
     $scope.data.event_type = 1;
     $scope.data.immidiately = 0;
-    $rootScope.loader_div = false;
+  
 
     $scope.selected = $scope.events[0];
     $scope.selected2 = $scope.steps[0];
@@ -266,6 +265,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
     if ($localStorage.packageId) {
         var packageId = $state.params.packageId;
+          $rootScope.loader_div = false;
         //$scope.data.package_id = $localStorage.packageId;
 
         $serviceTest.getPackage({ 'package_id': packageId, 'user_id': userId }, function(response) {
@@ -606,6 +606,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
                 //$scope.loader = true;
                 $scope.data.showclix_token = $localStorage.showclix_token;
                 $scope.data.showclix_seller_id = $localStorage.showclix_seller_id;
+                $scope.data.showclix_user_id = $localStorage.showclix_user_id;
 
                 var showclix_event_ids = [];               
                  angular.forEach($rootScope.FinalEvents,function(value,key){
@@ -675,13 +676,6 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
     /************** Function  Event Popup ends **************/
 
-    /************** Function  disable open date and time starts **************/
-
-    $scope.disableOpenDateTime = function() {
-        // body...
-        console.log('disableOpenDateTime called');
-    };
-    /************** Function  disable open date and time ends **************/
 
     $scope.items = ['item1'];
 
@@ -811,6 +805,7 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         }
 
         $rootScope.choosenEventsArea = false;
+          console.log('$rootScope.FinalEvents', $rootScope.FinalEvents);
         //$rootScope.FinalEvents = [];
         while ($rootScope.FinalEvents.length > 0) {
             $rootScope.FinalEvents.pop();
@@ -818,7 +813,7 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
         $rootScope.choosenEventsArea = true;
         for (var key in $scope.eventInfo.eventcheckboxGlobalIds) {
             var eventId = $scope.eventInfo.eventcheckboxGlobalIds[key];
-
+            $rootScope.FinalEvents.push($rootScope.allEvents[eventId]);
         }
 
         console.log('before $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);

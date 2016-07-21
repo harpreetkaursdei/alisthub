@@ -105,16 +105,15 @@
                                         </section>
                                     </div>
                                 </section>
-                                <section class="row">
-
-
-                                    <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_1 || data.print_description == 'null' || data.print_description != '' " ng-click="desc_box_1=true">Add a Description </button>
-
-                                    
-                                    <textarea class="desc_1 input form-control" ng-show="desc_box_1 || data.print_description != null "  rows="7" name="desc_1" ng-model="data.print_description" tooltips tooltip-template="Provide customers with additional information about the delivery method. For example: Will Call
-                                tickets can be picked up at the venue box office. The info entered here will be displayed next to the delivery
-                                method option during the checkout process."></textarea>
+                           
+ <section class="row">
+                                    <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_1 || data.print_description != '' "  ng-click="desc_box_1=true">Add a Description</button>
+                                    <textarea class="desc_1 form-control input"  ng-show="desc_box_1 || data.print_description != ''"  rows="7" ng-model="data.print_description" name="desc_1"> </textarea>
+<br/>
+                                    <a ng-click="desc_box_1=false" ng-show="desc_box_1 || data.print_description != ''">Close</a>
                                 </section>
+
+
                             </section>
                             <div style="height: 30px;" class="col-sm-12"></div>
 
@@ -198,6 +197,8 @@
                                 <section class="row">
                                     <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_2 || data.will_call_description != '' "  ng-click="desc_box_2=true">Add a Description</button>
                                     <textarea class="desc_2 form-control input"  ng-show="desc_box_2 || data.will_call_description != ''"  rows="7" ng-model="data.will_call_description" name="desc_2"> </textarea>
+                                    <br/>
+                                     <a ng-click="desc_box_2=false" ng-show="desc_box_2 || data.will_call_description != ''">Close</a>
                                 </section>
 
 

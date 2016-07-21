@@ -19,8 +19,8 @@ module.exports = function() {
 
         var input = {
 
-            "user_id": data.showclix_user,
-            "seller_id": data.showclix_seller,
+            "user_id": data.showclix_user_id,
+            "seller_id": data.showclix_seller_id,
             "event": data.package_name,
             "behavior_set": "5",
             "description": data.package_description,
@@ -149,8 +149,8 @@ module.exports = function() {
 
     this.postThirdStepPackageData = function(data, res, next) {
         var input = {
-            "user_id": data.showclix_user,
-            "seller_id": data.showclix_seller,
+            "user_id": data.showclix_user_id,
+            "seller_id": data.showclix_seller_id,
             "event_id": data.showclix_package_id,
             "will_call_ticketing": data.will_call,
             "delivery_type_2": data.print_home,
@@ -174,7 +174,7 @@ module.exports = function() {
 
  /*       input.approval_note = 'Approved by default from alist-ticket';
         input.bos_price     = data.box_office_service_fee;
-        input.approval_user_id = data.showclix_user;
+        input.approval_user_id = data.showclix_user_id;
         input.date_approved = data.modified ;
 
 */
