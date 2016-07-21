@@ -927,14 +927,27 @@ exports.delPackage = function(req, res) {
     var user_id = req.body.user_id;
 
     if (package_id != undefined) {
-        var sql = "delete from event_package where id=" + package_id + " and user_id =" + user_id;
+        var select_sql = "select id, showclix_package_id from event_package where id=" + package_id + " and user_id =" + user_id;
 
-        connection.query(sql, function(err, result) {
-            if (err) {
-                res.send({ err: err, code: 101 });
+        connection.query(select_sql, function(select_err, select_result) {
+            if (select_err) {
+                res.send({ err: select_err, code: 101 });
             }
-            res.send({ "results": result, code: 200 });
-        });
+
+        var showclix_package_id = select_result[0].showclix_package_id;
+        data = req.body;
+        data.showclix_id = showclix_package_id;
+
+        var showClixPackage2 = new showClixPackage();
+        showClixPackage2.delete_package(data, res, function(sdata) { });
+          var del_sql = "delete from event_package where id=" + package_id + " and user_id =" + user_id ;
+            connection.query(del_sql, function(err, result) {
+                if (err) {
+                    res.send({ err: err, code: 101 });
+                }
+                res.send({ "results": result, code: 200 });
+           });
+        });     
     } else {
         res.send({ "results": {}, code: 200 });
     }
