@@ -16,6 +16,7 @@ angular.module('alisthub').controller('eve_widgetscontroller', function($scope, 
     $scope.data.display_time = false;
     $scope.data.display_ticket_link = false;
     $scope.data.display_venue = false;
+    $scope.data.allow_to_show = true;
     $scope.data.width = "100%";
     $scope.data.height = "auto";
     $scope.data.background_color = "#1c152d";
@@ -25,7 +26,7 @@ angular.module('alisthub').controller('eve_widgetscontroller', function($scope, 
     $scope.data.link_color = "#fe1e5a";
 
     $scope.title_text = function() {
-     $scope.embed_code = '<script type="text/javascript">var EventsWidgetDisplayPreferences = {seller_id: ' + $scope.data.seller_id + ',uri: "' + $scope.ticket_uri + '",domain: "tickets.alistixs.com",  white_label: "ALIST Solutions LLC",title_text: "' + $scope.data.title + '",height: "' + $scope.data.height + '",width: "' + $scope.data.width + '",background_color: "' + $scope.data.background_color + '",header_color: "' + $scope.data.header_color + '",row_background_color:"' + $scope.data.row_background_color + '",text_color: "' + $scope.data.text_color + '",link_color:"' + $scope.data.link_color + '",max_number_of_events:"' + $scope.data.max_number_of_events + '",group_series_events:"' + $scope.data.group_series_events + '",display_title_bar:"' + $scope.data.display_title_bar + '",include_scrollbar: "auto", display_date_block: "' + $scope.data.display_date_block + '",display_image:"' + $scope.data.display_image + '",display_full_date: "' + $scope.data.display_full_date + '",display_time: "' + $scope.data.display_time + '",display_venue: "' + $scope.data.display_venue + '", display_ticket_link:"' + $scope.data.display_ticket_link + '}</script><script id="EventsWidgetScript" type="text/javascript" src="https://tickets.alistixs.com/js/events_widget.js"></script>';
+        $scope.embed_code = '<script type="text/javascript">var EventsWidgetDisplayPreferences = {seller_id: ' + $scope.data.seller_id + ',uri: "' + $scope.ticket_uri + '",domain: "tickets.alistixs.com",  white_label: "ALIST Solutions LLC",title_text: "' + $scope.data.title + '",height: "' + $scope.data.height + '",width: "' + $scope.data.width + '",background_color: "' + $scope.data.background_color + '",header_color: "' + $scope.data.header_color + '",row_background_color:"' + $scope.data.row_background_color + '",text_color: "' + $scope.data.text_color + '",link_color:"' + $scope.data.link_color + '",max_number_of_events:"' + $scope.data.max_number_of_events + '",group_series_events:"' + $scope.data.group_series_events + '",display_title_bar:"' + $scope.data.display_title_bar + '",include_scrollbar: "auto", display_date_block: "' + $scope.data.display_date_block + '",display_image:"' + $scope.data.display_image + '",display_full_date: "' + $scope.data.display_full_date + '",display_time: "' + $scope.data.display_time + '",display_venue: "' + $scope.data.display_venue + '",allow_to_show: "' + $scope.data.allow_to_show + '", display_ticket_link:"' + $scope.data.display_ticket_link + '}</script><script id="EventsWidgetScript" type="text/javascript" src="https://tickets.alistixs.com/js/events_widget.js"></script>';
     }
     $scope.picCol = function(els) {
         var ele = document.querySelector("#i_" + els).getElementsByClassName('color-picker-grid-inner')[0];
@@ -59,12 +60,14 @@ angular.module('alisthub').controller('eve_widgetscontroller', function($scope, 
                     $scope.activation_message = global_message.ErrorInActivation;
                 }
 
+
             })
         }
     }
-    
-      $scope.page_title = 'ADD';
-    $scope.getWidgetEvents = function() {
+
+    $scope.page_title = 'ADD';
+     $scope.title_text();
+    $scope.getWidgetEvents = function() {   
             if ($localStorage.userId != undefined) {
                 $scope.data.seller_id = $localStorage.userId;
                 $scope.loader = true;
@@ -85,15 +88,17 @@ angular.module('alisthub').controller('eve_widgetscontroller', function($scope, 
                     } else {
                         $scope.error_message = response.error;
                     }
+                       
 
                 });
+
 
             }
 
         }
         /////////////////////////////////////////
     if ($state.params.id) {
-         $scope.page_title = 'EDIT';
+        $scope.page_title = 'EDIT';
         $scope.editEvent_widgets = function() {
             $scope.data = {};
 
@@ -130,6 +135,9 @@ angular.module('alisthub').controller('eve_widgetscontroller', function($scope, 
                         }
                         if ($scope.data.display_full_date === 1) {
                             $scope.data.display_full_date = true;
+                        }
+                        if ($scope.data.allow_to_show === 1) {
+                            $scope.data.allow_to_show = true;
                         }
                     } else {
                         $scope.error_message = response.error;

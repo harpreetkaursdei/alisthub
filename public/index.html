@@ -182,9 +182,9 @@
               <div class="col-sm-4 col-md-3">
                 <h2>Quick Menu</h2>
                 <ul class="f-links">
-                   <li><a  href="javascript:void(0)">Online Ticket Sales</a></li>
-                   <li><a  href="javascript:void(0)">Box Office System</a></li>
-                   <li><a href="javascript:void(0)">Event Marketing</a></li>
+                    <li><a  ui-sref="create_an_event">Event Listing</a></li>
+                   <li><a  ui-sref="create_event_step1" >Create Single Event</a></li>
+                   <li><a  ui-sref="create_series_step1">Create Series Event</a></li>
                 </ul>
               </div>
               <div class="col-sm-4 col-md-3">
@@ -203,15 +203,15 @@
                 </div>
                 
                 <ul class="socialmedia">
-                    <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-google"></i></a></li>
+                    <li><a class="cursor" href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="cursor" href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="cursor" href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="cursor" href="http://www.google.com" target="_blank"><i class="fa fa-google"></i></a></li>
                 </ul>
                   
               </div>
             </div>
-            <p class="footer_nav"><a class="" href="#">Site Map</a>|<a class="" href="#">FAQ</a>|<a class="" href="#">Work for Us</a>|<a class="" href="#">Contact Us</a></p>
+            <p class="footer_nav"><a class="" ui-sref="site_map" >Site Map</a>|<a class="" ui-sref="faq">FAQ</a>|<a class="" ui-sref="work_for_us" >Work for Us</a>|<a class="" ui-sref="contact_us" >Contact Us</a></p>
           </div>
           <div class="footer-btm" ng-hide="after_login_footer_div">Copyright ALIST Marketing <i class="fa fa-copyright"></i>2016</div>
           <section ng-hide="footer_login_div" class="footer animated bounceInUp">Copyright ALISTixs &copy 2016</section>

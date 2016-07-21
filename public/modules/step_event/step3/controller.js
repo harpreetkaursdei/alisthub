@@ -16,6 +16,7 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
      var $serviceTestVenue = $injector.get("venues");
      $scope.error_message = true;
      $scope.site_url="http://"+href[2];
+     $scope.backgroundImage="//"+href[2]+"/images/bg/bg.png";
     var event_id=$scope.eventId=$stateParams.eventId;
     $rootScope.sociallink={};
    
@@ -461,6 +462,7 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
         $scope.section3_image='http://'+href[2]+'/images/img/s-img-o.jpg';
          $scope.encodeImageFileAsURL1 = function() {
             var filesSelected = document.getElementById("my_file").files;
+            console.log(filesSelected);
             if (filesSelected.length > 0) {
                 var fileToLoad = filesSelected[0];
 
