@@ -182,9 +182,9 @@
               <div class="col-sm-4 col-md-3">
                 <h2>Quick Menu</h2>
                 <ul class="f-links">
-                   <li><a  href="javascript:void(0)">Online Ticket Sales</a></li>
-                   <li><a  href="javascript:void(0)">Box Office System</a></li>
-                   <li><a href="javascript:void(0)">Event Marketing</a></li>
+                    <li><a  ui-sref="create_an_event">Event Listing</a></li>
+                   <li><a  ui-sref="create_event_step1" >Create Single Event</a></li>
+                   <li><a  ui-sref="create_series_step1">Create Series Event</a></li>
                 </ul>
               </div>
               <div class="col-sm-4 col-md-3">
@@ -197,21 +197,24 @@
               </div>
               <div class="col-sm-12 col-md-3  nwsltr">
                 <h2>Stay Connected</h2>
-                <div class="newletter-row">
-                    <input type="text" placeholder="Enter your email ID"/>
-                    <button class="ent"><i class="fa fa-arrow-circle-right"></i></button>
+                <form  name="myForm_r" novalidate>
+                <div class="newletter-row" ng-class="{ 'has-error' : myForm_r.news_letter_email.$dirty && myForm_r.news_letter_email.$invalid }">
+                    <input type="email" name="news_letter_email" ng-model="news_letter_email" placeholder="Enter your email ID" required/>
+                    <p class="help-inline error-fld ng-binding"  ng-show="myForm_r.eventname.$dirty && myForm_r.eventname.$invalid">Enter email</p>
+                    <span ng-show="error_message_news"><p class="error-fld" >{{error_news}}</p></span>
+                    <button class="ent" ng-click="send_newsletter();"><i class="fa fa-arrow-circle-right"></i></button>
                 </div>
-                
+                </form>
                 <ul class="socialmedia">
-                    <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-google"></i></a></li>
+                    <li><a class="cursor" href="http://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="cursor" href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="cursor" href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="cursor" href="http://www.google.com" target="_blank"><i class="fa fa-google"></i></a></li>
                 </ul>
                   
               </div>
             </div>
-            <p class="footer_nav"><a class="" href="#">Site Map</a>|<a class="" href="#">FAQ</a>|<a class="" href="#">Work for Us</a>|<a class="" href="#">Contact Us</a></p>
+            <p class="footer_nav"><a class="" ui-sref="site_map" >Site Map</a>|<a class="" ui-sref="faq">FAQ</a>|<a class="" ui-sref="work_for_us" >Work for Us</a>|<a class="" ui-sref="contact_us" >Contact Us</a></p>
           </div>
           <div class="footer-btm" ng-hide="after_login_footer_div">Copyright ALIST Marketing <i class="fa fa-copyright"></i>2016</div>
           <section ng-hide="footer_login_div" class="footer animated bounceInUp">Copyright ALISTixs &copy 2016</section>

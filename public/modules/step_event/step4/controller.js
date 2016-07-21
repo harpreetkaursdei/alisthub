@@ -9,6 +9,10 @@ angular.module('alisthub').controller('stepevent4Controller', function($scope, $
   var $serviceTest = $injector.get("event_setting");
   $scope.error_message = true;
   $rootScope.loader_div = false;
+  $scope.formdata = {};
+  $scope.enable_on = {};
+  $scope.disable_on = {};
+  
   /**  
   Method: click_menu
   Description:Function for changing the tab 
@@ -345,14 +349,6 @@ $scope.click_menu = function(menu, data, valid) {
     // $scope.mytime = new Date();
   // timepicker end
 
-  $scope.formdata = {};
-  $scope.enable_on = {};
-  $scope.disable_on = {};
-  
-  
-  //$scope.formdata.print_home = 1;
-  
-   
   $scope.next_func = function(formdata) {
     console.log(formdata);
     $http.post('/event/postCreateEventStepFour' , formdata).then(function(response) {
@@ -503,9 +499,9 @@ $scope.click_menu = function(menu, data, valid) {
     });
 
   }
-  
+  console.log($scope.formdata);
   $scope.getSetting();
-  
+   console.log($scope.formdata);
   $scope.immediate = function()
   {
     if($scope.formdata.sales_immediatly == 1)
@@ -563,11 +559,11 @@ $scope.click_menu = function(menu, data, valid) {
       return convertedDate ;
     }
   };
-  
+  console.log($scope.formdata);
   $scope.goto_list = function()
   {
     $location.path("/view_all_event/single");
     
   }
-  //$scope.formdata.print_home = 1; 
+  console.log($scope.formdata);
 });

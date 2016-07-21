@@ -235,6 +235,7 @@ footer i{color:#fff;}
 
 .newletter-row{position:relative; margin-bottom:20px;}
 .nwsltr input[type="text"] {background: #fff none repeat scroll 0 0; border: 0 none; font-size: 13px; height: 48px; padding: 10px 40px 10px 10px; position: relative; width: 100%; color:#333;}
+.nwsltr input[type="email"] {background: #fff none repeat scroll 0 0; border: 0 none; font-size: 13px; height: 48px; padding: 10px 40px 10px 10px; position: relative; width: 100%; color:#333;}
 .ent {background: #fff none repeat scroll 0 0; border: 0 none; bottom: 0; padding:0 15px; height: 48px; position: absolute; right:0;}
 .ent i {color: #0275d0; font-size: 24px; margin: 0;}
 .footer-btm{background:#939598;color:#fff;font-size:15px;text-align:center;padding:16px;}
