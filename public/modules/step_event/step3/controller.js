@@ -16,7 +16,7 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
      var $serviceTestVenue = $injector.get("venues");
      $scope.error_message = true;
      $scope.site_url="http://"+href[2];
-     $scope.backgroundImage="//"+href[2]+"/images/bg/bg.png";
+     $scope.backgroundImage="http://52.39.212.226:4004/images/bg/bg.png";
     var event_id=$scope.eventId=$stateParams.eventId;
     $rootScope.sociallink={};
    
@@ -500,7 +500,7 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
             }
         }
         
-        
+       
         $scope.encodeImageFileAsURL2 = function() {
             var filesSelected = document.getElementById("my_file2").files;
             if (filesSelected.length > 0) {
@@ -523,7 +523,7 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
                              
                              if (response.result.insertId!='') {
                                 $scope.banner_image1=$scope.image;
-                                 $scope.select_image_val='section2_image';
+                                 $scope.select_image_val='backgroundImage';
                                   $timeout(function() {
                                   angular.element('#editImagePreview').click();   
                                   },500);

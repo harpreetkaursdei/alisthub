@@ -1196,7 +1196,7 @@ exports.addlookAndFeelImage=function(req,res)
         }
         });
         if (photoname!=undefined) {
-           var $sql3="INSERT INTO `event_images` (`id`, `event_id`, `image_name`, `created`) VALUES (NULL, '"+eventId+"', 'http://192.155.246.146:5502/images/events/"+photoname+"','"+curtime+"')";
+           var $sql3="INSERT INTO `event_images` (`id`, `event_id`, `image_name`, `created`) VALUES (NULL, '"+eventId+"', 'http://52.39.212.226:5502/images/events/"+photoname+"','"+curtime+"')";
   connection.query($sql3,function(err,result){
     if (err) {
        res.json({error:err,code:101}); 
