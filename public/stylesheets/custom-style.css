@@ -508,3 +508,20 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
 	}
 }
 
+.faq-section {
+    color: #555;
+    font-size: 15px;
+    line-height: 19px;
+    margin: 0 0 3px;
+    text-align: justify;
+}
+
+.faq-header {
+    color: #333;
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    width: 100%;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+}
+.cursor{ cursor: pointer;}

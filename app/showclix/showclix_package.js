@@ -32,7 +32,7 @@ module.exports = function() {
             "date_edited": data.modified,
             "event_start": "2016-08-10 00:00:00",
             "sales_open": data.online_sales_open_date_time,
-            "sales_close": '02:00',
+            "sales_close": '00:00',
             "short_name": data.short_name,
             "image_url": data.image,
             "thumbnail_url": data.image,
@@ -160,9 +160,9 @@ module.exports = function() {
             "ticket_purchase_limit": data.ticket_transaction_limit,
             "ticket_purchase_timelimit": data.checkout_time_limit,
             "private_event": data.private_event,
-            // "short_name": data.url_short_name,
+            "short_name": data.url_short_name,
             "date_edited": data.modified,
-            "status": data.status,
+            "status": 5,
         };
 
         input.donation_live = data.donation == 1 ?'y':'n';
@@ -171,12 +171,14 @@ module.exports = function() {
         }
 
         input.approved      = 1;
-        /*
-        input.approval_note = 'Approved by default from alist-ticket';
+
+ /*       input.approval_note = 'Approved by default from alist-ticket';
         input.bos_price     = data.box_office_service_fee;
         input.approval_user_id = data.showclix_user;
         input.date_approved = data.modified ;
+
 */
+
         var postData = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json', 'Pragma': 'no-cache', 'X-API-Token': data.showclix_token },

@@ -11,13 +11,21 @@ var path_venue = process.cwd()+'/public/images/venues/';
 
 // showclix login
 exports.showclix_login = function(req,res){
-  var request = require('request');
+ var request = require('request');
  request.post({
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                   "Accept": "application/json",},
+                   "Accept": "application/json"},
         url:     'https://admin.showclix.com/api/registration',
         form:    {"email":"manojks@smartdatainc.net","password":"manojks@2015"} }, function(error, response, body){
-       res.json({"body":body,"response":response});
+        if(error){
+          console.log(error);
+         res.json({"body":"","response":"",code:101});  
+        }
+        else{
+        console.log(response.body);
+        res.json({"body":body,"response":response});
+        }
+        
     });
  
 }
