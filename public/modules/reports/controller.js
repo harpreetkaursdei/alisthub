@@ -5,7 +5,7 @@ Created By: Deepak Khokkar
 Module : Events Home 
 */
 
-angular.module('alisthub').controller('eventhomeController', function($scope,$localStorage,$injector, $uibModal,$rootScope, $filter,$timeout,$sce,$location, $ocLazyLoad,$state,ngTableParams,$http) { 
+angular.module('alisthub').controller('reportController', function($scope,$localStorage,$injector, $uibModal,$rootScope, $filter,$timeout,$sce,$location, $ocLazyLoad,$state,ngTableParams,$http) { 
     $rootScope.loader_div = false;
 
     $scope.showClixDataObj = [];
@@ -300,6 +300,140 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
     }
     }); 
 
+ // Datepicker stuff
+  var now = new Date();
+  if (now.getMonth() === 11) {
+    var current = new Date(now.getFullYear() + 1, 0, 1);
+  } else {
+    var current = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  }
+
+  $scope.inlineOptions = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: true
+  };
+
+  $scope.dateOptions = {
+    dateDisabled: disabled,
+    formatYear: 'yy',
+
+    minDate: new Date(),
+    startingDay: 1
+  };
+
+  // Disable weekend selection
+  function disabled(data) {
+    var date = data.date,
+      mode = data.mode;
+    return '';
+  }
+
+  $scope.open1 = function() {
+    $scope.popup1.opened = true;
+  };
+  
+  $scope.open2 = function() {
+    $scope.popup2.opened = true;
+  };
+
+  $scope.open3 = function() {
+    $scope.popup3.opened = true;
+  };
+  
+  $scope.open4 = function() {
+    $scope.popup4.opened = true;
+  };
+  
+  $scope.open5 = function() {
+    $scope.popup5.opened = true;
+  };
+  
+  $scope.open6 = function() {
+    $scope.popup6.opened = true;
+  };
+  
+  $scope.popup1 = {
+    opened: false
+  };
+  
+  $scope.popup2 = {
+    opened: false
+  };
+  
+  $scope.popup3 = {
+    opened: false
+  };
+  
+  $scope.popup4 = {
+    opened: false
+  };
+  ////
+  $scope.popup5 = {
+    opened: false
+  };
+
+  $scope.popup6 = {
+    opened: false
+  };
+
+
+  // Called when the editor is completely ready.
+  $scope.onReady = function() {
+  
+  };
+ 
+  $scope.options = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+
+  $scope.options1 = {
+    customClass: getDayClass,
+    initDate: new Date(),
+    showWeeks: false
+  };
+  $scope.options3 = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+  $scope.options4 = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var afterTomorrow = new Date(tomorrow);
+  afterTomorrow.setDate(tomorrow.getDate() + 1);
+  $scope.events = [{
+    date: tomorrow,
+    status: 'full'
+  }, {
+    date: afterTomorrow,
+    status: 'partially'
+  }];
+
+  function getDayClass(data) {
+      var date = data.date,
+        mode = data.mode;
+      if (mode === 'day') {
+        var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+        for (var i = 0; i < $scope.events.length; i++) {
+          var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+          if (dayToCheck === currentDay) {
+            return $scope.events[i].status;
+          }
+        }
+      }
+      return '';
+    }
+  // Datepicker end
+
+
     
     function formatsearchDate(convertdate) {
         if(convertdate != '' && convertdate != undefined)
@@ -370,8 +504,7 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
     //$scope.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
     
     $rootScope.class_status=false;
-    var eventService = $injector.get("events");
-    var packageService = $injector.get("event_package");
+    var reportService = $injector.get("report");
 
     $scope.getChart = function(days) {
 
@@ -396,7 +529,7 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
       $scope.salesData.showclix_seller_id = 22214;
       console.log("showclix_seller_id: " + $localStorage.showclix_seller_id);
 
-      eventService.getSalesData($scope.salesData,function(response) {
+      reportService.getSalesData($scope.salesData,function(response) {
         if (response!=null) {
           $rootScope.loader_div = true;
           if (response.code == 200 && response.data=='') {
@@ -445,6 +578,16 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
     }
 
     $scope.getChart(30);
+    $scope.showdatereports = true;
+
+    $scope.$watch('datetype',function(){
+      $scope.showdatereports =false;
+      var gettype = $scope.datetype;
+      
+      if(gettype == "Custom"){
+        $scope.showdatereports =true;
+      }
+    });
    
     if(window.innerWidth>767) { 
       $scope.navCollapsed = false;    
@@ -455,296 +598,6 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
       };    
     }
 
-    // if seller has no event then
-    if ($localStorage.userId) {
-      $http({
-        url: webservices.getEvents,
-        method: 'POST',
-        data: "user_id="+$localStorage.userId,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-          "Accept": "application/json",
-        }
-      }).success(function(datae, status, headers, config) {
-        if (datae && datae != "") {
-        
-        } else {
-          $state.go('create_an_event'); 
-        }
-      });
-    }
-     
-    $scope.UPCtab = false;
-    $scope.UPCtabclass = "fa-caret-down";
-    $scope.id1 = 1;
-    $scope.openTabUPC = function(id) {
-        if (id == 1) {
-            $scope.id1 = 2;
-            $scope.UPCtab = true;
-            $scope.UPCtabclass = "fa-caret-up";
-        }
-        if (id == 2) {
-            $scope.id1 = 1;
-            $scope.UPCtab = false;
-            $scope.UPCtabclass = "fa-caret-down";
-        }
-    }
-
-    $scope.PASTtab = false;
-    $scope.PASTtabclass = "fa-caret-down";
-    $scope.id2 = 1;
-    $scope.openTabPAST = function(id) {
-        if (id == 1) {
-            $scope.id2 = 2;
-            $scope.PASTtab = true;
-            $scope.PASTtabclass = "fa-caret-up";
-        }
-        if (id == 2) {
-            $scope.id2 = 1;
-            $scope.PASTtab = false;
-            $scope.PASTtabclass = "fa-caret-down";
-        }
-    }
-
-    $scope.PAKtab = false;
-    $scope.PAKtabclass = "fa-caret-down";
-    $scope.id3 = 1;
-    $scope.openTabPAK = function(id) {
-        if (id == 1) {
-            $scope.id3 = 2;
-            $scope.PAKtab = true;
-            $scope.PAKtabclass = "fa-caret-up";
-        }
-        if (id == 2) {
-            $scope.id3 = 1;
-            $scope.PAKtab = false;
-            $scope.PAKtabclass = "fa-caret-down";
-        }
-    }
-
-    $scope.recurringHref = function(eventId,recurringOrNot) {
-      if(recurringOrNot==0){
-        $location.path("/create_event_step1/" + eventId);  
-      } else {
-        $location.path("/create_series_step1/" + eventId);
-      }
-    }
-
-
-     
-
-    //upcomming event list
-    $scope.getUpcommingEvent = function(eventType) {
-      type = 0;      
-      if(eventType == 'series') {
-        type = 1;
-      }
-
-      eventService.getUpcommingEvent({'user_id':$localStorage.userId,'type':type},function(response) {
-        if (response!=null) {
-          if (response.code == 200) {
-            $scope.upcoming_event_data = response.results;
-            $scope.tableParams = new ngTableParams({
-                                    page: 1,            // show first page
-                                    count: 5,           // count per page
-                                    sorting: { name : 'asc' },
-                                  },{
-                                    counts: [], // hide page counts control
-                                    total: 1,  // value less than count hide pagination 
-                                    data:$scope.upcoming_event_data
-                                  });
-          }
-        } else {
-          $scope.upcoming_event_data = [];   
-        }
-      });
-    }
-
-    //PAST event list
-    $scope.getPastEvent = function(eventType) {
-      type = 0;      
-      if(eventType == 'series') {
-        type = 1;
-      }
-      eventService.getPastEvent({'user_id':$localStorage.userId,'type':type},function(response) {
-        if (response!=null) {
-          if (response.code == 200) {
-            $scope.past_event_data = response.results;
-            
-            $scope.tableParams1 = new ngTableParams({
-                                    page: 1,            // show first page
-                                    count: 5,           // count per page
-                                    sorting: { name : 'asc' },
-                                  }, {
-                                    counts: [], // hide page counts control
-                                    total: 1,  // value less than count hide pagination 
-                                    data:$scope.past_event_data
-                                  });
-          }
-        } else {
-          $scope.past_event_data = [];   
-        }
-      });
-    }
-
-    //PAST event list
-    $scope.getEventSeries = function() {
-      eventService.getEventSeries({'user_id':$localStorage.userId},function(response) {
-        if (response!=null) {
-          if (response.code == 200) {
-            $scope.event_package_data = response.results;
-            
-            $scope.tableParams2 = new ngTableParams({
-                                    page: 1,            // show first page
-                                    count: 5,           // count per page
-                                    sorting: { name : 'asc' },
-                                  },{
-                                    counts: [], // hide page counts control
-                                    total: 1,  // value less than count hide pagination 
-                                    data : $scope.event_package_data
-                                  });
-          }
-        } else {
-          $scope.event_package_data = [];   
-        }
-      });
-    }
-
-
- $scope.viewOverviewHref = function(eventId,recurringOrNot) {
-      if(recurringOrNot==0){
-        $location.path("/single_event_overview/" + eventId);  
-      } else {
-        $location.path("/series_event_overview/" + eventId);
-      }
-    }
-    
-    $scope.getUpcommingEvent();
-    $scope.getPastEvent();
-    $scope.getEventSeries();
-
-
-   
-
-
-    $scope.delEvent=function(event_id)
-    {
-    
-     eventService.deleteEvent({'event_id':event_id},function(response){
-       if(response.code==200)
-     {
-     eventService.getEventUser({'user_id':$localStorage.userId},function(response){
-              
-              if (response!=null) {
-
-              if (response.code == 200)
-              {
-                $scope.upcoming_event_data=$scope.past_event_data=$scope.event_package_data =response.results;
-               $scope.tableParams = new ngTableParams(
-                              {
-                                      page: 1,            // show first page
-                                      count: 50,           // count per page
-                                      sorting: {name:'asc'},
-                                      
-                              },
-                              {
-                                      data:$scope.upcoming_event_data
-                              });
-               $scope.tableParams1 = new ngTableParams(
-                              {
-                                      page: 1,            // show first page
-                                      count: 5,           // count per page
-                                      sorting: {name:'asc'},
-                                      
-                              },
-                              {
-                                      data1:$scope.past_event_data
-                              });
-              $scope.tableParams2 = new ngTableParams(
-                              {
-                                      page: 1,            // show first page
-                                      count: 5,           // count per page
-                                      sorting: {name:'asc'},
-                                      
-                              },
-                              {
-                                      data2:$scope.event_package_data
-                              });
-              }
-
-              }else{
-               $scope.upcoming_event_data=$scope.past_event_data=$scope.event_package_data =[];   
-              }
-              
-          });
-     }
-     });
-    }
-
-    $scope.delPackage=function(package_id)
-    {
-      $scope.packageData = {};
-      $scope.packageData.package_id = package_id;
-      $scope.packageData.user_id = $localStorage.userId ;
-      $scope.packageData.showclix_token     = $localStorage.showclix_token;
-      $scope.packageData.showclix_user_id   = $localStorage.showclix_user_id;
-      $scope.packageData.showclix_seller_id = $localStorage.showclix_seller_id;
- console.log($scope.packageData);
-
-     packageService.delPackage($scope.packageData ,function(response){
-       if(response.code==200)
-     {
-     eventService.getEventUser({'user_id':$localStorage.userId},function(response){
-              
-              if (response!=null) {
-
-              if (response.code == 200)
-              {
-                $scope.upcoming_event_data=$scope.past_event_data=$scope.event_package_data =response.results;
-               $scope.tableParams = new ngTableParams(
-                              {
-                                      page: 1,            // show first page
-                                      count: 50,           // count per page
-                                      sorting: {name:'asc'},
-                                      
-                              },
-                              {
-                                      data:$scope.upcoming_event_data
-                              });
-               $scope.tableParams1 = new ngTableParams(
-                              {
-                                      page: 1,            // show first page
-                                      count: 5,           // count per page
-                                      sorting: {name:'asc'},
-                                      
-                              },
-                              {
-                                      data1:$scope.past_event_data
-                              });
-              $scope.tableParams2 = new ngTableParams(
-                              {
-                                      page: 1,            // show first page
-                                      count: 5,           // count per page
-                                      sorting: {name:'asc'},
-                                      
-                              },
-                              {
-                                      data2:$scope.event_package_data
-                              });
-              }
-
-              }else{
-               $scope.upcoming_event_data=$scope.past_event_data=$scope.event_package_data =[];   
-              }
-              
-          });
-     }
-     });
-    }
-
-
-
- 
    if (!$localStorage.isuserloggedIn) {
       $state.go('login');
    }
