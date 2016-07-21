@@ -689,7 +689,6 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
       $scope.packageData.showclix_token     = $localStorage.showclix_token;
       $scope.packageData.showclix_user_id   = $localStorage.showclix_user_id;
       $scope.packageData.showclix_seller_id = $localStorage.showclix_seller_id;
- console.log($scope.packageData);
 
      packageService.delPackage($scope.packageData ,function(response){
        if(response.code==200)

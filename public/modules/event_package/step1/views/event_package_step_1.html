@@ -87,8 +87,9 @@
                                         <span class="input-group-btn">
                                         <button type="button" class="btn btn-default" ng-click="open3()"><i class="glyphicon glyphicon-calendar"></i></button></span>
                                     </div>
-                                    <p ng-show="myForm.online_sales_open_date.$invalid && !myForm.online_sales_open_date.$pristine" class="error-fld ng-binding">Online sales open date is required.</p>
+                                    
                                 </div>
+                                <p ng-show="myForm.online_sales_open_date.$invalid && !myForm.online_sales_open_date.$pristine" class="error-fld ng-binding">Online sales open date is required.</p>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
@@ -102,7 +103,7 @@
                         </section>
                         <section class="radio-sec custom-check m-b20">
                             <p class="radio-inline">
-                                <input type="checkbox" id="immidiately" name="immidiately" ng-model="data.immidiately" ng-true-value="1" ng-false-value="0" ng-click="disableOpenDateTime()">
+                                <input type="checkbox" id="immidiately" name="immidiately" ng-model="data.immidiately" ng-true-value="1" ng-false-value="0">
                                 <label for="immidiately">Immediately</label>
                             </p>
                         </section>
@@ -345,7 +346,7 @@
 </td>
 <td width="12%" header-class="'header-text-align'" title="'Venue'" filter="{ event_address: 'text'}" sortable="'event_address'">{{edata.event_address}}
 </td>
-<td width="12%" header-class="'header-text-align'" title="'Date & Type'" filter="{ city: 'text'}" sortable="'city'" class="numbers">{{edata.date | date:"dd MMMM yyyy"}} {{edata.start_time}}</td>
+<td width="12%" header-class="'header-text-align'" title="'Date'" filter="{ city: 'text'}" sortable="'city'" class="numbers">{{edata.date | date:"dd MMMM yyyy"}} {{edata.start_time}}</td>
 </tr>
 <tr ng-if="$data == ''">
 <td colspan="4" align="center">No Record found!</td>
