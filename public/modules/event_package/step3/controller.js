@@ -284,6 +284,7 @@ $scope.redirectToDashboard = function() {
 
 
   $scope.postThirdStepPackageData = function(data) {
+    $rootScope.loader_div = false;
     if($stateParams.packageId!=undefined && $stateParams.packageId!='') {
       $scope.data.id = $stateParams.packageId;
     } else {
@@ -315,8 +316,10 @@ $scope.redirectToDashboard = function() {
       $scope.data.user_id = $localStorage.userId;
       $scope.data.showclix_token = $localStorage.showclix_token;
       $scope.data.showclix_seller_id = $localStorage.showclix_seller_id;
+      $scope.data.showclix_user_id = $localStorage.showclix_user_id;
 
       $serviceTest.postThirdStepPackageData($scope.data, function(response) {
+      $rootScope.loader_div = true;
 
           if (response.code === 200) {
             //$scope.data = response.result;

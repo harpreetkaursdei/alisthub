@@ -12,7 +12,7 @@
 <div class="container">
     <h1>Create an Package</h1>
     <!-- Step Form -->
-    <div class="stage-container clearfix">
+    <div class="stage-container stage-container-product clearfix">
         <div class="stage" ng-repeat="step in steps" ng-class="{current: isActive2(step)}" ng-click="click_menu(step)">
             <div class="stage-icon"><i class="{{step.icon}}"></i> </div>
             <div class="stage-title">{{step.title}}</div>
@@ -44,7 +44,7 @@
                             <section class="col-sm-12">
                                 <section class="radio-sec">
                                     <section class="radio-inline">
-                                        <input type="radio" name="radio1" id="radio1" ng-model="data.print_home" value="1">
+                                        <input type="radio" name="radio1" id="radio1" ng-model="data.print_home" value="1" autofocus>
                                         <label for="radio1"><span></span>Always Available</label>
                                     </section>
                                     <section class="radio-inline">
@@ -105,16 +105,15 @@
                                         </section>
                                     </div>
                                 </section>
-                                <section class="row">
-
-
-                                    <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_1 || data.print_description == 'null' || data.print_description != '' " ng-click="desc_box_1=true">Add a Description </button>
-
-                                    
-                                    <textarea class="desc_1 input form-control" ng-show="desc_box_1 || data.print_description != null "  rows="7" name="desc_1" ng-model="data.print_description" tooltips tooltip-template="Provide customers with additional information about the delivery method. For example: Will Call
-                                tickets can be picked up at the venue box office. The info entered here will be displayed next to the delivery
-                                method option during the checkout process."></textarea>
+                           
+ <section class="row">
+                                    <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_1 || data.print_description != '' "  ng-click="desc_box_1=true">Add a Description</button>
+                                    <textarea class="desc_1 form-control input"  ng-show="desc_box_1 || data.print_description != ''"  rows="7" ng-model="data.print_description" name="desc_1"> </textarea>
+<br/>
+                                    <a ng-click="desc_box_1=false" ng-show="desc_box_1 || data.print_description != ''">Close</a>
                                 </section>
+
+
                             </section>
                             <div style="height: 30px;" class="col-sm-12"></div>
 
@@ -198,6 +197,8 @@
                                 <section class="row">
                                     <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_2 || data.will_call_description != '' "  ng-click="desc_box_2=true">Add a Description</button>
                                     <textarea class="desc_2 form-control input"  ng-show="desc_box_2 || data.will_call_description != ''"  rows="7" ng-model="data.will_call_description" name="desc_2"> </textarea>
+                                    <br/>
+                                     <a ng-click="desc_box_2=false" ng-show="desc_box_2 || data.will_call_description != ''">Close</a>
                                 </section>
 
 
@@ -255,6 +256,9 @@
                                         </div>
                                 </div>
                         </section>
+
+
+
                       <div ng-if="data.custom_fee == 1">
                         <section class="row">
                             <!-- <section class="col-sm-12"> -->
@@ -281,7 +285,7 @@
 
                                     
 
-                                      <select class="form-control" name="custom_fee_type" ng-model="data.custom_fee_type"> 
+                                      <select class="form-control event_number_wd" name="custom_fee_type" ng-model="data.custom_fee_type"> 
                                         <option ng-repeat="cfto in custom_fee_type_options"  value="{{cfto.id}}" ng-selected="cfto.id==data.custom_fee_type">{{cfto.name}}</option>
                                     </select>
 
@@ -295,7 +299,7 @@
                                     <label class="label-padding">Amount ($)</label>
                                   </div>
                                   <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="" name="custom_fee_amount"  ng-model="data.custom_fee_amount" >
+                                    <input type="text" class="form-control event_number_wd" value="" name="custom_fee_amount"  ng-model="data.custom_fee_amount" >
                                   </div>
                             <!-- </section> -->
                         </section>
@@ -312,7 +316,7 @@
                                         <option value="2">After Discount</option>
                                     </select> -->
 
-                                    <select class="form-control" name="custom_when" ng-model="data.custom_when">  
+                                    <select class="form-control event_number_wd" name="custom_when" ng-model="data.custom_when">  
                                         <option ng-repeat="cwo in custom_when_options" value="{{cwo.id}}"  ng-selected="cwo.id==data.custom_when" >{{cwo.name}}</option>
                                     </select> 
 
@@ -335,7 +339,7 @@
                 <section class="form-group field-group" style="margin-top: 50px;">
                     <label>Additional Settings </label>
                     <section class="gray-frame sub-fields">
-                        <section class="">
+                        <section class="row">
                             <section class="col-sm-12">
                                 <section class="row" >
                                     <!-- <section class="col-sm-6"> -->
@@ -344,7 +348,7 @@
                                               <label class="label-padding">Online Service Fee</label>
                                             </div>
                                             <div class="col-sm-7">
-                                              <input type="text" placeholder="Online Service Fee" class="form-control" value="" name="StartTime" ng-model="data.online_service_fee" tooltips tooltip-template="The percentage (0 – 100) of the per ticket service fee that you’re paying when processing online. If you’re passing the entire service fee on to the customer, set to 0%.">
+                                              <input type="text" placeholder="Online Service Fee" class="form-control event_number_wd" value="" name="StartTime" ng-model="data.online_service_fee" tooltips tooltip-template="The percentage (0 – 100) of the per ticket service fee that you’re paying when processing online. If you’re passing the entire service fee on to the customer, set to 0%.">
                                             </div>
                                             <div class="col-sm-2 info-padding" >%Covered</div>
                                         </section>
@@ -356,7 +360,7 @@
                                         <label class="label-padding">Box Office Service Fee</label>
                                       </div>
                                       <div class="col-sm-7">
-                                        <input type="text" placeholder="Box Office Service Fee" class="form-control" value="" name="StartTime" ng-model="data.box_office_service_fee" tooltips tooltip-template="The percentage (0 – 100) of the service fee per ticket that you will pay when processing orders in the Box Office. If you’re passing the entire service fee on to the customer, set to 0%. If you\'re covering the entire service fee, set to 100% (Note: fees for credit card processing are not included and must be paid by seller).">
+                                        <input type="text" placeholder="Box Office Service Fee" class="form-control event_number_wd" value="" name="StartTime" ng-model="data.box_office_service_fee" tooltips tooltip-template="The percentage (0 – 100) of the service fee per ticket that you will pay when processing orders in the Box Office. If you’re passing the entire service fee on to the customer, set to 0%. If you\'re covering the entire service fee, set to 100% (Note: fees for credit card processing are not included and must be paid by seller).">
                                       </div>
                                       <div class="col-sm-2 info-padding">
                                         %Covered
@@ -384,7 +388,7 @@
                                         <label class="label-padding">Ticket Transaction Limit</label>
                                       </div>
                                       <div class="col-sm-7">
-                                        <input type="number" placeholder="Ticket Transaction Limit" class="form-control" value="" name="StartTime"  ng-model="data.ticket_transaction_limit" min="0" max="100" tooltips tooltip-template="The maximum number of tickets that can be purchased in one transaction. Must be a number between 1 – 100.">
+                                        <input type="number" placeholder="Ticket Transaction Limit" class="form-control event_number_wd" value="" name="StartTime"  ng-model="data.ticket_transaction_limit" min="0" max="100" tooltips tooltip-template="The maximum number of tickets that can be purchased in one transaction. Must be a number between 1 – 100.">
                                       </div>
                                       <div class="col-sm-2 info-padding">
 
@@ -398,9 +402,8 @@
                                         <label class="label-padding">Checkout Time Limit</label>
                                       </div>
                                       <div class="col-sm-7" >
-
-                                        <!--<input type="number" placeholder="Checkout Time Limit" class="form-control" value="" name="StartTime" min="0" max="100" ng-model="data.checkout_time_limit" >-->
-                                    <select class="form-control" name="checkout_time_limit" ng-model="data.checkout_time_limit" placeholder="Checkout Time Limit" >
+                                       
+                                    <select class="form-control event_number_wd" name="checkout_time_limit" ng-model="data.checkout_time_limit" placeholder="Checkout Time Limit" >
                                         <option ng-repeat="to in timeout" value="{{to.value}}"  ng-selected="to.value==data.checkout_time_limit"   >{{to.minutes}}</option>
                                     </select>
 
@@ -411,66 +414,70 @@
                                     </section>
                                 </section>
 
-                                <!--<section class="row">
-                                    <section class="form-group">
-                                      <div class="col-sm-3 left-margin-zero">
-                                        <label class="label-padding">Ticket Layout</label>
-                                      </div>
-                                      <div class="col-sm-7">
-                                        <input type="text" name="StartTime" value="" class="form-control" placeholder="Ticket Layout"  ng-model="data.ticket_layout">
-                                      </div>
-                                      <div class="col-sm-2 info-padding">
-
-                                      </div>
-                                    </section>
-                                </section> -->
-                            </section>
-                        </section>
-                        <div style="height: 30px;" class="col-sm-12"></div>
-                        <section class="row">
-                            <label class="col-md-4 col-sm-6">Collect Name on Each Ticket</label>
-                            <section class="col-md-4 col-sm-4">
+                                 <section class="row">
+                                 <section class="form-group">
+                            <label class="col-md-3 left-margin-zero col-sm-6">Collect Name on Each Ticket</label>
+                            <section class="col-md-9 col-sm-6">
                               <div class="onoffswitch mt-3" tooltips tooltip-template="Select YES to collect names on each ticket, or select NO to collect a single name for all tickets.">
                                   <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch5" ng-model="data.collect_name" ng-true-value='1' ng-false-value='0' >
                                   <label class="onoffswitch-label" for="myonoffswitch5"></label>
                               </div>
                             </section>
                         </section>
+                           </section>
 
 
-                         <section class="row">
-                            <label class="col-md-4 col-sm-6">Private Event</label>
-                            <section class="col-md-4 col-sm-4">
+   <section class="row">
+   <section class="form-group">
+                            <label class="col-md-3 left-margin-zero col-sm-6">Private Event</label>
+                            <section class="col-md-9 col-sm-6">
                               <div class="onoffswitch mt-3"  tooltips tooltip-template="Select NO if you would like people to be able to search for and find your event on search engines, tickets.alistixs.com/, or other public listings.<hr/>Select YES if you do not want people to be able to search for your event. People will only be able to access the ticketing page through the URL that you distribute. Good for private or invite-only events.">
                                   <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="private_event" ng-model="data.private_event" ng-true-value='1' ng-false-value='0'>
                                   <label class="onoffswitch-label" for="private_event"></label>
                               </div>
                             </section>
                         </section>
-
-
-                            <section class="row">
-                            <label class="col-md-4 col-sm-6">Show Seating Chart</label>
-                            <section class="col-md-8 col-sm-6">
-                                  <label > There is no seating chart assigned to this event's venue.</label>
-                            </section>
                         </section>
 
 
+ <section class="row">
+ <section class="form-group">
+                            <label class="col-md-3 left-margin-zero  col-sm-6">Show Seating Chart</label>
+                            <section class="col-md-9 col-sm-6">
+                                  <label > There is no seating chart assigned to this event's venue.</label>
+                            </section>
+                        </section>
+                         </section>
+
 <section class="row">
-                                    <section class="form-group">
-                                      <div class="col-sm-3 left-margin-zero">
+                     <section class="form-group">               
+                                      <div class="col-sm-3 left-margin-zero ">
                                         <label class="label-padding">URL Short Name</label>
                                       </div>
                                       <div class="col-sm-7">
 
                                         <input type="url" placeholder="URL Short Name" class="form-control"  value="tickets.alistixs.com/event/XYZ"  name="url_short_name"  ng-model="data.url_short_name"  tooltips tooltip-template="A ticketing page’s unique URL. By default, the Event Name is plugged in as the last part of the URL. Must be 5 - 30 characters in length.">
                                       </div>
-                                      <div class="col-sm-2 info-padding">
+                                      <div class="col-sm-3 info-padding">
 
                                       </div>
-                                    </section>
+                                   
                                 </section>
+                                 </section>
+
+                               
+                            </section>
+                        </section>
+                       
+
+
+                      
+
+
+                           
+
+
+
 
 
 

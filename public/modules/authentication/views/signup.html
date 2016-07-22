@@ -25,7 +25,14 @@
                         <p ng-show="userSignupForm.lastname.$invalid && !userSignupForm.lastname.$pristine" class="error-fld ng-binding">Enter Lastname.</p>
                     </div>
                 </div>
+                
                 <div class="form-group row">
+                    
+                    <div class="col-sm-6 section-col">
+                        <label>Organization</label>
+                        <input type="text" placeholder="Email"  ng-model="user.organization" class="form-control" name="organization" > 
+                    </div>
+                    
                     <div class="col-sm-6 section-col" ng-class="{ 'has-error' : userSignupForm.email.$error.required}">
                         <label>Email</label>
                         <input type="email" placeholder="Email"  ng-model="user.email" class="form-control" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-blur="checkUnique();" required="true">
@@ -39,6 +46,41 @@
                             <p class="error-fld ng-binding" ng-show="(unique && unique_type == 3 ) || (userSignupForm.email.$error.required  && userSignupForm.email.$invalid && !userSignupForm.email.$pristine) || userSignupForm.email.$error.pattern">Enter a valid email</p>
                         </span>
                     </div>
+                    
+                </div>
+                
+                
+                <div class="form-group row">
+                    <div class="col-sm-6 section-col" >
+                        <label>Country</label>
+                        <input type="text" placeholder="Country"  ng-model="user.country" class="form-control" name="country">
+                        
+                    </div>
+                    <div class="col-sm-6 section-col" >
+                        <label>City</label>
+                        <input type="text" placeholder="City"  ng-model="user.city" class="form-control" name="city">
+                        
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6 section-col" >
+                        <label>State</label>
+                        <input type="text" placeholder="State"  ng-model="user.state" class="form-control" name="state">
+                        
+                    </div>
+                    <div class="col-sm-6 section-col" >
+                        <label>Phone</label>
+                        <input type="text" placeholder="Phone"  ng-model="user.phone" class="form-control" name="phone">
+                        
+                    </div>
+                </div>
+                
+                <!-- new password -->
+                              
+                <!-- ************************CREATED BY DEEPAK K****************************-->
+                <div class="form-group row">
+                    
                     <div class="col-sm-6 section-col"  ng-class="{ 'has-error' : userSignupForm.password.$error.required || userSignupForm.password.$invalid && !userSignupForm.password.$pristine }">
                         <label>Password</label>
                         <input type="password" placeholder="Password" class="form-control" name="password" ng-model="user.password"  ng-minlength="5" ng-maxlength="12" required>
@@ -46,24 +88,22 @@
                         <p ng-show="userSignupForm.password.$error.minlength" class="error-fld ng-binding">Password is too short.</p>
                         <p ng-show="userSignupForm.password.$error.maxlength" class="error-fld ng-binding">Password is too long.</p>
                     </div>
-                </div>
-
-                
-                <!-- new password -->
-                              
-                <!-- ************************CREATED BY DEEPAK K****************************-->
-                <div class="form-group row">
+                    
                     <div class="col-sm-6 section-col" ng-class="{ 'has-error' : userSignupForm.confirmpass.$error.required}">
                         <label>Confirm Password</label>
                         <input type="password" class="form-control" ng-pattern={{user.password}} ng-model="user.confirmpass" name="confirmpass" placeholder="Confirm Password"  required>
                          <p ng-show="userSignupForm.confirmpass.$error.pattern" class="error-fld ng-binding">Password Not Matched!.</p>
                     </div>
+                </div>
+                
+                <div class="form-group row">
                     
-                    <div class="col-sm-6 section-col">
+                    <div class="col-sm-12 section-col" align="center">
                     <div class="form-group">
                     <div  re-captcha ng-model="user.captcha" name="captcha"></div>
                     </div>
                     </div>
+                  
                 </div>
 
                 <!-- ******************************************************************* -->

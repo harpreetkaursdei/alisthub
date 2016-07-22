@@ -449,7 +449,8 @@ $scope.selected2 = $scope.steps[3];
     $scope.pageloader = false;
     $rootScope.loader_div = true;
     $scope.formdata = response.result[0];
-    if($scope.formdata!=undefined){
+    
+    if($scope.formdata !== undefined && $scope.formdata != ""){
       $scope.formdata.will_call = parseInt($scope.formdata.will_call);
       $scope.formdata.sales_immediatly = parseInt($scope.formdata.sales_immediatly);
       $scope.immediate();
@@ -482,6 +483,10 @@ $scope.selected2 = $scope.steps[3];
       $scope.formdata.print_disable_date = {};
       $scope.formdata.print_disable_date.date = disableDateTime.date;
       $scope.formdata.print_disable_date.time = disableDateTime.time;
+    }
+    else{
+      $scope.formdata = {};
+      $scope.formdata.print_home = 1;
     }
 
   });

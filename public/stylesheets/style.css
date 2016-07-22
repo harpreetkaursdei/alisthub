@@ -74,6 +74,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width:100px;
 }
 .d1name{position:absolute; left:350px; top:12px;}
+.text-muted {
+    background: none repeat scroll 0 0 #ccc;
+    border-radius: 50%;
+    color: #777;
+    padding: 4px 6px;
+}
 /* Common CSS
    ========================================================================== */
 ol, ul {list-style: none;}
