@@ -99,6 +99,15 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
         $scope.dt = new Date(year, month, day);
     };
 
+    $serviceTest.checkEventExist({ 'user_id': userId }, function(response) {
+        if( response.results[0].count == 0 ) {
+           // redirect to create a event
+           $rootScope.noEventToIncludeInPackage = global_message.noEventToIncludeInPackage ;
+           $state.go('create_event_step1');
+        }
+        
+    });
+
     $scope.formats = ['yyyy-MM-dd', 'dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
     $scope.altInputFormats = ['M!/d!/yyyy'];
@@ -580,6 +589,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     /************** Function to save data of step one starts **************/
 
     $scope.stepOne = function() {
+         $rootScope.loader_div = false;
 
             $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
 
@@ -608,20 +618,24 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
                 $scope.data.showclix_seller_id = $localStorage.showclix_seller_id;
                 $scope.data.showclix_user_id = $localStorage.showclix_user_id;
 
-                var showclix_event_ids = [];               
+                var showclix_event_ids = [];
+                
                  angular.forEach($rootScope.FinalEvents,function(value,key){
                      var id = value.id;
                     var showclix_event_id = value.showclix_id;
                     if (id != undefined && showclix_event_id  != undefined) {
                         showclix_event_ids[id] = showclix_event_id;
                         showclix_event_ids.push({"key":id,"value":showclix_event_id});
+                       
                     }
                 }); 
+
 
                 $scope.data.showclix_event_ids = showclix_event_ids;
 
                 $serviceTest.stepOneEventPackage($scope.data, function(response) {
                     //$scope.loader = false;
+                    $rootScope.loader_div = true;
                     if (response.code == 200) {
                         $rootScope.packageId = $scope.data.id = response.result;
                         $localStorage.packageId = $scope.data.id;
@@ -635,7 +649,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
                         }, 3000);
                         // window.location.reload();
 
-
+                    
                          $location.path("/event_package_step_2/"+$scope.data.id);
 
                     } else {
@@ -811,10 +825,18 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
             $rootScope.FinalEvents.pop();
         }
         $rootScope.choosenEventsArea = true;
+
+        console.log('$rootScope.allEvents ------------>');
+        console.log($rootScope.allEvents);
+         var startDates = [];
         for (var key in $scope.eventInfo.eventcheckboxGlobalIds) {
             var eventId = $scope.eventInfo.eventcheckboxGlobalIds[key];
             $rootScope.FinalEvents.push($rootScope.allEvents[eventId]);
+            startDates.push( $scope.combine(new Date( $rootScope.allEvents[eventId].date) , $rootScope.allEvents[eventId].start_time ) ) ;
         }
+
+console.log('startDates ' , startDates);
+
 
         console.log('before $rootScope.eventsChoosedFlag ', $rootScope.eventsChoosedFlag);
         $rootScope.eventsChoosedFlag = true;
@@ -863,8 +885,9 @@ angular.module('alisthub').controller('EventModalInstanceCtrl', function($localS
                         $scope.event_id.push(valId);
                     }
                     $scope.tableParams = new ngTableParams({
+                        noPager: true , // hides pager
                         page: 1, // show first page
-                        count: 5, // count per page
+                        count: 200, // count per page
                         sorting: { name: 'asc' },
                     }, {
                         data: $scope.eventdata

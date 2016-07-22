@@ -12,7 +12,7 @@
 <div class="container">
     <h1>Create an Package</h1>
     <!-- Step Form -->
-    <div class="stage-container clearfix">
+    <div class="stage-container stage-container-product clearfix">
         <div class="stage" ng-repeat="step in steps" ng-class="{current: isActive2(step)}" ng-click="click_menu(step)">
             <div class="stage-icon"><i class="{{step.icon}}"></i> </div>
             <div class="stage-title">{{step.title}}</div>
@@ -44,7 +44,7 @@
                             <section class="col-sm-12">
                                 <section class="radio-sec">
                                     <section class="radio-inline">
-                                        <input type="radio" name="radio1" id="radio1" ng-model="data.print_home" value="1">
+                                        <input type="radio" name="radio1" id="radio1" ng-model="data.print_home" value="1" autofocus>
                                         <label for="radio1"><span></span>Always Available</label>
                                     </section>
                                     <section class="radio-inline">
@@ -258,7 +258,7 @@
                         </section>
 
 
-                        
+
                       <div ng-if="data.custom_fee == 1">
                         <section class="row">
                             <!-- <section class="col-sm-12"> -->

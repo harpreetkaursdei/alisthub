@@ -106,26 +106,26 @@ exports.stepOneEventPackage = function(req, res) {
                                 }
                             });
 
-
+console.log('req.body.event_ids ' , req.body.event_ids);
                             for (var index in req.body.event_ids) {
                                 if (req.body.event_ids[index] != undefined) {
                                     var event = req.body.event_ids[index];
                                     var showclix_event_id = req.body.showclix_event_ids[event];
 
+                                    var query_event = "INSERT INTO package_event_map ( event_id , package_id ) VALUES ( " + event + " , " + package_id + ")";
+                                    console.log('--------------------');
+                                    console.log(query_event);
+                                    connection.query(query_event, function(subErr, subResults) {
+                                        if (subErr) {
+                                            res.json({ error: subErr, code: 101 });
+                                        }
+                                    });
+
                                     var events_of_packages = {};
                                     events_of_packages.package_id = showclix_package_id;
                                     events_of_packages.event_id = showclix_event_id;
                                     events_of_packages.showclix_token = req.body.showclix_token;
-
                                     showClixPackage2.add_events_of_package(events_of_packages, res, function(sdata1) {
-                                            var query_event = "INSERT INTO package_event_map ( event_id , package_id ) VALUES ( " + event + " , " + package_id + ")";
-                                            console.log('--------------------');
-                                            console.log(query_event);
-                                            connection.query(query_event, function(subErr, subResults) {
-                                                if (subErr) {
-                                                    res.json({ error: subErr, code: 101 });
-                                                }
-                                            });
                                     });
                                 }
                             }
@@ -974,5 +974,20 @@ exports.addFavouritePackage = function(req, res) {
         });
     } else {
         res.send({ "results": {}, code: 200 });
+    }
+}
+
+
+exports.checkEventExist = function(req, res) {
+    if( req.body.user_id != undefined ) {
+        var query_event = "select count(id) as count from events where user_id = " + req.body.user_id ;
+        console.log('query_event ' , query_event );
+
+        connection.query(query_event, function(err, results) {
+            if (err) {
+                res.send({ "error" : err1 , code: 101 });
+            }
+            res.send({ "results": results, code: 200 });
+        });
     }
 }

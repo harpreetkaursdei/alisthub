@@ -319,7 +319,7 @@ $scope.redirectToDashboard = function() {
       $scope.data.showclix_user_id = $localStorage.showclix_user_id;
 
       $serviceTest.postThirdStepPackageData($scope.data, function(response) {
-      $rootScope.loader_div = false;
+      $rootScope.loader_div = true;
 
           if (response.code === 200) {
             //$scope.data = response.result;
