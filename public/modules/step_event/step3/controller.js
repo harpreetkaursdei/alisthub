@@ -21,7 +21,7 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
     $rootScope.sociallink={};
    
     $serviceTestVenue.getEvent({'event_id':event_id},function(response){
-        console.log(response.results[0]);
+        
         
         $scope.data1=response.results[0];
         $scope.title=response.results[0].title;
@@ -53,13 +53,13 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
         }
         $scope.ages = ages;
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
+        zoom: 3,
         center: {lat: response.results[0].latitude, lng: response.results[0].longitude}
       });
     
       var marker = new google.maps.Marker({
         position: {lat: response.results[0].latitude, lng: response.results[0].longitude},
-        map: map
+        map: map 
        });
     marker.setMap(map);
 		
