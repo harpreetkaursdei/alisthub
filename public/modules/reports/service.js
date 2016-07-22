@@ -6,5 +6,13 @@ angular.module('alisthub').factory('report', ['$q', '$timeout','communicationSer
       callback(res.data);
     });
   };
+  
+  //get events 
+  url.getReportEvent = function(jsondata,callback) {
+    communicationService.resultViaPost(webservices.getReportEvent,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req) {
+      callback(res.data);
+    });
+  };
+
   return url;
 }]);
