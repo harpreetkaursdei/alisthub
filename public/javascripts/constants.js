@@ -471,10 +471,10 @@ var webservices = {
 
      /////widget //////////
 
-     "saveEventWidgets":"/widget/saveEventWidgets",
+    "saveEventWidgets":"/widget/saveEventWidgets",
     "savewidget":"/widget/savewidget",
-      "getWidgetEvents":"/widget/getWidgetEvents",
-       "editEvent_widgets":"/widget/editEvent_widgets",
+    "getWidgetEvents":"/widget/getWidgetEvents",
+    "editEvent_widgets":"/widget/editEvent_widgets",
      
     "getWidget":"/widget/getWidget",
     "getWidgetDetail":"/widget/getWidgetDetail",
@@ -516,6 +516,7 @@ var webservices = {
     "saveAdvanceSettingsOfPackage" : "/package/saveAdvanceSettingsOfPackage" ,
     "getAdvanceSettingOfPackage" : "/package/getAdvanceSettingOfPackage",
     "getAllPackageEvent": "/package/getAllPackageEvent",
+    "checkEventExist": "/package/checkEventExist",
 
 
     /* Constants for the discount module */
@@ -700,8 +701,14 @@ var webservices = {
     "addFavouritePackage" : "/package/addFavouritePackage" ,
 
     //Sales report
-    "getSalesData" : "/report/getSalesData" ,    
+
+    "getSalesData" : "/report/getSalesData" ,
     
+    //Signup seller
+    "signupSeller" : "/profile/signup_seller"  
+
+    "getReportEvent": "/report/getReportEvent",
+
 
 
 
@@ -802,6 +809,8 @@ var global_message = {
     "bundle_add": "Bundle information has been added.",
 
      "save_package": "Package information has been saved successfully.",
+     "noEventToIncludeInPackage" : "Please create an event firsty to include it in package." ,
+
 
     /**/
     "advanceSettingSaved": "Advance settings saved successfully",

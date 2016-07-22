@@ -13,6 +13,9 @@ module.exports = function(app, express) {
         
     /* Update my account user data */
     router.post('/getSalesData' , profileCon.getSalesData);
+
+    /* To get data of the all  events */
+  	router.post('/getReportEvent',profileCon.getReportEvent);
     
     /* Default */   
     app.use('/report', router);

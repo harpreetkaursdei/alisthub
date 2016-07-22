@@ -374,32 +374,44 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
     $scope.message = "";
     $scope.user = {};
     $scope.unique_type = 0;
+    $scope.user.country = 'US';
     //$scope.disabledBtn = false;
     $rootScope.class_status = 1;
     
      /*****************CREATED BY DEEPAK K*********************************/
         reCAPTCHA.setPublicKey('6LdgDyUTAAAAAHlJqEPPfg59c9e14SUxn0mL3C5u');
      /*===================================================================*/
-
+        $scope.select_country = true;
+        $scope.check_country = function()
+        {
+         if($scope.user.country != 'US')
+         {
+             $scope.select_country = false;   
+         }
+         else{
+             $scope.select_country = true;   
+         }
+        }
 
         $scope.submitRegistrationform = function()
         {
                 //////// Sign up on Showclix server /////////
-                var showclixdata = {"first_name": $scope.user.first_name,"last_name": $scope.user.last_name,"organization": "ShowClix","phone": "","email": $scope.user.email,"city": "NY","state": "NY"};
-                console.log($scope.user);
+                var showclixdata = {"first_name": $scope.user.firstname,"last_name": $scope.user.lastname,"organization": $scope.user.organization,"phone": $scope.user.phone,"email": $scope.user.email,"city": $scope.user.city,"state": $scope.user.state,"password": $scope.user.password,"token":"5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412"};
                 
-                //showclixdata.first_name = showclixdata.first_name;
-                /*
+                console.log(showclixdata);
+                
                 $http({
-                    url: "http://api.showclix.com/Seller",
+                    url: webservices.signupSeller,
                     method: 'POST',
-                    data: jsonData,
+                    data: showclixdata,
                     headers: {
-                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    "Accept": "application/json",
+                    "Content-Type": "application/json",
                     }
-                    }).success(function(data, status, headers, config)
+                    }).success(function(sdata, status, headers, config)
                 {
+                        console.log(sdata);
+                        if(sdata.code == 200)
+                        {
                         ///////////////////////////////////////////// 
                         var serviceUrl = webservices.getUserregister;
                         $scope.user.hosturl  = servicebaseUrl;
@@ -444,7 +456,12 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                             
                             });
                         /////////////////////////////////////////
-                });*/
+                        }
+                        else{
+                        console.log(sdata);        
+                        }
+                        
+                });
                 /////// Sign up on Showclix server ////// 
          
         

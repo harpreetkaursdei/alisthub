@@ -976,3 +976,18 @@ exports.addFavouritePackage = function(req, res) {
         res.send({ "results": {}, code: 200 });
     }
 }
+
+
+exports.checkEventExist = function(req, res) {
+    if( req.body.user_id != undefined ) {
+        var query_event = "select count(id) as count from events where user_id = " + req.body.user_id ;
+        console.log('query_event ' , query_event );
+
+        connection.query(query_event, function(err, results) {
+            if (err) {
+                res.send({ "error" : err1 , code: 101 });
+            }
+            res.send({ "results": results, code: 200 });
+        });
+    }
+}
