@@ -5,12 +5,36 @@ var request    = require('request');
 var http       = require('http');
 module.exports = function()
 {
+  this.map_venue = function(data,res,next)
+  {
+    request.post({
+                headers: {'X-API-Token':data.showclix_token},
+                url:     "http://api.showclix.com/VenueSellers",
+                form:    { "venue_id":data.venue_id,
+                           "seller_id":data.showclix_seller_id
+            } }, function(error, response, body){
+            console.log(response.statusCode);
+    });
+    
+  }
+  
   this.add_venue = function(req,res,next)
   {
     // required : venue_name , address ,city , status
+    /*/
+    request.post({
+                    headers: {'X-API-Token':req.body.showclix_token},
+                    url:     "http://api.showclix.com/VenueSellers",
+                    form:    { "venue_id":36171,
+                               "seller_id":req.body.showclix_seller_id
+                            } }, function(error2, response2, body2){
+                            console.log(response2.statusCode);
+                            return next({status:1,location:response2.statusCode});
+                            
+                    });*/
     
     request.post({
-                headers: {'X-API-Token':'c09f282dfd94767749fd2c2d7cca4f36b0c590fe56ace77dd18bb254130e5fd1'},
+                headers: {'X-API-Token':req.body.showclix_token},
                 url:     showClix.addVenue,
                 form:    { "venue_name": req.body.venue_name,
               "seating_chart_name": "",
@@ -37,8 +61,24 @@ module.exports = function()
               "lng": req.body.phone,
               "timezone_name": req.body.timezone
             } }, function(error, response, body){
+                  console.log(response.statusCode);
                    if (response.headers.location) {
-                    return next({status:1,location:response.headers.location});
+                    var venue_loc  = response.headers.location;
+                    var venue_loc2 = venue_loc.split("/");
+                    var venue_id   = venue_loc2[4];
+                    ///////////////////////////////////////////////////
+                    request.post({
+                    headers: {'X-API-Token':req.body.showclix_token},
+                    url:     "http://api.showclix.com/VenueSellers",
+                    form:    { "venue_id":venue_id,
+                               "seller_id":req.body.showclix_seller_id
+                            } }, function(error2, response2, body2){
+                            console.log(response2.statusCode);
+                            return next({status:1,location:venue_loc});
+                            
+                    });
+                    //////////////////////////////////////////////////
+                    
                    }
                    else
                    {

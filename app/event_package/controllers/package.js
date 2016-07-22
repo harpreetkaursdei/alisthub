@@ -106,26 +106,26 @@ exports.stepOneEventPackage = function(req, res) {
                                 }
                             });
 
-
+console.log('req.body.event_ids ' , req.body.event_ids);
                             for (var index in req.body.event_ids) {
                                 if (req.body.event_ids[index] != undefined) {
                                     var event = req.body.event_ids[index];
                                     var showclix_event_id = req.body.showclix_event_ids[event];
 
+                                    var query_event = "INSERT INTO package_event_map ( event_id , package_id ) VALUES ( " + event + " , " + package_id + ")";
+                                    console.log('--------------------');
+                                    console.log(query_event);
+                                    connection.query(query_event, function(subErr, subResults) {
+                                        if (subErr) {
+                                            res.json({ error: subErr, code: 101 });
+                                        }
+                                    });
+
                                     var events_of_packages = {};
                                     events_of_packages.package_id = showclix_package_id;
                                     events_of_packages.event_id = showclix_event_id;
                                     events_of_packages.showclix_token = req.body.showclix_token;
-
                                     showClixPackage2.add_events_of_package(events_of_packages, res, function(sdata1) {
-                                            var query_event = "INSERT INTO package_event_map ( event_id , package_id ) VALUES ( " + event + " , " + package_id + ")";
-                                            console.log('--------------------');
-                                            console.log(query_event);
-                                            connection.query(query_event, function(subErr, subResults) {
-                                                if (subErr) {
-                                                    res.json({ error: subErr, code: 101 });
-                                                }
-                                            });
                                     });
                                 }
                             }

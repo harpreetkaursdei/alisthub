@@ -384,46 +384,68 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
 
         $scope.submitRegistrationform = function()
         {
-         
-                var serviceUrl = webservices.getUserregister;
-                $scope.user.hosturl  = servicebaseUrl;
-                var jsonData=$scope.user;
+                //////// Sign up on Showclix server /////////
+                var showclixdata = {"first_name": $scope.user.first_name,"last_name": $scope.user.last_name,"organization": "ShowClix","phone": "","email": $scope.user.email,"city": "NY","state": "NY"};
+                console.log($scope.user);
                 
+                //showclixdata.first_name = showclixdata.first_name;
+                /*
                 $http({
-                    url: serviceUrl,
+                    url: "http://api.showclix.com/Seller",
                     method: 'POST',
                     data: jsonData,
                     headers: {
                     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                     "Accept": "application/json",
                     }
-                    }).success(function(data, status, headers, config) {
-                    
-                        if (data == 101) {
-                         $scope.errormessage = global_message.EmailExist;
-                         $timeout(function() {
-                                   $scope.errormessage = '';
+                    }).success(function(data, status, headers, config)
+                {
+                        ///////////////////////////////////////////// 
+                        var serviceUrl = webservices.getUserregister;
+                        $scope.user.hosturl  = servicebaseUrl;
+                        var jsonData=$scope.user;
+                        
+                        $http({
+                            url: serviceUrl,
+                            method: 'POST',
+                            data: jsonData,
+                            headers: {
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                            "Accept": "application/json",
+                            }
+                            }).success(function(data, status, headers, config) {
+                            
+                                if (data == 101) {
+                                 $scope.errormessage = global_message.EmailExist;
+                                 $timeout(function() {
+                                           $scope.errormessage = '';
+                                           
+                                      },3000);
+                                }
+                                else if (data == "err") {
+                                 $scope.errormessage = global_message.SavingError;
+                                 $timeout(function() {
+                                           $scope.errormessage = '';
+                                           
+                                      },3000);
+                                }
+                                else {
+                                                                 
+                                  $rootScope.SignupSuccessMessage = global_message.SignupSuccess;
+                                  $scope.message = global_message.SignupSuccess;
+                                  $timeout(function() {
+                                     $scope.message = global_message.SignupSuccess;
+                                   },3000);
                                    
-                              },3000);
-                        }
-                        else if (data == "err") {
-                         $scope.errormessage = global_message.SavingError;
-                         $timeout(function() {
-                                   $scope.errormessage = '';
-                                   
-                              },3000);
-                        }
-                        else {
-                          $rootScope.SignupSuccessMessage = global_message.SignupSuccess;
-                          $scope.message = global_message.SignupSuccess;
-                          $timeout(function() {
-                             $scope.message = global_message.SignupSuccess;
-                           },3000);
-                           
-                          $state.go('login');
-                        }
-                    
-                    });
+                                  $state.go('login');
+                                  
+                                 
+                                }
+                            
+                            });
+                        /////////////////////////////////////////
+                });*/
+                /////// Sign up on Showclix server ////// 
          
         
         };

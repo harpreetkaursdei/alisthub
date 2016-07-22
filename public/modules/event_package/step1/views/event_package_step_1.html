@@ -3,7 +3,7 @@
 <div class="container">
     <h1>Create an Package</h1>
     <!-- Step Form -->
-    <div class="stage-container clearfix">
+    <div class="stage-container stage-container-product clearfix">
         <div class="stage" ng-repeat="step in steps" ng-class="{current: isActive2(step)}" ng-click="click_menu(step)">
             <div class="stage-icon"><i class="{{step.icon}}"></i> </div>
             <div class="stage-title">{{step.title}}</div>
@@ -23,7 +23,7 @@
                 <section class="gray-frame sub-fields">
                     <div class="form-group">
                         <label for="package_name">Package Name<span class="req">*</span></label> <!--<i class="fa fa-question icon-fa"></i><span class="glyphicon glyphicon-question-sign"></span>-->
-                        <input type="text" name="package_name" ng-model="data.package_name" class="form-control" placeholder="Package Name" maxlength="50" minlength="3" required  tooltips tooltip-template="This is the title of your package. Minimum 3 characters, maximum 50 characters." >
+                        <input type="text" name="package_name" ng-model="data.package_name" class="form-control" placeholder="Package Name" maxlength="50" minlength="3" required  tooltips tooltip-template="This is the title of your package. Minimum 3 characters, maximum 50 characters." autofocus >
                         <p ng-show="myForm.package_name.$invalid && !myForm.package_name.$pristine" class="error-fld ng-binding">Package name is required.</p>
                     </div>
                     <div class="editr">

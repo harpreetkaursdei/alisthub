@@ -525,3 +525,125 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
     font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .cursor{ cursor: pointer;}
+
+
+/* css 220716 */
+
+.templateContainer .social-med{
+	text-align:  center;
+}
+
+.templateContainer .social-med a{
+	color:  #fff;
+}
+
+.templateContainer .date-media{
+	display: none;
+}
+
+.templateContainer p:last-child{
+	margin-bottom: 0;
+}
+
+.form-section .templateContainer .field-group{
+	padding-top: 0;
+}
+
+.templateContainer .template_right div#map{
+	height: 160px !important;
+	margin-bottom: 15px;
+}
+
+.templateContainer .template_right .venue-panel .panel{
+	margin-bottom: 0;
+}
+
+.templateWrap .templateContainer .module-div, 
+.templateWrap .templateContainer .scial-medial{
+	margin-bottom: 10px;
+}
+
+.templateWrap .templateContainer  section > .portlet{
+	margin-bottom: 0px;
+}
+
+.templateWrap .templateContainer .portlet iframe{
+	height: 300px;
+}
+
+.templateWrap .templateContainer .event_date-wrap{
+	margin-bottom: 10px;
+}
+
+.templateWrap .templateContainer .event_date-wrap:last-child{
+	margin-bottom: 0;
+}
+
+.templateWrap .templateContainer .event_date-label{
+	display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+    position: relative;
+    padding-right: 10px;
+    font-size: 13px;
+}
+
+.templateWrap .templateContainer .event_date-label:first-child:before{
+	display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f073";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: #c129b9;
+}
+
+.templateWrap .templateContainer .event_date-label:first-child:after{
+	content: '-';
+	position: absolute;
+	right: 0;
+	top: 1px;
+}
+
+.templateWrap .templateContainer .event_date-label:last-child:after{
+	display: none;
+}
+
+.templateWrap .templateContainer .event_date-label:last-child{
+	padding-left: 0;
+}
+
+.templateWrap .templateContainer .event-details h1{
+	font-size: 20px;
+}
+
+.templateWrap .templateContainer .event-details h2{
+	font-size: 18px;
+}
+
+.templateWrap .templateContainer .event-details h3{
+	font-size: 16px;
+}
+
+.templateWrap .templateContainer .event-details h4{
+	font-size: 14px;
+}
+
+.pr-3{
+	padding-right: 3px;
+}
+
+.blocks-widget li .glyphicon {
+    font-size: 40px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.templateWrap .templateContainer .template_left{
+	padding-right: 10px;
+	padding-left: 10px;
+}

@@ -8,7 +8,7 @@ Module : Events Home
 angular.module('alisthub').controller('reportController', function($scope,$localStorage,$injector, $uibModal,$rootScope, $filter,$timeout,$sce,$location, $ocLazyLoad,$state,ngTableParams,$http) { 
     $rootScope.loader_div = false;
 
-    $scope.showClixDataObj = [];
+    
     
 
  // Datepicker stuff
@@ -232,15 +232,15 @@ angular.module('alisthub').controller('reportController', function($scope,$local
         var manualStartDate = formatsearchDate(new Date(todayDate).setDate(new Date(todayDate).getDate()));
         var manualEndDate = formatsearchDate(new Date(endDate).setDate(new Date(endDate).getDate()));
       } else {
-        var manualStartDate = formatsearchDate(new Date(todayDate).setDate(new Date(todayDate).getDate() - (parseInt(days))));
-        var manualEndDate = formatsearchDate(new Date().setDate(new Date().getDate()));
+        var manualStartDate = formatsearchDate(new Date(todayDate).setDate(new Date(todayDate).getDate() - (150+parseInt(days))));
+        var manualEndDate = formatsearchDate(new Date().setDate(new Date().getDate()-150));
       }
       
       $scope.salesData = {};
       $scope.salesData.start_date = manualStartDate;
       $scope.salesData.end_date = manualEndDate;
-      //console.log("salesData: " + $scope.salesData.start_date);
-      //console.log("salesData: " + $scope.salesData.end_date);
+      console.log("salesData: " + $scope.salesData.start_date);
+      console.log("salesData: " + $scope.salesData.end_date);
 
       //$scope.salesData.showclix_token     = $localStorage.showclix_token;
       //$scope.salesData.showclix_seller_id = $localStorage.showclix_seller_id;
@@ -252,10 +252,12 @@ angular.module('alisthub').controller('reportController', function($scope,$local
       reportService.getSalesData($scope.salesData,function(response) {
         if (response!=null) {
           $rootScope.loader_div = true;
+          $scope.showClixDataObj = [];
+
           //if (response.code == 200 && response.data=='') {
           if (response.code == 200 && response.data!='') {
             $scope.showClixDataObj.push(JSON.parse(response.data)); 
-            //console.log("showClixDataObj: " + $scope.showClixDataObj);
+            console.log("showClixDataObj: " + $scope.showClixDataObj);
             
             $scope.chartDataRevenue = [];
             $scope.chartDataTicket = [];
@@ -263,7 +265,7 @@ angular.module('alisthub').controller('reportController', function($scope,$local
             $scope.colors = [];
             $scope.labels = [];
 
-            for(var i = days; i > 0; i--) {
+            for(var i = 150+days; i > 150; i--) {
               var setdate = i; 
               var setdate = formatDateGraph(new Date(todayDate).setDate(new Date(todayDate).getDate() - i));
               var dataForDate = getObjects(graphData, 'date', setdate);
@@ -303,7 +305,6 @@ angular.module('alisthub').controller('reportController', function($scope,$local
           }
         }
       });
-      //console.log($scope.labels);
     }
 
     //console.log("formatDateGraph: " + formatDateGraph(new Date('2015-10-01').setDate(new Date('2015-10-01').getDate() - 1)));
@@ -331,7 +332,8 @@ angular.module('alisthub').controller('reportController', function($scope,$local
     });
 
     $scope.$watch('graphType',function() {
-      $scope.getChart(30,$scope.graphType.typevalue);
+        var todayDate = formatDateGraph(new Date());
+        $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
     });
 
     $scope.grphsTypes = [
