@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./db.js');
 var csv = require("fast-csv");
-
+var nodemailer = require('nodemailer');
 fs = require('fs');
 
 var app = express();
@@ -44,7 +44,7 @@ require('./routes/widget')(app, express);
 require('./routes/package')(app, express);
 
 require('./routes/tracking')(app, express);
-
+require('./routes/contact_us')(app, express);
 require('./routes/report')(app, express);
 
 // catch 404 and forward to error handler
@@ -77,8 +77,35 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+/*
+var smtpTransport = nodemailer.createTransport("SMTP",{
+    service: "Gmail",
+    auth: {
+        user: "osgroup.sdei@gmail.com",
+        pass: "mohali2378"
+    }
+});
+         
+  var mail = {
+    from: "akanksha sood <soodakanksha9@gmail.com>",
+    to: "tester12344489@gmail.com",
+    subject: "Send Email Using Node.js",
+    text: "Node.js New world for me",
+    html: "<b>Node.js New world for me</b>"
+  
+  }
 
+smtpTransport.sendMail(mail, function(error, response){
+    if(error){
+        console.log(error);
+    }else{
+        console.log("Message sent: " + response.message);
 
+    }
 
+    smtpTransport.close();
+});   
+
+*/
 
 module.exports = app;

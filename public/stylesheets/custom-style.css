@@ -175,15 +175,15 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
 	height: 74px;
 	opacity: 0;
 	transform: rotate(225deg);
-		-o-transform: rotate(225deg);
-		-ms-transform: rotate(225deg);
-		-webkit-transform: rotate(225deg);
-		-moz-transform: rotate(225deg);
+	-o-transform: rotate(225deg);
+	-ms-transform: rotate(225deg);
+	-webkit-transform: rotate(225deg);
+	-moz-transform: rotate(225deg);
 	animation: orbit 6.96s infinite;
-		-o-animation: orbit 6.96s infinite;
-		-ms-animation: orbit 6.96s infinite;
-		-webkit-animation: orbit 6.96s infinite;
-		-moz-animation: orbit 6.96s infinite;
+	-o-animation: orbit 6.96s infinite;
+	-ms-animation: orbit 6.96s infinite;
+	-webkit-animation: orbit 6.96s infinite;
+	-moz-animation: orbit 6.96s infinite;
 }
 
 .windows8 .wBall .wInnerBall{
@@ -527,6 +527,7 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
 .cursor{ cursor: pointer;}
 
 
+
 /* css 220716 */
 
 .templateContainer .social-med{
@@ -647,3 +648,6 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
 	padding-right: 10px;
 	padding-left: 10px;
 }
+
+ .panel-heading { padding: 15px 15px;}
+
