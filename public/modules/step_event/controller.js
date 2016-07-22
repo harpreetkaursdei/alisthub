@@ -11,6 +11,17 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
 
   $scope.loader = false;
   $rootScope.loader_div = false;
+  $scope.show_noEventToIncludeInPackage = false;
+
+  if($rootScope.noEventToIncludeInPackage) {
+   $scope.show_noEventToIncludeInPackage = true;
+     $timeout(function() {
+       $rootScope.noEventToIncludeInPackage ='';
+       $scope.show_noEventToIncludeInPackage = false;
+     },10000);
+  }
+
+
    //For Step 1
   var $serviceTest = $injector.get("venues");
   if($stateParams.eventId === '')

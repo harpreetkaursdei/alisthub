@@ -516,6 +516,7 @@ var webservices = {
     "saveAdvanceSettingsOfPackage" : "/package/saveAdvanceSettingsOfPackage" ,
     "getAdvanceSettingOfPackage" : "/package/getAdvanceSettingOfPackage",
     "getAllPackageEvent": "/package/getAllPackageEvent",
+    "checkEventExist": "/package/checkEventExist",
 
 
     /* Constants for the discount module */
@@ -802,6 +803,7 @@ var global_message = {
     "bundle_add": "Bundle information has been added.",
 
      "save_package": "Package information has been saved successfully.",
+     "noEventToIncludeInPackage" : "Please create an event firsty to include it in package." ,
 
     /**/
     "advanceSettingSaved": "Advance settings saved successfully",
