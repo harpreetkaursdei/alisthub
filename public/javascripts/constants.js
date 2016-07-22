@@ -701,7 +701,7 @@ var webservices = {
 
     //Sales report
     "getSalesData" : "/report/getSalesData" ,    
-    
+    "getReportEvent": "/report/getReportEvent",
 
 
 
