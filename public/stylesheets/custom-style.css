@@ -525,3 +525,4 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
     font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
 }
 .cursor{ cursor: pointer;}
+ .panel-heading { padding: 15px 15px;}

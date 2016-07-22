@@ -4,8 +4,8 @@ Created : 2016-05-26
 Created By: Deepak khokkar  
 Module : Step 3 Event step  
 */
-
-angular.module('alisthub').controller('stepevent3Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
+angular.module("google.places", []);
+angular.module('alisthub', ['google.places']).controller('stepevent3Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
     $scope.loader_div=$rootScope.loader_div=false;
      
      var $serviceTest = $injector.get("Lookservice");
@@ -21,6 +21,7 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
     $rootScope.sociallink={};
    
     $serviceTestVenue.getEvent({'event_id':event_id},function(response){
+        console.log(response.results[0]);
         
         $scope.data1=response.results[0];
         $scope.title=response.results[0].title;
@@ -51,6 +52,16 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
             ages = response.results[0].custom_ages;
         }
         $scope.ages = ages;
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: {lat: response.results[0].latitude, lng: response.results[0].longitude}
+      });
+    
+      var marker = new google.maps.Marker({
+        position: {lat: response.results[0].latitude, lng: response.results[0].longitude},
+        map: map
+       });
+    marker.setMap(map);
 		
     });  
 
@@ -460,6 +471,10 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
         $scope.banner_image='http://'+href[2]+'/images/img/f-img-o.jpg';
         $scope.section2_image='http://'+href[2]+'/images/img/s-img-o.jpg';
         $scope.section3_image='http://'+href[2]+'/images/img/s-img-o.jpg';
+        $scope.changeImage=function()
+        {
+          $scope.backgroundImage=angular.element('#backgroundImage').val(); 
+        }
          $scope.encodeImageFileAsURL1 = function() {
             var filesSelected = document.getElementById("my_file").files;
             console.log(filesSelected);
@@ -540,23 +555,7 @@ angular.module('alisthub').controller('stepevent3Controller', function($scope, $
             }
         }
         
-        $scope.changeBackground=function()
-        {
-          console.log("I am here.");  
-        }
-         var myLatLng = {lat: -25.363, lng: 131.044};
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
-marker.setMap(map); 
+        
         $scope.encodeImageFileAsURL3 = function() {
             var filesSelected = document.getElementById("my_file3").files;
             if (filesSelected.length > 0) {
