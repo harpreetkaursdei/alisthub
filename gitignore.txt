@@ -1,1 +1,3 @@
 public/preview_template/*
+db.js
+npm-debug.log

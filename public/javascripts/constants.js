@@ -516,6 +516,7 @@ var webservices = {
     "saveAdvanceSettingsOfPackage" : "/package/saveAdvanceSettingsOfPackage" ,
     "getAdvanceSettingOfPackage" : "/package/getAdvanceSettingOfPackage",
     "getAllPackageEvent": "/package/getAllPackageEvent",
+    "checkEventExist": "/package/checkEventExist",
 
 
     /* Constants for the discount module */
@@ -700,10 +701,17 @@ var webservices = {
     "addFavouritePackage" : "/package/addFavouritePackage" ,
 
     //Sales report
+
     "getSalesData" : "/report/getSalesData" ,
     
     //Signup seller
     "signupSeller" : "/profile/signup_seller"  
+
+    "getReportEvent": "/report/getReportEvent",
+
+
+
+
 }
 
 var global_message = {
@@ -799,7 +807,10 @@ var global_message = {
     "error_in_step1": "Please update the step 1",
     "bundle_update": "Bundle information has been updated successfully.",
     "bundle_add": "Bundle information has been added.",
-    "save_package": "Package information has been saved successfully.",
+
+     "save_package": "Package information has been saved successfully.",
+     "noEventToIncludeInPackage" : "Please create an event firsty to include it in package." ,
+
 
     /**/
     "advanceSettingSaved": "Advance settings saved successfully",

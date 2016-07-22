@@ -143,6 +143,7 @@ var $serviceTest = $injector.get("event_package");
       $scope.loader_product = false;
       $rootScope.productInPackageList = response.results;
     }
+     $scope.loader_product = false;
   });
   
    //update price level
