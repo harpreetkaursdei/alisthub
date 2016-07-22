@@ -1777,17 +1777,17 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             
             views: {
                 "lazyLoadView": {
-                  controller: 'helpController',
-                  templateUrl: 'modules/static_pages/views/contact_us.html'
+                  controller: 'contactController',
+                  templateUrl: 'modules/contact_us/views/contact_us.html'
                 }
             },
              resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/static_pages/service.js').then(function(){
+                return $ocLazyLoad.load('modules/contact_us/service.js').then(function(){
                 }).then(function(){
-                return $ocLazyLoad.load(['modules/static_pages/controller.js']);
+                return $ocLazyLoad.load(['modules/contact_us/controller.js']);
                 })
               }]
             }
@@ -2013,6 +2013,27 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
               "lazyLoadView": {
                 controller: 'reportController', // This view will use AppCtrl loaded below in the resolve
                 templateUrl: 'modules/reports/views/report.html'
+              }
+          },
+           resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+            authentication:routerApp.logauthentication,
+            resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
+              // you can lazy load files for an existing module
+              return $ocLazyLoad.load('modules/reports/service.js').then(function(){
+              }).then(function(){
+              return $ocLazyLoad.load(['modules/reports/controller.js']);
+              })
+            }]
+          }
+      })
+
+      /* Setting for event dashboard screen */
+      .state('event_report', {
+          url: '/event_report/:eventId/:showclixEventId',
+           views: {
+              "lazyLoadView": {
+                controller: 'eventReportController', // This view will use AppCtrl loaded below in the resolve
+                templateUrl: 'modules/reports/views/event_report.html'
               }
           },
            resolve: { // Any property in resolve should return a promise and is executed before the view is loaded

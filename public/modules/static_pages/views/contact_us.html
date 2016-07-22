@@ -1,35 +1,47 @@
-
 <div class="container">
     <h1>contact us</h1>
     <div class="form-section  wt-frame">
         <div class="form-section  gray-frame">
             <section class="form-group">
-                <h3 class="faq-header">What is Lorem Ipsum?</h3>
-                <section class="form-group">
-                    <p class="faq-section">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                </section>
-            </section>
-            <section class="form-group">
-                <h3 class="faq-header">Where does it come from ?</h3>
-                <section class="form-group">
-                    <p class="faq-section">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                </section>
-            </section>
-            <section class="form-group">
-                <h3 class="faq-header">Why do we use it ?</h3>
-                <section class="form-group">
-                    <p class="faq-section">
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                    </p>
-                </section>
-            </section>
-            <section class="form-group">
-                <h3 class="faq-header">Where can I get some?</h3>
-                <section class="form-group">
-                    <p class="faq-section">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-                    </p>
-                </section>
+                <div class="row">
+                    <div class="col-sm-6 section-col">
+                        <form class="event-form" name="contactForm" novalidate>
+                            <div class="row" ng-class="{ 'has-error' : contactForm.name.$invalid && !contactForm.name.$pristine }">
+                                <label> Name <span class="req">*</span></label>
+                                <!-- <font color="blue">*</font> -->
+                                <input type="text" name="name" ng-model="contact.name" class="form-control" placeholder="name" ng-pattern="/^[a-z ,.'-]+$/i" required>
+                                <p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="error-fld ng-binding">Enter Name.</p>
+                            </div>
+                            <div class="row" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine }">
+                                <label>Email Address <span class="req">*</span></label>
+                                <input type="email" name="email" ng-model="contact.email" class="form-control" ng-blur="checkuniquecontact();" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" placeholder="email address" required>
+                                <span ng-show="success_message">
+                            <p class="success-fld">{{unique}}</p>
+                        </span>
+                                <span ng-show="error_message">
+                            <p class="error-fld">{{unique}}</p>
+                        </span>
+                                <span ng-hide="error_message">
+                            <p class="error-fld ng-binding" ng-show="(unique && unique_type == 3 ) || (contactForm.email.$error.required  && contactForm.email.$invalid && !contactForm.email.$pristine) || contactForm.email.$error.pattern">Enter a valid email</p>
+                        </span>
+                            </div>
+                            <div class="row" ng-class="{ 'has-error' : contactForm.subject.$invalid && !contactForm.subject.$pristine }">
+                                <label>Subject <span class="req">*</span></label>
+                                <!-- <font color="blue">*</font> -->
+                                <input type="text" name="subject" ng-model="contact.subject" class="form-control" placeholder="subject" ng-pattern="/^[a-z ,.'-]+$/i" required>
+                                <p ng-show="contactForm.first_name.$invalid && !contactForm.subject.$pristine" class="error-fld ng-binding">Enter SUBJECT.</p>
+                            </div>
+                            <div class="row" ng-class="{ 'has-error' : contactForm.message.$invalid && !contactForm.message.$pristine }">
+                                <label>Message <span class="req">*</span></label>
+                                <textarea ng-model="contact.message" name="textarea" class="form-control" cols="150" rows="5">
+                                </textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        dfgfhfghh
+                    </div>
+                </div>
             </section>
         </div>
     </div>

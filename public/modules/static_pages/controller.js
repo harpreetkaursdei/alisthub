@@ -22,7 +22,7 @@ angular.module('alisthub').controller('helpController', function($scope,
 
     $scope.status = {
         isCustomHeaderOpen: false,
-        isFirstOpen: true,
+        isFirstOpen: false,
         isFirstDisabled: false
     };
 

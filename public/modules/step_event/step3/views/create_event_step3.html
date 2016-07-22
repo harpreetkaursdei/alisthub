@@ -104,7 +104,7 @@
     </div>
     <section class="tb-con"  ng-hide="module_div">
       <section class="row">
-        <section class="col-sm-2 design-left">
+        <section class="col-sm-2 design-left ">
           <section class="tabs-widget">
             <ul class="tabs">
               <li ng-repeat="choose in look_and_feel_choose_type" ng-click="select1(choose)" ng-class="{active: isActive1(choose)}" ><a class="pointer" href="javascript:void(0)" >{{choose.name}}</a> </li>
@@ -136,7 +136,23 @@
               </section>
               <section class="tab-con" ng-hide="block_div">
                 <ul class="blocks-widget clearfix">
-                  <li><a onClick="add_block()" href="javascript:void(0)"><i aria-hidden="true" class="fa fa-file-video-o"></i></a><span>Add Block</span></li>
+                  <li><a onClick="add_block()" href="javascript:void(0)"><i aria-hidden="true" class="fa fa-th"></i></a><span>Add Block</span></li>
+                  <li><a onClick="" href="javascript:void(0)">
+                    <i aria-hidden="true" class="glyphicon glyphicon-grain"></i></a>
+                    <span>Social Network</span>
+                  </li>
+                   <li><a onClick="" href="javascript:void(0)">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <span>Find on Facebook</span>
+                  </li>
+                  <li><a onClick="" href="javascript:void(0)">
+                    <i class="fa fa-file-audio-o" aria-hidden="true"></i></a>
+                    <span>Audio</span>
+                  </li>
+                  <li><a onClick="" href="javascript:void(0)">
+                    <i class="fa fa-file-video-o" aria-hidden="true"></i></a>
+                    <span>Vidoe</span>
+                  </li>
                 </ul>
                 <div id="add_block_div"> </div>
               </section>
@@ -144,9 +160,10 @@
           </section>
         </section>
         <!--Left-->
-        <section class="col-sm-10 design-right">
+        <section class="col-sm-10 design-right pr-3">
           <section id="preview_div_contain_html">
-            <section class="gray-frame1 templateWrap" style="background: rgba(0, 0, 0, 0) url('{{backgroundImage}}') no-repeat scroll center top  ;background-color:{{background_outer}};border:solid 1px {{border_outer}};color:{{text_color}}" >
+            <section class="gray-frame1 templateWrap" id="backgroundImage" style="background: rgba(0, 0, 0, 0) url('{{backgroundImage}}') no-repeat  center top ; background-size: cover; background-color:{{background_outer}};border:solid 1px {{border_outer}};color:{{text_color}}" >
+	      <input type="file" id="my_file2"  onchange="angular.element(this).scope().encodeImageFileAsURL2(this)" file-model="file.myFiles" accept="image/jpeg" style="display: none;" />
               <div class="module  gridster">
                 <div class="ev-container wtframe m-t35 templateContainer" ng-style="{background: background_inner,border:border_color}">
                   <section id="repeatsection1">
@@ -185,9 +202,15 @@
                                 </section>
                                 <div class="media-body content m-fw">
                                   <h4>{{title}}</h4>
-                                  <p>{{start_date| date:'dd MMM yyyy'}}  {{start_time}}-{{end_time}}</p>
+                                  <div class="event_date-wrap">
+                                    <div class="event_date-label">
+                                      {{start_date| date:'dd MMM yyyy'}}
+                                      {{start_time}}-{{end_time}}
+                                    </div>
+                                  </div>
+
                                   <p>{{eventwebsite_url}}</p>
-                                  <p class="clearfix event-labels clearfix"   ng-style="{background: background_inner};"><span class="event-price pull-left" ng-style="{color:text_color}">Inventory:{{inventory}}</span><span class="event-label pull-right">{{ages}}</span></p>
+                                  <!-- <p class="clearfix event-labels clearfix"   ng-style="{background: background_inner};"><span class="event-price pull-left" ng-style="{color:text_color}">Inventory:{{inventory}}</span><span class="event-label pull-right">{{ages}}</span></p> -->
                                 </div>
                               </div>
                             </section>
@@ -295,6 +318,8 @@
                 <input type="hidden" id="outer_border" value="{{border_outer}}">
                 <input type="hidden" id="inner_border" value="{{border_color}}">
                 <input type="hidden" id="currentSection" value="11">
+		<input type="hidden" id="backgroundImage" value="">
+		<input type="hidden" id="backgroundChange" ng-click="changeImage()">
               </div>
               <span style="display:none;"><img width="300px;" id="ImagePreview" src="{{banner_image1}}" alt="your image"/>
               <button  type="button" class="black-add-button" id="editImagePreview"> Edit!</button>
@@ -379,7 +404,7 @@ function remove_widget_dynamic(widgetId)
 	  if (e.target !== this)
 	    return;
 	  
-	  console.log( 'clicked the gridster' );
+	  $("#my_file2").click();
 	});
         // resize widgets on hover
         $('.js-seralize').on('click', function() {
@@ -521,10 +546,14 @@ function remove_widget_dynamic(widgetId)
 
         onSave: function(imageID, newURL) {
 
-            var img = $('#select_image').val(); 
-            
+            var img = $('#select_image').val();
+	   if (img=='backgroundImage') {
+	    $('#backgroundImage').val(newURL);
+	    $("#backgroundChange").click();
+	   }else{
             $("#"+img).attr('src',newURL); // after save, replacs the image with the new one from aviary.com
-
+	   }
+       
             featherEditor.close();
 
         },

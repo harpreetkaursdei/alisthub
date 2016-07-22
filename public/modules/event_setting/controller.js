@@ -191,17 +191,16 @@ angular.module('alisthub', ['google.places', 'angucomplete'])
         /* Add Venue/locations for organizing events */
         $scope.addVenue = function() {
             if ($localStorage.userId != undefined) {
-                $scope.data.seller_id = $localStorage.userId;
-                $scope.data.imagedata = $scope.image;
-                $scope.data.venue_chart = $scope.venue_chart;
+                $scope.data.seller_id          = $localStorage.userId;
+                $scope.data.imagedata          = $scope.image;
+                $scope.data.venue_chart        = $scope.venue_chart;
+                $scope.data.showclix_token     = $localStorage.showclix_token;
+                $scope.data.showclix_user_id   = $localStorage.showclix_user_id;
+                $scope.data.showclix_seller_id = $localStorage.showclix_seller_id;
                 $serviceTest.addVenue($scope.data, function(response) {
-                   
                     if (response.code == 200) {
                         console.log(response);
-                                             
-                       
                         $location.path("/view_venues/list");
-                       
                     } else {
                         $scope.activation_message = global_message.ErrorInActivation;
                     }
@@ -316,6 +315,9 @@ angular.module('alisthub', ['google.places', 'angucomplete'])
                     $scope.data.id = $state.params.id;
                     $scope.data.imagedata = $scope.image;
                     $scope.data.venue_chart = $scope.venue_chart;
+                    $scope.data.showclix_token     = $localStorage.showclix_token;
+                    $scope.data.showclix_user_id   = $localStorage.showclix_user_id;
+                    $scope.data.showclix_seller_id = $localStorage.showclix_seller_id;
                     $serviceTest.addVenue($scope.data, function(response) {
                         if (response.code == 200) {
                             $location.path("/view_venues/list");

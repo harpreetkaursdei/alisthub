@@ -479,17 +479,14 @@ var webservices = {
     "getWidget":"/widget/getWidget",
     "getWidgetDetail":"/widget/getWidgetDetail",
 
-
-
-//tracking tag
-
-
- "saveTag":"/tracking/saveTag",
-
- "getTag":"/tracking/getTag",
-
- "getTagDetail":"/tracking/getTagDetail",
- "deleteTag":"/tracking/deleteTag",
+    //contact us/////
+    "submitContact":"contact/submitContact",
+    
+    //tracking tag
+    "saveTag":"/tracking/saveTag",
+    "getTag":"/tracking/getTag",
+    "getTagDetail":"/tracking/getTagDetail",
+    "deleteTag":"/tracking/deleteTag",
     // event package
 
     //"stepOneEventPackage"  :  "/event/stepOneEventPackage",
@@ -705,7 +702,7 @@ var webservices = {
 
     //Sales report
     "getSalesData" : "/report/getSalesData" ,    
-    
+    "getReportEvent": "/report/getReportEvent",
 
 
 
