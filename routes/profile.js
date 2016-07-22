@@ -22,6 +22,9 @@ module.exports = function(app, express) {
     //showclix login
     router.post('/showclix_login', profileCon.showclix_login);
     
+    //showclix signup_seller
+    router.post('/signup_seller', profileCon.signup_seller);
+    
     
     /* Default */   
     app.use('/profile', router);

@@ -471,10 +471,10 @@ var webservices = {
 
      /////widget //////////
 
-     "saveEventWidgets":"/widget/saveEventWidgets",
+    "saveEventWidgets":"/widget/saveEventWidgets",
     "savewidget":"/widget/savewidget",
-      "getWidgetEvents":"/widget/getWidgetEvents",
-       "editEvent_widgets":"/widget/editEvent_widgets",
+    "getWidgetEvents":"/widget/getWidgetEvents",
+    "editEvent_widgets":"/widget/editEvent_widgets",
      
     "getWidget":"/widget/getWidget",
     "getWidgetDetail":"/widget/getWidgetDetail",
@@ -700,11 +700,10 @@ var webservices = {
     "addFavouritePackage" : "/package/addFavouritePackage" ,
 
     //Sales report
-    "getSalesData" : "/report/getSalesData" ,    
+    "getSalesData" : "/report/getSalesData" ,
     
-
-
-
+    //Signup seller
+    "signupSeller" : "/profile/signup_seller"  
 }
 
 var global_message = {
@@ -800,8 +799,7 @@ var global_message = {
     "error_in_step1": "Please update the step 1",
     "bundle_update": "Bundle information has been updated successfully.",
     "bundle_add": "Bundle information has been added.",
-
-     "save_package": "Package information has been saved successfully.",
+    "save_package": "Package information has been saved successfully.",
 
     /**/
     "advanceSettingSaved": "Advance settings saved successfully",
