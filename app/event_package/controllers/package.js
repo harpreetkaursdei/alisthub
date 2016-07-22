@@ -47,9 +47,14 @@ exports.stepOneEventPackage = function(req, res) {
         var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
         req.body.created = curtime;
         req.body.modified = curtime;
-        req.body.status = 1;
-        req.body.showclix_user = '28676';
-        req.body.showclix_seller = '22876';
+
+        if(req.body.immidiately) {
+            req.body.online_sales_open_date_time = req.body.created;
+        }
+
+        req.body.status = 5;
+        req.body.showclix_user = req.body.showclix_user_id;
+        req.body.showclix_seller = req.body.showclix_seller_id;
 
         data = req.body;
         data.image_full_url = image_url + "events/" + req.body.image;
@@ -74,7 +79,7 @@ exports.stepOneEventPackage = function(req, res) {
                 if (req.body.id && req.body.id != "" && req.body.id != undefined) {
                     var query = "UPDATE `event_package` SET " + fieldsData + " `modified` = '" + req.body.modified + "'  WHERE user_id = '" + req.body.user_id + "' && id=" + req.body.id;
                 } else {
-                    var query = "INSERT INTO `event_package` SET " + fieldsData + " user_id = " + req.body.user_id + " ,  `showclix_package_id` = " + showclix_package_id + "  ,  `showclix_user` = " + req.body.showclix_user + " ,  `showclix_seller` = " + req.body.showclix_seller + "  ,  `showclix_url` = '" + showclix_url + "' ,  `created` = '" + req.body.created + "' , `url_short_name` = '" + req.body.short_name + "'";
+                    var query = "INSERT INTO `event_package` SET " + fieldsData + " user_id = " + req.body.user_id + " ,  `showclix_package_id` = " + showclix_package_id + "  ,  `showclix_user` = " + req.body.showclix_user_id + " ,  `showclix_seller` = " + req.body.showclix_seller_id + "  ,  `showclix_url` = '" + showclix_url + "' ,  `created` = '" + req.body.created + "' , `url_short_name` = '" + req.body.short_name + "'";
                 }
 
                 console.log('------------ ------------ query ------------ -------------');
