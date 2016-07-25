@@ -650,4 +650,25 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
 }
 
  .panel-heading { padding: 15px 15px;}
+form#ticket-form {  background-color: #fff; padding: 10px;}
+.custom_button { 
+    background: #0275d0 none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 5px;
+    padding: 7px 10px;
+}
 
+.templateContainer .template_right .formtab > tbody > tr > td{
+    font-size: 14px;
+    
+    padding: 5px;
+    vertical-align: middle;
+    width: 33%;
+}
+
+.templateContainer .template_right #ticket-panel iframe{
+    height: 420px;
+    width: 100%;
+}

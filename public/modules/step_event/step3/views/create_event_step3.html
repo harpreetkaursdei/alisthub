@@ -141,17 +141,14 @@
                     <i aria-hidden="true" class="glyphicon glyphicon-grain"></i></a>
                     <span>Social Network</span>
                   </li>
-                   <li><a onClick="" href="javascript:void(0)">
-                    <i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                    <span>Find on Facebook</span>
-                  </li>
+                   
                   <li><a onClick="" href="javascript:void(0)">
                     <i class="fa fa-file-audio-o" aria-hidden="true"></i></a>
-                    <span>Audio</span>
+                    <span>Images</span>
                   </li>
                   <li><a onClick="" href="javascript:void(0)">
                     <i class="fa fa-file-video-o" aria-hidden="true"></i></a>
-                    <span>Vidoe</span>
+                    <span>Video</span>
                   </li>
                 </ul>
                 <div id="add_block_div"> </div>
@@ -277,9 +274,9 @@
                       <section class="ticket-panel module-div col2" id="section8">
                         <div class="portlet" ng-style="{background: background_inner,color:text_color}">
                           <div id="ticket-panel">
-                            <div class="drag" style="display: none;"> <span><i class="header fa fa-arrows" aria-hidden="true"></i></span> <a onclick="remove_widget('section8')" style="display:none;"><i class="fa fa-trash" aria-hidden="true"></i></a> </div>
-			     <iframe src="http://localhost:4004/javascripts/event.html"></iframe> 
-                           <!-- <img width="100%;" height="auto" src="{{ticket_image}}" alt="your image"/>--></div>
+                            <div class="drag" style="display: none;"> <span><i class="header fa fa-arrows" aria-hidden="true"></i></span> <a onclick="remove_widget('section8')" style="display:none;"><i class="fa fa-trash" aria-hidden="true"></i></a> </div> <div ng-bind-html="ticket_div"></div>
+			     <iframe src="/javascripts/event.html"></iframe> 
+			    </div>
                         </div>
                       </section>
                       <!--Venue Block-->
@@ -406,6 +403,7 @@ function remove_widget_dynamic(widgetId)
 	  
 	  $("#my_file2").click();
 	});
+
         // resize widgets on hover
         $('.js-seralize').on('click', function() {
 	  var arr=$("#preview_div_contain_html").html();
