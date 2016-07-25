@@ -100,5 +100,9 @@ module.exports = function(app, express) {
 
      router.post('/addFavouritePackage',supportCrossOriginScript, Package.addFavouritePackage);
 
+    router.post('/checkEventExist',supportCrossOriginScript, Package.checkEventExist);
+
+    router.post('/viewUpcomingEventsOfPackage',supportCrossOriginScript, Package.viewUpcomingEventsOfPackage);
+
       app.use('/package', router);
 }  

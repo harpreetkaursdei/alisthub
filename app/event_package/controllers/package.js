@@ -14,6 +14,12 @@ var image_url = "http://52.39.212.226:4004/images/";
 
 exports.stepOneEventPackage = function(req, res) {
 
+     function rollback_package(id) {
+        var query = "Delete from event_package where id="+id;
+        connection.query(query, function(err7, responce) {
+        });
+    }
+
         if (req.body.imageData && req.body.imageData != "" && req.body.imageData != undefined) {
 
             var path_event = process.cwd() + '/public/images/events';
@@ -975,4 +981,65 @@ exports.addFavouritePackage = function(req, res) {
     } else {
         res.send({ "results": {}, code: 200 });
     }
+}
+
+
+exports.checkEventExist = function(req, res) {
+    if( req.body.user_id != undefined ) {
+        var query_event = "select count(id) as count from events where user_id = " + req.body.user_id ;
+        console.log('query_event ' , query_event );
+
+        connection.query(query_event, function(err, results) {
+            if (err) {
+                res.send({ "error" : err1 , code: 101 });
+            }
+            res.send({ "results": results, code: 200 });
+        });
+    }
+}
+
+exports.viewUpcomingEventsOfPackage = function(req , res) {
+var search_type = 5;
+  var curtime = moment().format('YYYY-MM-DD');
+   
+  var query = "";
+   
+  if(req.body.search_start_date){
+     search_start_date = moment(req.body.search_start_date).format('YYYY-MM-DD');
+  }
+  if(req.body.search_end_date){
+     search_end_date = moment(req.body.search_end_date).format('YYYY-MM-DD');
+  }
+  if(req.body.search_type){
+     search_type = req.body.search_type;
+  }
+
+  if (search_type == 1 && search_start_date) {
+     query = "Select e.id, e.parent_id , e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT  JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id  = "+ req.body.seller_id +" and ed.date = '"+search_start_date+"'  order by ed.date asc ";
+  }
+  else if (search_type == 2 && search_start_date ) {
+     query = "Select e.id,  e.parent_id , e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time,  v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id = "+ req.body.seller_id +" and (ed.date BETWEEN '"+curtime+"' AND '"+search_start_date+"' )  order by ed.date asc ";
+  }
+  else if (search_type == 3 && search_start_date ) {
+     query = "Select e.id, e.parent_id , e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id = "+ req.body.seller_id +" and ed.date >= '"+search_start_date+"' order by ed.date asc ";
+  }
+   else if (search_type == 4 && search_start_date && search_end_date ) {
+     query = "Select e.id, e.parent_id , e.showclix_id , e.user_id, e.title, ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id = "+ req.body.seller_id +" and (ed.date BETWEEN '"+search_start_date+"' AND '"+search_end_date+"' )  order by ed.date asc ";
+  }
+  else {
+     query = "Select e.id, e.parent_id , e.showclix_id , e.user_id, e.title,  ed.date, ed.start_time, ed.end_time, v.venue_name , v.address as event_address, v.city , v.zipcode , v.state , v.country from events e LEFT JOIN venues v ON e.venue_id = v.id  LEFT JOIN event_dates ed ON e.id = ed.event_id where e.user_id = "+ req.body.seller_id +" and ed.date >= '"+curtime+"'  order by ed.date asc ";
+   
+  }
+       
+  console.log(query);
+console.log('-------------------------------------------');
+console.log('-------------------------------------------');
+
+
+  connection.query(query, function(err, results) {
+     if (err) {
+      res.json({error:err,code:101});
+     }
+     res.json({result:results,code:200});
+  });
 }

@@ -14,7 +14,9 @@ exports.getSalesData = function(req,res) {
   // showclix start 
   var showClix2 = new showClix();
   showClix2.getSalesData(data,res,function(sdata){
+    
     res.json({data:sdata.data,code:200});
+    
   });
   //showclix end
 }

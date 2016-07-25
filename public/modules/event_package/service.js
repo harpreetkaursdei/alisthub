@@ -217,6 +217,18 @@ url.removePackageProduct = function(jsondata,callback){
     });
   };
 
+  url.checkEventExist = function(jsondata,callback) {
+    communicationService.resultViaPost(webservices.checkEventExist,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req) {
+      callback(res.data);
+    });
+  };
+  
+  url.viewUpcomingEventsOfPackage = function(jsondata,callback) {
+    communicationService.resultViaPost(webservices.viewUpcomingEventsOfPackage,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req) {
+      callback(res.data);
+    });
+  };
+
   
 
 

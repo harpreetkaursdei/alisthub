@@ -19,23 +19,31 @@
 <link rel="stylesheet" href="http://52.39.212.226:4004/preview_template/assets/css/media.css" type="text/css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+<link rel="stylesheet" href="http://52.39.212.226:4004/stylesheets/style.css" type="text/css" />
+<link rel="stylesheet" href="http://52.39.212.226:4004/stylesheets/custom-style.css" type="text/css" />
 <style type="text/css"> 
     .social-media {  right: 12%;}
     .social-med > a{ display:inline-block;}
-form#ticket-form {  background-color: #fff; padding: 10px;}
-.custom_button {  background-color: black; border-radius: 5px; color: #fff;  padding: 10px;}
+
 .ev-container.wtframe.m-t35{ max-width: 1024px;}
-.ev-container{ max-width: 100%;padding-left: 0; padding-right: 0;padding-top:0px;}
+.ev-container{ max-width: 100%;}
 
 .portlet {
     margin: 0 0 1em 0;
     padding: 0.3em;
 } 
 
+body{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
-.templateContainer{
+
+.templateContainer,.templateContainer a{
   word-wrap: break-word; 
 }
+
 
 .templateContainer p{
     margin-top: 0;
@@ -69,11 +77,44 @@ form#ticket-form {  background-color: #fff; padding: 10px;}
 .templateContainer .sideImg_first img{
     max-height: 312px;
     max-width: 309px;
-}   
+}
+.templateContainer.preview_div_insert{
+	padding: 0;
+}
+
+.templateContainer .date-media {
+    padding-right: 20px;
+    width: auto;
+}
+
+.templateContainer .event-details{
+	padding: 0 15px 0;
+}
 
 </style>
 </head>
 <body>
+<div class="loader_div" ng-hide="loader_div">
+          <div class="loadingbox">
+             <div class="windows8">
+                    <div class="wBall" id="wBall_1">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_2">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_3">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_4">
+                            <div class="wInnerBall"></div>
+                    </div>
+                    <div class="wBall" id="wBall_5">
+                            <div class="wInnerBall"></div>
+                    </div>
+            </div>
+          </div>
+        </div> 
 <section class="ev-header">
 	<a href="#" class="alist-logo"><img src="http://52.39.212.226:4004/preview_template/assets/images/logo-l.png" alt=""/></a>
     <a class="navbar-toggle">
@@ -154,13 +195,13 @@ form#ticket-form {  background-color: #fff; padding: 10px;}
                      {
                      
                  
-                     ticket_html='<form class="mobile-tab" id="ticket-form" method="POST" action="https://tickets.alistixs.com/event/'+response.results[0].event_domain+'/"><div style="margin-top: 0px; display: none " id="select-tickets-fix" class="purchase_tickets  js-single-event"><div class="purchasetitle">Tickets</div></div><table cellspacing="0" cellpadding="0" border="0" id="ticket-selection-genad" class="formtab"><tr><td colspan="4" class="panel-heading" align="left"><strong>Reserve Tickets</strong></td></tr>';
+                     ticket_html='<form class="mobile-tab" id="ticket-form" method="POST" action="https://tickets.alistixs.com/event/'+response.results[0].event_domain+'/"><div style="margin-top: 0px; display: none " id="select-tickets-fix" class="purchase_tickets  js-single-event"><div class="purchasetitle">Tickets</div></div><table cellspacing="0" cellpadding="0" border="0" id="ticket-selection-genad" class="formtab table"><tr><td colspan="4" class="panel-heading" align="left"><strong>Reserve Tickets</strong></td></tr>';
                      
                       var obj=$.parseJSON(resp.showclix);
                       $.each(obj, function(key, value) {
 			   console.log(value);
                          ticket_html+='<tr data-level-id="'+key+'"><td class="qty-td"> <select class="ticket-select input form-control" name="level['+key+']" id="select_level_'+key+'">';
-                      for(var j=value.increment_by;j<=value.transaction_limit;j++)
+                      for(var j=parseInt(value.increment_by);j<=parseInt(value.transaction_limit);j++)
                       {
                       ticket_html+='<option value="'+j+'">'+j+'</option>'; 
                       }
@@ -177,7 +218,7 @@ form#ticket-form {  background-color: #fff; padding: 10px;}
 		    var preview_html=response1.result[0].html;
 		    
 		       $(".preview_div_insert").html(preview_html);
-		       
+		       $('.loader_div').hide();
 		       $("#ticket-panel").html(ticket_html+'<script id="EventsWidgetScript" type="text/javascript" src="https://tickets.alistixs.com/js/events_widget.js"/>');
 		
 		      });
@@ -191,7 +232,7 @@ form#ticket-form {  background-color: #fff; padding: 10px;}
 		    var preview_html=response1.result[0].html;
 		    
 		       $(".preview_div_insert").html(preview_html);
-		       
+		       $('.loader_div').hide();
 		       $("#ticket-panel").html(ticket_html+'<script id="EventsWidgetScript" type="text/javascript" src="https://tickets.alistixs.com/js/events_widget.js"/>');
 		
 		      });

@@ -471,10 +471,10 @@ var webservices = {
 
      /////widget //////////
 
-     "saveEventWidgets":"/widget/saveEventWidgets",
+    "saveEventWidgets":"/widget/saveEventWidgets",
     "savewidget":"/widget/savewidget",
-      "getWidgetEvents":"/widget/getWidgetEvents",
-       "editEvent_widgets":"/widget/editEvent_widgets",
+    "getWidgetEvents":"/widget/getWidgetEvents",
+    "editEvent_widgets":"/widget/editEvent_widgets",
      
     "getWidget":"/widget/getWidget",
     "getWidgetDetail":"/widget/getWidgetDetail",
@@ -516,6 +516,8 @@ var webservices = {
     "saveAdvanceSettingsOfPackage" : "/package/saveAdvanceSettingsOfPackage" ,
     "getAdvanceSettingOfPackage" : "/package/getAdvanceSettingOfPackage",
     "getAllPackageEvent": "/package/getAllPackageEvent",
+    "checkEventExist": "/package/checkEventExist",
+    "viewUpcomingEventsOfPackage": "/package/viewUpcomingEventsOfPackage", 
 
 
     /* Constants for the discount module */
@@ -641,6 +643,7 @@ var webservices = {
     "getTemplate": "event/getTemplate",
     "addlookAndFeelImage": "event/addlookAndFeelImage",
     "getlookandFeelTemplatehtml": "event/getlookandFeelTemplatehtml",
+    "getShowclixPriceLevel": "event/getShowclixPriceLevel",
 
     //Add event product
     "addEventProduct": "/event_setting/addEventProduct",
@@ -700,9 +703,22 @@ var webservices = {
     "addFavouritePackage" : "/package/addFavouritePackage" ,
 
     //Sales report
+<<<<<<< HEAD
     "getSalesData" : "/report/getSalesData" ,    
     "getReportEvent": "/report/getReportEvent",
     "getEventSaleData": "/report/getEventSaleData",
+=======
+
+    "getSalesData" : "/report/getSalesData" ,
+    
+    //Signup seller
+    "signupSeller" : "/profile/signup_seller",  
+
+    "getReportEvent": "/report/getReportEvent"
+
+
+
+>>>>>>> upstream/master
 
 }
 
@@ -801,6 +817,8 @@ var global_message = {
     "bundle_add": "Bundle information has been added.",
 
      "save_package": "Package information has been saved successfully.",
+     "noEventToIncludeInPackage" : "Please create an event firsty to include it in package." ,
+
 
     /**/
     "advanceSettingSaved": "Advance settings saved successfully",

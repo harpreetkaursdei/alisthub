@@ -7,11 +7,11 @@ Module : My account
 var fs         = require('fs');
 var moment     = require('moment-timezone');
 var path_venue = process.cwd()+'/public/images/venues/';
-
+ var request = require('request');
 
 // showclix login
 exports.showclix_login = function(req,res){
- var request = require('request');
+
  request.post({
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                    "Accept": "application/json"},
@@ -29,6 +29,44 @@ exports.showclix_login = function(req,res){
     });
  
 }
+
+// showclix login
+exports.signup_seller = function(req,res){
+ console.log(req.body);
+ var input = { organization: req.body.organization,
+  phone: req.body.phone,
+  email: req.body.email,
+  city: req.body.city,
+  state: req.body.state,
+  first_name: req.body.first_name,
+  last_name: req.body.last_name,
+  password: '12345678'
+  }
+   console.log(input);
+  request.post({
+        headers: {"X-API-Token":"1c505644137e5496d38bd84fd1e2e714f4cea88b0cc161967bd77059cf861bf3"},
+        url:     'http://api.showclix.com/Seller',
+        form:    input }, function(error, response, body){
+        if(error){
+          console.log(error);
+         res.json({"body":"","response":"",code:101});  
+        }
+        else{
+        //console.log(response.statusCode);
+        //console.log(response.headers);
+        if (response.statusCode != 400 && response.statusCode != 401) {
+         res.json({"body":body,"response":response,"code":200});
+        }
+        else{
+         res.json({"body":body,"response":response,"code":101}); 
+        }
+        
+        }
+        
+  });
+ 
+}
+
 
 /** 
 Method: getData
