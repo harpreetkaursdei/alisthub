@@ -102,5 +102,7 @@ module.exports = function(app, express) {
 
     router.post('/checkEventExist',supportCrossOriginScript, Package.checkEventExist);
 
+    router.post('/viewUpcomingEventsOfPackage',supportCrossOriginScript, Package.viewUpcomingEventsOfPackage);
+
       app.use('/package', router);
 }  

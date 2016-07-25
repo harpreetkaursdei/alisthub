@@ -741,6 +741,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
 angular.module('alisthub').controller('EventModalInstanceCtrl', function($localStorage, $scope, $uibModalInstance, items, $rootScope, $injector, ngTableParams) {
     var $serviceTest = $injector.get("discounts");
+    var $packageService = $injector.get("event_package");
 
     $scope.all_check_point = 1;
     $scope.event_id = [];
@@ -853,13 +854,18 @@ console.log('startDates ' , startDates);
         if ($localStorage.userId != undefined) {
             $scope.data.seller_id = $localStorage.userId;
             $scope.loader = true;
-            if ($scope.dt) {
-                $scope.data.search_date = $scope.dt;
+            if ($scope.search_start_date) {
+                $scope.data.search_start_date = $scope.search_start_date;
+            }
+            if ($scope.search_end_date) {
+                $scope.data.search_end_date = $scope.search_end_date;
             }
             if ($scope.search_type) {
                 $scope.data.search_type = $scope.search_type;
             }
-            $serviceTest.viewEvents($scope.data, function(response) {
+            console.log($scope.data) ;
+            $packageService.viewUpcomingEventsOfPackage($scope.data, function(response) {
+            //$serviceTest.viewEvents($scope.data, function(response) { //
                 $scope.loader = false;
                 if (response.code == 200) {
                     $rootScope.allEvents = [];
@@ -997,11 +1003,11 @@ console.log('startDates ' , startDates);
         showWeeks: false
     };
 
-    // $scope.options1 = {
-    //     customClass: getDayClass,
-    //     initDate: new Date(),
-    //     showWeeks: false
-    // };
+    $scope.options1 = {
+        customClass: getDayClass,
+        minDate : new Date(),
+        showWeeks: false
+    };
 
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
