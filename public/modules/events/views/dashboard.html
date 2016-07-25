@@ -203,9 +203,11 @@
                 <h2>Event Packages <span class="rt-img"><i class="fa {{PAKtabclass}}"></i></span></h2>
             </section>
             <section class="gray-frame" ng-show="PAKtab">
+             <a ui-sref="event_package_step_1">
                 <section class="top-buttons">
                     <button ng-if = checkPermission(permission[0],'add') type="button" class="btn pink-btn btn-small"><i class="fa fa-plus-square"></i> Create Package</button>
                 </section>
+                </a>
                 <section class="grid-widget">
                     <div class="table-responsive">
                         <table ng-table="tableParams2"  class="table table-striped table-ng-style">
