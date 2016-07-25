@@ -703,23 +703,10 @@ var webservices = {
     "addFavouritePackage" : "/package/addFavouritePackage" ,
 
     //Sales report
-<<<<<<< HEAD
     "getSalesData" : "/report/getSalesData" ,    
     "getReportEvent": "/report/getReportEvent",
     "getEventSaleData": "/report/getEventSaleData",
-=======
-
     "getSalesData" : "/report/getSalesData" ,
-    
-    //Signup seller
-    "signupSeller" : "/profile/signup_seller",  
-
-    "getReportEvent": "/report/getReportEvent"
-
-
-
->>>>>>> upstream/master
-
 }
 
 var global_message = {
