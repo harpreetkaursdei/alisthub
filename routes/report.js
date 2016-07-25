@@ -14,6 +14,9 @@ module.exports = function(app, express) {
     /* Update my account user data */
     router.post('/getSalesData' , profileCon.getSalesData);
 
+    /* get event sales data from showclix */
+    router.post('/getEventSaleData' , profileCon.getEventSaleData);
+
     /* To get data of the all  events */
   	router.post('/getReportEvent',profileCon.getReportEvent);
     

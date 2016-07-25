@@ -19,6 +19,17 @@ exports.getSalesData = function(req,res) {
   //showclix end
 }
 
+exports.getEventSaleData = function(req,res) {
+  var data=req.body;
+  var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
+  // showclix start 
+  var showClix2 = new showClix();
+  showClix2.getEventSaleData(data,res,function(sdata){
+    res.json({data:sdata.data,code:200});
+  });
+  //showclix end
+}
+
 /** 
 Method: getReportEvent
 Description:Function to get latest upcomming event data  
