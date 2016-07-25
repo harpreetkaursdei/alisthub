@@ -57,8 +57,8 @@ module.exports = function()
               "email": req.body.email,
               "timezone": null,
               "status": "2",
-              "lat": req.body.phone,
-              "lng": req.body.phone,
+              "lat": req.body.latitude,
+              "lng": req.body.longitude,
               "timezone_name": req.body.timezone
             } }, function(error, response, body){
                   console.log(response.statusCode);

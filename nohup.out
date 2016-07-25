@@ -13927,3 +13927,281 @@ npm ERR! There is likely additional logging output above.
 
 npm ERR! Please include the following file with any support request:
 npm ERR!     /home/alistticx/alisthub/npm-debug.log
+
+> alist@0.0.0 start /home/alistticx/alisthub
+> node ./bin/www
+
+connected as id 6131
+[0mGET /preview_template/assets/css/style.css [36m304 [0m8.709 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m7.684 ms - -[0m
+[0mGET /preview_template/assets/css/media.css [36m304 [0m0.440 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.822 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.808 ms - -[0m
+[0mGET /preview_template/assets/js/angular-min.js [36m304 [0m0.654 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.287 ms - -[0m
+[0mGET /preview_template/assets/js/custom.js [36m304 [0m0.311 ms - -[0m
+[0mGET /preview_template/assets/js/ui-bootstrap-tpls-0.12.0.min.js [36m304 [0m0.296 ms - -[0m
+[0mGET /preview_template/assets/css/animate.css [36m304 [0m0.347 ms - -[0m
+[0mGET /preview_template/assets/css/login.css [36m304 [0m0.566 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.269 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.310 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.370 ms - -[0m
+[0mGET /preview_template/assets/images/logo-l.png [36m304 [0m1.551 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m338.906 ms - 996[0m
+[0mGET /preview_template/assets/js/angular.min.js.map [33m404 [0m35.147 ms - 996[0m
+[0mGET /images/bg/bg.png [36m304 [0m0.409 ms - -[0m
+[0mGET /preview_template/assets/css/style.css [36m304 [0m0.360 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.417 ms - -[0m
+[0mGET /preview_template/assets/css/media.css [36m304 [0m0.403 ms - -[0m
+[0mGET /preview_template/assets/js/angular-min.js [36m304 [0m0.204 ms - -[0m
+[0mGET /preview_template/assets/js/custom.js [36m304 [0m0.441 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.211 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.268 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.199 ms - -[0m
+[0mGET /preview_template/assets/css/animate.css [36m304 [0m0.488 ms - -[0m
+[0mGET /preview_template/assets/css/login.css [36m304 [0m0.938 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.649 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.267 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.191 ms - -[0m
+[0mGET /preview_template/assets/js/ui-bootstrap-tpls-0.12.0.min.js [36m304 [0m0.342 ms - -[0m
+[0mGET /preview_template/assets/images/logo-l.png [36m304 [0m0.562 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m38.672 ms - 996[0m
+[0mGET /preview_template/assets/js/angular.min.js.map [33m404 [0m12.589 ms - 996[0m
+[0mGET /images/bg/bg.png [36m304 [0m0.291 ms - -[0m
+[0mGET /preview_template/assets/css/style.css [36m304 [0m1.381 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.667 ms - -[0m
+[0mGET /preview_template/assets/css/media.css [36m304 [0m0.626 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.634 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.421 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.248 ms - -[0m
+[0mGET /preview_template/assets/js/angular-min.js [36m304 [0m0.459 ms - -[0m
+[0mGET /preview_template/assets/js/ui-bootstrap-tpls-0.12.0.min.js [36m304 [0m0.632 ms - -[0m
+[0mGET /preview_template/assets/js/custom.js [36m304 [0m0.779 ms - -[0m
+[0mGET /preview_template/assets/css/animate.css [36m304 [0m0.272 ms - -[0m
+[0mGET /preview_template/assets/css/login.css [36m304 [0m0.211 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.199 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.504 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.183 ms - -[0m
+[0mGET /preview_template/assets/images/logo-l.png [36m304 [0m0.284 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m29.692 ms - 996[0m
+[0mGET /preview_template/assets/js/angular.min.js.map [33m404 [0m19.465 ms - 996[0m
+[0mGET /images/bg/bg.png [36m304 [0m0.293 ms - -[0m
+[0mGET / [36m304 [0m0.621 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.306 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.200 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.193 ms - -[0m
+[0mGET /stylesheets/media.css [36m304 [0m0.362 ms - -[0m
+[0mGET /stylesheets/autocomplete.css [36m304 [0m0.297 ms - -[0m
+[0mGET /stylesheets/ng-table.css [36m304 [0m0.206 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.187 ms - -[0m
+[0mGET /stylesheets/angular-tooltips.css [36m304 [0m0.199 ms - -[0m
+[0mGET /stylesheets/angucomplete.css [36m304 [0m0.198 ms - -[0m
+[0mGET /stylesheets/angularjs-color-picker.min.css [36m304 [0m0.192 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m1.364 ms - -[0m
+[0mGET /javascripts/angular-min.js [36m304 [0m0.286 ms - -[0m
+[0mGET /javascripts/autocomplete.js [36m304 [0m0.229 ms - -[0m
+[0mGET /javascripts/ngStorage.min.js [36m304 [0m0.188 ms - -[0m
+[0mGET /javascripts/angular-ui-router.js [36m304 [0m0.179 ms - -[0m
+[0mGET /javascripts/angucomplete.js [36m304 [0m0.400 ms - -[0m
+[0mGET /javascripts/angular-re-captcha.js [36m304 [0m0.373 ms - -[0m
+[0mGET /javascripts/ocLazyLoad.js [36m304 [0m0.184 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.185 ms - -[0m
+[0mGET /javascripts/angular-file-model-master/angular-file-model.js [36m304 [0m0.317 ms - -[0m
+[0mGET /javascripts/ng-table.js [36m304 [0m0.275 ms - -[0m
+[0mGET /javascripts/angular-tooltips.js [36m304 [0m0.305 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.196 ms - -[0m
+[0mGET /javascripts/angular-csv-import.js [36m304 [0m0.188 ms - -[0m
+[0mGET /javascripts/communication.js [36m304 [0m0.190 ms - -[0m
+[0mGET /javascripts/constants.js [36m304 [0m0.339 ms - -[0m
+[0mGET /modules/events/controller.js [36m304 [0m0.204 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload.min.js [36m304 [0m0.283 ms - -[0m
+[0mGET /javascripts/ng-file-upload-bower-12.0.4/ng-file-upload-shim.min.js [36m304 [0m0.200 ms - -[0m
+[0mGET /javascripts/directives/angular-ckeditor.js [36m304 [0m0.190 ms - -[0m
+[0mGET /javascripts/tinycolor-min.js [36m304 [0m0.272 ms - -[0m
+[0mGET /javascripts/angularjs-color-picker.js [36m304 [0m0.202 ms - -[0m
+[0mGET /javascripts/gm.datepickerMultiSelect.js [36m304 [0m0.488 ms - -[0m
+[0mGET /javascripts/Chart.min.js [36m304 [0m0.181 ms - -[0m
+[0mGET /javascripts/angular-chart.min.js [36m304 [0m0.265 ms - -[0m
+[0mGET /images/user.jpg [36m304 [0m0.267 ms - -[0m
+[0mGET /images/logo.png [36m304 [0m0.219 ms - -[0m
+[0mGET /images/f-facebook.png [36m304 [0m0.178 ms - -[0m
+[0mGET /images/arrow-wt.png [36m304 [0m0.652 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m29.636 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m10.884 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m24.941 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m36.200 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m45.130 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m54.739 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.066 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.031 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.055 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.579 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m11.334 ms - 996[0m
+[0mGET /javascripts/angular-chart.min.js.map [33m404 [0m7.358 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.317 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m8.501 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.750 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m12.180 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m17.065 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m20.757 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m23.990 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m28.967 ms - 996[0m
+[0mGET /modules/authentication/showclix_services.js [36m304 [0m0.264 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.826 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.122 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.214 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.138 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.379 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.007 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.629 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.507 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.561 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.037 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.539 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.003 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.080 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.237 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.008 ms - 996[0m
+[0mGET /modules/authentication/controller.js [32m200 [0m3.401 ms - 30799[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.157 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.077 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m11.303 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.607 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.884 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.954 ms - 996[0m
+[0mGET /modules/authentication/views/signup.html [36m304 [0m0.560 ms - -[0m
+[0mGET /images/logo-l.png [36m304 [0m0.265 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.530 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.802 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m14.097 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m17.153 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m20.738 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.993 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m3.036 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.404 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.010 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.862 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.960 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.969 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.280 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.915 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.946 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.044 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.234 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.181 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m9.434 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.965 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.901 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.542 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.999 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.331 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.100 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.269 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.355 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.733 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.964 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.999 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.133 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.963 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.640 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m7.176 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.524 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.029 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.935 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.079 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.956 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.417 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.036 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.414 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.558 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.901 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m2.907 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.890 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.063 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.450 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.811 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.661 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.244 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.206 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.362 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.826 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.152 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.391 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.330 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m6.020 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.482 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.154 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.263 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.015 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.759 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.682 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.303 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.212 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.010 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.065 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.308 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.919 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.452 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m7.405 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.676 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m5.710 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m5.253 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.945 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.250 ms - 996[0m
+[0mGET /javascripts/angular.min.js.map [33m404 [0m4.533 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m3.915 ms - 996[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m4.452 ms - 996[0m
+[0mGET /images/bg.jpg [36m304 [0m0.268 ms - -[0m
+[0mGET /preview_template/assets/css/style.css [36m304 [0m0.275 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.423 ms - -[0m
+[0mGET /preview_template/assets/css/media.css [36m304 [0m1.173 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.184 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.179 ms - -[0m
+[0mGET /stylesheets/custom-style.css [36m304 [0m0.169 ms - -[0m
+[0mGET /preview_template/assets/js/custom.js [36m304 [0m0.185 ms - -[0m
+[0mGET /preview_template/assets/js/angular-min.js [36m304 [0m0.206 ms - -[0m
+[0mGET /preview_template/assets/js/ui-bootstrap-tpls-0.12.0.min.js [36m304 [0m0.198 ms - -[0m
+[0mGET /preview_template/assets/css/animate.css [36m304 [0m0.303 ms - -[0m
+[0mGET /preview_template/assets/css/login.css [36m304 [0m0.166 ms - -[0m
+[0mGET /stylesheets/login.css [36m304 [0m0.299 ms - -[0m
+[0mGET /stylesheets/animate.css [36m304 [0m0.176 ms - -[0m
+[0mGET /preview_template/assets/css/event.css [36m304 [0m0.188 ms - -[0m
+[0mGET /preview_template/assets/images/logo-l.png [36m304 [0m4.042 ms - -[0m
+[0mGET /javascripts/jquery.min.map [33m404 [0m8.548 ms - 996[0m
+[0mGET /preview_template/assets/js/angular.min.js.map [33m404 [0m3.787 ms - 996[0m
+[0mGET /images/bg/bg.png [36m304 [0m0.263 ms - -[0m
+events.js:160
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: Connection lost: The server closed the connection.
+    at Protocol.end (/home/alistticx/alisthub/node_modules/mysql/lib/protocol/Protocol.js:109:13)
+    at Socket.<anonymous> (/home/alistticx/alisthub/node_modules/mysql/lib/Connection.js:102:28)
+    at emitNone (events.js:91:20)
+    at Socket.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:934:12)
+    at _combinedTickCallback (internal/process/next_tick.js:74:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:122:9)
+
+npm ERR! Linux 3.13.0-74-generic
+npm ERR! argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
+npm ERR! node v6.2.2
+npm ERR! npm  v3.9.5
+npm ERR! code ELIFECYCLE
+npm ERR! alist@0.0.0 start: `node ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the alist@0.0.0 start script 'node ./bin/www'.
+npm ERR! Make sure you have the latest version of node.js and npm installed.
+npm ERR! If you do, this is most likely a problem with the alist package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node ./bin/www
+npm ERR! You can get information on how to open an issue for this project with:
+npm ERR!     npm bugs alist
+npm ERR! Or if that isn't available, you can get their info via:
+npm ERR!     npm owner ls alist
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/alistticx/alisthub/npm-debug.log

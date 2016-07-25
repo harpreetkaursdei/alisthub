@@ -105,7 +105,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
             
             //////////////  SHOWCLIX SERVICE ////////////////////
             $scope.showclix_data = {};
-            $scope.showclix_data = {"email":"manojks@smartdatainc.net","password":"manojks@2015"};
+            //$scope.showclix_data = {"email":"manojks@smartdatainc.net","password":"manojks@2015"};
+            $scope.showclix_data = {"email":"varunb@smartdatainc.net","password":"ALIST1234"};
             //$scope.showclix_data = {"email":"gyanp12387@smartdatainc.net","password":"12345678"};
              
                 /////////////////////////////////////////////////////////////////////////////
@@ -114,7 +115,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                 $http.jsonp(url);
                           
                 $window.jsonp_callback9 = function(data) {
-                    if ((data.message == 'error') || (data.user == undefined)) {
+                    if ((data.message == 'error') || (data.user === undefined)) {
 
                         showclix.checkSellerSubUser({ 'userData' : jsonData },function(seller_response) {
                             if(seller_response.code==101) {
@@ -367,7 +368,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
 
        };
 
-}).controller('signupcontroller',function($http,$location,$timeout,$scope, $ocLazyLoad, $rootScope,$state,$localStorage,reCAPTCHA,$window){
+})
+.controller('signupcontroller',function($http,$location,$timeout,$scope, $ocLazyLoad, $rootScope,$state,$localStorage,reCAPTCHA,$window){
 
     // function to submit the form after all validation has occurred            
     $scope.unique = false;
@@ -392,11 +394,43 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
              $scope.select_country = true;   
          }
         }
+        
+        $scope.verify_captcha = function()
+        {
+            $http({
+            url: 'https://www.google.com/recaptcha/api/verify', 
+            method: 'POST',
+            params: {privatekey: "key", remoteip: "userip", challenge: "challenge", response: "user_answer" },
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(data) {
+            console.log(data);
+            if (valid) {
+                console.log('Success');
+                alert('Success');
 
+            } else {
+                console.log('Failed validation');
+                alert('Fail');
+
+                // In case of a failed validation you need to reload the captcha because each challenge can be checked just once
+                //vcRecaptchaService.reload();
+            }
+
+            });
+        }
+        
+        
         $scope.submitRegistrationform = function()
         {
+                
+                 if($scope.userSignupForm.$valid) {
+                $scope.showdialog = true;
+                console.log('Form is valid');
+                }
+                
+                
                 //////// Sign up on Showclix server /////////
-                var showclixdata = {"first_name": $scope.user.firstname,"last_name": $scope.user.lastname,"organization": $scope.user.organization,"phone": $scope.user.phone,"email": $scope.user.email,"city": $scope.user.city,"state": $scope.user.state,"password": $scope.user.password,"token":"5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412"};
+                /*var showclixdata = {"first_name": $scope.user.firstname,"last_name": $scope.user.lastname,"organization": $scope.user.organization,"phone": $scope.user.phone,"email": $scope.user.email,"city": $scope.user.city,"state": $scope.user.state,"password": $scope.user.password,"token":"5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412"};
                 
                 console.log(showclixdata);
                 
@@ -461,7 +495,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                         console.log(sdata);        
                         }
                         
-                });
+                });*/
                 /////// Sign up on Showclix server ////// 
          
         

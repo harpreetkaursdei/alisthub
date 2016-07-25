@@ -40,9 +40,9 @@ exports.signup_seller = function(req,res){
   state: req.body.state,
   first_name: req.body.first_name,
   last_name: req.body.last_name,
-  password: '12345678'
+  //password: '12345678'
   }
-   console.log(input);
+  console.log(input);
   request.post({
         headers: {"X-API-Token":"1c505644137e5496d38bd84fd1e2e714f4cea88b0cc161967bd77059cf861bf3"},
         url:     'http://api.showclix.com/Seller',
