@@ -705,7 +705,7 @@ var webservices = {
     "getSalesData" : "/report/getSalesData" ,
     
     //Signup seller
-    "signupSeller" : "/profile/signup_seller"  
+    "signupSeller" : "/profile/signup_seller",  
 
     "getReportEvent": "/report/getReportEvent",
 
