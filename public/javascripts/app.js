@@ -1781,11 +1781,11 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
                   templateUrl: 'modules/contact_us/views/contact_us.html'
                 }
             },
-             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+              resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/contact_us/service.js').then(function(){
+                return $ocLazyLoad.load(['modules/contact_us/service.js','modules/events/service.js']).then(function(){
                 }).then(function(){
                 return $ocLazyLoad.load(['modules/contact_us/controller.js']);
                 })
