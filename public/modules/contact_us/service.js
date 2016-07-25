@@ -9,5 +9,7 @@ angular.module('alisthub')
             });
 
         };
+
+     
         return url;
     }]);

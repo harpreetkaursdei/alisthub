@@ -643,6 +643,7 @@ var webservices = {
     "getTemplate": "event/getTemplate",
     "addlookAndFeelImage": "event/addlookAndFeelImage",
     "getlookandFeelTemplatehtml": "event/getlookandFeelTemplatehtml",
+    "getShowclixPriceLevel": "event/getShowclixPriceLevel",
 
     //Add event product
     "addEventProduct": "/event_setting/addEventProduct",
