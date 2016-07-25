@@ -707,7 +707,7 @@ var webservices = {
     //Signup seller
     "signupSeller" : "/profile/signup_seller",  
 
-    "getReportEvent": "/report/getReportEvent",
+    "getReportEvent": "/report/getReportEvent"
 
 
 

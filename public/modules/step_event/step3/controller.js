@@ -55,13 +55,13 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
         console.log(response.results[0].latitude);
         console.log(response.results[0].longitude);
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
+        zoom: 3,
         center: {lat: response.results[0].latitude, lng: response.results[0].longitude}
       });
     
       var marker = new google.maps.Marker({
         position: {lat: response.results[0].latitude, lng: response.results[0].longitude},
-        map: map
+        map: map 
        });
     marker.setMap(map);
 		
