@@ -44,7 +44,7 @@ exports.signup_seller = function(req,res){
   }
    console.log(input);
   request.post({
-        headers: {"X-API-Token":"5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412"},
+        headers: {"X-API-Token":"1c505644137e5496d38bd84fd1e2e714f4cea88b0cc161967bd77059cf861bf3"},
         url:     'http://api.showclix.com/Seller',
         form:    input }, function(error, response, body){
         if(error){
