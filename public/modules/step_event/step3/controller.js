@@ -24,6 +24,7 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
         
         
         $scope.data1=response.results[0];
+        
         $scope.title=response.results[0].title;
         $scope.content2=$sce.trustAsHtml(response.results[0].description);
         $scope.venue_name=response.results[0].venue_name;
@@ -52,8 +53,55 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
             ages = response.results[0].custom_ages;
         }
         $scope.ages = ages;
-        console.log(response.results[0].latitude);
-        console.log(response.results[0].longitude);
+        
+        if(response.results[0].showclix_id!='')
+              {
+                 var ticket_html;
+                 $serviceTest.getShowclixPriceLevel({"showclix_id":response.results[0].showclix_id},function(resp){
+                     var str = "There is some problem on server. Please try after some time.";
+                    function isJson(item) {
+                      item = typeof item !== "string"
+                          ? JSON.stringify(item)
+                          : item;
+                  
+                      try {
+                          item = JSON.parse(item);
+                      } catch (e) {
+                          return false;
+                      }
+                  
+                      if (typeof item === "object" && item !== null) {
+                          return true;
+                      }
+                  
+                      return false;
+                  }
+                   if (isJson(resp.showclix)) {
+                    if(resp.code==200)
+                     {
+                     
+                 
+                     ticket_html='<form class="mobile-tab" id="ticket-form" method="POST" action="https://tickets.alistixs.com/event/'+response.results[0].event_domain+'/"><div style="margin-top: 0px; display: none " id="select-tickets-fix" class="purchase_tickets  js-single-event"><div class="purchasetitle">Tickets</div></div><table cellspacing="0" cellpadding="0" border="0" id="ticket-selection-genad" class="formtab table"><tr><td colspan="4" class="panel-heading" align="left"><strong>Reserve Tickets</strong></td></tr>';
+                     
+                      var obj=$.parseJSON(resp.showclix);
+                      $.each(obj, function(key, value) {
+			
+                         ticket_html+='<tr data-level-id="'+key+'"><td class="qty-td"> <select class="ticket-select input form-control" name="level['+key+']" id="select_level_'+key+'">';
+                      for(var j=parseInt(value.increment_by);j<=parseInt(value.transaction_limit);j++)
+                      {
+                      ticket_html+='<option value="'+j+'">'+j+'</option>'; 
+                      }
+                      ticket_html+='</select></td><td class="level-td" colspan="2"><label for="select_level_'+key+'" style="margin-bottom:0px;"><span class="product_name">'+value.level+' <a title="Price Level Information" class="fe_price_level tb_level cboxElement" href="/level/'+key+'/description"></a><span></span></span></label></td><td class="price-td"><span>$'+value.price+'</span></td></tr>';
+			});
+                     ticket_html+='<tr><td colspan="4"><input type="submit" value="Get Tickets" class="custom_button " name="submit_ticket_request" id="submit_ticket_request"></td></tr></table></form>';
+                     $scope.ticket_div=$sce.trustAsHtml(ticket_html);
+                     }
+                   }else{
+                     $scope.ticket_div='';
+                   }
+                 });
+		
+              }
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
         center: {lat: response.results[0].latitude, lng: response.results[0].longitude}

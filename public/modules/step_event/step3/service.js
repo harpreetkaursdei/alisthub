@@ -71,7 +71,16 @@ angular.module('alisthub').factory('Lookservice', ['$q', '$timeout','communicati
     });
   };
 
+//getShowclixPriceLevel
+    url.getShowclixPriceLevel = function(jsondata,callback){
 
+     
+       communicationService.resultViaPost(webservices.getShowclixPriceLevel,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req){
+			callback(res.data);
+		});
+       
+      
+  };
 
 
 
