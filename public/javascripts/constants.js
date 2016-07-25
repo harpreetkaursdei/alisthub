@@ -703,6 +703,11 @@ var webservices = {
     "addFavouritePackage" : "/package/addFavouritePackage" ,
 
     //Sales report
+<<<<<<< HEAD
+    "getSalesData" : "/report/getSalesData" ,    
+    "getReportEvent": "/report/getReportEvent",
+    "getEventSaleData": "/report/getEventSaleData",
+=======
 
     "getSalesData" : "/report/getSalesData" ,
     
@@ -713,6 +718,7 @@ var webservices = {
 
 
 
+>>>>>>> upstream/master
 
 }
 

@@ -245,7 +245,7 @@ angular.module('alisthub').controller('reportController', function($scope,$local
       //$scope.salesData.showclix_token     = $localStorage.showclix_token;
       //$scope.salesData.showclix_seller_id = $localStorage.showclix_seller_id;
       $scope.salesData.showclix_user_id = $localStorage.showclix_user_id;
-      $scope.salesData.showclix_token = '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412';
+      $scope.salesData.showclix_token = '1c505644137e5496d38bd84fd1e2e714f4cea88b0cc161967bd77059cf861bf3';
       $scope.salesData.showclix_seller_id = 22214;
       //console.log("showclix_seller_id: " + $localStorage.showclix_seller_id);
 
@@ -420,10 +420,11 @@ Created By: Deepak Khokkar
 Module : Events Home 
 */
 
-angular.module('alisthub').controller('eventReportController', function($scope,$localStorage,$injector, $uibModal,$rootScope, $filter,$timeout,$sce,$location, $ocLazyLoad,$state,ngTableParams,$http) { 
+angular.module('alisthub').controller('eventReportController', function($scope,$localStorage,$injector, $uibModal,$rootScope, $filter,$timeout,$sce,$location, $ocLazyLoad,$state,ngTableParams,$http,$stateParams) { 
     $rootScope.loader_div = false;
 
-    
+    console.log($stateParams.eventId);
+    console.log($stateParams.showclixEventId);
     
 
  // Datepicker stuff
@@ -654,32 +655,87 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
       $scope.salesData = {};
       $scope.salesData.start_date = manualStartDate;
       $scope.salesData.end_date = manualEndDate;
-      console.log("salesData: " + $scope.salesData.start_date);
-      console.log("salesData: " + $scope.salesData.end_date);
+      $scope.salesData.showclixEventId =  $stateParams.showclixEventId;
+      $scope.salesData.eventId = $stateParams.eventId;
+      //console.log("salesData: " + $scope.salesData.start_date);
+      //console.log("salesData: " + $scope.salesData.end_date);
 
       //$scope.salesData.showclix_token     = $localStorage.showclix_token;
       //$scope.salesData.showclix_seller_id = $localStorage.showclix_seller_id;
       $scope.salesData.showclix_user_id = $localStorage.showclix_user_id;
-      $scope.salesData.showclix_token = '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412';
+      $scope.salesData.showclix_token = '1c505644137e5496d38bd84fd1e2e714f4cea88b0cc161967bd77059cf861bf3';
       $scope.salesData.showclix_seller_id = 22214;
       //console.log("showclix_seller_id: " + $localStorage.showclix_seller_id);
 
-      reportService.getSalesData($scope.salesData,function(response) {
+      reportService.getEventSaleData($scope.salesData,function(response) {
         if (response!=null) {
           $rootScope.loader_div = true;
           $scope.showClixDataObj = [];
 
           if (response.code == 200 && response.data!='') {
             $scope.showClixDataObj.push(JSON.parse(response.data)); 
-            //console.log("showClixDataObj: " , $scope.showClixDataObj[0]);
             
-            $scope.saleEventData = $scope.showClixDataObj[0];   
-
             $scope.chartDataRevenue = [];
             $scope.chartDataTicket = [];
 
             $scope.colors = [];
             $scope.labels = [];
+
+            var graphData = $scope.showClixDataObj[0];
+            //console.log("graphData: ", graphData);
+            $scope.totalTicketSold = 0;
+            $scope.totalTicketRevenue = 0;
+            $scope.totalTransactions = 0;
+            $scope.heighestDate = '';
+            $scope.lowestDate = '';
+            $scope.highetTicketSold = '';
+            $scope.lowestTicketSold = '';
+            $scope.serviceFees = 0;
+            $scope.donation = 0;
+            $scope.discount = 0;
+            $scope.seller_fee = 0;
+            $scope.venue_fee = 0;
+            $scope.tableData = [];
+
+            for(var key in graphData) {
+                $scope.tableData.push(graphData[key]);
+                $scope.totalTicketSold = $scope.totalTicketSold + parseInt(graphData[key].tickets);
+                $scope.totalTicketRevenue = $scope.totalTicketRevenue + parseFloat(graphData[key].total_cost);
+                $scope.serviceFees = $scope.serviceFees + parseFloat(graphData[key].service_fee_discount);
+                $scope.discount = $scope.discount + parseFloat(graphData[key].discount);
+                $scope.donation = $scope.donation + parseFloat(graphData[key].donation);
+                $scope.seller_fee = $scope.seller_fee + parseFloat(graphData[key].seller_fee);
+                $scope.venue_fee = $scope.venue_fee + parseFloat(graphData[key].venue_fee);
+
+                if($scope.highetTicketSold == '') {
+                    $scope.highetTicketSold = parseInt(graphData[key].total_cost);
+                }
+                if($scope.lowestTicketSold == '') {
+                    $scope.lowestTicketSold = parseInt(graphData[key].total_cost);
+                }
+                
+                if($scope.highetTicketSold < parseInt(graphData[key].total_cost)) {
+                    $scope.highetTicketSold = parseInt(graphData[key].total_cost);
+                    $scope.heighestDate = getDateTime(graphData[key].date);
+                }
+
+                if($scope.lowestTicketSold > parseInt(graphData[key].total_cost)) {
+                    $scope.lowestTicketSold = parseInt(graphData[key].total_cost);
+                    $scope.lowestDate = getDateTime(graphData[key].date);
+                }
+
+                $scope.totalTransactions++;
+            }
+
+            $scope.tableParams = new ngTableParams({
+                page: 1,            // show first page
+                count: 5,           // count per page
+                sorting: { event_id : 'asc' },
+            },{
+                counts: [], // hide page counts control
+                total: 1,  // value less than count hide pagination 
+                data:$scope.tableData
+            });  
 
             for(var i = 150+days; i > 150; i--) {
               var setdate = i; 
@@ -709,14 +765,6 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
                 $scope.colors.push('#c129b9');    
                 $scope.chartData=[$scope.chartDataRevenue];
               }
-
-              var graphData = $scope.showClixDataObj[0];
-              $scope.totalTicketSold = 0;
-              $scope.totalTicketRevenue = 0;
-              for(var key in graphData) {
-                $scope.totalTicketSold = $scope.totalTicketSold + parseInt(graphData[key].tickets);
-                $scope.totalTicketRevenue = $scope.totalTicketRevenue + parseFloat(graphData[key].total_cost);
-              }
             }
           }
         }
@@ -727,7 +775,7 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
     //console.log("today date: " + formatDateGraph(new Date()));
     $scope.datetype = 'Last 30 days';
     
-    $scope.$watch('datetype',function() {
+    /*$scope.$watch('datetype',function() {
       $scope.showdatereports =false;
       var gettype = $scope.datetype;
       var todayDate = formatDateGraph(new Date());
@@ -750,7 +798,33 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
     $scope.$watch('graphType',function() {
         var todayDate = formatDateGraph(new Date());
         $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
-    });
+    });*/
+
+    $scope.datetype = function() {
+      $scope.showdatereports =false;
+      var gettype = $scope.datetype;
+      var todayDate = formatDateGraph(new Date());
+      
+      if(gettype == "Today") {
+       $scope.getChart(1,todayDate,todayDate,$scope.graphType.typevalue,'auto');
+      } else if(gettype == "Last 7 days") {
+       $scope.getChart(7,todayDate,todayDate,$scope.graphType.typevalue,'auto');
+      } else if(gettype == "Last 14 days") {
+       $scope.getChart(14,todayDate,todayDate,$scope.graphType.typevalue,'auto');
+      } else if(gettype == "Last 30 days") {
+       $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
+      } else if(gettype == "Custom") {
+        $scope.showdatereports =true;
+      } else {
+        $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
+      }
+    };
+
+    $scope.graphType = function() {
+        var todayDate = formatDateGraph(new Date());
+        $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
+    };
+
 
     $scope.grphsTypes = [
         {type : "Ticket Sold", typevalue : "sold"},

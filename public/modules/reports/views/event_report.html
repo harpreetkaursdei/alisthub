@@ -12,19 +12,22 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-9"> Transactions </div>
-                                    <div class="col-xs-3 text-right"> 22 </div>
+                                    <div class="col-xs-3 text-right"> {{totalTransactions}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Sales </div>
-                                    <div class="col-xs-3 text-right"> 34 </div>
+                                    <div class="col-xs-3 text-right"> {{totalTicketRevenue | number:2}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Avg. Tickets/Sale </div>
-                                    <div class="col-xs-3 text-right"> 32 </div>
+                                    <div class="col-xs-3 text-right"> {{totalTicketSold/totalTransactions | number:0}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
-                                    <div class="col-xs-9"> CSF </div>
-                                    <div class="col-xs-3 text-right"> 32 </div>
+                                    <div class="col-xs-9"> Seller Fees </div>
+                                    <div class="col-xs-3 text-right"> {{seller_fee | number:2}} </div>
                                 </div>
                             </div>
                         </div>
@@ -34,19 +37,22 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-9"> Tickets </div>
-                                    <div class="col-xs-3 text-right"> 23 </div>
+                                    <div class="col-xs-3 text-right"> {{totalTicketSold}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Avg. Order </div>
-                                    <div class="col-xs-3 text-right"> 32 </div>
+                                    <div class="col-xs-3 text-right"> {{totalTicketRevenue/totalTransactions | number:2}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Comps </div>
-                                    <div class="col-xs-3 text-right"> 23 </div>
+                                    <div class="col-xs-3 text-right"> {{venue_fee | number:2}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Donations </div>
-                                    <div class="col-xs-3 text-right"> 32 </div>
+                                    <div class="col-xs-3 text-right"> {{donation | number:2}} </div>
                                 </div>
                             </div>
                         </div>
@@ -55,20 +61,23 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="row">
-                                    <div class="col-xs-9"> Highest Day </div>
-                                    <div class="col-xs-3 text-right"> 34 </div>
+                                    <div class="col-xs-6"> Highest Day </div>
+                                    <div class="col-xs-6 text-right"> {{heighestDate}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
-                                    <div class="col-xs-9"> Lowest Day </div>
-                                    <div class="col-xs-3 text-right"> 23 </div>
+                                    <div class="col-xs-6"> Lowest Day </div>
+                                    <div class="col-xs-6 text-right"> {{lowestDate}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Serv. Fees </div>
-                                    <div class="col-xs-3 text-right"> 54 </div>
+                                    <div class="col-xs-3 text-right"> {{serviceFees | number:2}} </div>
                                 </div>
+                                </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Discounts </div>
-                                    <div class="col-xs-3 text-right"> 32 </div>
+                                    <div class="col-xs-3 text-right"> {{discount | number:2}} </div>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +92,7 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>Graph Type</label>
-                            <select class="form-controlcd form-control" ng-model="graphType" ng-init="graphType = grphsTypes[0]" ng-options="x.type for x in grphsTypes">
+                            <select class="form-controlcd form-control" ng-model="graphType" ng-init="graphType = grphsTypes[0]" ng-options="x.type for x in grphsTypes" ng-change="datetype();">
                             </select>
                         </div>
                     </div>
@@ -157,53 +166,41 @@
             </section>
             <section class="gray-frame">
                 <section class="grid-widget">
-		            <div class="table-responsive">
-                        <table class="table table-striped table-ng-style">
-                            <thead>
-                              <tr>
-                                  <th width="20%">Seller Id</th>
-                                  <th width="20%">Type</th>
-                                  <th width="20%">Order Id</th>
-                                  <th width="20%">Date & Time</th>
-                                  <th width="20%">Event Id</th>
-                                  <th width="20%">Customer</th>
-                                  <th width="20%">Ticket Holder</th>
-                                  <th width="20%">City</th>
-                                  <th width="20%">State</th>
-                              </tr>
-                            </thead>
+                    <div class="table-responsive">
+                        <table ng-table="tableParams"  class="table table-striped table-ng-style">
                             <tbody>
-                                <tr ng-repeat="pdata in saleEventData">
-                                    <td>
+                                <tr ng-repeat="pdata in $data | filter:filter">
+                                    <td theader-class="'header-text-align'"  title="'Seller Id'" header-class="'header-text-align'" filter="{ seller_id: 'number'}" sortable="'seller_id'">
                                         <p>{{pdata.seller_id}}</p>
                                     </td>
-                                    <td>
+                                    <td theader-class="'header-text-align'"  title="'Type'" header-class="'header-text-align'">
                                         <p>Sale</p>
                                     </td>
-                                    <td>
+                                    <td theader-class="'header-text-align'"  title="'Order Id'" header-class="'header-text-align'" filter="{ sale_id: 'number'}" sortable="'sale_id'">
                                         <p>{{pdata.sale_id}}</p>
                                     </td>
-                                    <td>
+                                    <td theader-class="'header-text-align'"  title="'Event Id'" header-class="'header-text-align'"  sortable="'date'">
                                         <p>{{pdata.date}}</p>
                                     </td>
-                                    <td>
+                                    <td theader-class="'header-text-align'"  title="'Event Id'" header-class="'header-text-align'" filter="{ event_id: 'number'}" sortable="'event_id'">
                                         <p>{{pdata.event_id}}</p>
                                     </td>
-                                    <td>
+                                    <td theader-class="'header-text-align'"  title="'Email'" header-class="'header-text-align'"  sortable="'email'">
                                         <p>{{pdata.email}}</p>
                                     </td>
-                                    <td>
+                                    <td theader-class="'header-text-align'"  title="'Purchase For'" header-class="'header-text-align'"  sortable="'purchase_for'">
                                         <p>{{pdata.purchase_for}}</p>
                                     </td>
-                                    <td>
-                                        <p>{{pdata.city}}</p>
+                                    <td theader-class="'header-text-align'"  title="'Tickets Sold'" header-class="'header-text-align'" filter="{ tickets: 'number'}" sortable="'tickets'">
+                                        <p>{{pdata.tickets}}</p>
                                     </td>
-                                    <td>
-                                        <p>{{pdata.state}}</p>
+                                    <td theader-class="'header-text-align'"  title="'Total Cost'" header-class="'header-text-align'" filter="{ total_cost: 'number'}" sortable="'total_cost'">
+                                        <p>{{pdata.total_cost}}</p>
                                     </td>
                                 </tr>
-                                <tr ng-if="saleEventData == ''">
-                                    <td colspan="5" align="center">No Record found!</td>
+
+                                <tr ng-if="$data == ''">
+                                    <td colspan="4" align="center">No Record found!</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -212,10 +209,7 @@
             </section>
         </section>
         <!--/Upcoming Events-->
-       
-  
     </div>
     <!-- //Form COntainer --> 
 </div>
-<!-- //Container --> 
-</div>
+<!-- //Container -->
