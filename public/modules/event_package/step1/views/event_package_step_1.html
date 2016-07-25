@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="stylesheets/timepicker.css" type="text/css" />
 <script src="javascripts/timepicker.js" type="text/javascript"></script>
+<style type="text/css">
+.ng-scope.ng-isolate-scope {
+    display: none;
+}
+</style>
 <div class="container">
     <h1>Create an Package</h1>
     <!-- Step Form -->
@@ -316,21 +321,27 @@
 <!-- {{data1}}-->
 
 <fieldset  class="table table-striped" style="padding-top:10px">
-<div class="col-sm-4 form-group"><label>Start Date</label></div>
-<div class="col-sm-4 form-group"><label>End Date</label></div>
+<div class="row">
+<div class="col-sm-2 form-group" ng-show="search_type != 4"></div>
+<div class="col-sm-4 form-group"><label ng-if="search_type == 4"> Start Date</label> <label ng-if="search_type != 4"> Date</label></div>
+<div class="col-sm-4 form-group" ng-show="search_type == 4"><label >End Date</label></div>
 <div class="col-sm-4 form-group"><label>Filter</label></div>
 
+</div>
+
+<div class="row">
+
+
+<div class="col-sm-2 form-group" ng-show="search_type != 4"></div>
 
 <div class="col-sm-4 form-group datepicker">
-<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="options" close-text="Close" alt-input-formats="altInputFormats" ng-change="viewEvents()"/>
+<input type="text" class="form-control" uib-datepicker-popup="{{format}}" name="search_start_date" ng-model="search_start_date" is-open="popup1.opened" datepicker-options="options" close-text="Close" alt-input-formats="altInputFormats" ng-change="viewEvents()"/>
 <span class="input-group-btn assign-discount">
 <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button></span>
 </div>
 
-<div class="col-sm-4 form-group datepicker"> 
-
-<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup2.opened" datepicker-options="options" close-text="Close" alt-input-formats="altInputFormats" ng-change="viewEvents()"/>
-
+<div class="col-sm-4 form-group datepicker" ng-show="search_type == 4"  > 
+<input type="text" class="form-control" uib-datepicker-popup="{{format}}" name="search_end_date" ng-model="search_end_date" is-open="popup2.opened" datepicker-options="options1" close-text="Close" alt-input-formats="altInputFormats" ng-change="viewEvents()"/>
 <span class="input-group-btn assign-discount">
 <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
 </span>
@@ -341,8 +352,11 @@
 <option value="1">Specific Date</option>
 <option value="2">All Dates Before</option>
 <option value="3">All Dates After</option>
+<option value="4">Dates Range</option>
 </select>
 </div>
+</div>
+
 
 </fieldset>
 <div class="table-responsive">
@@ -355,7 +369,8 @@
 </td>
 <td width="25%" header-class="'header-text-align'" title="'Venue'" filter="{ event_address: 'text'}" sortable="'event_address'">{{edata.event_address}}
 </td>
-<td width="25%" header-class="'header-text-align'" title="'Date'" filter="{ city: 'text'}" sortable="'city'" class="numbers">{{edata.date | date:"dd MMMM yyyy"}} {{edata.start_time}}</td>
+<td width="25%" header-class="'header-text-align'" title="'Date'" filter="{ city: 'text'}" sortable="'city'" class="numbers">{{edata.date | date:"dd MMMM yyyy"}} {{edata.start_time}}
+</td>
 </tr>
 <tr ng-if="$data == ''">
 <td colspan="4" align="center">No Record found!</td>

@@ -517,6 +517,7 @@ var webservices = {
     "getAdvanceSettingOfPackage" : "/package/getAdvanceSettingOfPackage",
     "getAllPackageEvent": "/package/getAllPackageEvent",
     "checkEventExist": "/package/checkEventExist",
+    "viewUpcomingEventsOfPackage": "/package/viewUpcomingEventsOfPackage", 
 
 
     /* Constants for the discount module */
