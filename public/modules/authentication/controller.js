@@ -4,8 +4,10 @@ Created : 2016-05-17
 Created By: Deepak Khokkar
 Module : SignUp ,Login, Forget Password Module ,Email Confirmation 
 */
-angular.module('alisthub').controller('loginController', function($http,$location,$timeout,$scope, $ocLazyLoad,$rootScope,$state,$localStorage,$window,$injector) {
+angular.module('alisthub').controller('loginController', function($http,$location,$timeout,$scope, $ocLazyLoad,$rootScope,$state,$localStorage,$window,$injector,$stateParams) {
+        
         var showclix = $injector.get("showclix");
+        
         if ($localStorage.isuserloggedIn) {
                 $rootScope.class_status = 0;
                 $state.go('dashboard');
@@ -25,10 +27,10 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
        
         
         $scope.user = {};
-        if ($state.params.confirm_email_id) {
+        if ($stateParams.confirm_email_id) {
               //  confirmationEmail
                 var serviceUrl = webservices.confirmationEmail;
-                $scope.user.token = $state.params.confirm_email_id;
+                $scope.user.token = $stateParams.confirm_email_id;
                 var jsonData=$scope.user;
                                      
                         $http({
@@ -104,8 +106,9 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
             var jsonData = $scope.user;
             
             //////////////  SHOWCLIX SERVICE ////////////////////
-            $scope.showclix_data = {};
-            $scope.showclix_data = {"email":"manojks@smartdatainc.net","password":"manojks@2015"};
+            $scope.showclix_data = "";
+            //$scope.showclix_data = {"email":"manojks@smartdatainc.net","password":"manojks@2015"};
+            $scope.showclix_data = "email="+$scope.user.email+"&password="+$scope.user.password;
             //$scope.showclix_data = {"email":"gyanp12387@smartdatainc.net","password":"12345678"};
              
                 /////////////////////////////////////////////////////////////////////////////
@@ -114,7 +117,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                 $http.jsonp(url);
                           
                 $window.jsonp_callback9 = function(data) {
-                    if ((data.message == 'error') || (data.user == undefined)) {
+                    if ((data.message == 'error') || (data.user === undefined)) {
 
                         showclix.checkSellerSubUser({ 'userData' : jsonData },function(seller_response) {
                             if(seller_response.code==101) {
@@ -147,8 +150,14 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                                     }
                                 }).success(function(datas, status, headers, config) {
                                     
-                                    //var response = JSON.parse(datas.body);
-                                    var response = datas;
+                                    if (datas.body && datas != "") {
+                                                //var response = JSON.parse(datas.body);
+                                                var response = datas.body;
+                                         }else{
+                                             var response = "";    
+                                         }
+                                    
+                                    //var response = datas;
 
                                     if (response != null && response != "" && response.token) {
                                         $rootScope.class_status = 0;
@@ -199,8 +208,14 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                         }).success(function(datas, status, headers, config) {
                         
                        
-                        var response = datas;
-                     
+                        //var response = datas;
+                        if (datas.body && datas != "") {
+                               //var response = JSON.parse(datas.body);
+                               var response = datas.body;
+                        }else{
+                            var response = "";    
+                        }
+                        
                         
                         if (response != null && response != "" && response.token) {
                          
@@ -367,7 +382,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
 
        };
 
-}).controller('signupcontroller',function($http,$location,$timeout,$scope, $ocLazyLoad, $rootScope,$state,$localStorage,reCAPTCHA,$window){
+})
+.controller('signupcontroller',function($http,$location,$timeout,$scope, $ocLazyLoad, $rootScope,$state,$localStorage,reCAPTCHA,$window){
 
     // function to submit the form after all validation has occurred            
     $scope.unique = false;
@@ -375,6 +391,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
     $scope.user = {};
     $scope.unique_type = 0;
     $scope.user.country = 'US';
+    $scope.recaptchaValid = false;
     //$scope.disabledBtn = false;
     $rootScope.class_status = 1;
     
@@ -392,9 +409,10 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
              $scope.select_country = true;   
          }
         }
-
+        
         $scope.submitRegistrationform = function()
         {
+                              
                 //////// Sign up on Showclix server /////////
                 var showclixdata = {"first_name": $scope.user.firstname,"last_name": $scope.user.lastname,"organization": $scope.user.organization,"phone": $scope.user.phone,"email": $scope.user.email,"city": $scope.user.city,"state": $scope.user.state,"password": $scope.user.password,"token":"5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412"};
                 
@@ -484,8 +502,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                              $scope.unique_type  = 1;
                              $scope.unique = global_message.EmailAvailable;
                              $timeout(function() {
-                                   $scope.unique = '';
-                                   $scope.unique_type  = '';
+                                   //$scope.unique = '';
+                                   $scope.unique_type  = 5;
                               },3000);
                              }
                              else{
@@ -504,6 +522,20 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                  $scope.unique_type  = 3;
            }
         };
+        
+        
+        recaptchaCalled = function() {
+           $rootScope.$broadcast("xyz");
+           
+        };
+                
+         
+        $rootScope.$on("xyz", function(){
+               $scope.recaptchaValid = true;
+               $scope.$apply();
+              
+        });
+        
     
     }).controller('forgotcontroller',function($http,$location,$timeout,$scope, $ocLazyLoad,$rootScope,$state,$localStorage,$window){
         $scope.menu=true;

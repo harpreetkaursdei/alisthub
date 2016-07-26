@@ -311,7 +311,9 @@ exports.getEvents=function(req,res) {
     if (err) {
       res.send({err:"error",code:101}); 
     }
-    res.send({"results":result,code:200});  
+    else{
+    res.send({"results":result,code:200});
+    }
   });
 }
 

@@ -1,5 +1,5 @@
 var baseUrl = "//192.155.246.146:7048";
-servicebaseUrl = "//192.155.246.146:5502";
+servicebaseUrl = "//52.39.212.226:4004";
 m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 ticketImage='./images/ticket.png';
   weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
@@ -481,7 +481,7 @@ var webservices = {
 
     //contact us/////
     "submitContact":"contact/submitContact",
-    
+    "stay_connected":"contact/stay_connected",
     //tracking tag
     "saveTag":"/tracking/saveTag",
     "getTag":"/tracking/getTag",
@@ -656,7 +656,7 @@ var webservices = {
     "getEventPriceLevel": "/event_setting/getEventPriceLevel",
     "getAllProducts": "/event_setting/getAllProducts",
     "removeSeriesEventProduct": "/event/removeSeriesEventProduct",
-
+    "getEventStep3":"event/getEventStep3",
     //Event step 4 
     "getSettings": "/event/getSettings",
     "saveSetting": "/event/saveSetting",
@@ -706,7 +706,9 @@ var webservices = {
     "getSalesData" : "/report/getSalesData" ,    
     "getReportEvent": "/report/getReportEvent",
     "getEventSaleData": "/report/getEventSaleData",
-    "getSalesData" : "/report/getSalesData" ,
+    
+    //signupSeller
+    "signupSeller" : "/profile/signup_seller"
 }
 
 var global_message = {
@@ -866,8 +868,8 @@ var showclix_tokenConstants = {
 
 var showclix_webservices = {
     /* Service To generate token on showclicks */
-    //"generateToken": "/profile/showclix_login",
-    "generateToken": showclixServer+"/api/registration",
+    "generateToken": "/profile/showclix_login",
+    //"generateToken": showclixServer+"/api/registration",
     /* Services for Sign up on showclicks Seller */
     "signUp": showclixAPIServer + "/Seller",
     /* Services for Add Venue on showclicks */

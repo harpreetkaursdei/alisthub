@@ -8,7 +8,7 @@ Module : My Account
 module.exports = function(app, express) {
 	var router = express.Router();
 
-	profileCon     = require('./../app/user/controllers/profile.js');
+    profileCon     = require('./../app/user/controllers/profile.js');
         
     /* Update my account user data */
     router.post('/updateUser', profileCon.updateUser);
@@ -24,6 +24,9 @@ module.exports = function(app, express) {
     
     //showclix signup_seller
     router.post('/signup_seller', profileCon.signup_seller);
+    
+    
+    router.post('/validate_captcha', profileCon.validate_captcha);
     
     
     /* Default */   

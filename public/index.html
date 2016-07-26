@@ -177,7 +177,7 @@
             <div class="row">
               <div class="col-sm-4 col-md-3">
                 <p class="f-logo"><img src="./images/logo.png" alt=""/></p>
-                <p class="f-facebook"><a href="javascript:void(0)"><img src="./images/f-facebook.png" alt=""/></a></p>
+                <p class="f-facebook"><a  class="cursor" href="http://www.facebook.com" target="_blank"><img src="./images/f-facebook.png" alt=""/></a></p>
               </div>
               <div class="col-sm-4 col-md-3">
                 <h2>Quick Menu</h2>
@@ -196,13 +196,16 @@
                 </ul>
               </div>
               <div class="col-sm-12 col-md-3  nwsltr">
+                <span ng-show="success_message1" class="ng-hide">
+                    <p class="success-fld ng-binding">{{success}}</p>
+                </span>
                 <h2>Stay Connected</h2>
                 <form  name="myForm_r" novalidate>
-                <div class="newletter-row" ng-class="{ 'has-error' : myForm_r.news_letter_email.$dirty && myForm_r.news_letter_email.$invalid }">
-                    <input type="email" name="news_letter_email" ng-model="news_letter_email" placeholder="Enter your email ID" required/>
-                    <p class="help-inline error-fld ng-binding"  ng-show="myForm_r.eventname.$dirty && myForm_r.eventname.$invalid">Enter email</p>
+                <div class="newletter-row" ng-class="{ 'has-error' : myForm_r.email.$dirty && myForm_r.email.$invalid }">
+                    <input type="email"  ng-model="email"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" placeholder="Enter your email address" required/>
+                    <p class="help-inline error-fld ng-binding"  ng-show="myForm_r.email.$dirty && myForm_r.email.$invalid">Enter email</p>
                     <span ng-show="error_message_news"><p class="error-fld" >{{error_news}}</p></span>
-                    <button class="ent" ng-click="send_newsletter();"><i class="fa fa-arrow-circle-right"></i></button>
+                    <button class="ent1" ng-click="stay_connected();"><i class="fa fa-arrow-circle-right"></i></button>
                 </div>
                 </form>
                 <ul class="socialmedia">
