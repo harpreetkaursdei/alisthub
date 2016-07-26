@@ -1,5 +1,5 @@
 angular.module("google.places", []);
-angular.module('alisthub', ['google.places', 'angucomplete']).controller('createpackageController', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $state, ngTableParams) {
+angular.module('alisthub', ['google.places', 'angucomplete']).controller('createpackageController', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $state, ngTableParams ,  $anchorScroll ) {
 
     //For Step 1
 
@@ -634,6 +634,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
                 $scope.data.showclix_event_ids = showclix_event_ids;
 
                 $serviceTest.stepOneEventPackage($scope.data, function(response) {
+                    $anchorScroll();
                     //$scope.loader = false;
                     $rootScope.loader_div = true;
                     if (response.code == 200) {

@@ -804,7 +804,7 @@ var global_message = {
     "bundle_add": "Bundle information has been added.",
 
      "save_package": "Package information has been saved successfully.",
-     "noEventToIncludeInPackage" : "Please create an event firsty to include it in package." ,
+     "noEventToIncludeInPackage" : "There is no any future event, please create it firsty to include it in package." ,
 
 
     /**/

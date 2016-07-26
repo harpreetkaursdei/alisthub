@@ -5,7 +5,7 @@ Created By: Manoj Kumar
 Module : Financial Setting Module  
 */
 angular.module('alisthub')
-    .controller('accountController', function($scope, $localStorage, $injector, $http, $state, $location, $sce, $rootScope, $timeout) {
+    .controller('accountController', function($scope, $localStorage, $injector, $http, $state, $location, $sce, $rootScope, $timeout , $anchorScroll) {
         if (!$localStorage.isuserloggedIn) {
             $state.go('login');
         }
@@ -341,6 +341,7 @@ if ($scope.user.merchant_type == "GoCoin")
             if ($localStorage.userId != undefined) {
                 $scope.user.seller_id = $localStorage.userId;
                 $serviceTest.addFinancialDetails($scope.user, function(response) {
+                  $anchorScroll();
                     if (response.code == 200) {
                 $scope.success = global_message.savedFinancialInformation;
                 $scope.success_message = true;
@@ -407,6 +408,7 @@ if ($scope.user.merchant_type == "GoCoin")
             if ($localStorage.userId != undefined) {
                 $scope.user.seller_id = $localStorage.userId;
                 $serviceTest.addCustomFinancialDetails($scope.user, function(response) {
+                  $anchorScroll();
                     if (response.code == 200) {
                         $scope.success_message = true;
                         $scope.success = global_message.savedMerchantFinancialInformation;
@@ -493,7 +495,7 @@ if ($scope.user.merchant_type == "GoCoin")
         }
     })
 
-.controller('manageAccountController', function($scope, $localStorage, $injector, $http, $state, $location, $sce, $rootScope, $timeout,ngTableParams) {
+.controller('manageAccountController', function($scope, $localStorage, $injector, $http, $state, $location, $sce, $rootScope, $timeout,ngTableParams , $anchorScroll) {
     if (!$localStorage.isuserloggedIn) {
         $state.go('login');
     }
@@ -526,6 +528,7 @@ if ($scope.user.merchant_type == "GoCoin")
                 }, 3000);
             }
             $serviceTest.viewCustomFinancialSetting($scope.user, function(response) {
+              $anchorScroll();
                 $scope.loader = false;
                 if (response.code == 200) {
                     $scope.merchantFinancialData = response.result;

@@ -986,7 +986,9 @@ exports.addFavouritePackage = function(req, res) {
 
 exports.checkEventExist = function(req, res) {
     if( req.body.user_id != undefined ) {
-        var query_event = "select count(id) as count from events where user_id = " + req.body.user_id ;
+        var curtime = moment().format('YYYY-MM-DD');
+        var query_event = "select count(id) as count from events where user_id = " + req.body.user_id + " and Date(start_date) >= '" +curtime + "' ";
+        
         console.log('query_event ' , query_event );
 
         connection.query(query_event, function(err, results) {

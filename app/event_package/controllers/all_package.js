@@ -18,32 +18,35 @@ exports.getAllPackageEvent=function(req,res) {
   var curtime = moment().format('YYYY-MM-DD');
   var dateRange = req.body.dateRange;
   
-  var sql = "SELECT  event_package.id,  event_package.package_name, event_package.online_sales_open_date FROM event_package where event_package.user_id = " + user_id;
+  var sql = "SELECT event_package.id, event_package.package_name, event_package.online_sales_open_time, event_package.online_sales_open_date_time FROM event_package WHERE event_package.user_id ="+ user_id;
+
+
 
   if(req.body.allevent!=undefined) {
     if(req.body.allevent.eventFilter != undefined && req.body.allevent.eventFilter != '') {
       if(req.body.allevent.eventFilter == 'upcoming') {
-        //sql += " and Date(events.start_date) >= '" + curtime + "' ";       
+        sql += " and Date(online_sales_open_date_time) >= '" + curtime + "' ";       
       }
 
       if(req.body.allevent.eventFilter == 'past') {
-        //sql += " and Date(events.start_date) <= '" + curtime + "' ";
+        sql += " and Date(online_sales_open_date_time) <= '" + curtime + "' ";
       }
     }
   }
 
   if(req.body.dateRange!=undefined) {
     if(req.body.dateRange.searchFromDate != undefined && req.body.dateRange.searchFromDate != '' && req.body.dateRange.searchToDate != undefined && req.body.dateRange.searchToDate != '') {
-        //sql += " and Date(events.start_date) >= '" + req.body.dateRange.searchFromDate + "' and Date(events.end_date) <= '" + req.body.dateRange.searchToDate + "'"; 
+        sql += " and Date(online_sales_open_date_time) >= '" + req.body.dateRange.searchFromDate + "' and Date(online_sales_close_date_time) <= '" + req.body.dateRange.searchToDate + "'"; 
     }
 
     if(req.body.dateRange.searchFromDate != undefined && req.body.dateRange.searchFromDate != '' && req.body.dateRange.searchToDate == undefined && req.body.dateRange.searchToDate == '') {
-        //sql += " and Date(events.start_date) <= '" + curtime + "' ";
+        sql += " and Date(online_sales_open_date_time) <= '" + curtime + "' ";
     }
   }
 
-  sql += " ORDER BY event_package.online_sales_open_date ASC LIMIT 5";
-  console.log(sql);
+  sql += " ORDER BY event_package.online_sales_open_date_time ASC";
+  console.log('-------------------------');
+console.log(sql);
   
   connection.query(sql,function(err,result) {
     if (err) {

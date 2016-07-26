@@ -171,7 +171,7 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
               authentication:routerApp.logauthentication,
               resources: ['$ocLazyLoad', '$injector',function($ocLazyLoad, $injector) {
                 // you can lazy load files for an existing module
-                return $ocLazyLoad.load('modules/events/service.js').then(function(){
+                return $ocLazyLoad.load(['modules/events/service.js', 'modules/event_package/service.js']).then(function(){
                 }).then(function(){
                 return $ocLazyLoad.load(['modules/events/allevent_controller.js']);
                 })
@@ -676,7 +676,6 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             }
           
         })
-
 
      .state('edit_package_advance_setting', {
             url: '/edit_package_advance_setting/:packageId',
