@@ -18,9 +18,9 @@
 .form-section.wt-frame {
 	padding: 40px 10px;
 }
-.col-sm-2.design-left {
+/*.col-sm-2.design-left {
 	padding-left: 5px;
-}
+}*/
 .modal-dialog {
 	width: 900px;
 }
@@ -154,7 +154,9 @@
               </section>
             </section>            
           </section>
-          <div id="add_block_div" class="blocks-frame"> </div>
+          
+             <div id="add_block_div" class="blocks-frame"> </div>
+          
         </section>
         <!--Left-->
         <section class="col-sm-10 design-right pr-3">
@@ -372,7 +374,7 @@ function add_block()
   var size='lg';
   var dynamic='dynamic';
   var section="section'+currentsection+'_html";
-  $('#add_block_div').append('<section onmouseover="sectionin(this.id)" onmouseout="sectionout(this.id)" class="col2" id="section'+currentsection+'"><div class="portlet"  ng-style="{background: background_inner,color:text_color}"><div class="drag" style="display:none;"><span><i class="header fa fa-arrows" aria-hidden="true"></i></span><a onclick="remove_widget_dynamic('+currentsection+')"><i aria-hidden="true" class="fa fa-trash"></i></a><a onclick="open_popup_editor(\'section'+currentsection+'_html\')"><i class="fa fa-edit" aria-hidden="true"></i></a></div><section id="section'+currentsection+'_html" class="form-group word-wrap">Enter<br><br> your <br><br>description</section></div></section>'); 
+  $('#add_block_div').append('<section onmouseover="sectionin(this.id)" onmouseout="sectionout(this.id)" class="col2" id="section'+currentsection+'"><div class="portlet"  ng-style="{background: background_inner,color:text_color}"><div class="drag" style="display:none;"><span><i class="header fa fa-arrows" aria-hidden="true"></i></span><a onclick="remove_widget_dynamic('+currentsection+')"><i aria-hidden="true" class="fa fa-trash"></i></a><a onclick="open_popup_editor(\'section'+currentsection+'_html\')"><i class="fa fa-edit" aria-hidden="true"></i></a></div><section id="section'+currentsection+'_html" class="form-group word-wrap">Enter your description</section></div></section>'); 
    sort();
    $("#currentSection").val(currentsection);
 }

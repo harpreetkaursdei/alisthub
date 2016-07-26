@@ -66,6 +66,9 @@ module.exports = function()
                     var venue_loc  = response.headers.location;
                     var venue_loc2 = venue_loc.split("/");
                     var venue_id   = venue_loc2[4];
+                    console.log(venue_id);
+                    console.log(req.body.showclix_seller_id);
+                    console.log(req.body.showclix_token);
                     ///////////////////////////////////////////////////
                     request.post({
                     headers: {'X-API-Token':req.body.showclix_token},
@@ -74,6 +77,7 @@ module.exports = function()
                                "seller_id":req.body.showclix_seller_id
                             } }, function(error2, response2, body2){
                             console.log(response2.statusCode);
+                            console.log(body2);
                             return next({status:1,location:venue_loc});
                             
                     });
