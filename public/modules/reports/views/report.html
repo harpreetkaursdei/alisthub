@@ -10,7 +10,7 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label>Graph Type</label>
-                            <select class="form-controlcd form-control" ng-model="graphType" ng-init="graphType = grphsTypes[0]" ng-options="x.type for x in grphsTypes">
+                            <select class="form-controlcd form-control" ng-model="graphType" ng-change="graphTypeChange();" ng-init="graphType = grphsTypes[0]" ng-options="x.type for x in grphsTypes">
                             </select>
                         </div>
                     </div>
@@ -18,7 +18,7 @@
                     <div class="col-sm-2">
                     <div class="form-group">
                         <label>Date Filter</label>
-                        <select class="form-controlcd form-control" ng-model="datetype">
+                        <select class="form-controlcd form-control" ng-model="datetype" ng-change="datetypeChange();">
                             <option value="Today">Today</option>
                             <option value="Last 7 days">Last 7 days</option>
                             <option value="Last 14 days">Last 14 days</option>
@@ -27,6 +27,7 @@
                         </select>
                     </div>
                     </div>
+                    
                     <div class="col-sm-3" ng-show="showdatereports">
                     <div class="form-group">
                       <section class="left-label-reports">
@@ -42,6 +43,7 @@
                       </section>
                     </div>
                     </div>
+                    
                     <div class="col-sm-3" ng-show="showdatereports">            
                     <div class="form-group">
                       <section class="left-label-reports">
@@ -57,6 +59,7 @@
                       </section>
                     </div> 
                     </div>
+
                 </section>
             </section>
             <section class="d-panel-body">
@@ -139,14 +142,17 @@
                                     
                                     <td title="'Start date'" header-class="'header-text-align'" filter="{ title: 'start_date'}" sortable="'start_date'" width="15%">{{pdata.recurring_or_not == 0 ? (pdata.start_date | date:"dd MMMM yyyy") : 'Event Series'}}</td>
                                     
-                                    <td title="'Location'" header-class="'header-text-align'" sortable="'event_location'" width="15%">{{pdata.event_location}}</td>
+                                    <td title="'Online/Phone Orders'" header-class="'header-text-align'" sortable="'online_orders'" width="15%">{{pdata.totalOrders}}</td>
+
+                                    <td title="'Tickets Issued'" header-class="'header-text-align'" sortable="'ticket_issued'" width="15%">{{pdata.dateTotalTicketTicket}}</td>
+
+                                    <td title="'Total Sales'" header-class="'header-text-align'" sortable="'total_sales'" width="15%">{{pdata.dateTotalTicketRevenue}}</td>
 
                                     <td title="'Showclix Id'" header-class="'header-text-align'" sortable="'showclix_id'" width="15%">{{pdata.showclix_id}}</td>
                                     
                                     <td title="'View Report'" class="action" width="15%">
                                         <a title="view report" href="/#/event_report/{{pdata.id}}/{{pdata.showclix_id}}"><i class="fa fa-eye"></i></a>
                                     </td>
-
 
                                 </tr>
                                 <tr ng-if="$data == ''">

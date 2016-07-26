@@ -7,8 +7,9 @@ var mysql      = require('mysql');
   database : 'db_alistixs',
   insecureAuth: true
 }); */
- connection = mysql.createConnection({
-  host     : 'localhost',
+
+connection = mysql.createConnection({
+  host     : '52.39.212.226',
   user     : 'alistixs',
   password : 'alistixs@2016',
   database : 'alistixs',
