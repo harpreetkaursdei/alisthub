@@ -64,6 +64,7 @@ module.exports = function(app, express) {
 	}
 
   router.get('/test',supportCrossOriginScript, AllEvent.test);
+  router.get('/getEventStep3Html/:eventId',supportCrossOriginScript, Event.getEventStep3Html);
   /* For saving the event data */
   router.post('/saveEvent', Event.saveEvent);
 
