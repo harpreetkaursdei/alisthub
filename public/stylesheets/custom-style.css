@@ -67,7 +67,7 @@
 	transform: scale(0.5);
 }
 
-select.sml-sel{height:30px; font-size:14px; padding:0 12px}
+select.sml-sel{height:30px; font-size:14px; padding:0 5px;}
 .drag{position:absolute; right:-26px; top:10px; z-index:999;}
 .drag a, .drag span{display:block; margin-bottom: 1px; color: #333;}
 .drag .fa{background:#f3f3f3; border-bottom:1px #ccc solid; padding:10px; min-width: 36px; text-align: center;}
@@ -614,9 +614,9 @@ select.sml-sel{height:30px; font-size:14px; padding:0 12px}
 	display: none;
 }
 
-.templateWrap .templateContainer .event_date-label:last-child{
+/*.templateWrap .templateContainer .event_date-label:last-child{
 	padding-left: 0;
-}
+}*/
 
 .templateWrap .templateContainer .event-details h1{
 	font-size: 20px;
@@ -672,3 +672,6 @@ form#ticket-form {  background-color: #fff; padding: 10px;}
     height: 420px;
     width: 100%;
 }
+
+.formtab select.form-control{width:auto; padding:0 5px; height:30px;}
+.sml-input30{height:30px; padding:0 8px; font-size:14px;}
