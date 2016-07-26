@@ -1,5 +1,5 @@
 var baseUrl = "//192.155.246.146:7048";
-servicebaseUrl = "//192.155.246.146:5502";
+servicebaseUrl = "//52.39.212.226:4004";
 m_names = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 ticketImage='./images/ticket.png';
   weekday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
@@ -706,7 +706,9 @@ var webservices = {
     "getSalesData" : "/report/getSalesData" ,    
     "getReportEvent": "/report/getReportEvent",
     "getEventSaleData": "/report/getEventSaleData",
-    "getSalesData" : "/report/getSalesData" ,
+    
+    //signupSeller
+    "signupSeller" : "/profile/signup_seller"
 }
 
 var global_message = {

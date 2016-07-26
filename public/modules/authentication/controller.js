@@ -4,8 +4,10 @@ Created : 2016-05-17
 Created By: Deepak Khokkar
 Module : SignUp ,Login, Forget Password Module ,Email Confirmation 
 */
-angular.module('alisthub').controller('loginController', function($http,$location,$timeout,$scope, $ocLazyLoad,$rootScope,$state,$localStorage,$window,$injector) {
+angular.module('alisthub').controller('loginController', function($http,$location,$timeout,$scope, $ocLazyLoad,$rootScope,$state,$localStorage,$window,$injector,$stateParams) {
+        
         var showclix = $injector.get("showclix");
+        
         if ($localStorage.isuserloggedIn) {
                 $rootScope.class_status = 0;
                 $state.go('dashboard');
@@ -25,10 +27,10 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
        
         
         $scope.user = {};
-        if ($state.params.confirm_email_id) {
+        if ($stateParams.confirm_email_id) {
               //  confirmationEmail
                 var serviceUrl = webservices.confirmationEmail;
-                $scope.user.token = $state.params.confirm_email_id;
+                $scope.user.token = $stateParams.confirm_email_id;
                 var jsonData=$scope.user;
                                      
                         $http({
@@ -389,6 +391,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
     $scope.user = {};
     $scope.unique_type = 0;
     $scope.user.country = 'US';
+    $scope.recaptchaValid = false;
     //$scope.disabledBtn = false;
     $rootScope.class_status = 1;
     
@@ -407,59 +410,11 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
          }
         }
         
-        $scope.verify_captcha = function()
-        {   var rep = {};
-            //rep.secret   = "6LdgDyUTAAAAAHlJqEPPfg59c9e14SUxn0mL3C5u";
-            rep.captcha  = $scope.user.captcha;
-            rep.captcha.secret = "6LdgDyUTAAAAAHlJqEPPfg59c9e14SUxn0mL3C5u";;
-            
-            $http({
-            url: '/profile/validate_captcha', 
-            method: 'POST',
-            data:  "response="+$scope.user.captcha.response+"&challenge="+$scope.user.captcha.challenge+"&secret="+$scope.user.captcha.secret,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-                }).success(function(data) {
-            console.log(data);
-            if (data) {
-                console.log('Success');
-                alert('Success');
-
-            } else {
-                console.log('Failed validation');
-                alert('Fail');
-
-                // In case of a failed validation you need to reload the captcha because each challenge can be checked just once
-              reCAPTCHA.reload();
-            }
-
-            });
-        }
-        
-        $scope.recaptchaValid = false;
-        recaptchaCalled = function() {
-            $scope.recaptchaValid = true;
-           //alert('pressedtt!');
-            //$scope.recaptchaValid = true;
-            $scope.enableform();
-        };
-        $scope.enableform = function()
-        {
-          console.log($scope.recaptchaValid);     
-        }
-        
-        
         $scope.submitRegistrationform = function()
         {
-                
-                if($scope.userSignupForm.$valid) {
-                $scope.showdialog = true;
-                //$scope.verify_captcha();
-                console.log('Form is valid');
-                }
-                
-                
+                              
                 //////// Sign up on Showclix server /////////
-                /*var showclixdata = {"first_name": $scope.user.firstname,"last_name": $scope.user.lastname,"organization": $scope.user.organization,"phone": $scope.user.phone,"email": $scope.user.email,"city": $scope.user.city,"state": $scope.user.state,"password": $scope.user.password,"token":"5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412"};
+                var showclixdata = {"first_name": $scope.user.firstname,"last_name": $scope.user.lastname,"organization": $scope.user.organization,"phone": $scope.user.phone,"email": $scope.user.email,"city": $scope.user.city,"state": $scope.user.state,"password": $scope.user.password,"token":"5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412"};
                 
                 console.log(showclixdata);
                 
@@ -524,7 +479,7 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                         console.log(sdata);        
                         }
                         
-                });*/
+                });
                 /////// Sign up on Showclix server ////// 
          
         
@@ -547,8 +502,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                              $scope.unique_type  = 1;
                              $scope.unique = global_message.EmailAvailable;
                              $timeout(function() {
-                                   $scope.unique = '';
-                                   $scope.unique_type  = '';
+                                   //$scope.unique = '';
+                                   $scope.unique_type  = 5;
                               },3000);
                              }
                              else{
@@ -567,6 +522,20 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                  $scope.unique_type  = 3;
            }
         };
+        
+        
+        recaptchaCalled = function() {
+           $rootScope.$broadcast("xyz");
+           
+        };
+                
+         
+        $rootScope.$on("xyz", function(){
+               $scope.recaptchaValid = true;
+               $scope.$apply();
+              
+        });
+        
     
     }).controller('forgotcontroller',function($http,$location,$timeout,$scope, $ocLazyLoad,$rootScope,$state,$localStorage,$window){
         $scope.menu=true;

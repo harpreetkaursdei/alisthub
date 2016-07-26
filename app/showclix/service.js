@@ -88,7 +88,7 @@ module.exports = function()
                    
                });
     
-  }
+  } 
     
   this.add_event = function(data,res,next)
   {

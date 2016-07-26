@@ -46,7 +46,7 @@ exports.showclix_login = function(req,res){
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                    "Accept": "application/json"},
         url:     'https://admin.showclix.com/api/registration',
-        form:    {"email":"varunb@smartdatainc.net","password":"ALIST1234"},
+        form:    {"email":"manojks@smartdatainc.net","password":"manojks@2015"},
         json: true}, function(error, response, body){
         if(error){
           console.log(error);

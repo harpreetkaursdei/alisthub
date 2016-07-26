@@ -119,7 +119,7 @@
       <textarea id="g-recaptcha-response" name="g-recaptcha-response"
                    class="g-recaptcha-response"
                    style="width: 250px; height: 40px; border: 1px solid #c1c1c1;
-                          margin: 10px 25px; padding: 0px; resize: none;" ng-model="user.captcha">
+                          margin: 10px 25px; padding: 0px; resize: none;">
       </textarea>
     </div>
   </div>
@@ -139,22 +139,11 @@
                 <!-- ******************************************************************* -->
                 
             </section>
-            <p>{{recaptchaValid}}=={{unique_type}}=={{userSignupForm.$invalid}}<button id="capsubmit"  type="submit" class="btn-l m-fw"  ng-disabled="!recaptchaValid || userSignupForm.$invalid || unique_type == 2 || unique_type == 3" id="signupBtn">Sign up</button></p>
+            <p><button id="capsubmit"  type="submit" class="btn-l m-fw"  ng-disabled="!recaptchaValid || userSignupForm.$invalid || unique_type == 2 || unique_type == 3" id="signupBtn">Sign up</button></p>
             <section class="otherlinks">
                 <p><a ui-sref="login" class="signup-link">Already registered! Login here</a></p>
             </section>
         </form>
     </section>
 </section>
-<script>
-    function capenable() {
-    $('capsubmit').set('disabled', false);
-}
-function capdisable() {
-    $('capsubmit').set('disabled', true);
-}
-//window.addEvent('domready', function(){
-    ///capdisable();
-//});
-</script>
 <div id="push"></div>
