@@ -88,6 +88,9 @@
                                         <ul>
                                             <li><a  ui-sref="dashboard">Events Dashboard</a></li>
                                             <li ng-if = checkPermission(permission[0],'add') || ng-if = checkPermission(permission[0],'edit') || ng-if = checkPermission(permission[0],'delete') || ng-if = checkPermission(permission[0],'view')><a ui-sref="view_all_event">View all Events</a></li>
+
+                                             <li ng-if = checkPermission(permission[0],'add') || ng-if = checkPermission(permission[0],'edit') || ng-if = checkPermission(permission[0],'delete') || ng-if = checkPermission(permission[0],'view')><a ui-sref="view_package_event">View Packages</a></li>
+                                            
                                             <li ng-if = checkPermission(permission[0],'add') ><a ui-sref="create_an_event">Create an Event</a></li>
                                             <li><a href="#/event_setting">Event Settings</a></li>
                                         </ul>

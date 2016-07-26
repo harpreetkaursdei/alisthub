@@ -15,7 +15,19 @@ body { background-color: #f3f3f3; color: #333333; font-family: 'Open Sans', sans
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block;}
 
+.close_description{
+  float: right;
+  margin: 0px 5px 5px 0px;
+  text-decoration: none;
+}
 
+.close_description:hover
+  {
+  float: right;
+  margin: 0px 5px 5px 0px;
+  text-decoration: none;
+  cursor: pointer;
+   }
 /* Selection CSS */
 ::-moz-selection { background: #0275d0; color:#ffffff;}
 ::selection { background: #0275d0; color:#ffffff;}
@@ -858,3 +870,4 @@ color-picker{float: right !important;}
 .panel-body{
   padding: 55px 15px 15px 15px;
 }
+

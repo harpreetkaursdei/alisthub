@@ -1,4 +1,4 @@
-angular.module('alisthub').controller('createpackageControllerTwo', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
+angular.module('alisthub').controller('createpackageControllerTwo', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state, $anchorScroll ) {
    
   //For Step 2
 var $serviceTest = $injector.get("event_package");
@@ -291,6 +291,7 @@ var $serviceTest = $injector.get("event_package");
     data.packageId = $rootScope.packageId ;
     console.log('data ' , data);
     $serviceTest.postSecondStepPackageData(data, function(response) {
+       $anchorScroll();
       if (response.code == 200) {
         $scope.success = global_message.save_package;
 
