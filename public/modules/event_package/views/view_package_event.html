@@ -48,13 +48,18 @@
                                         <p><a href="#"><strong>{{pdata.package_name}}</strong></a></p>
                                     </td>
                                     
-                                    <td title="'Start date'" header-class="'header-text-align'" filter="{ title: 'online_sales_open_date'}" sortable="'online_sales_open_date'" width="20%">{{pdata.online_sales_open_date | date:"dd MMMM yyyy"}}</td>
+                                    <td title="'Start date'" header-class="'header-text-align'" filter="{ title: 'online_sales_open_date'}" sortable="'online_sales_open_date'" width="20%">{{pdata.online_sales_open_date_time | date:"dd MMMM yyyy"}}</td>
                                     
                                     <td title="'Action'" class="action" width="20%">
-                                        <a title="Overview" href="javascript:void(0)"><i class="fa fa-pie-chart"></i></a>
+                                        
+                                         <a title="Overview" href="/#/package_event_overview/{{pdata.id}}"  ><i class="fa fa-pie-chart"></i></a>
+
                                         <a title="Guest List" href="javascript:void(0)"><i class="fa fa-list-ul"></i></a>
-                                        <a  title="edit" href="/#/edit_event_step1/{{pdata.id}}"><i class="fa fa-edit"></i></a>
-                                        <a title="View" href="/#/view_event/{{pdata.id}}"><i class="fa fa-eye"></i></a>
+                                        <a ng-if = checkPermission(permission[0],'edit') title="edit" href="/#/edit_event_step1/{{pdata.id}}"><i class="fa fa-edit"></i></a>
+
+                                        <a ng-if = checkPermission(permission[0],'delete') style="cursor:pointer;" title="delete" ng-confirm-clicks="Would you like to delete this Package?" ng-click="delPackage(pdata.id)"><i class="fa fa-trash"></i></a>
+
+                                         <a ng-if = checkPermission(permission[0],'view') title="View" href="/#/view_package/{{pdata.id}}"><i class="fa fa-eye"></i></a>
                                     </td>
                                 </tr>
                                 <tr ng-show="loader">

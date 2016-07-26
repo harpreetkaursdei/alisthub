@@ -16,8 +16,8 @@
                                 </div>
                                 </br>
                                 <div class="row">
-                                    <div class="col-xs-9"> Sales </div>
-                                    <div class="col-xs-3 text-right"> {{totalTicketRevenue | number:2}} </div>
+                                    <div class="col-xs-6"> Sales </div>
+                                    <div class="col-xs-6 text-right">${{totalTicketRevenue | number:2}}</div>
                                 </div>
                                 </br>
                                 <div class="row">
@@ -27,7 +27,7 @@
                                 </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Seller Fees </div>
-                                    <div class="col-xs-3 text-right"> {{seller_fee | number:2}} </div>
+                                    <div class="col-xs-3 text-right"> ${{seller_fee | number:2}} </div>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                 </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Avg. Order </div>
-                                    <div class="col-xs-3 text-right"> {{totalTicketRevenue/totalTransactions | number:2}} </div>
+                                    <div class="col-xs-3 text-right"> ${{totalTicketRevenue/totalTransactions | number:2}} </div>
                                 </div>
                                 </br>
                                 <div class="row">
@@ -52,7 +52,7 @@
                                 </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Donations </div>
-                                    <div class="col-xs-3 text-right"> {{donation | number:2}} </div>
+                                    <div class="col-xs-3 text-right"> ${{donation | number:2}} </div>
                                 </div>
                             </div>
                         </div>
@@ -72,12 +72,12 @@
                                 </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Serv. Fees </div>
-                                    <div class="col-xs-3 text-right"> {{serviceFees | number:2}} </div>
+                                    <div class="col-xs-3 text-right"> ${{serviceFees | number:2}} </div>
                                 </div>
                                 </br>
                                 <div class="row">
                                     <div class="col-xs-9"> Discounts </div>
-                                    <div class="col-xs-3 text-right"> {{discount | number:2}} </div>
+                                    <div class="col-xs-3 text-right"> ${{discount | number:2}} </div>
                                 </div>
                             </div>
                         </div>

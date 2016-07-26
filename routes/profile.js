@@ -8,7 +8,7 @@ Module : My Account
 module.exports = function(app, express) {
 	var router = express.Router();
 
-	profileCon     = require('./../app/user/controllers/profile.js');
+    profileCon     = require('./../app/user/controllers/profile.js');
         
     /* Update my account user data */
     router.post('/updateUser', profileCon.updateUser);

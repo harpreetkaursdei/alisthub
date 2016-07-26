@@ -106,9 +106,9 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
             var jsonData = $scope.user;
             
             //////////////  SHOWCLIX SERVICE ////////////////////
-            $scope.showclix_data = {};
+            $scope.showclix_data = "";
             //$scope.showclix_data = {"email":"manojks@smartdatainc.net","password":"manojks@2015"};
-            $scope.showclix_data = {"email":"varunb@smartdatainc.net","password":"ALIST1234"};
+            $scope.showclix_data = "email="+$scope.user.email+"&password="+$scope.user.password;
             //$scope.showclix_data = {"email":"gyanp12387@smartdatainc.net","password":"12345678"};
              
                 /////////////////////////////////////////////////////////////////////////////
