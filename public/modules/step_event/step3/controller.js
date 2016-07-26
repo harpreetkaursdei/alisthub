@@ -23,7 +23,7 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
        
        if(resp.result[0]==undefined)
        {
-      
+        $scope.mode='add';
         $serviceTestVenue.getEvent({'event_id':event_id},function(response){
         
         
@@ -119,8 +119,9 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
 		
     }); 
        }else{
-       
-        angular.element( document.querySelector( '#preview_div_contain_html' ) ).html(resp.result[0].html);
+       $scope.mode='edit';
+      
+      //  angular.element( document.querySelector( '#preview_div_contain_html' ) ).html(resp.result[0].html);
        }
        
     });

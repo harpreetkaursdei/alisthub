@@ -195,6 +195,19 @@ angular.module('alisthub').controller('reportController', function($scope,$local
       return objects;
     }
 
+    function getObjectsText(obj, key, val) {
+        var objects = [];
+        for (var i in obj) {
+          if (!obj.hasOwnProperty(i)) continue;
+          if (typeof obj[i] === 'object') {
+            objects = objects.concat(getObjectsText(obj[i], key, val));
+          } else if (i === key && obj[key] === val) {
+            objects.push(obj);
+          }
+        }
+        return objects;
+    }
+
     
 
     function getDateTime(openDate) {
@@ -257,8 +270,8 @@ angular.module('alisthub').controller('reportController', function($scope,$local
           //if (response.code == 200 && response.data=='') {
           if (response.code == 200 && response.data!='') {
             $scope.showClixDataObj.push(JSON.parse(response.data)); 
-            console.log("showClixDataObj: " + $scope.showClixDataObj);
-            
+            $scope.getReportEvent();
+
             $scope.chartDataRevenue = [];
             $scope.chartDataTicket = [];
 
@@ -311,7 +324,7 @@ angular.module('alisthub').controller('reportController', function($scope,$local
     //console.log("today date: " + formatDateGraph(new Date()));
     $scope.datetype = 'Last 30 days';
     
-    $scope.$watch('datetype',function() {
+    $scope.datetypeChange = function() {
       $scope.showdatereports =false;
       var gettype = $scope.datetype;
       var todayDate = formatDateGraph(new Date());
@@ -329,12 +342,12 @@ angular.module('alisthub').controller('reportController', function($scope,$local
       } else {
         $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
       }
-    });
+    };
 
-    $scope.$watch('graphType',function() {
+    $scope.graphTypeChange = function() {
         var todayDate = formatDateGraph(new Date());
         $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
-    });
+    };
 
     $scope.grphsTypes = [
         {type : "Ticket Sold", typevalue : "sold"},
@@ -383,7 +396,7 @@ angular.module('alisthub').controller('reportController', function($scope,$local
    }
 
     //event list
-    $scope.getUpcommingEvent = function(eventType) {
+    $scope.getReportEvent = function(eventType) {
       type = 0;      
       if(eventType == 'series') {
         type = 1;
@@ -392,7 +405,34 @@ angular.module('alisthub').controller('reportController', function($scope,$local
       reportService.getReportEvent({'user_id':$localStorage.userId,'type':type},function(response) {
         if (response!=null) {
           if (response.code == 200) {
-            $scope.upcoming_event_data = response.results;
+            $scope.event_data = response.results;
+            $scope.tableData = [];
+            $scope.showClixDataArr = [];
+
+            var showClixDataReport = $scope.showClixDataObj[0];
+
+            for(var key in $scope.event_data) {
+                var combinedData = $scope.event_data[key];
+                combinedData.dateTotalTicketTicket = 0;
+                combinedData.dateTotalTicketRevenue = 0;
+                combinedData.totalOrders = 0;
+
+                if($scope.event_data[key].showclix_id != '') {
+                    var dataofShowclicx = getObjectsText(showClixDataReport,'event_id',$scope.event_data[key].showclix_id.toString());
+                    console.log("'"+ $scope.event_data[key].showclix_id+"'");
+                    console.log("dataofShowclicx: ", dataofShowclicx);
+
+                    for(var keyDate in dataofShowclicx) {
+                      combinedData.dateTotalTicketRevenue = combinedData.dateTotalTicketRevenue + parseFloat(dataofShowclicx[keyDate].total_cost);
+                      combinedData.dateTotalTicketTicket = combinedData.dateTotalTicketTicket + parseInt(dataofShowclicx[keyDate].tickets);
+                      combinedData.totalOrders++;
+                    }
+                }
+                $scope.tableData.push(combinedData);
+            }
+
+            console.log($scope.tableData);
+
             $scope.tableParams = new ngTableParams({
                                     page: 1,            // show first page
                                     count: 25,           // count per page
@@ -400,16 +440,16 @@ angular.module('alisthub').controller('reportController', function($scope,$local
                                   },{
                                     counts: [], // hide page counts control
                                     total: 1,  // value less than count hide pagination 
-                                    data:$scope.upcoming_event_data
+                                    data: $scope.tableData
                                   });
           }
         } else {
-          $scope.upcoming_event_data = [];   
+          $scope.event_data = [];   
         }
       });
     }
     
-    $scope.getUpcommingEvent();
+    
 
 });
 
@@ -774,32 +814,7 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
     //console.log("formatDateGraph: " + formatDateGraph(new Date('2015-10-01').setDate(new Date('2015-10-01').getDate() - 1)));
     //console.log("today date: " + formatDateGraph(new Date()));
     $scope.datetype = 'Last 30 days';
-    
-    /*$scope.$watch('datetype',function() {
-      $scope.showdatereports =false;
-      var gettype = $scope.datetype;
-      var todayDate = formatDateGraph(new Date());
-      
-      if(gettype == "Today") {
-       $scope.getChart(1,todayDate,todayDate,$scope.graphType.typevalue,'auto');
-      } else if(gettype == "Last 7 days") {
-       $scope.getChart(7,todayDate,todayDate,$scope.graphType.typevalue,'auto');
-      } else if(gettype == "Last 14 days") {
-       $scope.getChart(14,todayDate,todayDate,$scope.graphType.typevalue,'auto');
-      } else if(gettype == "Last 30 days") {
-       $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
-      } else if(gettype == "Custom") {
-        $scope.showdatereports =true;
-      } else {
-        $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
-      }
-    });
-
-    $scope.$watch('graphType',function() {
-        var todayDate = formatDateGraph(new Date());
-        $scope.getChart(30,todayDate,todayDate,$scope.graphType.typevalue,'auto');
-    });*/
-
+  
     $scope.datetype = function() {
       $scope.showdatereports =false;
       var gettype = $scope.datetype;

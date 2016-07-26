@@ -1595,4 +1595,20 @@ console.log('sales_query ' , sales_query) ;
     });
 }
 
+exports.getEventStep3Html=function(req, res){
+   
+    
+      query = 'SELECT * from eventstep3 where eventId = "' + req.params.eventId + '"';
+    
+    connection.query(query, function(err, results)
+              {  
+               if (err) {
+                res.json({error:err,code:101});
+               }
+               
+               res.send(results[0].html);
+            });
+    
+}
+
 
