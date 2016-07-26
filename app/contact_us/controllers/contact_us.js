@@ -44,3 +44,25 @@ exports.smtpTransport = smtpTransport;
       return res.json({error:"error",code:101}); 
   }
 }
+exports.stay_connected=function(req,res)
+{
+  var curtime = moment().format('YYYY-MM-DD HH:mm:ss'); 
+  var ticketing="ticketing";
+  req.body.network=ticketing;    
+req.body.created = curtime;
+
+var query="INSERT INTO `stay_connected` (`id`,`email`,`network`,`created`) VALUES (NULL, '"+req.body.email+"','" +ticketing+"','"+curtime+"')";
+console.log(query);
+  if (query != "") {
+    connection.query(query, function(err7, results) {
+      if (err7) {
+       return  res.json({error:err7,code:101});
+      }
+     return  res.json({result:results,code:200});
+    });
+
+  } else {
+      return res.json({error:"error",code:101}); 
+  }
+
+}
