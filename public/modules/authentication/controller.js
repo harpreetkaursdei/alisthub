@@ -149,7 +149,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                                 }).success(function(datas, status, headers, config) {
                                     
                                     if (datas.body && datas != "") {
-                                                var response = JSON.parse(datas.body);
+                                                //var response = JSON.parse(datas.body);
+                                                var response = datas.body;
                                          }else{
                                              var response = "";    
                                          }
@@ -207,7 +208,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                        
                         //var response = datas;
                         if (datas.body && datas != "") {
-                               var response = JSON.parse(datas.body);
+                               //var response = JSON.parse(datas.body);
+                               var response = datas.body;
                         }else{
                             var response = "";    
                         }

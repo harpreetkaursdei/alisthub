@@ -656,7 +656,7 @@ var webservices = {
     "getEventPriceLevel": "/event_setting/getEventPriceLevel",
     "getAllProducts": "/event_setting/getAllProducts",
     "removeSeriesEventProduct": "/event/removeSeriesEventProduct",
-
+    "getEventStep3":"event/getEventStep3",
     //Event step 4 
     "getSettings": "/event/getSettings",
     "saveSetting": "/event/saveSetting",
@@ -703,17 +703,10 @@ var webservices = {
     "addFavouritePackage" : "/package/addFavouritePackage" ,
 
     //Sales report
-
+    "getSalesData" : "/report/getSalesData" ,    
+    "getReportEvent": "/report/getReportEvent",
+    "getEventSaleData": "/report/getEventSaleData",
     "getSalesData" : "/report/getSalesData" ,
-    
-    //Signup seller
-    "signupSeller" : "/profile/signup_seller",  
-
-    "getReportEvent": "/report/getReportEvent"
-
-
-
-
 }
 
 var global_message = {

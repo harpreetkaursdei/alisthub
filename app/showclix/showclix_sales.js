@@ -38,6 +38,21 @@ module.exports = function()
                 }
     });
   }
+
+  this.getEventSaleData = function(req,res,next) {
+    var reportDataUrl = "https://api.showclix.com/Sale/search?event = "+req.showclixEventId+"&seller="+req.showclix_seller_id;
+    request.get({
+      headers: {'Content-Type':'application/json','X-API-Token': req.showclix_token }, //{'X-API-Token':req.showclix_token},
+      url: reportDataUrl,
+      form: {} }, function(error, response, body) {
+      if(response.statusCode == 200) {
+        return next({status:1,data:response.body});
+      } else {
+        return next({status:0,data:""});
+      }
+    });
+  }
+ 
  
 
 }

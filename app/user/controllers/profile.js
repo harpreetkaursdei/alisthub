@@ -40,11 +40,12 @@ exports.validate_captcha = function(req,res){
 
 // showclix login
 exports.showclix_login = function(req,res){
- var request = require('request');
+ //var https = require('https'); 
  request.post({
+        "rejectUnauthorized": false,
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                    "Accept": "application/json"},
-        url:     'http://admin.showclix.com/api/registration',
+        url:     'https://admin.showclix.com/api/registration',
         form:    {"email":"varunb@smartdatainc.net","password":"ALIST1234"},
         json: true}, function(error, response, body){
         if(error){
