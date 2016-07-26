@@ -672,3 +672,16 @@ form#ticket-form {  background-color: #fff; padding: 10px;}
     height: 420px;
     width: 100%;
 }
+.full button span {
+    background-color: #c129b9;
+    border-radius: 32px;
+    color: white;
+    padding: 5px;
+}
+
+.partially button span {
+    background-color: #c129b9;
+    border-radius: 32px;
+    color: white;
+    padding: 5px;
+}

@@ -201,11 +201,11 @@
                 </span>
                 <h2>Stay Connected</h2>
                 <form  name="myForm_r" novalidate>
-                <div class="newletter-row" ng-class="{ 'has-error' : myForm_r.news_letter_email.$dirty && myForm_r.news_letter_email.$invalid }">
-                    <input type="email"  ng-model="email" placeholder="Enter your email address" required/>
-                    <p class="help-inline error-fld ng-binding"  ng-show="myForm_r.eventname.$dirty && myForm_r.eventname.$invalid">Enter email</p>
+                <div class="newletter-row" ng-class="{ 'has-error' : myForm_r.email.$dirty && myForm_r.email.$invalid }">
+                    <input type="email"  ng-model="email"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" placeholder="Enter your email address" required/>
+                    <p class="help-inline error-fld ng-binding"  ng-show="myForm_r.email.$dirty && myForm_r.email.$invalid">Enter email</p>
                     <span ng-show="error_message_news"><p class="error-fld" >{{error_news}}</p></span>
-                    <button class="ent" ng-click="stay_connected();"><i class="fa fa-arrow-circle-right"></i></button>
+                    <button class="ent1" ng-click="stay_connected();"><i class="fa fa-arrow-circle-right"></i></button>
                 </div>
                 </form>
                 <ul class="socialmedia">

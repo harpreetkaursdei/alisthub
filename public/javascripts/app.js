@@ -2208,6 +2208,7 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
         
         
         $rootScope.error_news = "";
+        console.log($rootScope.email);
         if ($rootScope.email != "" && $rootScope.email != null && $rootScope.email !== undefined) {
 
 
@@ -2222,7 +2223,7 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
 
             }).success(function(datae, status, headers, config) {
                 if (datae && datae != "") {
-                    $rootScope.email = "Enter the email address";
+                    $rootScope.email = "";
                     $rootScope.success = global_message.infoSaved;
                     $rootScope.success_message1 = true;
                     

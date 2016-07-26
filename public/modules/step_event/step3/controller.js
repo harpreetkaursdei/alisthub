@@ -462,6 +462,7 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
     }
     
     $scope.$watch('backgroundColor', function(newValue, oldValue) {
+             
              $scope.background_outer=newValue;
              
             

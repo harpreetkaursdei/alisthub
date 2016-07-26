@@ -13,12 +13,7 @@ angular.module('alisthub', ['google.places', 'angucomplete', 'gm.datepickerMulti
             $scope.navCollapsed = $scope.navCollapsed === false ? true : false;
         };
     }
-
-
-
-
-
-
+    
     $scope.today = function() {
         $scope.dt = new Date();
     };
@@ -97,56 +92,6 @@ angular.module('alisthub', ['google.places', 'angucomplete', 'gm.datepickerMulti
         return '';
     }
 
-    // $scope.thisDate = new Date();
-
-    // this.activeDate = null;
-    // this.activeDate2 = null;
-    // this.selectedDates = [new Date().setHours(0, 0, 0, 0)];
-    // this.selectedDates2 = [new Date().setHours(0, 0, 0, 0)];
-    // this.type = 'individual';
-
-    // this.show2pickers = false;
-
-    // this.removeFromSelected = function(dt) {
-    //     this.selectedDates.splice(this.selectedDates.indexOf(dt), 1);
-    // }
-
-    // this.removeFromSelected2 = function(dt) {
-    //     this.selectedDates2.splice(this.selectedDates2.indexOf(dt), 1);
-    // }
-
-    // var tomorrow = new Date();
-    // tomorrow.setDate(tomorrow.getDate() + 1);
-    // var afterTomorrow = new Date(tomorrow);
-    // afterTomorrow.setDate(tomorrow.getDate() + 1);
-    // $scope.events = [{
-    //     date: tomorrow,
-    //     status: 'full'
-    // }, {
-    //     date: afterTomorrow,
-    //     status: 'partially'
-    // }];
-
-    // function getDayClass(data) {
-    //     var date = data.date,
-    //         mode = data.mode;
-    //     if (mode === 'day') {
-    //         var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
-    //         for (var i = 0; i < $scope.events.length; i++) {
-    //             var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
-    //             if (dayToCheck === currentDay) {
-    //                 return $scope.events[i].status;
-    //             }
-    //         }
-    //     }
-    //     return '';
-    // }
-    // $scope.options1 = {
-    //     customClass: getDayClass,
-    //     minDate: new Date(),
-    //     showWeeks: false
-    // };
-
 
     //set the map at location
     $scope.locations = [];
@@ -189,27 +134,25 @@ angular.module('alisthub', ['google.places', 'angucomplete', 'gm.datepickerMulti
         $scope.city = response.results[0].city;
         $scope.state = response.results[0].state;
         $scope.country = response.results[0].country;
-        // $scope.start_date = response.timing[0].start_date_time;
-        // console.log($scope.start_date);
-        // $scope.end_date = response.timing[1].end_date_time;
-        // $scope.end_date = response.timing[2].end_date_time;
-        // console.log($scope.end_date);
         $scope.start_time = response.results[0].start_time;
         $scope.end_time = response.results[0].end_time;
         $scope.zipcode = response.results[0].zipcode;
+        $scope.start_date = response.timing[0].start_date_time;
+        $scope.start_time=response.timing[0].start_time;
+        $scope.end_date=response.timing[response.timing.length-1].end_date_time;
+        $scope.end_time=response.timing[response.timing.length-1].end_time;
+        
+
         var inc = 0;
         $scope.all_dates = [];
         $scope.all_times = [];
 
         $scope.events = [];
-        console.log("response",response.timing)
         for (dt1 in response.timing) {
             var thisdate = new Date(response.timing[dt1].start_date_time);
             $scope.events[inc] = {date: thisdate,status: 'partially'};
             inc++;
         }
-    console.log("eventttttt:",$scope.events);
-        //$scope.timings = response.timing[0].start_time + " - " + response.timing[0].end_time;
         var bounds = new google.maps.LatLngBounds();
         var infowindow = new google.maps.InfoWindow();
         var marker, i;
