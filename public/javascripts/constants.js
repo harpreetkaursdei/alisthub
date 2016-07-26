@@ -517,6 +517,7 @@ var webservices = {
     "getAdvanceSettingOfPackage" : "/package/getAdvanceSettingOfPackage",
     "getAllPackageEvent": "/package/getAllPackageEvent",
     "checkEventExist": "/package/checkEventExist",
+    "viewUpcomingEventsOfPackage": "/package/viewUpcomingEventsOfPackage", 
 
 
     /* Constants for the discount module */
@@ -702,17 +703,10 @@ var webservices = {
     "addFavouritePackage" : "/package/addFavouritePackage" ,
 
     //Sales report
-
+    "getSalesData" : "/report/getSalesData" ,    
+    "getReportEvent": "/report/getReportEvent",
+    "getEventSaleData": "/report/getEventSaleData",
     "getSalesData" : "/report/getSalesData" ,
-    
-    //Signup seller
-    "signupSeller" : "/profile/signup_seller",  
-
-    "getReportEvent": "/report/getReportEvent"
-
-
-
-
 }
 
 var global_message = {

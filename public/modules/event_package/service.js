@@ -222,6 +222,12 @@ url.removePackageProduct = function(jsondata,callback){
       callback(res.data);
     });
   };
+  
+  url.viewUpcomingEventsOfPackage = function(jsondata,callback) {
+    communicationService.resultViaPost(webservices.viewUpcomingEventsOfPackage,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req) {
+      callback(res.data);
+    });
+  };
 
   
 
