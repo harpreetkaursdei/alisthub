@@ -5,7 +5,7 @@ Created By: Deepak khokkar
 Module : Event setting  
 */
 
-angular.module('alisthub').controller('createpackageControllerThree', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad , $http,$stateParams) {
+angular.module('alisthub').controller('createpackageControllerThree', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad , $http,$stateParams , $anchorScroll ) {
   //var $serviceTest = $injector.get("event_setting");
   var $serviceTest = $injector.get("event_package");
 
@@ -319,6 +319,7 @@ $scope.redirectToDashboard = function() {
       $scope.data.showclix_user_id = $localStorage.showclix_user_id;
 
       $serviceTest.postThirdStepPackageData($scope.data, function(response) {
+        $anchorScroll();
       $rootScope.loader_div = true;
 
           if (response.code === 200) {
