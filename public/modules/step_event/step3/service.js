@@ -82,7 +82,16 @@ angular.module('alisthub').factory('Lookservice', ['$q', '$timeout','communicati
       
   };
 
+//getEventStep3
+    url.getEventStep3 = function(jsondata,callback){
 
+     
+       communicationService.resultViaPost(webservices.getEventStep3,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req){
+			callback(res.data);
+		});
+       
+      
+  };
 
   
   return url;

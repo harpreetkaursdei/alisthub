@@ -7,16 +7,47 @@ Module : My account
 var fs         = require('fs');
 var moment     = require('moment-timezone');
 var path_venue = process.cwd()+'/public/images/venues/';
- var request = require('request');
+var request = require('request');
+
+// validate captcha
+exports.validate_captcha = function(req,res){
+ /*var post_data = querystring.stringify({
+    'secret' : SECRET,
+    'response': key
+  });*/
+ console.log(req.body);
+  request.post({
+        headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                   "Accept": "application/json"},
+        //host: 'www.google.com',
+        //port: '443',
+        //path: '/recaptcha/api/siteverify',
+        url:     'https://www.google.com/recaptcha/api/siteverify',
+        form:    req.body }, function(error, response, body){
+        if(error){
+          console.log(error);
+         res.json({"body":"","response":"",code:101});  
+        }
+        else{
+        console.log(response.body);
+        res.json({"body":body,"response":response});
+        }
+        
+  });
+ 
+}
+
 
 // showclix login
 exports.showclix_login = function(req,res){
-
+ //var https = require('https'); 
  request.post({
+        "rejectUnauthorized": false,
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                    "Accept": "application/json"},
         url:     'https://admin.showclix.com/api/registration',
-        form:    {"email":"manojks@smartdatainc.net","password":"manojks@2015"} }, function(error, response, body){
+        form:    {"email":"manojks@smartdatainc.net","password":"manojks@2015"},
+        json: true}, function(error, response, body){
         if(error){
           console.log(error);
          res.json({"body":"","response":"",code:101});  
@@ -40,9 +71,9 @@ exports.signup_seller = function(req,res){
   state: req.body.state,
   first_name: req.body.first_name,
   last_name: req.body.last_name,
-  password: '12345678'
+  //password: '12345678'
   }
-   console.log(input);
+  console.log(input);
   request.post({
         headers: {"X-API-Token":"1c505644137e5496d38bd84fd1e2e714f4cea88b0cc161967bd77059cf861bf3"},
         url:     'http://api.showclix.com/Seller',

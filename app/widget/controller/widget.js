@@ -5,8 +5,9 @@ exports.getWidget = function(req,res){
   connection.query('SELECT * from checkout_widgets where seller_id='+req.body.seller_id+ ' ORDER BY created DESC', function(err, results) {
      if (err) {
       res.json({error:err,code:101});
-     }
+     }else{
      res.json({result:results,code:200});
+     }
   });
 }
 
@@ -17,8 +18,9 @@ exports.getWidgetDetail = function(req,res) {
   connection.query('SELECT * from checkout_widgets where id='+req.body.id+ ' ORDER BY created DESC', function(err, results) {
     if (err) {
       res.json({error:err,code:101});
-    }
+    }else{
     res.json({result:results,code:200});
+    }
   });
 }
 
@@ -60,8 +62,9 @@ exports.savewidget = function(req,res) {
     connection.query(query, function(err7, results) {
       if (err7) {
        return  res.json({error:err7,code:101});
-      }
+      }else{
      return  res.json({result:results,code:200});
+      }
     });
 
   } else {
@@ -112,15 +115,16 @@ exports.saveEventWidgets=function(req,res)
     connection.query(query, function(err7, results) {
       if (err7) {
        return  res.json({error:err7,code:101});
+      }else{
+       return  res.json({result:results,code:200});
       }
-     return  res.json({result:results,code:200});
     });
 
   } else {
       return res.json({error:"error",code:101}); 
   }
 }
-
+ 
 exports.getWidgetEvents = function(req,res){
   
   
@@ -129,8 +133,9 @@ exports.getWidgetEvents = function(req,res){
 
      if (err) {
       res.json({error:err,code:101});
-     }
+     }else{
      res.json({result:results,code:200});
+     }
   });
 }
 
@@ -139,8 +144,9 @@ exports.editEvent_widgets = function(req,res) {
   connection.query('SELECT * from tracking_widgets where id='+req.body.id+ ' ORDER BY id DESC', function(err, results) {
     if (err) {
       res.json({error:err,code:101});
-    }
+    }else{
     res.json({result:results,code:200});
+    }
   });
 }
 

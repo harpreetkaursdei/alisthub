@@ -68,7 +68,7 @@
 }
 
 select.sml-sel{height:30px; font-size:14px; padding:0 12px}
-.drag{position:absolute; right:-26px; top:10px;}
+.drag{position:absolute; right:-26px; top:10px; z-index:999;}
 .drag a, .drag span{display:block; margin-bottom: 1px; color: #333;}
 .drag .fa{background:#f3f3f3; border-bottom:1px #ccc solid; padding:10px; min-width: 36px; text-align: center;}
 .social_link{display:inline-block; margin-bottom: 1px; color: #333;padding:10px; min-width: 36px; text-align: center;}
@@ -671,4 +671,17 @@ form#ticket-form {  background-color: #fff; padding: 10px;}
 .templateContainer .template_right #ticket-panel iframe{
     height: 420px;
     width: 100%;
+}
+.full button span {
+    background-color: #c129b9;
+    border-radius: 32px;
+    color: white;
+    padding: 5px;
+}
+
+.partially button span {
+    background-color: #c129b9;
+    border-radius: 32px;
+    color: white;
+    padding: 5px;
 }
