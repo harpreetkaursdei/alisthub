@@ -19,8 +19,12 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
      $scope.backgroundImage="http://52.39.212.226:4004/images/bg/bg.png";
     var event_id=$scope.eventId=$stateParams.eventId;
     $rootScope.sociallink={};
-   
-    $serviceTestVenue.getEvent({'event_id':event_id},function(response){
+    $serviceTest.getEventStep3({'event_id':event_id},function(resp){
+       
+       if(resp.result[0]==undefined)
+       {
+      
+        $serviceTestVenue.getEvent({'event_id':event_id},function(response){
         
         
         $scope.data1=response.results[0];
@@ -113,7 +117,14 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
        });
     marker.setMap(map);
 		
-    });  
+    }); 
+       }else{
+       
+        angular.element( document.querySelector( '#preview_div_contain_html' ) ).html(resp.result[0].html);
+       }
+       
+    });
+     
 
 
 
