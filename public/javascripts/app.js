@@ -2203,28 +2203,44 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
             };
          }])
 
- .run(function($rootScope,$localStorage) {
-      
-      $rootScope.send_newsletter = function()
-      {
-         console.log($rootScope.news_letter_email+"hkhkhkh"); 
-         $rootScope.error_message_news = false;
-         $rootScope.error_news = "";
-         if ($rootScope.news_letter_email != "" && $rootScope.news_letter_email != null && $rootScope.news_letter_email !== undefined)
-         {
-          
-            
-           console.log($rootScope.news_letter_email+"hkhkhkh");
-           
-           
-         }
-         else
-         {
+ .run(function($rootScope,$localStorage,$http,$timeout) {
+      $rootScope.email='';
+      $rootScope.stay_connected = function() {
+        
+        $rootScope.error_message_news = false;
+        
+        
+        $rootScope.error_news = "";
+        if ($rootScope.email != "" && $rootScope.email != null && $rootScope.email !== undefined) {
+
+
+            $http({
+                url: webservices.stay_connected,
+                method: 'POST',
+                data: "email=" + $rootScope.email,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Accept": "application/json",
+                }
+
+            }).success(function(datae, status, headers, config) {
+                if (datae && datae != "") {
+                    $rootScope.email = "Enter the email address";
+                    $rootScope.success = global_message.infoSaved;
+                    $rootScope.success_message1 = true;
+                    
+                    $timeout(function(){
+                     $rootScope.success = '';
+                      $rootScope.success_message1 = false;
+                     },3000)
+                    
+                } 
+            });
+        } else {
             $rootScope.error_message_news = true;
-            $rootScope.error_news         = "Enter email";
-         }
-      }
-      
+            $rootScope.error_news = "Enter email";
+        }
+    }
       
       $rootScope.checkPermission = function(per,method) {
           //console.log("Permissiondsad: " + per + "---" + method);

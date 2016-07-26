@@ -481,7 +481,7 @@ var webservices = {
 
     //contact us/////
     "submitContact":"contact/submitContact",
-    
+    "stay_connected":"contact/stay_connected",
     //tracking tag
     "saveTag":"/tracking/saveTag",
     "getTag":"/tracking/getTag",
