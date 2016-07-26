@@ -873,8 +873,8 @@ var showclix_tokenConstants = {
 
 var showclix_webservices = {
     /* Service To generate token on showclicks */
-    //"generateToken": "/profile/showclix_login",
-    "generateToken": showclixServer+"/api/registration",
+    "generateToken": "/profile/showclix_login",
+    //"generateToken": showclixServer+"/api/registration",
     /* Services for Sign up on showclicks Seller */
     "signUp": showclixAPIServer + "/Seller",
     /* Services for Add Venue on showclicks */

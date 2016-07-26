@@ -148,8 +148,13 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                                     }
                                 }).success(function(datas, status, headers, config) {
                                     
-                                    //var response = JSON.parse(datas.body);
-                                    var response = datas;
+                                    if (datas.body && datas != "") {
+                                                var response = JSON.parse(datas.body);
+                                         }else{
+                                             var response = "";    
+                                         }
+                                    
+                                    //var response = datas;
 
                                     if (response != null && response != "" && response.token) {
                                         $rootScope.class_status = 0;
@@ -200,8 +205,13 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                         }).success(function(datas, status, headers, config) {
                         
                        
-                        var response = datas;
-                     
+                        //var response = datas;
+                        if (datas.body && datas != "") {
+                               var response = JSON.parse(datas.body);
+                        }else{
+                            var response = "";    
+                        }
+                        
                         
                         if (response != null && response != "" && response.token) {
                          
@@ -396,15 +406,19 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
         }
         
         $scope.verify_captcha = function()
-        {
+        {   var rep = {};
+            //rep.secret   = "6LdgDyUTAAAAAHlJqEPPfg59c9e14SUxn0mL3C5u";
+            rep.captcha  = $scope.user.captcha;
+            rep.captcha.secret = "6LdgDyUTAAAAAHlJqEPPfg59c9e14SUxn0mL3C5u";;
+            
             $http({
-            url: 'https://www.google.com/recaptcha/api/verify', 
+            url: '/profile/validate_captcha', 
             method: 'POST',
-            params: {privatekey: "key", remoteip: "userip", challenge: "challenge", response: "user_answer" },
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            data:  "response="+$scope.user.captcha.response+"&challenge="+$scope.user.captcha.challenge+"&secret="+$scope.user.captcha.secret,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
                 }).success(function(data) {
             console.log(data);
-            if (valid) {
+            if (data) {
                 console.log('Success');
                 alert('Success');
 
@@ -413,18 +427,31 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                 alert('Fail');
 
                 // In case of a failed validation you need to reload the captcha because each challenge can be checked just once
-                //vcRecaptchaService.reload();
+              reCAPTCHA.reload();
             }
 
             });
+        }
+        
+        $scope.recaptchaValid = false;
+        recaptchaCalled = function() {
+            $scope.recaptchaValid = true;
+           //alert('pressedtt!');
+            //$scope.recaptchaValid = true;
+            $scope.enableform();
+        };
+        $scope.enableform = function()
+        {
+          console.log($scope.recaptchaValid);     
         }
         
         
         $scope.submitRegistrationform = function()
         {
                 
-                 if($scope.userSignupForm.$valid) {
+                if($scope.userSignupForm.$valid) {
                 $scope.showdialog = true;
+                //$scope.verify_captcha();
                 console.log('Form is valid');
                 }
                 

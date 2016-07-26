@@ -26,6 +26,9 @@ module.exports = function(app, express) {
     router.post('/signup_seller', profileCon.signup_seller);
     
     
+    router.post('/validate_captcha', profileCon.validate_captcha);
+    
+    
     /* Default */   
     app.use('/profile', router);
 }

@@ -7,16 +7,46 @@ Module : My account
 var fs         = require('fs');
 var moment     = require('moment-timezone');
 var path_venue = process.cwd()+'/public/images/venues/';
- var request = require('request');
+var request = require('request');
+
+// validate captcha
+exports.validate_captcha = function(req,res){
+ /*var post_data = querystring.stringify({
+    'secret' : SECRET,
+    'response': key
+  });*/
+ console.log(req.body);
+  request.post({
+        headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                   "Accept": "application/json"},
+        //host: 'www.google.com',
+        //port: '443',
+        //path: '/recaptcha/api/siteverify',
+        url:     'https://www.google.com/recaptcha/api/siteverify',
+        form:    req.body }, function(error, response, body){
+        if(error){
+          console.log(error);
+         res.json({"body":"","response":"",code:101});  
+        }
+        else{
+        console.log(response.body);
+        res.json({"body":body,"response":response});
+        }
+        
+  });
+ 
+}
+
 
 // showclix login
 exports.showclix_login = function(req,res){
-
+ var request = require('request');
  request.post({
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                    "Accept": "application/json"},
-        url:     'https://admin.showclix.com/api/registration',
-        form:    {"email":"manojks@smartdatainc.net","password":"manojks@2015"} }, function(error, response, body){
+        url:     'http://admin.showclix.com/api/registration',
+        form:    {"email":"varunb@smartdatainc.net","password":"ALIST1234"},
+        json: true}, function(error, response, body){
         if(error){
           console.log(error);
          res.json({"body":"","response":"",code:101});  
