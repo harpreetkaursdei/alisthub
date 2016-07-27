@@ -462,6 +462,10 @@ $scope.click_menu = function(menu, data, valid) {
       $rootScope.loader_div = true;
       $scope.formdata = response.result[0];
       if($scope.formdata !== undefined && $scope.formdata != ""){
+        if($scope.formdata.question != '') {
+          $scope.formdata.question_enable = 1; 
+        }
+        
         $scope.formdata.will_call = parseInt($scope.formdata.will_call);
         $scope.formdata.sales_immediatly = parseInt($scope.formdata.sales_immediatly);
         $scope.immediate();
