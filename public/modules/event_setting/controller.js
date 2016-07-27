@@ -318,6 +318,9 @@ angular.module('alisthub', ['google.places', 'angucomplete'])
                     $scope.data.showclix_token     = $localStorage.showclix_token;
                     $scope.data.showclix_user_id   = $localStorage.showclix_user_id;
                     $scope.data.showclix_seller_id = $localStorage.showclix_seller_id;
+                    $scope.data.showclix_venue_id  = $scope.data.showclix_venue_id;
+                    $scope.data.image              = $scope.data.image;
+                    $scope.data.seating_chart      = $scope.data.seating_chart;
                     $serviceTest.addVenue($scope.data, function(response) {
                         if (response.code == 200) {
                             $location.path("/view_venues/list");
@@ -336,7 +339,7 @@ Created : 2016-04-17
 Created By: Manoj
 Module : Venue
 */
-.controller('manageVenueController', function($scope, $localStorage, $injector, $http, $state, $location,ngTableParams) {
+.controller('manageVenueController', function($scope, $localStorage, $injector, $http, $state, $location,ngTableParams,$anchorScroll) {
 
     if (!$localStorage.isuserloggedIn) {
         $state.go('login');
@@ -373,7 +376,7 @@ Module : Venue
                             {
                                     data:$scope.venuedata
                             });
-                    
+                    $anchorScroll();
                 } else {
                     $scope.error_message = response.error;
                 }

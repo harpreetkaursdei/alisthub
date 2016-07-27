@@ -46,10 +46,12 @@
                                         <td width="7%" header-class="'header-text-align'" title="'City'" filter="{ country: 'text'}" sortable="'country'" >{{data.country}}</td>
                                         <td width="8%" header-class="'header-text-align'" title="'Zipcode'" filter="{ zipcode: 'text'}" sortable="'zipcode'">{{data.zipcode}}</td>
                                         <td width="22%" header-class="'header-text-align'" title="'Action'" class="action">
-                                            <a href="#/edit_venue/{{data.id}}"><i class="fa fa-edit"></i></a>
                                             <a ng-click="changeStatus(data.id,data.status)" ng-confirm-click="Would you like to change Venue status ?"><i class="fa fa-check-circle" ng-if="data.status == 1"></i><i class="fa fa-times" ng-if="data.status == 0"></i></a>
                                             <a href="#/venue_overview/{{data.id}}"><i class="fa fa-eye"></i></a>
-                                            <a ng-click="duplicateVenue(data.id)"><i class="fa fa-clone"></i></a>
+                                            
+					    <a href="#/edit_venue/{{data.id}}"><i class="fa fa-edit"></i></a>
+					    
+					    <a ng-click="duplicateVenue(data.id)"><i class="fa fa-clone"></i></a>
                                             <a ng-click="delVenue(data.id)" ng-confirm-clicks="Would you like to delete this Venue?"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
@@ -70,10 +72,10 @@
                         </section>
                         <section class="gr-right pull-right">
                             <ul class="legends">
-                                <li><i class="fa fa-pencil-square-o"></i> <span>Edit</span></li>
-                                <li><i class="fa fa-check-circle"></i><span>active</span></li>
-                                <li><i class="fa fa-clone"></i><span>Duplicate</span></li>
                                 <li><i class="fa fa-eye"></i><span>Overview</span></li>
+				<li><i class="fa fa-pencil-square-o"></i> <span>Edit</span></li>
+				<li><i class="fa fa-clone"></i><span>Duplicate</span></li>
+				<li><i class="fa fa-check-circle"></i><span>active</span></li>
                                 <li><i class="fa fa-trash"></i><span>delete</span></li>
                             </ul>
                         </section>
