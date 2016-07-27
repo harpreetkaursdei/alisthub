@@ -32,22 +32,17 @@ module.exports = function()
                             return next({status:1,location:response2.statusCode});
                             
                     });*/
-    
-    request.post({
-                headers: {'X-API-Token':req.body.showclix_token},
-                url:     showClix.addVenue,
-                form:    { "venue_name": req.body.venue_name,
+    var img_url = "http://52.39.212.226:4004/images/venues/";
+    var input = { "venue_name": req.body.venue_name,
               "seating_chart_name": "",
               "capacity": req.body.capacity,
-              "description": "test description",
+              "description": req.body.venue_name,
               "booking_info": null,
-              "image": null,
-              "seating_chart": null,
               "seating_chart_type": "2",
               "url": req.body.url,
               "contact_name": req.body.contact_name,
               "contact_title": null,
-              "address": "test Elante address",
+              "address": req.body.address,
               "city": req.body.city,
               "state": req.body.state,
               "zip": req.body.zipcode,
@@ -60,15 +55,49 @@ module.exports = function()
               "lat": req.body.latitude,
               "lng": req.body.longitude,
               "timezone_name": req.body.timezone
-            } }, function(error, response, body){
-                  console.log(response.statusCode);
-                   if (response.headers.location) {
+            };
+    
+    if (req.body.image && req.body.image !== undefined && req.body.image != "") {
+      input.image = img_url+req.body.image;
+    }
+    if (req.body.seating_chart && req.body.seating_chart !== undefined && req.body.seating_chart != "") {
+      input.seating_chart = img_url+req.body.seating_chart;
+    }
+    
+    if (req.body.showclix_venue_id && req.body.showclix_venue_id !== undefined && req.body.showclix_venue_id != "")    {
+      input.venue_id = req.body.showclix_venue_id.toString();
+       //////////////////////////////////////////////////////////////////////////////////////
+        request({
+                method:'PUT',
+                headers: {'Content-Type':'application/json','Pragma':'no-cache','X-API-Token':req.body.showclix_token},
+                url:     "http://api.showclix.com/Venue/"+req.body.showclix_venue_id,
+                body:    input,
+                json: true}, function(error, response, body){
+                 
+                  if (response.statusCode == 200 || response.statusCode == 201) {
+                    console.log("---------6-------");
+                    return next({status:1,location:req.body.showclix_venue_id});
+                  }
+                  else
+                  {
+                    console.log("---------5-------");
+                    return next({status:0,location:"","error":str});
+                  }
+                   
+          });
+          //////////////////////////////////////////////////////////////////////////////// 
+      
+    }
+    else
+    {
+              request.post({
+                headers: {'X-API-Token':req.body.showclix_token},
+                url:     showClix.addVenue,
+                form:    input }, function(error, response, body){
+                    if (response.headers.location) {
                     var venue_loc  = response.headers.location;
                     var venue_loc2 = venue_loc.split("/");
                     var venue_id   = venue_loc2[4];
-                    console.log(venue_id);
-                    console.log(req.body.showclix_seller_id);
-                    console.log(req.body.showclix_token);
                     ///////////////////////////////////////////////////
                     request.post({
                     headers: {'X-API-Token':req.body.showclix_token},
@@ -78,7 +107,13 @@ module.exports = function()
                             } }, function(error2, response2, body2){
                             console.log(response2.statusCode);
                             console.log(body2);
-                            return next({status:1,location:venue_loc});
+                            if (response2.statusCode == 200 || response2.statusCode == 201) {
+                             return next({status:1,location:venue_loc});
+                            }
+                            else{
+                             return next({status:0,location:""}); 
+                            }
+                            
                             
                     });
                     //////////////////////////////////////////////////
@@ -90,7 +125,8 @@ module.exports = function()
                                       
                    }
                    
-               });
+              });
+    }
     
   } 
     
