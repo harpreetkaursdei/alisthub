@@ -172,6 +172,12 @@
                   </div>
                 </section>
                 
+                <section class="grid-btn-top row">                      
+                  <section class="col-sm-12 right-btns text-left">
+<a target="_blank" href="/#/add_product" class="new_product_link"> Create a New Product</a>
+                  </section>
+                </section>
+
                 <section class="grid-bottm clearfix">
                   <section class="gr-right pull-right">
                     <ul class="legends">
@@ -458,14 +464,18 @@ ng-disabled="pricechangeform.$invalid"  type="submit">Submit</button>
                                     <section class="gray-frame">
                                      
                                       <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-12">
                                           <div class="form-group" ng-class="{true: 'error'}[submitted]">
                                             <label for="EventName">Name<span class="req">*</span></label>
                                             <input type="text" class="form-control" name="bundle_name" placeholder="Bundle name" ng-model="bundle.bundle_name" required/>
                                             <p class="help-inline error-fld ng-binding" ng-show="submitted && bundleForm.bundle_name.$error.required">Please enter bundle name</p>
                                           </div>
                                         </div>
-                                        <div class="col-sm-8">
+                                      </div>
+
+
+                                         <div class="row">
+                                        <div class="col-sm-12">
                                           <div class="form-group">
                                             <label for="EventName"> Description</label>
                                             <div class="bundle-editr" >
@@ -474,6 +484,8 @@ ng-disabled="pricechangeform.$invalid"  type="submit">Submit</button>
                                           </div>
                                         </div>
                                       </div>
+
+
                                       <div class="row">
                                         <div class="col-sm-4" >
                                           <div class="form-group">

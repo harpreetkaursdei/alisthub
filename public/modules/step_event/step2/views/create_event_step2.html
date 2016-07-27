@@ -211,6 +211,11 @@
                                   <a ng-click="delete_bundle('',$index,bundle.id)" style="cursor: pointer;"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
+
+                             <tr ng-if="bundleList == '' ">
+                                  <td colspan="4" align="left">You have not created a bundle for this event.</td>
+                            </tr>
+                            
                             <tr ng-show="loader_bundle">
                                   <td colspan="7" align="center"><img src="/images/icons/loader.gif"></td>
                             </tr>
@@ -270,6 +275,11 @@
                               </a>
                             </td>
                           </tr>
+
+                                <tr ng-if="eventProductList == '' ">
+                                  <td colspan="4" align="left">You have not created any products.</td>
+                            </tr>
+
                           <tr ng-show="loader_bundle">
                             <td colspan="7" align="center"><img src="/images/icons/loader.gif"></td>
                           </tr>
@@ -278,6 +288,12 @@
                   </div>
                 </section>
                 
+                       <section class="grid-btn-top row">                      
+                  <section class="col-sm-12 right-btns text-left">
+<a target="_blank" href="/#/add_product" class="new_product_link" > Create a New Product</a>
+                  </section>
+                </section>
+
                 <section class="grid-bottm clearfix">
                   <section class="gr-right pull-right">
                     <ul class="legends">
