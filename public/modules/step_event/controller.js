@@ -127,12 +127,14 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
           }
           else{
             $scope.select_venue($scope.venues[1]);
+            $scope.enable_empty_venue = "Currently, there is no venue list found.";
           }
         }
-        console.log("766666666666");  
+        
+        console.log(response.result+"766666666666");  
       } else {
         $scope.total_venue = [];
-        $scope.enable_empty_venue = "Currently, There is no venue list found.";
+        $scope.enable_empty_venue = "Currently, there is no venue list found.";
         console.log("444444444444444");  
       }
 

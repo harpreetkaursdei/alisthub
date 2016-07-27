@@ -107,7 +107,7 @@
                             <div class="col-sm-12 col-md-6">
                                 <ul class="nav nav-tabs responsive-tabs">
                                     <li ng-repeat="venue in venues" ng-click="select_venue(venue)" ng-class="{active: isActive1(venue)}"><a class="pointer" href="javascript:void(0)">{{venue.name}}</a> </li>
-                                    <li ng-if="enable_empty_venue != ''">{{enable_empty_venue}}</li>
+                                    
                                 </ul>
                                 <div class="tab-content">
                                     <div role="tabpanel" id="venue-event" ng-hide="venue_event_div">
@@ -182,6 +182,7 @@
                                     <div class="row">
                                         <div class="col-sm-12 loc-list ScrollVenueList">
                                             <ul>
+                                                <li ng-if="enable_empty_venue != ''">{{enable_empty_venue}}</li>
                                                 <li ng-repeat="venue in total_venue track by $index">
                                                     <i class="fa fa-map-marker"></i>
                                                     <a ng-click="venue_info(venue,1)">{{venue.venue_name}}</a>

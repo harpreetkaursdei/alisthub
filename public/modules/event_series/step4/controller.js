@@ -15,6 +15,14 @@ $scope.error_message = true;
   Created : 2016-06-23
   Created By:  Manoj Kumar Singh  
   */
+  if($stateParams.eventId!==undefined){
+  $scope.RefEvnetId = $stateParams.eventId;
+  var event_id=$stateParams.eventId;
+    $serviceTest.getEvent({'event_id':event_id},function(response) {
+      $scope.data=response.results[0];
+    })
+  }
+
   
   if (!$stateParams.eventId){
     
@@ -30,7 +38,7 @@ $scope.error_message = true;
     $scope.selectedClass = 1;
     //To go to step1 event Details
     if (menu.id === 5) {
-      if($stateParams.eventId!=undefined){
+      if($stateParams.eventId!==undefined){
         $location.path("/create_series_step1/"+$stateParams.eventId);
       } else {
         $location.path("/create_series_step1");
@@ -220,7 +228,11 @@ $scope.selected2 = $scope.steps[3];
   } else {
     var current = new Date(now.getFullYear(), now.getMonth() + 1, 1);
   }
-
+  
+  $scope.formats = ['MM-dd-yyyy','yyyy-MM-dd', 'dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
+    $scope.altInputFormats = ['M!/d!/yyyy'];
+  
   $scope.inlineOptions = {
     customClass: getDayClass,
     minDate: new Date(),
@@ -411,7 +423,10 @@ $scope.selected2 = $scope.steps[3];
 
     if ($localStorage.userId !== undefined) {
       $scope.formdata.user_id = $localStorage.userId;
-     
+      $scope.formdata.showclix_token     = $localStorage.showclix_token;
+      $scope.formdata.showclix_user_id   = $localStorage.showclix_user_id;
+      $scope.formdata.showclix_seller_id = $localStorage.showclix_seller_id;
+      $scope.formdata.showclix_id        = $scope.data.showclix_id;
       $serviceTest.saveSeriesSetting($scope.formdata, function(response) {
 
           if (response.code === 200) {

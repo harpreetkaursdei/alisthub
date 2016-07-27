@@ -211,7 +211,18 @@ $scope.click_menu = function(menu, data, valid) {
   $scope.isActive2 = function(step2) {
     return $scope.selected2 === step2;
   };
-
+  
+  $scope.formats = ['MM-dd-yyyy','yyyy-MM-dd', 'dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.format = $scope.formats[0];
+  $scope.altInputFormats = ['M!/d!/yyyy'];
+     
+  
+  $scope.inlineOptions = {
+    customClass: getDayClass,
+    minDate: new Date(),
+    showWeeks: false
+  };
+  
   // Datepicker stuff
   var now = new Date();
   if (now.getMonth() === 11) {
@@ -265,6 +276,9 @@ $scope.click_menu = function(menu, data, valid) {
     $scope.popup6.opened = true;
   };
   
+  $scope.popup = {
+    opened: false
+  };
   $scope.popup1 = {
     opened: false
   };
@@ -342,7 +356,7 @@ $scope.click_menu = function(menu, data, valid) {
         }
       }
       return '';
-    }
+  }
   // Datepicker end
 
   //timepicker

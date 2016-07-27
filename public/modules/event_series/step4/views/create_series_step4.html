@@ -61,7 +61,7 @@
                                         <section class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group datepicker">
-                                                    <input type="date" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.print_enable_date.date" is-open="popup5.opened" datepicker-options="dateOptions3" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" />
+                                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.print_enable_date.date" is-open="popup5.opened" datepicker-options="dateOptions3" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" />
                                                     <span class="input-group-btn">
                                                     <button type="button" class="btn btn-default" ng-click="open5()"><i class="glyphicon glyphicon-calendar"></i></button></span>
                                                 </div>
@@ -161,7 +161,7 @@
                         <section class="row">
                             <div class="col-sm-4">
                                 <div class="form-group datepicker" ng-class="{ 'has-error' : eventSettingForm.online_sales_close.$dirty && eventSettingForm.online_sales_close.$invalid }">
-                                    <input type="date" class="form-control" uib-datepicker-popup="{{format}}"  ng-model="formdata.online_sales_close.date" is-open="popup4.opened" datepicker-options="dateOptions6" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" name="online_sales_close" required/>
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}"  ng-model="formdata.online_sales_close.date" is-open="popup4.opened" datepicker-options="dateOptions6" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" name="online_sales_close" required/>
                                     <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="open4()"><i class="glyphicon glyphicon-calendar"></i></button></span>
                                 </div>
