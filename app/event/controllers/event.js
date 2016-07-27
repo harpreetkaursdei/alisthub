@@ -1685,7 +1685,15 @@ exports.getEventStep3Html=function(req, res){
                 res.json({error:err,code:101});
                }
                
-               res.send(results[0].html);
+               if (results.length>0) {
+                var str=results[0].html;
+                var resultingHtml=str.replace(/ng-bind-html/g,'attr');
+                res.send(resultingHtml);
+               }else{
+                
+               res.send(''); 
+               }
+               
             });
     
 }

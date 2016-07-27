@@ -1,10 +1,11 @@
+
 angular.module('alisthub')
     .controller('contactController', function($scope, $localStorage, $http, $state, $location, ngTableParams, $timeout, $window, $rootScope, $injector, $stateParams) {
 
         var $serviceConnect = $injector.get("contact_us");
 
         var eventService = $injector.get("events");
-   
+
  $scope.locations = [];
     $scope.locations[0] = [];
     var latitude={lat: 37.990000, lng: -122.590000}
@@ -38,16 +39,19 @@ angular.module('alisthub')
                     if (response.code == 200) {
                        $state.go('contact_us');                  
                         $scope.success_message1= true;
+                        //$scope.error_message1=true;
                         
                         $scope.data={};
                         $scope.data.name="Enter your name";
                         $scope.data.email="test@example.com";
                         $scope.data.subject="Enter your subject";
                         $scope.success=global_message.infoSaved;
+                        $scope.error='';
                         //$scope.data='';
                           $timeout(function() {
                               $scope.error='';
                               $scope.success_message1=false;
+                              $scope.error_message1=false;
                               $scope.success='';
                            },3000);
                     } else {
