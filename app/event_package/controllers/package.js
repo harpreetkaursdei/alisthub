@@ -20,6 +20,24 @@ exports.stepOneEventPackage = function(req, res) {
         });
     }
 
+var s_clix_array = [];
+    var query_showclix_ids = "select id, showclix_id from events where id IN(" +  req.body.event_ids +")"; 
+        connection.query(query_showclix_ids, function(err_showclix_ids, results_showclix_ids) {
+            if (err_showclix_ids) {
+                res.json({ error: err_showclix_ids, code: 101 });
+            }
+
+            
+            for(var index in results_showclix_ids) {
+                var e_id =  results_showclix_ids[index].id  ;
+                var s_clix_id = results_showclix_ids[index].showclix_id ;
+                s_clix_array[e_id] = s_clix_id;
+            }
+        });
+
+console.log('------------s_clix_array-----------------');
+console.log( s_clix_array );
+
         if (req.body.imageData && req.body.imageData != "" && req.body.imageData != undefined) {
 
             var path_event = process.cwd() + '/public/images/events';
@@ -61,6 +79,8 @@ exports.stepOneEventPackage = function(req, res) {
         req.body.status = 5;
         req.body.showclix_user = req.body.showclix_user_id;
         req.body.showclix_seller = req.body.showclix_seller_id;
+
+
 
         data = req.body;
         data.image_full_url = image_url + "events/" + req.body.image;
@@ -112,7 +132,9 @@ exports.stepOneEventPackage = function(req, res) {
                                 }
                             });
 
-console.log('req.body.event_ids ' , req.body.event_ids);
+
+
+
                             for (var index in req.body.event_ids) {
                                 if (req.body.event_ids[index] != undefined) {
                                     var event = req.body.event_ids[index];

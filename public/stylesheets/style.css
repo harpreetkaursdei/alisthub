@@ -47,6 +47,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width:48%;
 }
 
+.new_product_link , .new_product_link:hover {
+  text-decoration: none;
+    margin-left: 10px;
+    font: bolder;
+}
+ 
 /* custom error messages for assign discount*/
 .custom_error {
     background: rgba(200, 0, 0, 0.2) none repeat scroll 0 0;
