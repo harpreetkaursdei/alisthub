@@ -451,6 +451,9 @@ $scope.selected2 = $scope.steps[3];
     $scope.formdata = response.result[0];
     
     if($scope.formdata !== undefined && $scope.formdata != ""){
+       if($scope.formdata.question != '') {
+          $scope.formdata.question_enable = 1; 
+        }
       $scope.formdata.will_call = parseInt($scope.formdata.will_call);
       $scope.formdata.sales_immediatly = parseInt($scope.formdata.sales_immediatly);
       $scope.immediate();
