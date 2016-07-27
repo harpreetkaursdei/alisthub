@@ -1,16 +1,10 @@
 <style>
-  .label-padding{ padding-top: 5% ; padding-left: 0 !important; margin-left: 0 !important;}
-  .info-padding {padding-top: 1.5%;}
-  .collect-name { margin-top: 2% !important; padding-top: 5% !important;}
-  .left-margin-zero { margin-left: 0 !important; padding-left: 0 !important; }
-  /*.gray-frame { border-radius: 30px; }*/
+    .label-padding{ padding-top: 5% ; padding-left: 0 !important; margin-left: 0 !important;}
 </style>
-
 <script src="javascripts/timepicker.js" type="text/javascript"></script>
 <link rel="stylesheet" href="stylesheets/timepicker.css" type="text/css" />
-
 <div class="container">
-  <div ng-show="pageloader"></div>
+    <div ng-show="pageloader"></div>
     <h1>Create an Event</h1>
     <!-- Step Form -->
     <div class="stage-container clearfix">
@@ -21,26 +15,23 @@
     </div>
     <!-- //Step Form -->
     <!-- Form COntainer -->
-    <span ng-hide="error_message"><p class="error-fld" >{{error}}</p></span>
+    <span ng-hide="error_message">
+        <p class="error-fld" >{{error}}</p>
+    </span>
     <div class="form-section  wt-frame">
-        <style>
-        .border {
-            border: 2px solid black;
-        }
-        </style>
         <div ng-hide="setting_div">
-          <span ng-show="success_message" class="ng-hide"><p class="success-fld ng-binding">{{success_setting_message}}</p></span>
+            <span ng-show="success_message" class="ng-hide">
+                <p class="success-fld ng-binding">{{success_setting_message}}</p>
+            </span>
             <form name="eventSettingForm" class="event-form"  ng-submit="save_setting(formdata)" novalidate>
-
-            <section class="form-group field-group">
-            <label>Delivery Methods</label>
-            <section class="gray-frame sub-fields">
-                <label>Print at Home</label>
-                <section class="row">
-
-                    <section class="col-sm-6">
-                        <section class="radio-sec">
-                           <section class="radio-inline">
+                <section class="form-group field-group">
+                    <label>Delivery Methods</label>
+                    <section class="gray-frame sub-fields">
+                        <label>Print at Home</label>
+                        <section class="row">
+                            <section class="col-sm-6">
+                                <section class="radio-sec">
+                                    <section class="radio-inline">
                                         <input type="radio" name="radio1" id="radio1" ng-model="formdata.print_home" value="1">
                                         <label for="radio1"><span></span>Always Available</label>
                                     </section>
@@ -52,18 +43,13 @@
                                         <input type="radio" name="radio1" id="radio3" ng-model="formdata.print_home" value="3">
                                         <label for="radio3"><span></span>Set Dates</label>
                                     </section>
-                       </section>
-                     
-                        <button type="button" class="desc_1 pink-btn btn btn-small" ng-hide="desc_box_1" ng-click="desc_box_1=true">Add a Description</button>
-
-                        <a class="close_description desc_1_event" ng-click="desc_box_1=false" ng-show="desc_box_1">
-          <span class="glyphicon glyphicon-remove"></span> Close
-        </a>
-
-                        <textarea class="desc_1 input form-control" ng-show="desc_box_1"  rows="7" ng-model="formdata.print_description"></textarea>
-
-
-                        <section ng-if="formdata.print_home == 3">
+                                </section>
+                                <button type="button" class="desc_1 pink-btn btn btn-small" ng-hide="desc_box_1" ng-click="desc_box_1=true">Add a Description</button>
+                                <a class="close_description desc_1_event" ng-click="desc_box_1=false" ng-show="desc_box_1">
+                                <span class="glyphicon glyphicon-remove"></span> Close
+                                </a>
+                                <textarea class="desc_1 input form-control" ng-show="desc_box_1"  rows="7" ng-model="formdata.print_description"></textarea>
+                                <section ng-if="formdata.print_home == 3">
                                     <div class="" style="display: block; margin: 10px;">
                                         <section class="row">
                                             <div class="col-sm-4">
@@ -72,7 +58,7 @@
                                                 </div>
                                             </div>
                                         </section>
-                                               <section class="row">
+                                        <section class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group datepicker">
                                                     <input type="date" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.print_enable_date.date" is-open="popup5.opened" datepicker-options="dateOptions3" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" />
@@ -82,11 +68,10 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="input-group bootstrap-timepicker timepicker">
-                                                  <input  ng-model="formdata.print_enable_date.time" class="form-control input-small timepick" type="text"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
+                                                    <input  ng-model="formdata.print_enable_date.time" class="form-control input-small timepick" type="text"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
                                                 </div>
                                             </div>
                                         </section>
-
                                     </div>
                                     <div class="" style="display: block; margin: 10px;">
                                         <section class="row">
@@ -98,51 +83,44 @@
                                         </section>
                                         <section class="row">
                                             <div class="col-sm-6">
-                                                    <div class="form-group datepicker">
-                                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.print_disable_date.date" is-open="popup6.opened" datepicker-options="dateOptions4" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" />
-                                                        <span class="input-group-btn">
-                                                        <button type="button" class="btn btn-default" ng-click="open6()"><i class="glyphicon glyphicon-calendar"></i></button></span>
-                                                    </div>
+                                                <div class="form-group datepicker">
+                                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.print_disable_date.date" is-open="popup6.opened" datepicker-options="dateOptions4" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" />
+                                                    <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default" ng-click="open6()"><i class="glyphicon glyphicon-calendar"></i></button></span>
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
-                                              <div class="input-group bootstrap-timepicker timepicker">
-                                                <input  ng-model="formdata.print_disable_date.time" ng-change=""  class="form-control input-small timepick" type="text" id="timepicker2"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
-                                              </div>
+                                                <div class="input-group bootstrap-timepicker timepicker">
+                                                    <input  ng-model="formdata.print_disable_date.time" ng-change=""  class="form-control input-small timepick" type="text" id="timepicker2"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
+                                                </div>
                                             </div>
                                         </section>
                                     </div>
                                 </section>
-
-                    </section>
-
-
-                    <section class="col-sm-6 mob-mt20">
-                       <section class="radio-sec custom-check">
+                            </section>
+                            <section class="col-sm-6 mob-mt20">
+                                <section class="radio-sec custom-check">
                                     <p class="radio-inline">
                                         <input type="checkbox" id="test1" ng-model="formdata.will_call" ng-true-value="1" ng-false-value="0">
                                         <label for="test1">Will Call</label>
                                     </p>
                                 </section>
                                 <section class="row">
-                                    <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_2" ng-click="desc_box_2=true">Add a Description</button>
-                                    
-<a class="close_description desc_2_event" ng-click="desc_box_2=false" ng-show="desc_box_2">
-          <span class="glyphicon glyphicon-remove"></span> Close
-        </a>
-
+                                    <button type="button" class="desc_2_button pink-btn btn btn-small" ng-hide="desc_box_2" ng-click="desc_box_2=true">Add a Description</button>
+                                    <a class="close_description desc_2_event" ng-click="desc_box_2=false" ng-show="desc_box_2">
+                                    <span class="glyphicon glyphicon-remove"></span> Close
+                                    </a>
                                     <textarea class="desc_2 form-control input" ng-show="desc_box_2" rows="7" ng-model="formdata.will_call_description"> </textarea>
                                 </section>
-
+                            </section>
+                        </section>
                     </section>
                 </section>
-            </section>
-          </section>
-
                 <!--/Delivery Methods-->
                 <section class="form-group field-group">
                     <section class="row">
-                <label class="col-md-2 col-sm-4">Sales Times</label>
-            </section>
+                        <label class="col-md-2 col-sm-4">Sales Times</label>
+                    </section>
                     <section class="gray-frame sub-fields">
                         <section class="row">
                             <div class="col-sm-4">
@@ -151,33 +129,33 @@
                         </section>
                         <section class="row">
                             <div class="col-sm-4">
-                                    <div class="form-group datepicker" ng-class="{ 'has-error' : eventSettingForm.online_sales_open.$dirty && eventSettingForm.online_sales_open.$invalid }">
-                                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.online_sales_open.date" is-open="popup3.opened" datepicker-options="dateOptions5" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" ng-disabled="show_imm == 1" name="online_sales_open" required/>
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-default" ng-click="open3()"><i class="glyphicon glyphicon-calendar"></i></button>
-                                        </span>
-                                    </div>
-                                    <p class="help-inline error-fld ng-binding"  ng-show="eventSettingForm.online_sales_open.$dirty && eventSettingForm.online_sales_open.$invalid">Date is required</p>
+                                <div class="form-group datepicker" ng-class="{ 'has-error' : eventSettingForm.online_sales_open.$dirty && eventSettingForm.online_sales_open.$invalid }">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formdata.online_sales_open.date" is-open="popup3.opened" datepicker-options="dateOptions5" close-text="Close" alt-input-formats="altInputFormats" ng-change="recurring_period('start')" ng-disabled="show_imm == 1" name="online_sales_open" required/>
+                                    <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open3()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </div>
+                                <p class="help-inline error-fld ng-binding"  ng-show="eventSettingForm.online_sales_open.$dirty && eventSettingForm.online_sales_open.$invalid">Date is required</p>
                             </div>
                             <div class="col-sm-4">
-                              <div class="input-group bootstrap-timepicker timepicker">
-                                <input  ng-model="formdata.online_sales_open.time" ng-change=""  class="form-control input-small timepick" type="text" ng-disabled="show_imm == 1" id="timepicker1"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
-                              </div>
+                                <div class="input-group bootstrap-timepicker timepicker">
+                                    <input  ng-model="formdata.online_sales_open.time" ng-change=""  class="form-control input-small timepick" type="text" ng-disabled="show_imm == 1" id="timepicker1"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
+                                </div>
                             </div>
                         </section>
                         <section class="row" style="margin-bottom: 30px;">
-                              <div class="col-sm-12">
+                            <div class="col-sm-12">
                                 <section class="radio-sec custom-check">
                                     <p class="radio-inline">
                                         <input type="checkbox" id="test2"  ng-model="formdata.sales_immediatly" ng-true-value="1" ng-false-value="0" ng-click="immediate()">
                                         <label for="test2">Immediately</label>
                                     </p>
                                 </section>
-                              </div>
+                            </div>
                         </section>
                         <section class="row">
                             <div class="col-sm-4">
-                                    <label>Online Sales Close<span class="req">*</span></label>
+                                <label>Online Sales Close<span class="req">*</span></label>
                             </div>
                         </section>
                         <section class="row">
@@ -190,306 +168,267 @@
                                 <p class="help-inline error-fld ng-binding"  ng-show="eventSettingForm.online_sales_close.$dirty && eventSettingForm.online_sales_close.$invalid">Date is required</p>
                             </div>
                             <div class="col-sm-4">
-                              <div class="input-group bootstrap-timepicker timepicker">
-                                <input  ng-model="formdata.online_sales_close.time" ng-change=""  class="form-control input-small timepick" type="text"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
-                              </div>
+                                <div class="input-group bootstrap-timepicker timepicker">
+                                    <input  ng-model="formdata.online_sales_close.time" ng-change=""  class="form-control input-small timepick" type="text"/><span class="input-group-addon timepick1"><i class="glyphicon glyphicon-time"></i></span>
+                                </div>
                             </div>
                         </section>
                         <span style="font: red;">{{date_error_message}}</span>
                     </section>
                 </section>
                 <!--/Sales Times-->
-
-              
                 <!--Donations-->
-
-            <section class="form-group field-group">
-            <section class="row">
-              <label class="col-md-2 col-sm-4">Donations </label>
-              <section class="col-md-4 col-sm-4">
-                    <div class="onoffswitch mt-3">
+                <section class="form-group field-group">
+                    <section class="row">
+                        <label class="col-md-2 col-sm-4">Donations </label>
+                        <section class="col-md-4 col-sm-4">
+                            <div class="onoffswitch mt-3">
                                 <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="formdata.donation" ng-true-value="1" ng-false-value="0">
                                 <label class="onoffswitch-label" for="myonoffswitch"></label>
                             </div>
+                        </section>
+                    </section>
+                    <section class="gray-frame sub-fields" ng-if="formdata.donation == 1">
+                        <section class="row" >
+                            <section class="form-group">
+                                <div class="col-sm-3">
+                                    <label class="label-padding">Donation Name</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text"  class="form-control" value="" name="StartTime" ng-model="formdata.donation_name">
+                                </div>
+                            </section>
+                        </section>
+                    </section>
                 </section>
-            </section>
-            <section class="gray-frame sub-fields" ng-if="formdata.donation == 1">               
-              <section class="row" >
-                        <section class="form-group">
-                            <div class="col-sm-3">
-                                <label class="label-padding">Donation Name</label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text"  class="form-control" value="" name="StartTime" ng-model="formdata.donation_name">
+                <!--/Donations-->
+                <!--custom Fee-->
+                <section class="form-group field-group">
+                    <section class="row">
+                        <label class="col-md-2 col-sm-4">Custom Fee </label>
+                        <section class="col-md-4 col-sm-4">
+                            <div class="onoffswitch mt-3">
+                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked ng-model="formdata.custom_fee" ng-true-value='1' ng-false-value='0'>
+                                <label class="onoffswitch-label" for="myonoffswitch2"></label>
                             </div>
                         </section>
                     </section>
-            </section>
-          </section><!--/Donations-->
-
-            
-
-
-
-
-<!--custom Fee-->
-        <section class="form-group field-group">
-            <section class="row">
-              <label class="col-md-2 col-sm-4">Custom Fee </label>
-              <section class="col-md-4 col-sm-4">
-                     <div class="onoffswitch mt-3">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch2" checked ng-model="formdata.custom_fee" ng-true-value='1' ng-false-value='0'>
-                        <label class="onoffswitch-label" for="myonoffswitch2"></label>
-                    </div>
-                </section>
-            </section>
-            <section class="gray-frame sub-fields" ng-if="formdata.custom_fee == 1">             
-               <section class="row">
-                    <section class="col-sm-6">
-                        <section class="form-group">
-                            <label>Fee Name</label>
-                           <input type="text" class="form-control" value=" " name="custom_fee_name" ng-model="formdata.custom_fee_name">
+                    <section class="gray-frame sub-fields" ng-if="formdata.custom_fee == 1">
+                        <section class="row">
+                            <section class="col-sm-6">
+                                <section class="form-group">
+                                    <label>Fee Name</label>
+                                    <input type="text" class="form-control" value=" " name="custom_fee_name" ng-model="formdata.custom_fee_name">
+                                </section>
+                            </section>
                         </section>
-                    </section>
-               </section>
-               
-               <section class="row">
-                    <section class="col-sm-4">
-                        <section class="form-group">
-                            <label>Fee Type</label>
-                             <select class="form-control" name="custom_fee_type" ng-model="formdata.custom_fee_type">
+                        <section class="row">
+                            <section class="col-sm-4">
+                                <section class="form-group">
+                                    <label>Fee Type</label>
+                                    <select class="form-control" name="custom_fee_type" ng-model="formdata.custom_fee_type">
                                         <option value="1">Fixed Amount</option>
                                         <option value="2">Percentage</option>
                                     </select>
-                        </section>
-                    </section>
-                    
-                    <section class="col-sm-4">
-                        <section class="form-group">
-                            <label>Amount ($)</label>
-                            <input type="text" class="event_number_wd form-control" value="" name="custom_fee_amount"  ng-model="formdata.custom_fee_amount">
-                        </section>
-                    </section>
-                    
-                    <section class="col-sm-4">
-                        <section class="form-group">
-                            <label>When to Apply Fee</label>
-                             <select class="form-control" name="custom_when" ng-model="formdata.custom_when">
+                                </section>
+                            </section>
+                            <section class="col-sm-4">
+                                <section class="form-group">
+                                    <label>Amount ($)</label>
+                                    <input type="text" class="event_number_wd form-control" value="" name="custom_fee_amount"  ng-model="formdata.custom_fee_amount">
+                                </section>
+                            </section>
+                            <section class="col-sm-4">
+                                <section class="form-group">
+                                    <label>When to Apply Fee</label>
+                                    <select class="form-control" name="custom_when" ng-model="formdata.custom_when">
                                         <option value="1">Before Discount</option>
                                         <option value="2">After Discount</option>
                                     </select>
+                                </section>
+                            </section>
                         </section>
                     </section>
-               </section>
-            </section>
-          </section><!--/Custom Fee-->
-
-            
-<!--Question-->
-          
-          <section class="form-group field-group">
-            <section class="row">
-                <label class="col-md-2 col-sm-4">Question </label>
-                <section class="col-md-4 col-sm-4">
-                    <div class="onoffswitch mt-3">
-                        <input type="checkbox" name="custom_fee_switch" class="onoffswitch-checkbox" id="custom_fee_switch" ng-model="formdata.question_enable" ng-true-value='1' ng-false-value='0'>
-                        <label class="onoffswitch-label" for="custom_fee_switch"></label>
-                    </div>
                 </section>
-            </section>
-            <section class="gray-frame sub-fields" ng-if="formdata.question_enable == 1">             
-               <section class="row">
-                    <section class="col-sm-6">
-                        <section class="form-group">
-                            <label>Type</label>
-                           <select class="form-control" ng-model="formdata.question_type">
+                <!--/Custom Fee-->
+                <!--Question-->
+                <section class="form-group field-group">
+                    <section class="row">
+                        <label class="col-md-2 col-sm-4">Question </label>
+                        <section class="col-md-4 col-sm-4">
+                            <div class="onoffswitch mt-3">
+                                <input type="checkbox" name="custom_fee_switch" class="onoffswitch-checkbox" id="custom_fee_switch" ng-model="formdata.question_enable" ng-true-value='1' ng-false-value='0'>
+                                <label class="onoffswitch-label" for="custom_fee_switch"></label>
+                            </div>
+                        </section>
+                    </section>
+                    <section class="gray-frame sub-fields" ng-if="formdata.question_enable == 1">
+                        <section class="row">
+                            <section class="col-sm-6">
+                                <section class="form-group">
+                                    <label>Type</label>
+                                    <select class="form-control" ng-model="formdata.question_type">
                                         <option value="1">Fixed Amount</option>
                                     </select>
+                                </section>
+                            </section>
                         </section>
-                    </section>
-               </section>
-               
-               <section class="row">
-                    <section class="col-sm-8">
-                        <section class="form-group">
-                            <label>Question</label>
-<textarea name="textarea" class="form-control" cols=" " rows="5" ng-model="formdata.question"></textarea>                        </section>
-                    </section>
-                   
-               </section>
-               
-               <section class="row">
-                <label class="col-md-2 col-sm-4">Required</label>
-                <section class="col-md-4 col-sm-4">
-                    <div class="onoffswitch mt-3">
+                        <section class="row">
+                            <section class="col-sm-8">
+                                <section class="form-group">
+                                    <label>Question</label>
+                                    <textarea name="textarea" class="form-control" cols=" " rows="5" ng-model="formdata.question"></textarea>                        
+                                </section>
+                            </section>
+                        </section>
+                        <section class="row">
+                            <label class="col-md-2 col-sm-4">Required</label>
+                            <section class="col-md-4 col-sm-4">
+                                <div class="onoffswitch mt-3">
                                     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch4"  ng-model="formdata.question_required" ng-true-value="1" ng-false-value="0">
                                     <label class="onoffswitch-label" for="myonoffswitch4"></label>
                                 </div>
+                            </section>
+                        </section>
+                    </section>
                 </section>
-            </section>
-            </section>
-          </section>
-          
-  <!--/Question-->
-
-
-
-                
-<section class="form-group field-group">             
-            <section class="row">
-                <label class="col-md-2 col-sm-4">Additional Settings </label>
-            </section>
-               
-               <section class="gray-frame sub-fields">              
-                   <section class="row">
-
-                        <section class="col-sm-6">
-                            <section class="row">
-                                <section class="col-sm-6">
-                                     <section class="form-group">
-                                        <label>Online Service Fee</label>
-                                         <input type="text" class="event_number_wd form-control" value="" name="StartTime" ng-model="formdata.online_service_fee">
-                                       <p class="info-customizedtext">%Covered</p>
+                <!--/Question-->
+                <section class="form-group field-group">
+                    <section class="row">
+                        <label class="col-md-2 col-sm-4">Additional Settings </label>
+                    </section>
+                    <section class="gray-frame sub-fields">
+                        <section class="row">
+                            <section class="col-sm-6">
+                                <section class="row">
+                                    <section class="col-sm-6">
+                                        <section class="form-group">
+                                            <label>Online Service Fee</label>
+                                            <input type="text" class="event_number_wd form-control" value="" name="StartTime" ng-model="formdata.online_service_fee">
+                                            <p class="info-customizedtext">%Covered</p>
+                                        </section>
                                     </section>
-                                </section>
-                                
-                                <section class="col-sm-6">
-                                     <section class="form-group">
-                                        <label>Box Office Service Fee</label>
-                                        <input type="text"  class="event_number_wd form-control" value="" name="StartTime" ng-model="formdata.box_office_service_fee">
-                                        <p class="info-customizedtext">%Covered</p>
+                                    <section class="col-sm-6">
+                                        <section class="form-group">
+                                            <label>Box Office Service Fee</label>
+                                            <input type="text"  class="event_number_wd form-control" value="" name="StartTime" ng-model="formdata.box_office_service_fee">
+                                            <p class="info-customizedtext">%Covered</p>
+                                        </section>
                                     </section>
                                 </section>
                             </section>
-                        </section>
-
-                        <section class="col-sm-6">
-                         <section class="row">
-                                <section class="col-sm-12">
-                          <section class="form-group">
-                                <label>Ticket Note</label>
-                                <input type="text" name="StartTime" value="" class="form-control"   ng-model="formdata.ticket_note">
-                            </section>
-                             </section>
-                                </section>
-                        </section>
-                   </section>
-                   
-                 <section class="row">
-                        <section class="col-sm-6">
-                            <section class="row">
-                                <section class="col-sm-6">
-                                     <section class="form-group">
-                                        <label>Ticket Transaction Limit</label>
-                                       <input type="text" class="event_number_wd form-control" value="" name="StartTime"  ng-model="formdata.ticket_transaction_limit">
-                                    </section>
-                                </section>
-                                
-                                <section class="col-sm-6">
-                                     <section class="form-group">
-                                        <label>Checkout Time Limit</label>
-                                         <input type="text" class="event_number_wd form-control" value="" name="StartTime"  ng-model="formdata.checkout_time_limit">
+                            <section class="col-sm-6">
+                                <section class="row">
+                                    <section class="col-sm-12">
+                                        <section class="form-group">
+                                            <label>Ticket Note</label>
+                                            <input type="text" name="StartTime" value="" class="form-control"   ng-model="formdata.ticket_note">
+                                        </section>
                                     </section>
                                 </section>
                             </section>
                         </section>
-                        <section class="col-sm-6">
-                         <section class="row">
-                                <section class="col-sm-12">
-                          <section class="form-group">
-                                <label>Ticket Layout</label>
-                                <input type="text" name="StartTime" value="" class="form-control"  ng-model="formdata.ticket_layout">
+                        <section class="row">
+                            <section class="col-sm-6">
+                                <section class="row">
+                                    <section class="col-sm-6">
+                                        <section class="form-group">
+                                            <label>Ticket Transaction Limit</label>
+                                            <input type="text" class="event_number_wd form-control" value="" name="StartTime"  ng-model="formdata.ticket_transaction_limit">
+                                        </section>
+                                    </section>
+                                    <section class="col-sm-6">
+                                        <section class="form-group">
+                                            <label>Checkout Time Limit</label>
+                                            <input type="text" class="event_number_wd form-control" value="" name="StartTime"  ng-model="formdata.checkout_time_limit">
+                                        </section>
+                                    </section>
+                                </section>
                             </section>
-                        </section>
-                         </section>
-                        </section>
-                 </section>
-
-
-                   <section class="row">
-                        <section class="col-sm-6">
-                            <section class="row">
-                                <section class="col-sm-12">
-                                     <section class="form-group">
-                                        <label>Collect Name on Each Ticket</label>
-                                       <div class="onoffswitch mt-3">
-                                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch5" ng-model="formdata.collect_name" ng-true-value='1' ng-false-value='0'>
-                                  <label class="onoffswitch-label" for="myonoffswitch5"></label>
-                              </div>
+                            <section class="col-sm-6">
+                                <section class="row">
+                                    <section class="col-sm-12">
+                                        <section class="form-group">
+                                            <label>Ticket Layout</label>
+                                            <input type="text" name="StartTime" value="" class="form-control"  ng-model="formdata.ticket_layout">
+                                        </section>
                                     </section>
                                 </section>
                             </section>
                         </section>
-                 </section>
-                   
-                  
-            </section>
-          </section><!--/Additional Settings-->
-          
-
-
-
-<section class="form-group field-group">
-              <section class="row">
-                <label class="col-md-2 col-sm-4">Public Contact Info</label>
-            </section>
-            
-            <section class="gray-frame sub-fields">             
-               <section class="row">
-                    <section class="col-sm-4">
-                        <section class="form-group">
-                            <label>Public Name</label>
-                          <input type="text" class="form-control"  name="public_contact_name" ng-model="formdata.public_contact_name"> 
+                        <section class="row">
+                            <section class="col-sm-6">
+                                <section class="row">
+                                    <section class="col-sm-12">
+                                        <section class="form-group">
+                                            <label>Collect Name on Each Ticket</label>
+                                            <div class="onoffswitch mt-3">
+                                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch5" ng-model="formdata.collect_name" ng-true-value='1' ng-false-value='0'>
+                                                <label class="onoffswitch-label" for="myonoffswitch5"></label>
+                                            </div>
+                                        </section>
+                                    </section>
+                                </section>
+                            </section>
                         </section>
                     </section>
-                    
-                    <section class="col-sm-4">
-                        <section class="form-group">
-                            <label>Public Email</label>
-                          <input type="text" class="form-control"  name="public_contact_email" ng-model="formdata.public_contact_email">
+                </section>
+                <!--/Additional Settings-->
+                <section class="form-group field-group">
+                    <section class="row">
+                        <label class="col-md-2 col-sm-4">Public Contact Info</label>
+                    </section>
+                    <section class="gray-frame sub-fields">
+                        <section class="row">
+                            <section class="col-sm-4">
+                                <section class="form-group">
+                                    <label>Public Name</label>
+                                    <input type="text" class="form-control"  name="public_contact_name" ng-model="formdata.public_contact_name"> 
+                                </section>
+                            </section>
+                            <section class="col-sm-4">
+                                <section class="form-group">
+                                    <label>Public Email</label>
+                                    <input type="text" class="form-control"  name="public_contact_email" ng-model="formdata.public_contact_email">
+                                </section>
+                            </section>
+                            <section class="col-sm-4">
+                                <section class="form-group">
+                                    <label>Public Phone</label>
+                                    <input type="text" class="form-control" name="public_contact_phone" ng-model="formdata.public_contact_phone">
+                                </section>
+                            </section>
                         </section>
                     </section>
-                    
-                    <section class="col-sm-4">
-                        <section class="form-group">
-                            <label>Public Phone</label>
-                            <input type="text" class="form-control" name="public_contact_phone" ng-model="formdata.public_contact_phone">
-                        </section>
-                    </section>
-               </section>
-            </section>
-          </section><!--/Public Contact Info-->
-
-           
+                </section>
+                <!--/Public Contact Info-->
                 <section class="form-group field-group">
                     <label>Advanced Settings</label>
                     <section class="gray-frame sub-fields">
                         <section class="content f-sb">
-                          <div style="border: 2px solid #ccc; padding: 5px;">
-                            <p>Make modifications to various customer-facing features, including your event listing, checkout process and Print@home tickets, using these advanced customizations. Do not make any adjustments if you're uncertain as to what will be modified </p>
-                            <br>
-                            <p>Any changes you mode to the Default Advanced Settings will automatically be set on this event You can turn any setting off or on, and even override the default, during this step </p>
-                          </div>
+                            <div style="border: 2px solid #ccc; padding: 5px;">
+                                <p>Make modifications to various customer-facing features, including your event listing, checkout process and Print@home tickets, using these advanced customizations. Do not make any adjustments if you're uncertain as to what will be modified </p>
+                                <br>
+                                <p>Any changes you mode to the Default Advanced Settings will automatically be set on this event You can turn any setting off or on, and even override the default, during this step </p>
+                            </div>
                             <br>
                             <p>
                                 <a ui-sref="advance_setting">
-                                    <a href="#/edit_advance_setting/{{event_id_setting}}"><button class="pink-btn btn btn-small m-fw">Edit Event Advanced Setting</button></a>
+                                <a href="#/edit_advance_setting/{{event_id_setting}}"><button class="pink-btn btn btn-small m-fw">Edit Event Advanced Setting</button></a>
                                 </a>
                             </p>
                         </section>
                     </section>
                 </section>
                 <!--/Advanced Settings-->
-            
                 <div class="editr">
                     <div class="editor-btn">
-                       
                         <button type="submit" ng-disabled="eventSettingForm.$invalid" class="gray-btn btn">Save</button>
                         <button type="submit" ng-disabled="eventSettingForm.$invalid" ng-click="goto_list();" class="btn pink-btn">Submit</button>
-                        
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+

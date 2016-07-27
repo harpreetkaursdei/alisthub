@@ -15,12 +15,7 @@
     <!-- Form COntainer -->
     <span ng-hide="error_message"><p class="error-fld" >{{error}}</p></span>
     <div class="form-section  wt-frame">
-        <style>
-        .border {
-            border: 2px solid black;
-        }
-        </style>
-        <div ng-hide="setting_div">
+              <div ng-hide="setting_div">
         <span ng-show="success_message" class="ng-hide"><p class="success-fld ng-binding">{{success_setting_message}}</p></span>
         
             <form name="eventSettingForm" class="event-form"  ng-submit="save_setting(formdata)" novalidate>
@@ -119,13 +114,13 @@
                                     </p>
                                 </section>
                                 <section class="row">
-                                    <button type="button" class="pink-btn btn btn-small" ng-hide="desc_box_2" ng-click="desc_box_2=true">Add a Description</button>
+                                    <button type="button" class="desc_2_button pink-btn btn btn-small" ng-hide="desc_box_2" ng-click="desc_box_2=true">Add a Description</button>
                                     
 <a class="close_description desc_2_event" ng-click="desc_box_2=false" ng-show="desc_box_2">
           <span class="glyphicon glyphicon-remove"></span> Close
         </a>
 
-                                    <textarea class="desc_2 form-control input" ng-show="desc_box_2" rows="7" ng-model="formdata.will_call_description"> </textarea>
+                                    <textarea class="desc_2_textarea form-control input" ng-show="desc_box_2" rows="7" ng-model="formdata.will_call_description"> </textarea>
                                 </section>
 
                     </section>
