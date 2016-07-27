@@ -463,11 +463,9 @@ Module : Events Home
 angular.module('alisthub').controller('eventReportController', function($scope,$localStorage,$injector, $uibModal,$rootScope, $filter,$timeout,$sce,$location, $ocLazyLoad,$state,ngTableParams,$http,$stateParams) { 
     $rootScope.loader_div = false;
 
-    console.log($stateParams.eventId);
-    console.log($stateParams.showclixEventId);
     
 
- // Datepicker stuff
+  // Datepicker stuff
   var now = new Date();
   if (now.getMonth() === 11) {
     var current = new Date(now.getFullYear() + 1, 0, 1);
@@ -669,11 +667,12 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
       }
     };
     
-
-    //$scope.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    
     $rootScope.class_status=false;
     var reportService = $injector.get("report");
+
+    reportService.getEvent({ 'event_id' : $stateParams.eventId },function(response) {
+        $scope.event_title = response.results[0].title;
+    });
 
     $scope.getChart = function(days,todayDate,endDate,type,selection) {
 
@@ -738,7 +737,12 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
             $scope.tableData = [];
 
             for(var key in graphData) {
+                graphData[key].date = getDateTime(graphData[key].date);
                 $scope.tableData.push(graphData[key]);
+                //$scope.tableData[key].date = getDateTime(graphData[key].date);
+
+                //console.log("date:", getDateTime(graphData[key].date));
+                
                 $scope.totalTicketSold = $scope.totalTicketSold + parseInt(graphData[key].tickets);
                 $scope.totalTicketRevenue = $scope.totalTicketRevenue + parseFloat(graphData[key].total_cost);
                 $scope.serviceFees = $scope.serviceFees + parseFloat(graphData[key].service_fee_discount);
@@ -799,7 +803,7 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
                 $scope.colors.push('#0275d0');  
                 $scope.chartData=[$scope.chartDataTicket];
               }
-              
+              $scope.options = { legend: { display: true } };
               if(type=='revenue') {
                 $scope.series = ['Tickets Revenue ($)'];
                 $scope.colors.push('#c129b9');    
