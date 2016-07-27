@@ -6,8 +6,8 @@ connection = mysql.createConnection({
   password : 'alistixs',
   database : 'db_alistixs',
   insecureAuth: true
-}); */
-
+}); 
+*/
 connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'alistixs',

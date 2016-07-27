@@ -7,6 +7,7 @@ Module : Step 3 Event step
 angular.module("google.places", []);
 angular.module('alisthub', ['google.places']).controller('stepevent3Controller', function($scope, $localStorage, $injector, $uibModal, $rootScope, $filter, $timeout, $sce, $location, $ocLazyLoad,$stateParams, $state) {
     $scope.loader_div=$rootScope.loader_div=false;
+    $scope.add_div=$scope.edit_div=true;
      
      var $serviceTest = $injector.get("Lookservice");
     
@@ -19,11 +20,15 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
      $scope.backgroundImage="http://52.39.212.226:4004/images/bg/bg.png";
     var event_id=$scope.eventId=$stateParams.eventId;
     $rootScope.sociallink={};
+   
     $serviceTest.getEventStep3({'event_id':event_id},function(resp){
        
+       console.log(resp.result[0]);
        if(resp.result[0]==undefined)
        {
-        $scope.mode='add';
+        console.log("I am there");
+        $scope.add_div=false;
+        angular.element( document.querySelector( '#mode' ) ).val('add');
         $serviceTestVenue.getEvent({'event_id':event_id},function(response){
         
         
@@ -118,10 +123,20 @@ angular.module('alisthub', ['google.places']).controller('stepevent3Controller',
     marker.setMap(map);
 		
     }); 
-       }else{
-       $scope.mode='edit';
+       }
+       else{
       
-      //  angular.element( document.querySelector( '#preview_div_contain_html' ) ).html(resp.result[0].html);
+       $scope.edit_div=false;
+      
+        angular.element( document.querySelector( '#mode' ) ).val('edit');
+        angular.element( document.querySelector( '#preview_div_contain_html' ) ).html(" ");
+        
+        $scope.background_inner=resp.result[0].inner_background;
+        $scope.border_color=resp.result[0].inner_border;
+        $scope.background_outer=resp.result[0].outer_background;
+        $scope.border_outer=resp.result[0].outer_border;
+        $scope.text_color=resp.result[0].text_color;
+        angular.element( document.querySelector( '#loadedit' ) ).click();
        }
        
     });

@@ -155,17 +155,20 @@
             </section>            
           </section>
           
-             <div id="add_block_div" class="blocks-frame"> </div>
+             <div id="add_block_div" class="blocks-frame" style="display: none;"> </div>
           
         </section>
         <!--Left-->
         <section class="col-sm-10 design-right pr-3">
-          <section id="preview_div_contain_html">
-	   
-	 <!--  <div ng-if="mode == 'edit'">{{eventId}}
-	   <div ng-include="'event/getEventStep3Html/'+eventId"></div> 
+	  
+	  <div ng-hide="edit_div">
+	    <section id="preview_edit_div_html">
+	   <div ng-include="'event/getEventStep3Html/'+eventId"></div>
+	   </section>
 	  </div>
-	  <div ng-if="mode == 'add'">-->
+	  <div ng-hide="add_div">
+          <section id="preview_div_contain_html">
+	  
             <section class="gray-frame1 templateWrap" id="backgroundImage" style="background: rgba(0, 0, 0, 0) url('{{backgroundImage}}') no-repeat  center top ; background-size: cover; background-color:{{background_outer}};border:solid 1px {{border_outer}};color:{{text_color}}" >
 	      <input type="file" id="my_file2"  onchange="angular.element(this).scope().encodeImageFileAsURL2(this)" file-model="file.myFiles" accept="image/jpeg" style="display: none;" />
               <div class="module  gridster">
@@ -329,9 +332,12 @@
               <button  type="button" class="black-add-button" id="editImagePreview"> Edit!</button>
               <input type="text" id="select_image" value="{{select_image_val}}">
               </span> </section>
-         <!-- </div>-->
+         
 	  </section>
-          <button type="button" class="js-seralize btn pink-btn" style="margin-top:4%">Save and Continue</button>
+	  </div>
+          <input type="hidden" id="mode" value="">
+          <input type="hidden" id="loadedit" onclick="loadaction()">
+	  <button type="button" class="js-seralize btn pink-btn" style="margin-top:4%">Save and Continue</button>
         </section>
         <!--Left--> 
         
@@ -344,7 +350,10 @@
       <a class="btn pink-btn" style="margin-top:4%" href="/#/create_event_step4/{{eventId}}">Continue</a> </section>
   </div>
   <script type="text/javascript">
-
+function loadaction()
+{
+  action();
+}
 function change_image()
 {
   $('#my_file').click();
@@ -380,13 +389,16 @@ function add_block()
   var size='lg';
   var dynamic='dynamic';
   var section="section'+currentsection+'_html";
+  $("#add_block_div").show(); 
   $('#add_block_div').append('<section onmouseover="sectionin(this.id)" onmouseout="sectionout(this.id)" class="col2" id="section'+currentsection+'"><div class="portlet"  ng-style="{background: background_inner,color:text_color}"><div class="drag" style="display:none;"><span><i class="header fa fa-arrows" aria-hidden="true"></i></span><a onclick="remove_widget_dynamic('+currentsection+')"><i aria-hidden="true" class="fa fa-trash"></i></a><a onclick="open_popup_editor(\'section'+currentsection+'_html\')"><i class="fa fa-edit" aria-hidden="true"></i></a></div><section id="section'+currentsection+'_html" class="form-group word-wrap">Enter your description</section></div></section>'); 
    sort();
    $("#currentSection").val(currentsection);
 }
 function open_popup_editor(section) {
-  
+  console.log($("#"+section).html());
+  if ( !CKEDITOR.instance || !CKEDITOR.instance['editor1'] ) {
  CKEDITOR.instances['editor1'].setData($("#"+section).html());
+  }
   $("#section_block").val(section);
   $("#myModal").modal();
 }
@@ -403,9 +415,10 @@ function remove_widget_dynamic(widgetId)
  function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-
- $(function(){
-        $('.module.gridster').on('click', function(e) {
+function action()
+{
+  
+   $(document).on('click','.module.gridster', function(e) {
 	  if (e.target !== this)
 	    return;
 	  
@@ -413,8 +426,14 @@ function remove_widget_dynamic(widgetId)
 	});
 
         // resize widgets on hover
-        $('.js-seralize').on('click', function() {
-	  var arr=$("#preview_div_contain_html").html();
+        $(document).on('click','.js-seralize', function() {
+	  var mode=$("#mode").val();
+	  if (mode=='add') {
+	    var arr=$("#preview_div_contain_html").html();
+	  }else{
+	    var arr=$("#preview_edit_div_html").html();
+	  }
+	  
 
 	   var href = window.location.href;
           var eventId=href.substr(href.lastIndexOf('/') + 1);
@@ -444,10 +463,10 @@ function remove_widget_dynamic(widgetId)
 	  
         });
 
-        $('.preview_close').on('click', function() {
+        $(document).on('click','.preview_close', function() {
          $(".preview_overlay,.preview_close").hide();
         });
-          $('.col2').on('mouseenter',function() {
+          $(document).on('mouseenter','#preview_edit_div_html .col2,#preview_div_contain_html .col2',function() {
 	          
 		   if($(this).attr('id')=='section1')
 		   {
@@ -489,7 +508,7 @@ function remove_widget_dynamic(widgetId)
 		   {
 		    $('#section8 .drag').show();
 		   }
-          }).on('mouseleave', function() {
+          }).on('mouseleave','#preview_edit_div_html .col2,#preview_div_contain_html .col2', function() {
 		  if($(this).attr('id')=='section1')
 		   {
 		 
@@ -532,11 +551,9 @@ function remove_widget_dynamic(widgetId)
 		    $('#section8 .drag').hide();
 		   }
           })
-	  
-	  
-	  
-	  
-      });
+}
+ $(function(){ action();})
+
       
      var featherEditor = new Aviary.Feather({
 
