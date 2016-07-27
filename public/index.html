@@ -87,11 +87,12 @@
                                         <a  ui-sref="dashboard">Event</a>
                                         <ul>
                                             <li><a  ui-sref="dashboard">Events Dashboard</a></li>
+                                            <li ng-if = checkPermission(permission[0],'add') ><a ui-sref="create_an_event">Create an Event</a></li>
                                             <li ng-if = checkPermission(permission[0],'add') || ng-if = checkPermission(permission[0],'edit') || ng-if = checkPermission(permission[0],'delete') || ng-if = checkPermission(permission[0],'view')><a ui-sref="view_all_event">View all Events</a></li>
 
                                              <li ng-if = checkPermission(permission[0],'add') || ng-if = checkPermission(permission[0],'edit') || ng-if = checkPermission(permission[0],'delete') || ng-if = checkPermission(permission[0],'view')><a ui-sref="view_package_event">View Packages</a></li>
                                             
-                                            <li ng-if = checkPermission(permission[0],'add') ><a ui-sref="create_an_event">Create an Event</a></li>
+                                            
                                             <li><a href="#/event_setting">Event Settings</a></li>
                                         </ul>
                                     </li>
@@ -108,8 +109,8 @@
                                     <li>
                                         <a  href="javascript:void(0)">Promote</a>
                                         <ul>
-                                            <li><a href="javascript:void(0)">Social Media</a></li>
-                                            <li><a href="javascript:void(0)">Email Marketing</a></li>
+                                            <li><a href="http://52.39.212.226:4009" target="_blank">Social Media Marketing</a></li>
+                                            <li><a href="http://192.155.246.146:8283" target="_blank">Email Marketing</a></li>
                                             <li><a href="javascript:void(0)">Ad Manager</a></li>
                                             <li><a ui-sref="tracking">Tracking Tags</a></li>
                                             <li><a href="javascript:void(0)">Analytics Settings</a></li>

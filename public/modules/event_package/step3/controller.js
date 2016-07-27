@@ -101,7 +101,9 @@ angular.module('alisthub').controller('createpackageControllerThree', function($
     minDate: new Date(),
     startingDay: 1
   };
-
+    $scope.formats = ['MM-dd-yyyy','yyyy-MM-dd', 'dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
+    $scope.altInputFormats = ['M!/d!/yyyy'];
   // Disable weekend selection
   function disabled(data) {
     var date = data.date,

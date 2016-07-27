@@ -108,7 +108,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
         
     });
 
-    $scope.formats = ['yyyy-MM-dd', 'dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.formats = ['MM-dd-yyyy','yyyy-MM-dd', 'dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
     $scope.altInputFormats = ['M!/d!/yyyy'];
 
@@ -645,8 +645,8 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
                         $scope.success_message = true;
                         $timeout(function() {
-                            $scope.success = '';
                             $scope.success_message = false;
+                            $scope.success = '';
                         }, 3000);
                         // window.location.reload();
 
