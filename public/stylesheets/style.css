@@ -15,19 +15,7 @@ body { background-color: #f3f3f3; color: #333333; font-family: 'Open Sans', sans
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block;}
 
-.close_description{
-  float: right;
-  margin: 0px 5px 5px 0px;
-  text-decoration: none;
-}
 
-.close_description:hover
-  {
-  float: right;
-  margin: 0px 5px 5px 0px;
-  text-decoration: none;
-  cursor: pointer;
-   }
 /* Selection CSS */
 ::-moz-selection { background: #0275d0; color:#ffffff;}
 ::selection { background: #0275d0; color:#ffffff;}
@@ -36,7 +24,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 .header.header-text-align{
   text-align: left !important;
 }
+  .label-padding{ padding-top: 5% ; padding-left: 0 !important; margin-left: 0 !important;}
 
+.desc_1 {
+    margin-top: 7px;
+}
+
+.desc_1_event {
+ float: right;
+ padding:10px;
+}
+
+.desc_2_event {
+   float: right;
+   padding: 7px;
+}
 .event_name_wd.form-control.ng-pristine.ng-untouched.ng-valid.ng-scope
 {
   width:48%;
@@ -255,9 +257,8 @@ footer i{color:#fff;}
 .nwsltr input[type="text"] {background: #fff none repeat scroll 0 0; border: 0 none; font-size: 13px; height: 48px; padding: 10px 40px 10px 10px; position: relative; width: 100%; color:#333;}
 .nwsltr input[type="email"] {background: #fff none repeat scroll 0 0; border: 0 none; font-size: 13px; height: 48px; padding: 10px 40px 10px 10px; position: relative; width: 100%; color:#333;}
 .ent {background: #fff none repeat scroll 0 0; border: 0 none; bottom: 0; padding:0 15px; height: 48px; position: absolute; right:0;}
-.ent1 {background: #fff none repeat scroll 0 0;border: 0 none;height: 48px;padding: 0 15px;position: absolute;right: 0;top: 0;}
+.ent1 {background: #fff none repeat scroll 0 0; border: 0 none; top: 0; padding:0 15px; height: 48px; position: absolute; right:0;}
 .ent i,.ent1 i {color: #0275d0; font-size: 24px; margin: 0;}
-
 .footer-btm{background:#939598;color:#fff;font-size:15px;text-align:center;padding:16px;}
 .socialmedia{margin:0 -8px;}
 .socialmedia > li {float:left; padding:0 8px;}
@@ -516,6 +517,7 @@ select.select30{height:30px; padding:0 8px; font-size:14px;}
 /*--------08-04-2016---------------*/
 
 .info-text{font-size:12px; color:#727272; text-align:right; padding:8px 0;}
+.info-customizedtext{font-size:12px; color:#727272; padding:3px 0 0 0 ;}
 .content{font-size:14px; line-height:20px;}
 .content p{margin-top:20px;}
 .content p:first-child{margin-top:0;}
@@ -701,8 +703,8 @@ table:focus {
 .tabs > li a:hover, .tabs > li.active a{text-decoration:none; background:#fff; color:#333;}
 .tabs > li.active a{border-bottom-color:transparent;}
 
-.design-left{padding-right:0;}
-.design-right{padding-left:0;}
+/*.design-left{padding-right:0;}
+.design-right{padding-left:0;}*/
 
 .tbs-container{padding:15px;}
 .choose-color > li{margin:8px 0; position:relative; display:inline-block; width:100%;}

@@ -1,5 +1,6 @@
 var moment     = require('moment-timezone');
 var nodemailer = require('nodemailer');
+var ip = require('ip');
 
 exports.submitContact = function(req,res){
  //console.log(smtpTransport.options);
@@ -23,7 +24,12 @@ exports.smtpTransport = smtpTransport;
     text: req.body.message,
     html: req.body.message
   }
-  var query = "INSERT INTO `enquiry` (`id`,`seller_id`,`name`,`email`,`subject`,`message`,`created`) VALUES (NULL, '"+req.body.seller_id+"', '"+req.body.name+"', '"+req.body.email+"', '"+req.body.subject+"', '"+req.body.message+"','"+curtime+"')";
+console.log(req.connection);
+  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+ 
+
+  var query = "INSERT INTO `enquiry` (`id`,`seller_id`,`name`,`email`,`subject`,`message`,`ip`,`created`) VALUES (NULL, '"+req.body.seller_id+"', '"+req.body.name+"', '"+req.body.email+"', '"+req.body.subject+"', '"+req.body.message+"','"+ip+"','"+curtime+"')";
+  console.log(query);
   if (query != "") {
     connection.query(query, function(err7, results) {
       if (err7) {
@@ -50,8 +56,9 @@ exports.stay_connected=function(req,res)
   var ticketing="ticketing";
   req.body.network=ticketing;    
 req.body.created = curtime;
+var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-var query="INSERT INTO `stay_connected` (`id`,`email`,`network`,`created`) VALUES (NULL, '"+req.body.email+"','" +ticketing+"','"+curtime+"')";
+var query="INSERT INTO `stay_connected` (`id`,`email`, `ip`,`network`,`created`) VALUES (NULL, '"+req.body.email+"','" +ip+"','"+ticketing+"','"+curtime+"')";
 console.log(query);
   if (query != "") {
     connection.query(query, function(err7, results) {

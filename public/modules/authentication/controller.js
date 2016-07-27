@@ -107,8 +107,8 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
             
             //////////////  SHOWCLIX SERVICE ////////////////////
             $scope.showclix_data = "";
-            //$scope.showclix_data = {"email":"manojks@smartdatainc.net","password":"manojks@2015"};
-            $scope.showclix_data = "email="+$scope.user.email+"&password="+$scope.user.password;
+            $scope.showclix_data = {"email":"manojks@smartdatainc.net","password":"manojks@2015"};
+            //$scope.showclix_data = "email="+$scope.user.email+"&password="+$scope.user.password;
             //$scope.showclix_data = {"email":"gyanp12387@smartdatainc.net","password":"12345678"};
              
                 /////////////////////////////////////////////////////////////////////////////
@@ -174,9 +174,11 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                                         $rootScope.sellerSubUserId = $localStorage.sellerSubUserId = seller_response.result[0].id;
                                         
                                         /// Showclix storage start
+                                        
                                         $rootScope.showclix_token     = $localStorage.showclix_token     = response.token;
                                         $rootScope.showclix_user_id   = $localStorage.showclix_user_id   = response.user_id;
-                                        $rootScope.showclix_seller_id = $localStorage.showclix_seller_id = response.seller_id;
+                                        //$rootScope.showclix_seller_id = $localStorage.showclix_seller_id = response.seller_id;
+                                        $rootScope.showclix_seller_id = $localStorage.showclix_seller_id = 22876;
                                         /// Showclix storage end
 
                                         showclix.getPerModules({ 'userId' : seller_response.result[0].id },function(perm_seller) {
@@ -236,7 +238,11 @@ angular.module('alisthub').controller('loginController', function($http,$locatio
                         /// Showclix storage start
                         $rootScope.showclix_token     = $localStorage.showclix_token     = response.token;
                         $rootScope.showclix_user_id   = $localStorage.showclix_user_id   = response.user_id;
-                        $rootScope.showclix_seller_id = $localStorage.showclix_seller_id = response.seller_id;
+                        if (data.user.User.showclix_seller_id !== undefined) {
+                        $rootScope.showclix_seller_id = $localStorage.showclix_seller_id = data.user.User.showclix_seller_id;
+                        }else{
+                        $rootScope.showclix_seller_id = $localStorage.showclix_seller_id = 22876;
+                        }
                         /// Showclix storage end
                         $localStorage.permission = {};
                         $state.go('dashboard');

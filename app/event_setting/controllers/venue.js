@@ -59,6 +59,14 @@ Created By: Manoj kumar
 */
 exports.addVenue = function(req,res) {
      //console.log(req.body);
+    function update_showclix_data(event_url,id,data)
+    {
+        var showclix_venue_id = event_url.split("/");
+        var query = "UPDATE venues SET showclix_venue_id="+showclix_venue_id[4]+", showclix_venue_url='"+event_url+"', showclix_seller='"+data.showclix_seller_id+"' where id="+id;
+        connection.query(query, function(err7, responce) {
+        })
+    }
+     
      if (req.body.venue_name != "" && req.body.venue_name != "undefined" && req.body.address != "" && req.body.address != "undefined" && req.body.city != "" && req.body.city != "undefined")
      {
           var photoname =  chartname = "";
@@ -99,7 +107,7 @@ exports.addVenue = function(req,res) {
                req.body.seating_chart = chartname;
           }
           
-               if (req.body.id && req.body.id !="" && req.body.id != undefined) {
+               if (req.body.id && req.body.id !="" && req.body.id !== undefined) {
                  var curtime = moment().format('YYYY-MM-DD HH:mm:ss');     
                  req.body.modified = curtime;      
                  var query = "UPDATE `venues` SET seller_id="+req.body.seller_id+", venue_type='"+req.body.venue_type+"', venue_name='"+req.body.venue_name+"', address='"+req.body.address+"', city='"+req.body.city+"', zipcode='"+req.body.zipcode+"', state='"+req.body.state+"', country='"+req.body.country+"', status='"+req.body.status+"', latitude='"+req.body.latitude+"', longitude='"+req.body.longitude+"', modified='"+req.body.modified+"', fax='"+req.body.fax+"', timezone='"+req.body.timezone+"', capacity='"+req.body.capacity+"', contact_name='"+req.body.contact_name+"', phone='"+req.body.phone+"', email='"+req.body.email+"', url='"+req.body.url+"', image='"+req.body.image+"', seating_chart='"+req.body.seating_chart+"' where id="+req.body.id;
@@ -121,19 +129,28 @@ exports.addVenue = function(req,res) {
                       ////////////////////// SHOWCLIX API /////////////////////////////
                       var showClix2 = new showClix();
                          showClix2.add_venue(req,res,function(data){
-                           console.log("=========================");
-                           console.log(data);
-                           console.log("=========================");
+                                                     
+                           if (req.body.id && req.body.id !="" && req.body.id !== undefined) {
+                           var parent = req.body.id;
+                           }
+                           else{
+                            var parent    = results.insertId;
+                            var event_url = data.location;
+                            update_showclix_data(event_url,parent,data);
+                           }
                            if (data.status == 1) {
-                              
-                              res.json({result:results,showclix:data.location,code:200});
+                            res.json({result:results,showclix:data.location,code:200});
                            }
                            else
                            {
+                             if (req.body.id && req.body.id !="" && req.body.id !== undefined) {
+                             }else{
                               var delquery = "Delete from venues where id="+results.insertId;
                               connection.query(delquery, function(err7, rollback) {
                               
                               })
+                             }
+                              
                               res.json({error:"error",code:104});
                                            
                          }

@@ -673,21 +673,7 @@ form#ticket-form {  background-color: #fff; padding: 10px;}
     width: 100%;
 }
 
-
 .formtab select.form-control{width:auto; padding:0 5px; height:30px;}
 .sml-input30{height:30px; padding:0 8px; font-size:14px;}
 
-.full button span {
-    background-color: #c129b9;
-    border-radius: 32px;
-    color: white;
-    padding: 5px;
-}
-
-.partially button span {
-    background-color: #c129b9;
-    border-radius: 32px;
-    color: white;
-    padding: 5px;
-}
-
+.blocks-frame{margin-top:15px; /*border:1px #ccc solid;*/ background:#f1f1f1; padding:5px;}

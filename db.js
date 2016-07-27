@@ -1,6 +1,6 @@
 var mysql      = require('mysql');
-
-/*connection = mysql.createConnection({
+/*
+connection = mysql.createConnection({
   host     : '192.155.246.146',
   user     : 'alistixs',
   password : 'alistixs',
@@ -9,7 +9,7 @@ var mysql      = require('mysql');
 }); */
 
 connection = mysql.createConnection({
-  host     : '52.39.212.226',
+  host     : 'localhost',
   user     : 'alistixs',
   password : 'alistixs@2016',
   database : 'alistixs',
