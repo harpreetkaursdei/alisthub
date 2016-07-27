@@ -30,9 +30,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     margin-top: 7px;
 }
 
+.desc_2_button{
+   margin-top: 11px;
+}
 .desc_1_event {
  float: right;
- padding:10px;
+ padding:5px;
 }
 
 .desc_2_event {
@@ -204,7 +207,7 @@ label{ color: #333333; font-size:14px; margin-bottom: 11px; }
 
 .form-control{ background-color: #ffffff; border-radius: 0px; -webkit-border-radius: 0px; border-color: #c2c2c2; box-shadow: none; color: #333333; font-size: 16px;  height: 38px; padding: 6px 15px;}
 
-select.form-control{padding:6px 12px; font-style:normal; font-style:italic; color:#333;}
+select.form-control{padding:6px 12px; font-style:normal; color:#333;}
 
 .fieldSection{ background-color: #f3f3f3; padding: 30px 30px 15px;}
 
