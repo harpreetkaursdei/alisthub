@@ -29,7 +29,7 @@
                     <label for="eventname">Event Url<span class="req">*</span></label>
                     <section class="form-group" ng-class="{ 'has-error' : myForm.eventurl.$dirty && myForm.eventurl.$invalid }">
                         <div class="domain-name">
-                            <input type="text" name="eventurl" ng-model="data.eventurl" class="event_short_url form-control" tooltips tooltip-template="A ticketing page's unique URL. By default, the Event Name is plugged in as the last part of the URL. Must be 5 - 30 characters in length." placeholder="Url of your Event" ng-blur="checkeventurl();" ng-pattern="/^\s*\w*\s*$/" onkeypress="return keypress(event)" minlength="5" maxlength="30" required><span class="d1name">.alistixs.com</span></div>
+                            <input type="text" name="eventurl" ng-model="data.eventurl" class="event_short_url form-control" tooltips tooltip-template="A ticketing page's unique URL. By default, the Event Name is plugged in as the last part of the URL. Must be 5 - 30 characters in length." placeholder="Url of your Event" ng-blur="checkeventurl();" ng-pattern="/^\s*\w*\s*$/" onpaste="return false" onkeypress="return keypress(event)" minlength="5" maxlength="30" required><span class="d1name">.alistixs.com</span></div>
                         <input type="hidden" ng-model="data.domain_url_availability" class="form-control" required>
                         <span ng-hide="successuniquemessage">
                             <p class="success-fld">{{unique}}</p>
@@ -107,6 +107,7 @@
                             <div class="col-sm-12 col-md-6">
                                 <ul class="nav nav-tabs responsive-tabs">
                                     <li ng-repeat="venue in venues" ng-click="select_venue(venue)" ng-class="{active: isActive1(venue)}"><a class="pointer" href="javascript:void(0)">{{venue.name}}</a> </li>
+                                    <li ng-if="enable_empty_venue != ''">{{enable_empty_venue}}</li>
                                 </ul>
                                 <div class="tab-content">
                                     <div role="tabpanel" id="venue-event" ng-hide="venue_event_div">

@@ -25,8 +25,8 @@ exports.smtpTransport = smtpTransport;
     html: req.body.message
   }
 console.log(req.connection);
-  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
- 
+  var ip = req.connection.remoteAddress;
+ console.log(ip);
 
   var query = "INSERT INTO `enquiry` (`id`,`seller_id`,`name`,`email`,`subject`,`message`,`ip`,`created`) VALUES (NULL, '"+req.body.seller_id+"', '"+req.body.name+"', '"+req.body.email+"', '"+req.body.subject+"', '"+req.body.message+"','"+ip+"','"+curtime+"')";
   console.log(query);

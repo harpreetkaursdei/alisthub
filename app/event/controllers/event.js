@@ -45,7 +45,7 @@ exports.saveEvent = function(req,res) {
     //console.log(data); return false;
     //var zip = parseInt(data.zipcode);
         
-    if(data.id=='' || data.id==undefined) {
+    if(data.id=='' || data.id===undefined) {
      
      var query = "INSERT INTO `venues` (`id`, `seller_id`, `venue_type`, `venue_name`, `address`, `city`, `zipcode`, `state`, `country`, `status`, `latitude`, `longitude`, `created`) VALUES (NULL, '"+data.userId+"', '"+data.venuetype+"', '"+data.venuename+"', '"+data.address+"', '"+data.city+"', '"+parseInt(data.zipcode)+"', '"+data.state+"', '"+data.country+"', '1', '"+data.latitude+"', '"+data.longitude+"', '"+curtime+"')";
      
@@ -55,6 +55,7 @@ exports.saveEvent = function(req,res) {
           var eventId = null;
           data.created = new Date();
           var content_html=data.content.replace(/'/g, "\\'"); 
+          
           var query1 = "INSERT INTO `events`(`id`,`user_id`,`title`,`start_date`,`description`,`venue_id`,`event_domain`) VALUES(NULL,'"+data.userId+"','"+data.eventname+"','"+data.eventdate+"','"+content_html+"','"+venue_id+"','"+data.eventurl+"')";
          
             connection.query(query1,function(err,result) {
@@ -99,11 +100,13 @@ exports.saveEvent = function(req,res) {
       var venueid = '';
       if(data.venueid!=undefined && data.venueid!='') {
         venueid = data.venueid;
-        connection.query("UPDATE venues SET `venue_type`='"+data.venuetype+"',`venue_name`='"+data.venuename+"',`address`='"+data.address+"',`city`='"+data.city+"',`zipcode`='"+parseInt(data.zipcode)+"',`state`='"+data.state+"',`country`='"+data.country+"',`latitude`='"+data.latitude+"',`longitude`='"+data.longitude+"'  where id=" + venueid, function(err2, results2) {
+        
+        /*connection.query("UPDATE venues SET `venue_type`='"+data.venuetype+"',`venue_name`='"+data.venuename+"',`address`='"+data.address+"',`city`='"+data.city+"',`zipcode`='"+parseInt(data.zipcode)+"',`state`='"+data.state+"',`country`='"+data.country+"',`latitude`='"+data.latitude+"',`longitude`='"+data.longitude+"'  where id=" + venueid, function(err2, results2) {
            if (err2) {
             res.json({error:err2,code:101});
            } 
-        });
+        });*/
+        
       } else {
         var query = "INSERT INTO `venues` (`id`, `seller_id`, `venue_type`, `venue_name`, `address`, `city`, `zipcode`, `state`, `country`, `status`, `latitude`, `longitude`, `created`) VALUES (NULL, '"+data.userId+"', '"+data.venuetype+"', '"+data.venuename+"', '"+data.address+"', '"+data.city+"', '"+parseInt(data.zipcode)+"', '"+data.state+"', '"+data.country+"', '1', '"+data.latitude+"', '"+data.longitude+"', '"+curtime+"')";
      
@@ -111,7 +114,10 @@ exports.saveEvent = function(req,res) {
             if (err8) {
              res.json({error:err2,code:101});
             } 
+            
             venueid = vresponce.insertId;
+            
+            
           })
      }
       //console.log('venueID:'+venueid);

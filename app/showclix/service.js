@@ -151,10 +151,14 @@ module.exports = function()
                  "sales_open":data.event_startdatetime,
                  "user_id":data.showclix_user_id,
                  "seller_id":data.showclix_seller_id,
-                 "venue_id":"34657",
                  "event_type":"3",
                  "status":"5"
                 };
+      
+      if (data.showclix_venue_id && data.showclix_venue_id != "" && data.showclix_venue_id !== undefined) {
+       input.venue_id = data.showclix_venue_id;
+      }
+                
       if(data.showclix_id != "" && data.showclix_id !== undefined){
         console.log("---------3-------");
         input.event_id = data.showclix_id.toString();
