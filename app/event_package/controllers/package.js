@@ -1067,3 +1067,21 @@ console.log('-------------------------------------------');
      res.json({result:results,code:200});
   });
 }
+
+
+exports.checkPackageUrl=function(req,res){
+    sql = 'SELECT count(*) as count from event_package where url_short_name = "' + req.body.url_short_name + '"';
+    connection.query(sql, function(err, results) {
+        if (err) {
+            res.json({ error: err, code: 101 });
+        }
+        if (results) {
+            count = results[0].count;
+            if (count > 0)
+                res.json({ result: count, code: 101 });
+            else
+                res.json({ result: count, code: 200 });
+        }
+    });
+    
+}

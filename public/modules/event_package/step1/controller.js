@@ -16,6 +16,9 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     }
     /************** set default values starts ****************/
 
+$scope.successuniquemessage = true;
+$scope.erroruniquemessage = true;
+
     $scope.agesList = [
         { "name": "All Ages", 'id': 0 },
         { "name": "18 and  over", 'id': 18 },
@@ -69,6 +72,29 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     /************** set default values ends ****************/
 
     /************** calender starts ****************/
+
+
+    $scope.checkPackageUrl = function() 
+         {
+            $serviceTest.checkPackageUrl({'url_short_name':$scope.data.url_short_name},function(response){
+             
+              if(response.result<1)
+              {
+                  $scope.successuniquemessage = false;
+                  $scope.erroruniquemessage = true;
+                  $scope.data.domain_url_availability=1;
+                  $scope.unique = "Available";
+              }
+              else{
+                  $scope.erroruniquemessage = false;
+                  $scope.successuniquemessage = true;
+                  $scope.data.domain_url_availability='';
+                  $scope.unique = "This domain already taken.";
+              }
+            });
+         
+         
+        };
 
     $scope.open1 = function() {
         $scope.popup1.opened = true;
@@ -586,12 +612,15 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
     /************** Function to check form errors ends **************/
 
+$scope.addPackageUrl = function() {
+  $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
+}
     /************** Function to save data of step one starts **************/
 
     $scope.stepOne = function() {
          $rootScope.loader_div = false;
 
-            $scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
+            //$scope.data.url_short_name = $scope.data.short_name = $scope.slugify($scope.data.package_name);
 
             if ($scope.data.online_sales_open_date != undefined && $scope.data.online_sales_open_time != undefined && $scope.data.online_sales_open_date != '' && $scope.data.online_sales_open_time != '') {
                 $scope.data.online_sales_open_date_time = $scope.combine($scope.data.online_sales_open_date, $scope.data.online_sales_open_time);
@@ -673,6 +702,9 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
         }
         /************** Function to save data of step one ends **************/
 
+
+
+
     /************** Function  Event Popup Starts **************/
 
     $scope.showEventPopup = function(size) {
@@ -739,6 +771,16 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
     };
 
 });
+
+function keypress(e){
+    //console.log('e.charCode' , e.charCode);
+  if(e.charCode===32){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
 
 angular.module('alisthub').controller('EventModalInstanceCtrl', function($localStorage, $scope, $uibModalInstance, items, $rootScope, $injector, ngTableParams) {
     var $serviceTest = $injector.get("discounts");

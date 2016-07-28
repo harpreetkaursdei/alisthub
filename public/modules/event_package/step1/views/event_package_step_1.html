@@ -4,6 +4,9 @@
 .ng-scope.ng-isolate-scope {
     display: none;
 }
+.hint{
+    margin-top: 40px;
+}
 </style>
 <div class="container">
     <h1>Create an Package</h1>
@@ -28,9 +31,39 @@
                 <section class="gray-frame sub-fields">
                     <div class="form-group">
                         <label for="package_name">Package Name<span class="req">*</span></label> <!--<i class="fa fa-question icon-fa"></i><span class="glyphicon glyphicon-question-sign"></span>-->
-                        <input type="text" name="package_name" ng-model="data.package_name" class="form-control" placeholder="Package Name" maxlength="50" minlength="3" required  tooltips tooltip-template="This is the title of your package. Minimum 3 characters, maximum 50 characters." autofocus >
+                        <input type="text" name="package_name" ng-model="data.package_name" class="form-control"  maxlength="50" minlength="3" required  tooltips tooltip-template="This is the title of your package. Minimum 3 characters, maximum 50 characters." autofocus ng-blur="addPackageUrl();" >
                         <p ng-show="myForm.package_name.$invalid && !myForm.package_name.$pristine" class="error-fld ng-binding">Package name is required.</p>
                     </div>
+
+                     <section class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label >Package Url <span class="req">*</span></label>
+                                    <div class="form-group">
+                                        <input  type="text" name="url_short_name" ng-model="data.url_short_name" class="form-control" onkeypress="return keypress(event)" ng-pattern="/^\s*\w*\s*$/" onpaste="return false" ng-blur="checkPackageUrl();" minlength="5" maxlength="30" required>
+                    
+                        <span ng-hide="successuniquemessage">
+                            <p class="success-fld">{{unique}}</p>
+                        </span>
+                        <span ng-hide="erroruniquemessage">
+                            <p class="error-fld">{{unique}}</p>
+                        </span>
+                        
+                        <p ng-show="myForm.package_name.$invalid && !myForm.package_name.$pristine" class="error-fld ng-binding">Event Url is required (spaces not allowed)</p>
+                                    </div>
+                                    
+                                </div>
+                                <p ng-show="myForm.online_sales_open_date.$invalid && !myForm.online_sales_open_date.$pristine" class="error-fld ng-binding">Online sales open date is required.</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <p class="hint">.alistixs.com</p>
+                                </div>
+                            </div>
+                        </section>
+
+
+
                     <div class="editr">
                         <label for="package_description"> Description<span class="req">*</span></label>
                         <div ckeditor="option_ckeditor" name="package_description"  id="package_description" ng-model="data.package_description" ready="onReady()" value='' tooltips tooltip-template="The area of the ticketing page where you can display additional details about the event. The description box is HTML enabled, which means that you can add HTML code to change the color and size of the font in this area of the ticketing page, as well as embed images, video and audio.">
@@ -259,7 +292,7 @@
                                     <select class="form-control" name="ages" ng-model="data.ages" ng-show="!data.defined_age" ng-required="!data.defined_age">
                                         <option ng-repeat="age in agesList" ng-selected="age.id==data.ages" value="{{age.id}}">{{age.name}}</option>
                                     </select>
-                                    <input type="number" min="0"  ng-model="data.custom_age" id="custom_age" name="custom_age" class="form-control" placeholder="Custom Age" ng-show="data.defined_age ==1" ng-required="data.defined_age ==1">
+                                    <input type="number" min="0"  ng-model="data.custom_age" id="custom_age" name="custom_age" class="form-control" ng-show="data.defined_age ==1" ng-required="data.defined_age ==1">
                                     <p ng-show="myForm.ages.$invalid && !myForm.ages.$pristine" class="error-fld ng-binding">Age is required.</p>
                                     <p ng-show="myForm.custom_age.$invalid && !myForm.custom_age.$pristine" class="error-fld ng-binding">Age is required.</p>
                                     <div class="col-sm-12">

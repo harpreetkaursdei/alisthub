@@ -469,6 +469,7 @@ var webservices = {
     "getEventDates": "/event/getEventDates",
 
 
+
      /////widget //////////
 
     "saveEventWidgets":"/widget/saveEventWidgets",
@@ -518,6 +519,7 @@ var webservices = {
     "getAllPackageEvent": "/package/getAllPackageEvent",
     "checkEventExist": "/package/checkEventExist",
     "viewUpcomingEventsOfPackage": "/package/viewUpcomingEventsOfPackage", 
+    "checkPackageUrl" : "/package/checkPackageUrl",
 
 
     /* Constants for the discount module */
@@ -828,6 +830,8 @@ var global_message = {
     "saveEmailReport" : "Email report saved successfully.",
 
     // package overview
+
+
 
 
 }

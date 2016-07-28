@@ -229,6 +229,12 @@ url.removePackageProduct = function(jsondata,callback){
     });
   };
 
+    url.checkPackageUrl = function(jsondata,callback) {
+    communicationService.resultViaPost(webservices.checkPackageUrl,appConstants.authorizationKey,headerConstants.json,jsondata, function(res,req) {
+      callback(res.data);
+    });
+  };
+
   
 
 

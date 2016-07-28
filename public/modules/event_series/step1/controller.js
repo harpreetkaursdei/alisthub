@@ -1494,6 +1494,7 @@ function keypress(e){
   if(e.charCode===32){
     return false;
   }
+  
   else{
     return true;
   }
