@@ -47,6 +47,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   width:48%;
 }
 
+.navbar {
+  min-height: 37px !important;
+}
+.overflowChart { overflow-x: scroll;}
+
+.widthset { max-width: 120%; width: 120%;}
 .new_product_link , .new_product_link:hover {
   text-decoration: none;
     margin-left: 10px;
@@ -299,7 +305,7 @@ footer i{color:#fff;}
 .table > thead > tr > th{ background-color:#0275d0; color:#fff; font-weight:bold; text-transform:uppercase; vertical-align:middle;}
 .customized-table > thead { background-color:#A9A9A9;}
 
-.table-striped > tbody > tr:nth-of-type(2n+1){background-color:#ffffff;}
+.table-striped > tbody > tr:nth-of-type(2n+1){background-color:#ECF6FD;}
 /*===========Table===========*/
 
 /*-----------Radio--------*/
@@ -814,6 +820,7 @@ color-picker{float: right !important;}
   background-color: #ffffff;
   margin-top: 30px;
   padding: 40px 68px;
+}
 
 .fa.fa-caret-down {  display: none;}
 
@@ -878,7 +885,17 @@ color-picker{float: right !important;}
   margin: 0px 5px 5px 0px;
 }
 
-.panel-body{
-  padding: 55px 15px 15px 15px;
+.graph-frame, .chart-bar {
+  height: 433px;
+  padding-top: 25px;
 }
 
+.panel-primary-graph > .panel-heading-graph {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+    color: #333333;
+}
+
+.panel-primary-graph {
+    border-color: #f3f3f3;
+}
