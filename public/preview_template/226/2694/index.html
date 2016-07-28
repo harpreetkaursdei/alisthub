@@ -24,8 +24,7 @@
 <style type="text/css"> 
     .social-media {  right: 12%;}
     .social-med > a{ display:inline-block;}
-form#ticket-form {  background-color: #fff; padding: 10px;}
-.custom_button {  background-color: black; border-radius: 5px; color: #fff;  padding: 10px;}
+
 .ev-container.wtframe.m-t35{ max-width: 1024px;}
 .ev-container{ max-width: 100%;}
 
@@ -143,106 +142,26 @@ body{
 <script src="http://52.39.212.226:4004/preview_template/assets/js/ui-bootstrap-tpls-0.12.0.min.js"></script> 
 <script type="text/javascript" src="http://52.39.212.226:4004/preview_template/assets/js/custom.js"></script>
 <script type="text/javascript">
-   var EventsWidgetDisplayPreferences = { seller_id: "22381",uri:"http://tickets.alistixs.com/events/22381",domain: "tickets.alistixs.com",white_label: "ALIST Solutions LLC",max_number_of_events: "4",group_series_events: "true",title_text: "Upcoming Events",height: "auto",width: "330px",background_color: "#2c344b",header_color: "#FFFFFF",row_background_color: "#FFFFFF",text_color: "#333",link_color: "#fe1e5a",include_scrollbar: "auto",display_title_bar: "true", display_date_block: "true", display_image: "none",display_full_date: "true",display_time: "true",display_venue: "true",display_tickets_link: "none"}
+ 
    $(function(){
-          /*var href = window.location.href;
-          var eventId=href.substr(href.lastIndexOf('/') + 1);*/
-	   var href = window.location.href.split("/");
-          var ticket_html;
-          var eventId=href[5];
-        $.ajax({
+         
+	    var href = window.location.href.split("/");
+            var ticket_html;
+            var eventId=href[5];
+	    $.ajax({
 	    method: "POST",
-	    url: "/event/getEvent",
+	    url: "http://"+href[2]+"/event/getEventStep3",
 	    data: {"event_id":eventId}
-	  })
-	    .done(function( response ) {
+	    })
+	    .done(function( response1 ) {
+	    var preview_html=response1.result[0].html;
 	    
-            if(response.code==200)
-            {
-             
-              if(response.results[0].showclix_id!='')
-              {
-                  var ticket_html;
-		      $.ajax({
-		    method: "POST",
-		    url: "/event/getShowclixPriceLevel",
-		    data: {"showclix_id":response.results[0].showclix_id}
-		  })
-		    .done(function( resp ) {
-		    
-		    ///////////////////////////////////////////////////////	
-		    var str = "There is some problem on server. Please try after some time.";
-                    function isJson(item) {
-                      item = typeof item !== "string"
-                          ? JSON.stringify(item)
-                          : item;
-                  
-                      try {
-                          item = JSON.parse(item);
-                      } catch (e) {
-                          return false;
-                      }
-                  
-                      if (typeof item === "object" && item !== null) {
-                          return true;
-                      }
-                  
-                      return false;
-                  }
-                
-                  
-                  if (isJson(resp.showclix)) {
-                    if(resp.code==200)
-                     {
-                     
+	    $(".preview_div_insert").html(preview_html);
+	    $('.loader_div').hide();
+	    
+	    
+	    });
                  
-                     ticket_html='<form class="mobile-tab" id="ticket-form" method="POST" action="https://tickets.alistixs.com/event/'+response.results[0].event_domain+'/"><div style="margin-top: 0px; display: none " id="select-tickets-fix" class="purchase_tickets  js-single-event"><div class="purchasetitle">Tickets</div></div><table cellspacing="0" cellpadding="0" border="0" id="ticket-selection-genad" class="formtab table"><tr><td colspan="4" class="panel-heading" align="left"><strong>Reserve Tickets</strong></td></tr>';
-                     
-                      var obj=$.parseJSON(resp.showclix);
-                      $.each(obj, function(key, value) {
-			   console.log(value);
-                         ticket_html+='<tr data-level-id="'+key+'"><td class="qty-td"> <select class="ticket-select input form-control" name="level['+key+']" id="select_level_'+key+'">';
-                      for(var j=value.increment_by;j<=value.transaction_limit;j++)
-                      {
-                      ticket_html+='<option value="'+j+'">'+j+'</option>'; 
-                      }
-                      ticket_html+='</select></td><td class="level-td" colspan="2"><label for="select_level_'+key+'" style="margin-bottom:0px;"><span class="product_name" style="padding:5px;">'+value.level+' <a title="Price Level Information" class="fe_price_level tb_level cboxElement" href="/level/'+key+'/description"></a><span></span></span></label></td><td class="price-td"><span>$'+value.price+'</span></td></tr>';
-			});
-                     ticket_html+='<tr><td colspan="4"><input type="submit" value="Get Tickets" class="custom_button " name="submit_ticket_request" id="submit_ticket_request"></td></tr></table></form>';
-                     }
-                    $.ajax({
-		    method: "POST",
-		    url: "http://"+href[2]+"/event/getEventStep3",
-		    data: {"event_id":eventId}
-		  })
-		    .done(function( response1 ) {
-		    var preview_html=response1.result[0].html;
-		    
-		       $(".preview_div_insert").html(preview_html);
-		       $('.loader_div').hide();
-		       $("#ticket-panel").html(ticket_html+'<script id="EventsWidgetScript" type="text/javascript" src="https://tickets.alistixs.com/js/events_widget.js"/>');
-		
-		      });
-                  }else{
-		   $.ajax({
-		    method: "POST",
-		    url: "http://"+href[2]+"/event/getEventStep3",
-		    data: {"event_id":eventId}
-		  })
-		    .done(function( response1 ) {
-		    var preview_html=response1.result[0].html;
-		    
-		       $(".preview_div_insert").html(preview_html);
-		       $('.loader_div').hide();
-		       $("#ticket-panel").html(ticket_html+'<script id="EventsWidgetScript" type="text/javascript" src="https://tickets.alistixs.com/js/events_widget.js"/>');
-		
-		      });
-		  }
-		
-                  });
-              }  
-            } 
-          }); 
          
     })
 

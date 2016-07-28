@@ -25,6 +25,7 @@ if($stateParams.eventId!==undefined){
   var event_id=$stateParams.eventId;
     $serviceTest.getEvent({'event_id':event_id},function(response) {
       $scope.data=response.results[0];
+      $anchorScroll();
     })
 }
 
@@ -428,7 +429,8 @@ $scope.click_menu = function(menu, data, valid) {
     console.log($scope.formdata);
 
     if ($localStorage.userId !== undefined) {
-      $scope.saveloader = true;
+      //$scope.saveloader = true;
+      $rootScope.loader_div = false;
       $scope.button     =  1 ;
       
       $scope.formdata.user_id = $localStorage.userId;
@@ -437,7 +439,8 @@ $scope.click_menu = function(menu, data, valid) {
       $scope.formdata.showclix_seller_id = $localStorage.showclix_seller_id;
       $scope.formdata.showclix_id        = $scope.data.showclix_id;
       $serviceTest.saveSetting($scope.formdata, function(response) {
-          $scope.saveloader = false;
+          //$scope.saveloader = false;
+          $rootScope.loader_div = true;
           $scope.button     =  0 ;
           if (response.code === 200) {
             $scope.getSetting();
