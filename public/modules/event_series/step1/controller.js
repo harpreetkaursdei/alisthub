@@ -884,7 +884,8 @@ $scope.rec_year_func = function() {
       $scope.data.venueid        = venuedata.id;
       $scope.data.selected_venue = venuedata.id; 
     }
-        
+    $scope.data.showclix_venue_id = venuedata.showclix_venue_id;
+    
     var bounds = new google.maps.LatLngBounds();
     var infowindow = new google.maps.InfoWindow();
 
