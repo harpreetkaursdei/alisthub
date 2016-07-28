@@ -423,7 +423,7 @@ input[type="radio"].assignEvents { display: block; }
 
 .action a{font-size:18px; color:#7e7e7e; margin:0 6px; line-height:18px; vertical-align:middle;}
 .action a:hover{color:#0275d0;}
-.numbers, .action{text-align:right;}
+.numbers, .action{text-align:center;}
 .l-b{display:block;}
 
 /*-----------------Event Dashboard------------*/

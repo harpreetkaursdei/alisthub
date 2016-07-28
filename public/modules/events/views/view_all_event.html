@@ -60,7 +60,7 @@
                                         <p><a href="#"><strong>{{pdata.title}}</strong></a></p>
                                     </td>
 				    
-                                    <td title="'Start date'" header-class="'header-text-align'" filter="{ title: 'start_date'}" sortable="'start_date'" width="16%">{{pdata.recurring_or_not == 0 ? (pdata.start_date | date:"dd MMMM yyyy") : 'Event Series'}}</td>
+                                    <td title="'Start date'" header-class="'header-text-align'" filter="{ title: 'start_date'}" sortable="'start_date'" width="16%">{{pdata.recurring_or_not == 0 ? (pdata.start_date | date:"MMMM dd yyyy") : 'Event Series'}}</td>
                                     
                                     <!--  <td class="numbers">{{upcoming.sold}}</td>-->
                                     <td title="'Action'" class="action" width="24%">
