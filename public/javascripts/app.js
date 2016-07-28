@@ -2097,7 +2097,10 @@ var routerApp = angular.module('alisthub', ['ui.router', 'ngStorage','oc.lazyLoa
     } */
     
     //To add class
+    $timeout(function() {
     $rootScope.loader_div=true;
+    },5000);
+    
    if($stateParams.confirm_email_id != undefined || !$stateParams.confirm_email_id || $stateParams.forget_password_id != undefined || !$stateParams.forget_password_id){}else{
     if(!$localStorage.isuserloggedIn){
         $location.path("/login");

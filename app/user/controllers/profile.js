@@ -43,11 +43,7 @@ exports.showclix_login = function(req,res){
  //var https = require('https');
  //{"email":"manojks@smartdatainc.net","password":"manojks@2015"}
  //{"email":req.body.email,"password":req.body.password}
- 
-  console.log("=====");
- console.log(req.body);
- console.log("=====");
- request.post({
+  request.post({
         "rejectUnauthorized": false,
         headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                    "Accept": "application/json"},

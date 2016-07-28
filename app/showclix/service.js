@@ -21,47 +21,50 @@ module.exports = function()
   this.add_venue = function(req,res,next)
   {
     // required : venue_name , address ,city , status
-    /*/
-    request.post({
-                    headers: {'X-API-Token':req.body.showclix_token},
-                    url:     "http://api.showclix.com/VenueSellers",
-                    form:    { "venue_id":36171,
-                               "seller_id":req.body.showclix_seller_id
-                            } }, function(error2, response2, body2){
-                            console.log(response2.statusCode);
-                            return next({status:1,location:response2.statusCode});
-                            
-                    });*/
+    console.log(req.body);
     var img_url = "http://52.39.212.226:4004/images/venues/";
     var input = { "venue_name": req.body.venue_name,
               "seating_chart_name": "",
-              "capacity": req.body.capacity,
               "description": req.body.venue_name,
               "booking_info": null,
               "seating_chart_type": "2",
-              "url": req.body.url,
-              "contact_name": req.body.contact_name,
               "contact_title": null,
               "address": req.body.address,
               "city": req.body.city,
               "state": req.body.state,
               "zip": req.body.zipcode,
               "country": req.body.country,
-              "phone": req.body.phone,
-              "fax": req.body.fax,
-              "email": req.body.email,
               "timezone": null,
               "status": "2",
               "lat": req.body.latitude,
-              "lng": req.body.longitude,
-              "timezone_name": req.body.timezone
+              "lng": req.body.longitude
             };
-    
+    if (req.body.contact_name && req.body.contact_name !== undefined && req.body.contact_name != "") {
+      input.contact_name = req.body.contact_name;
+    }
+    if (req.body.timezone && req.body.timezone !== undefined && req.body.timezone != "") {
+      input.timezone_name = req.body.timezone;
+    }
+    if (req.body.fax && req.body.fax !== undefined && req.body.fax != "") {
+      input.fax = req.body.fax;
+    }
+     if (req.body.url && req.body.url !== undefined && req.body.url != "") {
+      input.url = req.body.url;
+    }
+    if (req.body.email && req.body.email !== undefined && req.body.email != "") {
+      input.email = req.body.email;
+    }
+    if (req.body.phone && req.body.phone !== undefined && req.body.phone != "") {
+      input.phone = req.body.phone;
+    }
     if (req.body.image && req.body.image !== undefined && req.body.image != "") {
       input.image = img_url+req.body.image;
     }
     if (req.body.seating_chart && req.body.seating_chart !== undefined && req.body.seating_chart != "") {
       input.seating_chart = img_url+req.body.seating_chart;
+    }
+    if (req.body.capacity && req.body.capacity !== undefined && req.body.capacity != "") {
+      input.capacity = req.body.capacity;
     }
     
     if (req.body.showclix_venue_id && req.body.showclix_venue_id !== undefined && req.body.showclix_venue_id != "")    {
@@ -151,10 +154,14 @@ module.exports = function()
                  "sales_open":data.event_startdatetime,
                  "user_id":data.showclix_user_id,
                  "seller_id":data.showclix_seller_id,
-                 "venue_id":"34657",
                  "event_type":"3",
                  "status":"5"
                 };
+      
+      if (data.showclix_venue_id && data.showclix_venue_id != "" && data.showclix_venue_id !== undefined) {
+       input.venue_id = data.showclix_venue_id;
+      }
+                
       if(data.showclix_id != "" && data.showclix_id !== undefined){
         console.log("---------3-------");
         input.event_id = data.showclix_id.toString();

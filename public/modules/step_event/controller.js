@@ -11,6 +11,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
 
   $scope.loader = false;
   $rootScope.loader_div = false;
+  
   $scope.show_noEventToIncludeInPackage = false;
 
   if($rootScope.noEventToIncludeInPackage) {
@@ -112,11 +113,12 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
 
 
   if ($localStorage.userId !== undefined) {
-    //To get venues of a user 
+    //To get venues of a user
+    $scope.enable_empty_venue = "";
     $serviceTest.getVenues({
       'userId': $localStorage.userId
     }, function(response) {
-      if (response !== null) {
+      if (response !== null && response != "") {
         $rootScope.loader_div = true; 
         if (response.code === 200) {
           $scope.total_venue = response.result;
@@ -125,11 +127,15 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
           }
           else{
             $scope.select_venue($scope.venues[1]);
+            $scope.enable_empty_venue = "Currently, there is no venue list found.";
           }
         }
-
+        
+        console.log(response.result+"766666666666");  
       } else {
         $scope.total_venue = [];
+        $scope.enable_empty_venue = "Currently, there is no venue list found.";
+        console.log("444444444444444");  
       }
 
     });
@@ -327,7 +333,7 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
 
 
   $scope.venue_info = function(venuedata,type) {
-
+    
     $scope.data.venuename = venuedata.venue_name;
     $scope.data.place = venuedata.address;
     $scope.data.address = venuedata.address;
@@ -336,10 +342,10 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
     }else{
       $scope.data.venueid = venuedata.id;
     }
-       
-    $scope.data.city = venuedata.city;
-    $scope.data.country = venuedata.country;
-    $scope.data.latitude = venuedata.latitude;
+    $scope.data.showclix_venue_id = venuedata.showclix_venue_id;   
+    $scope.data.city      = venuedata.city;
+    $scope.data.country   = venuedata.country;
+    $scope.data.latitude  = venuedata.latitude;
     $scope.data.longitude = venuedata.longitude;
     $scope.data.longitude = venuedata.longitude;
     $scope.data.state = venuedata.state;

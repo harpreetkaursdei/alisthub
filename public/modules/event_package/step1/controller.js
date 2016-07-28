@@ -645,8 +645,8 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('create
 
                         $scope.success_message = true;
                         $timeout(function() {
-                            $scope.success = '';
                             $scope.success_message = false;
+                            $scope.success = '';
                         }, 3000);
                         // window.location.reload();
 
