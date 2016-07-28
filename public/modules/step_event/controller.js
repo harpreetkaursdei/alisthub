@@ -116,7 +116,8 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('stepev
     //To get venues of a user
     $scope.enable_empty_venue = "";
     $serviceTest.getVenues({
-      'userId': $localStorage.userId
+      'userId': $localStorage.userId,
+      'type':1
     }, function(response) {
       if (response !== null && response != "") {
         $rootScope.loader_div = true; 

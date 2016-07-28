@@ -267,7 +267,8 @@ angular.module('alisthub', ['google.places', 'angucomplete']).controller('series
     //To get venues of a user
     $scope.venueloader = true;
     $serviceTest.getVenues({
-      'userId': $localStorage.userId
+      'userId': $localStorage.userId,
+      'type':1
     }, function(response) {
        $scope.venueloader = false;
       if (response !== null) {

@@ -16,42 +16,6 @@ exports.saveEvent = function(req,res) {
         connection.query(query, function(err7, responce) {
         })
     }
-    function update_venue_showclix_data(event_url,id,data)
-    {
-        var showclix_venue_id = event_url.split("/");
-        var query = "UPDATE venues SET showclix_venue_id="+showclix_venue_id[4]+", showclix_venue_url='"+event_url+"', showclix_seller='"+data.showclix_seller_id+"' where id="+id;
-        connection.query(query, function(err7, responce) {
-        })
-    }
-    
-    function add_venue_onshowclix(datav,parent) {
-        ////////////////////// SHOWCLIX API /////////////////////////////
-                        var showClix2 = new showClix();
-                        showClix2.add_venue(datav,res,function(data){
-                            console.log("222");
-                            if (data.status == 1)
-                            {
-                            var event_url = data.location;
-                            var showclix_venue_id = event_url.split("/");
-                            update_venue_showclix_data(event_url,parent,data);
-                            
-                            return showclix_venue_id[4];
-                            //res.json({result:results,showclix:data.location,code:200});
-                            }
-                            else
-                            {
-                             
-                              var delquery = "Delete from venues where id="+parent;
-                              connection.query(delquery, function(err7, rollback) {
-                              
-                              })
-                              //res.json({error:"error",code:104});
-                              return 0;             
-                            }
-                      })
-                    ////////////////////// SHOWCLIX API/////////////////////////////
-    }
-        
     function update_showclix_data(event_url,eventId,data)
     {
         var showclix_event_id = event_url.split("/");
@@ -82,56 +46,18 @@ exports.saveEvent = function(req,res) {
     //var zip = parseInt(data.zipcode);
         
     if(data.id=='' || data.id===undefined) {
-      
-      if(data.venueid!==undefined && data.venueid!='') {
-        var venue_id = data.venueid;
-        data.showclix_venue_id = data.showclix_venue_id;
-      }
-      else
-      {
-        var query = "INSERT INTO `venues` (`id`, `seller_id`, `venue_type`, `venue_name`, `address`, `city`, `zipcode`, `state`, `country`, `status`, `latitude`, `longitude`, `created`) VALUES (NULL, '"+data.userId+"', '"+data.venuetype+"', '"+data.venuename+"', '"+data.address+"', '"+data.city+"', '"+parseInt(data.zipcode)+"', '"+data.state+"', '"+data.country+"', '1', '"+data.latitude+"', '"+data.longitude+"', '"+curtime+"')";
+     
+     var query = "INSERT INTO `venues` (`id`, `seller_id`, `venue_type`, `venue_name`, `address`, `city`, `zipcode`, `state`, `country`, `status`, `latitude`, `longitude`, `created`) VALUES (NULL, '"+data.userId+"', '"+data.venuetype+"', '"+data.venuename+"', '"+data.address+"', '"+data.city+"', '"+parseInt(data.zipcode)+"', '"+data.state+"', '"+data.country+"', '1', '"+data.latitude+"', '"+data.longitude+"', '"+curtime+"')";
      
         connection.query(query, function(err7, responce) {
          
-        var venue_id = responce.insertId;
-             var datap = {};
-            datap.body = {};
-            datap.body.venue_name =  data.venuename,
-            datap.body.description = data.venuename,
-            datap.body.seating_chart_type = "2",
-            datap.body.address = data.address,
-            datap.body.city = data.city,
-            datap.body.state = data.state,
-            datap.body.zip = data.zipcode,
-            datap.body.country = data.country,
-            datap.body.phone = data.phone,
-            datap.body.status = "2",
-            datap.body.lat = data.latitude,
-            datap.body.lng = data.longitude,
-            datap.body.showclix_token = data.showclix_token,
-            datap.body.showclix_seller_id = data.showclix_seller_id
-        
-        var showclix_venue_id = add_venue_onshowclix(datap,venue_id);
-        console.log("=================");
-        console.log(showclix_venue_id);
-         console.log("=================");
-        data.showclix_venue_id = showclix_venue_id;
-        
-        });
-        
-      }
-     console.log("=========99999========");
-     console.log(data.showclix_venue_id);
-     console.log("=========99999========");
-    var eventId = null;
-    data.created = new Date();
-    var content_html=data.content.replace(/'/g, "\\'");
-    
-    var query1 = "INSERT INTO `events`(`id`,`user_id`,`title`,`start_date`,`description`,`venue_id`,`event_domain`) VALUES(NULL,'"+data.userId+"','"+data.eventname+"','"+data.eventdate+"','"+content_html+"','"+venue_id+"','"+data.eventurl+"')";
-    
-    if(venue_id != "" && data.showclix_venue_id != "" && data.showclix_venue_id != undefined)
-    {
-        connection.query(query1,function(err,result) {
+          var venue_id = responce.insertId;
+          var eventId = null;
+          data.created = new Date();
+          var content_html=data.content.replace(/'/g, "\\'"); 
+          var query1 = "INSERT INTO `events`(`id`,`user_id`,`title`,`start_date`,`description`,`venue_id`,`event_domain`) VALUES(NULL,'"+data.userId+"','"+data.eventname+"','"+data.eventdate+"','"+content_html+"','"+venue_id+"','"+data.eventurl+"')";
+         
+            connection.query(query1,function(err,result) {
             
             eventId = result.insertId;
               
@@ -165,8 +91,7 @@ exports.saveEvent = function(req,res) {
               });
               
             });
-    }
-        
+        });
     }
     else
     {
@@ -174,7 +99,11 @@ exports.saveEvent = function(req,res) {
       var venueid = '';
       if(data.venueid!=undefined && data.venueid!='') {
         venueid = data.venueid;
-        data.showclix_venue_id = data.showclix_venue_id;
+        connection.query("UPDATE venues SET `venue_type`='"+data.venuetype+"',`venue_name`='"+data.venuename+"',`address`='"+data.address+"',`city`='"+data.city+"',`zipcode`='"+parseInt(data.zipcode)+"',`state`='"+data.state+"',`country`='"+data.country+"',`latitude`='"+data.latitude+"',`longitude`='"+data.longitude+"'  where id=" + venueid, function(err2, results2) {
+           if (err2) {
+            res.json({error:err2,code:101});
+           } 
+        });
       } else {
         var query = "INSERT INTO `venues` (`id`, `seller_id`, `venue_type`, `venue_name`, `address`, `city`, `zipcode`, `state`, `country`, `status`, `latitude`, `longitude`, `created`) VALUES (NULL, '"+data.userId+"', '"+data.venuetype+"', '"+data.venuename+"', '"+data.address+"', '"+data.city+"', '"+parseInt(data.zipcode)+"', '"+data.state+"', '"+data.country+"', '1', '"+data.latitude+"', '"+data.longitude+"', '"+curtime+"')";
      
@@ -182,19 +111,11 @@ exports.saveEvent = function(req,res) {
             if (err8) {
              res.json({error:err2,code:101});
             } 
-            
             venueid = vresponce.insertId;
-            
-            
-            var showclix_venue_id = add_venue_onshowclix(data,venueid);
-            //var showclix_venue_id = add_venue_onshowclix(data,venue_id);
-            data.showclix_venue_id = showclix_venue_id;
-            
           })
      }
       //console.log('venueID:'+venueid);
      var content_html=data.content.replace(/'/g, "\\'");
-     
       connection.query("UPDATE events SET `user_id`='"+data.userId+"',`title`='"+data.eventname+"',`description`='"+content_html+"',`venue_id`='"+venueid+"'  where id="+data.id, function(err, results) {
          if (err) {
           res.json({error:err,code:101});

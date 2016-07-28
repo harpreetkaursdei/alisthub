@@ -44,6 +44,7 @@ function supportCrossOriginScript(req, res, next) {
    router.post('/getCustomer',customers.getCustomer);
 
     router.get('/getBlacklist', customers.getBlacklist);
+    router.post('/getBlacklist', customers.getBlacklist);
 	
     router.post('/addCustomer', customers.addCustomer);
 

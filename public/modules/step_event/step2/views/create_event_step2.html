@@ -107,7 +107,7 @@
             <th width="13%" class="numbers">Price</th>
             <th width="14%" class="numbers">Box office <span class="l-b">Price</span></th>
             <th width="12%" class="numbers">Limit</th>
-            <th width="23%">&nbsp;</th>
+            <th width="23%" class="numbers">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -124,8 +124,12 @@
               <a ng-click="delete_price_level('',$index,price.id,price.showclix_price_id)" style="cursor: pointer;"><i class="fa fa-trash"></i></a>
             </td>
           </tr>
+          <tr ng-if="price_level == ''">
+            <td colspan="6" align="center">You haven't added any price levels yet. <a ng-click="open_price_level('lg')">Add a price level</a> to get started.</td>
+          </tr>
+          
           <tr ng-show="loader">
-            <td colspan="7" align="center"><img src="/images/icons/loader.gif"></td>
+            <td colspan="6" align="center"><img src="/images/icons/loader.gif"></td>
           </tr>
         </tbody>
        </table>
@@ -192,7 +196,7 @@
                                 <th width="14%" class="numbers">Box Office Price</th>
                                 <th width="13%" class="numbers">Per-Sale Limit</th>
                                 <th width="14%" class="numbers">Max Inventory Set</th>
-                                <th width="23%">&nbsp;</th>
+                                <th width="23%">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -212,12 +216,12 @@
                                 </td>
                             </tr>
 
-                             <tr ng-if="bundleList == '' ">
-                                  <td colspan="4" align="left">You have not created a bundle for this event.</td>
+                           
+                            <tr ng-if="bundleList == '' ">
+                                  <td colspan="6" align="center">You have not created a bundle for this event.<a ng-click="add_bundle('lg')">Add a Bundle</a></td>
                             </tr>
-                            
                             <tr ng-show="loader_bundle">
-                                  <td colspan="7" align="center"><img src="/images/icons/loader.gif"></td>
+                                  <td colspan="6" align="center"><img src="/images/icons/loader.gif"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -257,7 +261,7 @@
                                 <th width="25%">Name</th>
                                 <th width="25%" class="numbers">Price</th>
                                 <th width="30%" class="numbers">Positioning</th>
-                                <th width="20%">&nbsp;</th>
+                                <th width="20%">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -277,11 +281,11 @@
                           </tr>
 
                                 <tr ng-if="eventProductList == '' ">
-                                  <td colspan="4" align="left">You have not created any products.</td>
+                                  <td colspan="4" align="center">You have not added any products to this event. <a ng-click="add_product('lg')">Add a Product</a></td>
                             </tr>
 
                           <tr ng-show="loader_bundle">
-                            <td colspan="7" align="center"><img src="/images/icons/loader.gif"></td>
+                            <td colspan="4" align="center"><img src="/images/icons/loader.gif"></td>
                           </tr>
                         </tbody>
                     </table>

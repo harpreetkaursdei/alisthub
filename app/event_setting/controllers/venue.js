@@ -41,8 +41,12 @@ Created By: Manoj kumar
 */
 
 exports.getVenue = function(req,res){
-     
-  connection.query('SELECT * from venues where seller_id='+req.body.userId+ '  ORDER BY created DESC', function(err, results) {
+  if (req.body.type && req.body.type !== undefined && req.body.type != "" && req.body.type == 1) {
+    var query = 'SELECT * from venues where seller_id='+req.body.userId+' AND status=1 ORDER BY created DESC';
+  }else{
+    var query = 'SELECT * from venues where seller_id='+req.body.userId+'  ORDER BY created DESC';     
+  }
+  connection.query(query, function(err, results) {
     if (err) {
       res.json({error:err,code:101});
     }

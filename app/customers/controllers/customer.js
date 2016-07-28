@@ -6,8 +6,9 @@ exports.customerOverview = function(req, res) {
         connection.query('SELECT * from customers where id=' + req.body.id + ' ORDER BY created DESC', function(err, results) {
             if (err) {
                 res.json({ error: err, code: 101 });
-            }
+            }else{
             res.json({ result: results, code: 200 });
+            }
         });
     }
     //get all the customer listing
@@ -16,8 +17,9 @@ exports.getCustomer = function(req, res) {
     connection.query('SELECT * from customers where seller_id=' + req.body.seller_id + ' ORDER BY created DESC', function(err, results) {
         if (err) {
             res.json({ error: err, code: 101 });
-        }
+        }else{
         res.json({ result: results, code: 200 });
+        }
     });
 }
 
@@ -28,8 +30,9 @@ exports.getBlacklist = function(req, res) {
         if (err) {
             
             res.json({ error: err, code: 101 });
-        }
+        }else{
         res.json({ result: results, code: 200 });
+        }
     });
 }
 //upload import csv
@@ -167,7 +170,8 @@ exports.deleteCustomer = function(req, res) {
     connection.query("Delete from customers where id=" + req.body.id, function(err, results) {
         if (err) {
             res.json({ error: err, code: 101 });
-        }
+        }else{
         res.json({ result: results, code: 200 });
+        }
     });
 }

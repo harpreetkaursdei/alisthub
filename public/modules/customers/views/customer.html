@@ -13,11 +13,11 @@
             <section class="grid-btn-top row">
                 <section class="col-sm-7">
                     <section class="top-buttons">
-                        <a href="/customers/exportCSV?ids={{cus_id}}&seller={{seller_id}}">
+                        <a href="/customers/exportCSV?ids={{cus_id}}&seller={{seller_id}}" ng-if="$data != ''">
                             <button class="btn pink-btn btn-small" type="button"><i class="fa fa-plus-square"></i> Export CSV</button>
                         </a>
                         <button class="pink-btn btn btn-small m-fw" type="button" ng-click="open('')"><i class="fa fa-plus-square"></i> Import CSV </button>
-                        <button class="pink-btn btn btn-small m-fw" type="button" ng-click="open1('')"><i class="fa fa-plus-square"></i> Customer Blacklist </button>
+                        <button ng-if="$data != ''" class="pink-btn btn btn-small m-fw" type="button" ng-click="open1('')"><i class="fa fa-plus-square"></i> Customer Blacklist </button>
                     </section>
                 </section>
                 <section class="col-sm-5 right-btns text-right">
@@ -26,7 +26,7 @@
             <h4>CUSTOMERS LIST</h4>
             <section class="grid-widget">
                 <div class="table-responsive">
-                    <table ng-table="tableParams" class="table table-striped">
+                    <table ng-table="tableParams" class="table table-striped" ng-if="$data != ''">
                         <tbody>
                             <tr ng-repeat="data1 in $data | filter:filter">
                                 <!-- <td title="'Email'" filter="{ name: 'text'}" sortable="'email'">{{data1.email}}</td> -->
@@ -40,6 +40,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div ng-if="$data == ''">There is no customer found, please add new customer.</div>
                 </div>
             </section>
          <!--    <h4>BLACKLIST CUSTOMERS</h4>

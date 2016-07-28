@@ -419,9 +419,7 @@ angular.module('alisthub').controller('reportController', function($scope,$local
 
                 if($scope.event_data[key].showclix_id != '') {
                     var dataofShowclicx = getObjectsText(showClixDataReport,'event_id',$scope.event_data[key].showclix_id.toString());
-                    console.log("'"+ $scope.event_data[key].showclix_id+"'");
-                    console.log("dataofShowclicx: ", dataofShowclicx);
-
+                    
                     for(var keyDate in dataofShowclicx) {
                       combinedData.dateTotalTicketRevenue = combinedData.dateTotalTicketRevenue + parseFloat(dataofShowclicx[keyDate].total_cost);
                       combinedData.dateTotalTicketTicket = combinedData.dateTotalTicketTicket + parseInt(dataofShowclicx[keyDate].tickets);
@@ -463,11 +461,9 @@ Module : Events Home
 angular.module('alisthub').controller('eventReportController', function($scope,$localStorage,$injector, $uibModal,$rootScope, $filter,$timeout,$sce,$location, $ocLazyLoad,$state,ngTableParams,$http,$stateParams) { 
     $rootScope.loader_div = false;
 
-    console.log($stateParams.eventId);
-    console.log($stateParams.showclixEventId);
     
 
- // Datepicker stuff
+  // Datepicker stuff
   var now = new Date();
   if (now.getMonth() === 11) {
     var current = new Date(now.getFullYear() + 1, 0, 1);
@@ -669,11 +665,39 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
       }
     };
     
-
-    //$scope.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    
     $rootScope.class_status=false;
     var reportService = $injector.get("report");
+
+    reportService.getEvent({ 'event_id' : $stateParams.eventId },function(response) {
+        $scope.event_title = response.results[0].title;
+    });
+
+    var contains = function(needle) {
+        // Per spec, the way to identify NaN is that it is not equal to itself
+        var findNaN = needle !== needle;
+        var indexOf;
+
+        if(!findNaN && typeof Array.prototype.indexOf === 'function') {
+            indexOf = Array.prototype.indexOf;
+        } else {
+            indexOf = function(needle) {
+                var i = -1, index = -1;
+
+                for(i = 0; i < this.length; i++) {
+                    var item = this[i];
+
+                    if((findNaN && item !== item) || item === needle) {
+                        index = i;
+                        break;
+                    }
+                }
+
+                return index;
+            };
+        }
+
+        return indexOf.call(this, needle) > -1;
+    };
 
     $scope.getChart = function(days,todayDate,endDate,type,selection) {
 
@@ -738,7 +762,12 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
             $scope.tableData = [];
 
             for(var key in graphData) {
+                graphData[key].date = getDateTime(graphData[key].date);
                 $scope.tableData.push(graphData[key]);
+                //$scope.tableData[key].date = getDateTime(graphData[key].date);
+
+                //console.log("date:", getDateTime(graphData[key].date));
+                
                 $scope.totalTicketSold = $scope.totalTicketSold + parseInt(graphData[key].tickets);
                 $scope.totalTicketRevenue = $scope.totalTicketRevenue + parseFloat(graphData[key].total_cost);
                 $scope.serviceFees = $scope.serviceFees + parseFloat(graphData[key].service_fee_discount);
@@ -750,6 +779,7 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
                 if($scope.highetTicketSold == '') {
                     $scope.highetTicketSold = parseInt(graphData[key].total_cost);
                 }
+
                 if($scope.lowestTicketSold == '') {
                     $scope.lowestTicketSold = parseInt(graphData[key].total_cost);
                 }
@@ -777,7 +807,7 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
                 data:$scope.tableData
             });  
 
-            for(var i = 150+days; i > 150; i--) {
+            /*for(var i = 150+days; i > 150; i--) {
               var setdate = i; 
               var setdate = formatDateGraph(new Date(todayDate).setDate(new Date(todayDate).getDate() - i));
               var dataForDate = getObjects(graphData, 'date', setdate);
@@ -799,12 +829,48 @@ angular.module('alisthub').controller('eventReportController', function($scope,$
                 $scope.colors.push('#0275d0');  
                 $scope.chartData=[$scope.chartDataTicket];
               }
-              
+              $scope.options = { legend: { display: true } };
               if(type=='revenue') {
                 $scope.series = ['Tickets Revenue ($)'];
                 $scope.colors.push('#c129b9');    
                 $scope.chartData=[$scope.chartDataRevenue];
               }
+            }*/
+
+            for(var key in graphData) {
+                var convertedDate = getDateTime(graphData[key].date);
+                var setdate = formatDateGraph(new Date(convertedDate).setDate(new Date(convertedDate).getDate()));
+                var dataForDate = getObjects(graphData, 'date', setdate);
+                var dateTotalTicketRevenue = 0;
+                var dateTotalTicketTicket = 0;
+                
+                for(var keyDate in dataForDate) {
+                    console.log("dataForDate: " + dataForDate[keyDate]);
+                    dateTotalTicketRevenue = dateTotalTicketRevenue + parseFloat(dataForDate[keyDate].total_cost);
+                    dateTotalTicketTicket = dateTotalTicketTicket + parseInt(dataForDate[keyDate].tickets);
+                }
+                
+                console.log("labels: ", $scope.labels);
+                console.log("contains labels: ", contains.call($scope.labels,graphDate(setdate)));
+                
+                if(contains.call($scope.labels,graphDate(setdate)) == false) {
+                    $scope.labels.push(graphDate(setdate));
+                    $scope.chartDataRevenue.push(dateTotalTicketRevenue);
+                    $scope.chartDataTicket.push(dateTotalTicketTicket);
+
+                    if(type=='sold') {
+                        $scope.series = ['Tickets Sold'];  
+                        $scope.colors.push('#0275d0');  
+                        $scope.chartData=[$scope.chartDataTicket];
+                    }
+                    
+                    $scope.options = { legend: { display: true } };
+                    if(type=='revenue') {
+                        $scope.series = ['Tickets Revenue ($)'];
+                        $scope.colors.push('#c129b9');    
+                        $scope.chartData=[$scope.chartDataRevenue];
+                    }    
+                }
             }
           }
         }

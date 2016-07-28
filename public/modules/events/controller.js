@@ -98,14 +98,14 @@ angular.module('alisthub').controller('eventhomeController', function($scope,$lo
       $scope.salesData = {};
       $scope.salesData.start_date = manualStartDate;
       $scope.salesData.end_date = manualEndDate;
-      //console.log($scope.salesData);
 
       //$scope.salesData.showclix_token     = $localStorage.showclix_token;
       //$scope.salesData.showclix_seller_id = $localStorage.showclix_seller_id;
       $scope.salesData.showclix_user_id = $localStorage.showclix_user_id;
-      $scope.salesData.showclix_token = '5ff1feef27162249399c7945252d2e675edfdd4523b1260169279ff61f62f412';
+      $scope.salesData.showclix_token = '1c505644137e5496d38bd84fd1e2e714f4cea88b0cc161967bd77059cf861bf3';
       $scope.salesData.showclix_seller_id = 22214;
       console.log("showclix_seller_id: " + $localStorage.showclix_seller_id);
+
 
       eventService.getSalesData($scope.salesData,function(response) {
         if (response!=null) {
